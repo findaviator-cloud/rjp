@@ -1,0 +1,19 @@
+# bade / banne wale / faltu files upload nahi honge
+frames/
+test/
+*.mp4
+*.wav
+*.mp3
+*.blend
+*.blend1
+*.zip
+__pycache__/
+audio_game/
+audio_game_txt/
+*.log
+game_diag.txt
+diag_rjp.txt
+*.vbs
+*.lnk
+*.exe
+desktop.ini
