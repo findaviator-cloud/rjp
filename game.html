@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Bhaalu Run - Tanishka</title>
+<meta name="theme-color" content="#1b2a41">
+<meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%BB%3C/text%3E%3C/svg%3E">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; -webkit-user-select: none; -webkit-tap-highlight-color: transparent; }
   html, body { height: 100%; background: #1b2a41; overflow: hidden; touch-action: none;
@@ -42,6 +45,16 @@
   .opt.on { background: #ffb300; color: #3e2723; box-shadow: 0 4px 0 #c68400; }
   #recap { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 12px; max-width: 95%; }
   #recap span { background: #fff; color: #333; border-radius: 16px; padding: 4px 12px; font-size: 20px; font-weight: 800; }
+  @media (orientation: landscape) and (max-height: 560px) {
+    #wrap { max-width: none; max-height: none; border-radius: 0; }
+    #hud { top: 6px; left: 8px; right: 8px; } .chip { font-size: 15px; padding: 2px 10px; border-width: 2px; }
+    #qbar { top: 6px; width: 40%; padding: 3px 8px; border-width: 3px; border-radius: 16px; }
+    #qmain { font-size: 21px; } #qsub { font-size: 13px; }
+    #fb { top: auto; bottom: 90px; width: 46%; padding: 4px 8px; } #fb .fbig { font-size: 28px; } #fb .ft { font-size: 19px; } #fb .fs { font-size: 13px; }
+    #ctl { bottom: 8px; padding: 0 14px; } .cb { width: 54px; height: 54px; font-size: 24px; }
+    #hintLbl { bottom: 8px; font-size: 17px; }
+    .ov h1 { font-size: 30px; } .ov p { font-size: 15px; } .big { margin-top: 8px; font-size: 24px; padding: 6px 30px; } .row { margin-top: 8px; } .opt { font-size: 15px; padding: 4px 10px; }
+  }
   #dbg { position: absolute; left: 6px; right: 6px; bottom: 96px; z-index: 30; font: 11px monospace; color: #223; background: rgba(255,255,255,.85); border-radius: 8px; padding: 4px 8px; display: none; pointer-events: none; }
 </style>
 </head>
@@ -353,8 +366,12 @@ function showQuestion() {
   say([{ clip: CLIP[q.t] }], 2);
 }
 function setQBar() { const q = order[qIdx]; if (!q) return; $("qmain").textContent = "“" + q.t + "” ढूँढो!"; $("qsub").textContent = q.hint + " " + q.icon; }
+function unlockAudio() {
+  Object.keys(audioEls).forEach(k => { const a = audioEls[k]; try { a.muted = true; const p = a.play(); if (p && p.then) p.then(() => { a.pause(); a.currentTime = 0; a.muted = false; }).catch(() => { a.muted = false; }); else a.muted = false; } catch (e) { a.muted = false; } });
+  try { if (window.speechSynthesis) speechSynthesis.speak(new SpeechSynthesisUtterance("")); } catch (e) {}
+}
 function startGame() {
-  ac();
+  ac(); unlockAudio();
   order = LESSONS.slice(); qIdx = 0; stars = 0; coinN = 0; lane = 1; state = "PLAY";
   gates.splice(0).forEach(o => scene.remove(o.g)); coins.splice(0).forEach(c => scene.remove(c)); picks.splice(0).forEach(c => scene.remove(c)); learned = {}; stopVoice(); $("fb").style.opacity = 0;
   $("startScr").style.display = "none"; $("winScr").style.display = "none"; $("qbar").style.display = "block"; $("ctl").style.display = "flex";
