@@ -23,7 +23,9 @@
     background: #fff; border: 4px solid #29b6f6; border-radius: 22px; padding: 6px 12px; text-align: center; box-shadow: 0 5px 0 rgba(0,0,0,.18); pointer-events: none; }
   #qmain { font-size: 30px; font-weight: 800; color: #0277bd; line-height: 1.15; }
   #qsub { font-size: 18px; color: #546e7a; font-weight: 700; }
-  #ctl { position: absolute; bottom: 14px; left: 0; right: 0; display: none; justify-content: space-between; padding: 0 20px; z-index: 5; }
+  #ctl { position: absolute; bottom: 14px; left: 0; right: 0; display: none; justify-content: center; padding: 0 20px; z-index: 5; pointer-events: none; }
+  #ctl button { pointer-events: auto; }
+  #wrap { touch-action: none; }
   .cb { width: 62px; height: 62px; border-radius: 50%; border: 4px solid #fff; background: #ff9800; color: #fff; font-size: 28px; font-weight: 800;
     box-shadow: 0 6px 0 rgba(0,0,0,.25); cursor: pointer; }
   .cb:active { transform: translateY(3px); box-shadow: 0 3px 0 rgba(0,0,0,.25); }
@@ -69,6 +71,8 @@
     body.fs #qbar { top: 8px; width: min(46%, 640px); } body.fs #fb { top: auto; bottom: 100px; width: min(52%, 560px); }
     body.fs #hintLbl { bottom: auto; top: 92px; } body.fs #guide { bottom: 84px; max-width: 40%; } body.fs #ctl { bottom: 12px; }
   }
+  #act { position: absolute; top: 40%; left: 50%; transform: translateX(-50%); z-index: 6; font-size: 36px; font-weight: 800; color: #fff; background: rgba(255,87,34,.93); border: 4px solid #fff; border-radius: 26px; padding: 2px 22px; display: none; pointer-events: none; box-shadow: 0 6px 0 rgba(0,0,0,.25); animation: pul .45s infinite alternate; white-space: nowrap; }
+  @keyframes pul { from { transform: translateX(-50%) scale(1); } to { transform: translateX(-50%) scale(1.13); } }
   #dbg { position: absolute; left: 6px; right: 6px; bottom: 96px; z-index: 30; font: 11px monospace; color: #223; background: rgba(255,255,255,.85); border-radius: 8px; padding: 4px 8px; display: none; pointer-events: none; }
 </style>
 </head>
@@ -81,21 +85,19 @@
   </div>
   <div id="qbar"><div id="qmain"></div><div id="qsub"></div></div>
   <div id="ctl">
-    <button class="cb" id="bL">◀</button>
     <div id="mid"><button class="cb sm" id="bM">🎵</button><button class="cb" id="bS" style="background:#42a5f5">🔊</button><button class="cb sm" id="bF">⛶</button></div>
-    <button class="cb" id="bR">▶</button>
   </div>
-  <div id="fb"></div><div id="hintLbl"></div>
+  <div id="fb"></div><div id="hintLbl"></div><div id="act"></div>
   <div id="guide"><div class="gav">🦉</div><div class="gtx" id="gtx"></div></div>
   <div id="dbg"></div>
   <div id="startScr" class="ov">
     <div style="font-size:70px">🐻</div>
     <h1>नमस्ते तनिष्का!</h1>
     <p>भालू के साथ दौड़ो और अक्षर पहचानो!</p>
-    <div class="row" id="spdRow"><button class="opt" data-s="8">🐢 धीमा</button><button class="opt" data-s="11">🚶 सामान्य</button><button class="opt" data-s="15">🐇 तेज़</button></div>
+    <div class="row" id="spdRow"><button class="opt" data-s="24">🐢 धीमा</button><button class="opt" data-s="33">🚶 सामान्य</button><button class="opt" data-s="45">🐇 तेज़</button></div>
     <div class="row"><button class="opt" id="helpBtn">💡 मदद: चालू</button><button class="opt" id="musBtn">🎵 संगीत: चालू</button><button class="opt" id="fsBtn">⛶ पूरी स्क्रीन</button></div>
     <button class="big" id="playBtn">▶ खेलें</button>
-    <p style="font-size:15px;margin-top:16px;opacity:.9">◀ ▶ दबाओ या उंगली से स्वाइप करो</p>
+    <p style="font-size:15px;margin-top:16px;opacity:.9">स्क्रीन का बायाँ/दायाँ हिस्सा टैप करो • ⬆ स्वाइप = कूदो • ⬇ स्वाइप = झुको</p>
   </div>
   <div id="winScr" class="ov" style="display:none">
     <div style="font-size:64px">🎉🏆⭐</div>
@@ -192,16 +194,21 @@ function playClip(k, fallbackText) {
 }
 
 // ---- awaaz ki line: ek ke baad ek (clip ya browser ki Hindi awaaz)
-let vq = [], vbusy = false, vprio = 0, vtoken = 0;
-function stopVoice() { vtoken++; vq = []; vbusy = false; vprio = 0; try { if (curEl) { curEl.onended = null; curEl.pause(); } if (window.speechSynthesis) speechSynthesis.cancel(); } catch (e) {} }
+let vq = [], vbusy = false, vprio = 0, vtoken = 0, speaking = false, talkUntil = 0, anNode = null, anBuf = null;
+const anMap = {};
+function attachAn(el, key) {
+  try { const c = ac(); if (!c) { anNode = null; return; } if (!anMap[key]) { const src = c.createMediaElementSource(el), a = c.createAnalyser(); a.fftSize = 256; src.connect(a); a.connect(c.destination); anMap[key] = a; } anNode = anMap[key]; anBuf = new Uint8Array(anNode.fftSize); } catch (e) { anNode = null; }
+}
+function stopVoice() { vtoken++; vq = []; vbusy = false; vprio = 0; speaking = false; anNode = null; try { if (curEl) { curEl.onended = null; curEl.pause(); } if (window.speechSynthesis) speechSynthesis.cancel(); } catch (e) {} }
 function say(items, prio) { if (vbusy && prio < vprio) return; stopVoice(); vq = items.slice(); vprio = prio; vbusy = true; vnext(vtoken); }
 function vnext(tok) {
   if (tok !== vtoken) return;
-  const it = vq.shift(); if (!it) { vbusy = false; vprio = 0; return; }
+  const it = vq.shift(); if (!it) { vbusy = false; vprio = 0; speaking = false; anNode = null; return; }
+  speaking = true; anNode = null;
   let done = false; const go = () => { if (done || tok !== vtoken) return; done = true; vnext(tok); };
   if (it.clip) {
     const el = getEl(it.clip);
-    if (el.duration > 0.3) { el.onended = go; el.currentTime = 0; curEl = el; const pr = el.play(); if (pr && pr.catch) pr.catch(go); setTimeout(go, el.duration * 1000 + 700); } else go();
+    if (el.duration > 0.3) { el.onended = go; el.currentTime = 0; curEl = el; attachAn(el, it.clip); const pr = el.play(); if (pr && pr.catch) pr.catch(go); setTimeout(go, el.duration * 1000 + 700); } else go();
   } else {
     try {
       if (!window.speechSynthesis) { go(); return; }
@@ -234,7 +241,7 @@ const HORIZON = 0xcdeeff;
   x.fillStyle = g; x.fillRect(0, 0, 4, 256);
   scene.background = new THREE.CanvasTexture(c);
 })();
-scene.fog = new THREE.Fog(HORIZON, 45, 125);
+scene.fog = new THREE.Fog(HORIZON, 60, 150);
 const camera = new THREE.PerspectiveCamera(58, 1, 0.1, 260);
 let fovBase = 58;
 camera.position.set(0, 4.7, 7.4);
@@ -265,7 +272,7 @@ function mesh(geo, color, sx, sy, sz, x, y, z, parent) {
 
 // ---- road, tiles
 const LANE = [-2.6, 0, 2.6];
-const TILE_L = 8, NTILE = 18;
+const TILE_L = 8, NTILE = 20;
 const tiles = [];
 for (let i = 0; i < NTILE; i++) {
   const g = new THREE.Group();
@@ -331,7 +338,9 @@ mesh(G.sph, BROWN, 0.64, 0.6, 0.6, 0, 0, 0, head);
 mesh(G.sph, CREAM, 0.32, 0.25, 0.22, 0, -0.14, -0.5, head);
 mesh(G.sph, 0x2a1a14, 0.11, 0.08, 0.08, 0, -0.04, -0.68, head);
 [-1, 1].forEach(s => { mesh(G.sph, 0xffffff, 0.14, 0.17, 0.08, s * 0.25, 0.14, -0.53, head); mesh(G.sph, 0x2a1a14, 0.075, 0.095, 0.06, s * 0.25, 0.14, -0.6, head); });
-mesh(G.sph, 0xd2475c, 0.1, 0.04, 0.05, 0, -0.26, -0.66, head);
+const mouthG = new THREE.Group(); mouthG.position.set(0, -0.255, -0.672); head.add(mouthG);
+const mouthIn = mesh(G.sph, 0x5a0f1c, 0.11, 0.03, 0.05, 0, 0, 0, mouthG);
+const tongue = mesh(G.sph, 0xf06292, 0.07, 0.02, 0.04, 0, -0.03, 0.012, mouthG); tongue.visible = false;
 const arms = [-1, 1].map(s => { const p = new THREE.Group(); p.position.set(s * 0.82, 1.78, 0); bodyG.add(p); mesh(G.sph, BROWN, 0.22, 0.46, 0.22, 0, -0.42, 0, p); return p; });
 const legs = [-1, 1].map(s => { const p = new THREE.Group(); p.position.set(s * 0.34, 0.72, 0); bear.add(p); mesh(G.sph, BROWN, 0.28, 0.36, 0.3, 0, -0.3, 0, p); mesh(G.sph, CREAM, 0.26, 0.17, 0.34, 0, -0.62, -0.08, p); return p; });
 const shadow = new THREE.Mesh(new THREE.CircleGeometry(0.9, 24), new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.25 }));
@@ -339,7 +348,7 @@ shadow.rotation.x = -Math.PI / 2; shadow.position.y = 0.02; scene.add(shadow);
 const flame = new THREE.Group();
 [-1, 1].forEach(s => { const f = new THREE.Mesh(G.cone, new THREE.MeshBasicMaterial({ color: 0xff9100 })); f.scale.set(0.2, 1.0, 0.2); f.rotation.x = Math.PI / 2; f.position.set(s * 0.3, 0.45, 1.1); flame.add(f); });
 flame.visible = false; bear.add(flame);
-bear.scale.setScalar(0.82); scene.add(bear);
+bear.scale.setScalar(0.82); bear.rotation.y = Math.PI; scene.add(bear);   // bhalu seedha camera ki taraf dekhta hai
 
 // ---- akshar wale card ki texture
 const texCache = {};
@@ -355,7 +364,7 @@ function letterTex(ch, ci) {
 
 // ---- gate, coins, particles
 const gates = [], coins = [], parts = [];
-let SPEED = 11, VEL = 11; const SPAWN_Z = -90;
+let SPEED = 33, VEL = 33, SPAWN_Z = -120;
 function makeGate(opts, glow) {
   const g = new THREE.Group();
   [-4.5, 4.5].forEach(x => mesh(G.cyl, 0xffd54f, 0.22, 8.4, 0.22, x, 4.2, 0, g));
@@ -405,7 +414,24 @@ function burst(x, y, z, n, cols) {
 const STARCOL = [0xffd54f, 0xff7043, 0x66bb6a, 0x42a5f5, 0xec407a];
 
 // ---- train
-const trains = [], planes = [], pads = [];
+const trains = [], planes = [], pads = [], obst = [];
+function mkHurdle() {
+  const g = new THREE.Group();
+  for (let i = 0; i < 4; i++) mesh(G.box, i % 2 ? 0xffffff : 0xe53935, 0.55, 0.42, 0.42, -0.83 + i * 0.55, 0.62, 0, g);
+  [-1, 1].forEach(sx => mesh(G.box, 0xffca28, 0.18, 0.95, 0.22, sx * 1.15, 0.47, 0, g));
+  return g;
+}
+function mkOverhead() {
+  const g = new THREE.Group();
+  [-1, 1].forEach(sx => mesh(G.cyl, 0xffca28, 0.1, 2.9, 0.1, sx * 1.2, 1.45, 0, g));
+  mesh(G.box, 0xff7043, 2.6, 0.9, 0.4, 0, 2.3, 0, g);
+  for (let i = 0; i < 4; i++) mesh(G.box, 0xffffff, 0.3, 0.9, 0.42, -0.9 + i * 0.6, 2.3, 0, g).rotation.z = 0.5;
+  return g;
+}
+function spawnObst(kind, ln) {
+  const g = kind === "over" ? mkOverhead() : mkHurdle(), lnn = ln == null ? Math.floor(Math.random() * 3) : ln;
+  g.position.set(LANE[lnn], 0, SPAWN_Z); scene.add(g); obst.push({ g, kind, hit: false, passed: false, lane: lnn });
+}
 const TCOL = [0xef5350, 0x42a5f5, 0xffca28, 0x66bb6a, 0xab47bc];
 function mkTrain() {
   const g = new THREE.Group(), n = 4;
@@ -459,7 +485,7 @@ function spawnPad() {
 // ------------------------------------------------------------------ GAME
 const $ = id => document.getElementById(id);
 let helpOn = true, lastLaneCue = -1, learned = {}, fbT = 0, gT = 0;
-let ramp = 0, boostT = 0, wrongN = 0, streak = 0, trainT = 4, planeT = 2.5, padT = 7, lastSpd = "";
+let mouthL = 0, ramp = 0, boostT = 0, wrongN = 0, streak = 0, trainT = 4, planeT = 2.5, padT = 7, lastSpd = "";
 const seen = {};
 let state = "MENU", qIdx = 0, stars = 0, coinN = 0, lane = 1, bx = 0, tRun = 0, jumpT = -1, stumbleT = 0, lookT = 0, nextLook = 3, coinTimer = 1, order = [], curOpts = [], waitSpawn = -1;
 
@@ -488,23 +514,23 @@ function unlockAudio() {
 }
 function startGame() {
   ac(); unlockAudio();
-  order = LESSONS.slice(); qIdx = 0; stars = 0; coinN = 0; lane = 1; state = "PLAY"; ramp = 0; boostT = 0; wrongN = 0; streak = 0; pads.splice(0).forEach(p => scene.remove(p));
+  order = LESSONS.slice(); qIdx = 0; stars = 0; coinN = 0; lane = 1; state = "PLAY"; ramp = 0; boostT = 0; wrongN = 0; streak = 0; playT = 0; duckT = 0; jumpT = -1; obT = 3; obst.splice(0).forEach(o => scene.remove(o.g)); pads.splice(0).forEach(p => scene.remove(p));
   gates.splice(0).forEach(o => scene.remove(o.g)); coins.splice(0).forEach(c => scene.remove(c)); picks.splice(0).forEach(c => scene.remove(c)); learned = {}; stopVoice(); $("fb").style.opacity = 0;
   $("startScr").style.display = "none"; $("winScr").style.display = "none"; $("qbar").style.display = "block"; $("ctl").style.display = "flex";
   $("starBox").textContent = "⭐ 0/" + order.length; $("coinBox").textContent = "🪙 0";
   setOptions(); makeGate(curOpts); waitSpawn = -1;
   let first = true; try { first = !localStorage.getItem("br_tut"); localStorage.setItem("br_tut", "1"); } catch (e) {}
   setTimeout(() => { setQBar(); say([{ clip: CLIP[order[0].t] }].concat(first ? [{ txt: "तीन रास्तों में से सही अक्षर वाले रास्ते पर जाओ" }] : []), 2); }, 350);
-  guide(first ? "◀ ▶ दबाकर रास्ता बदलो! सही अक्षर वाले गेट में जाओ" : "चलो दौड़ें! 🏃"); if (first) setTimeout(() => guide("🚂 ट्रेन, ✈️ जहाज़ और 🚀 बूस्ट भी मिलेंगे!"), 5000);
+  guide(first ? "स्क्रीन का बायाँ/दायाँ हिस्सा टैप करो! सही अक्षर वाले गेट में जाओ" : "चलो दौड़ें! 🏃"); if (first) setTimeout(() => guide("⬆ ऊपर स्वाइप = कूदो   ⬇ नीचे स्वाइप = झुको"), 5200);
 }
 function activeGate() { return gates.find(g => !g.done && g.g.position.z > -62 && g.g.position.z < -2); }
 function laneOk() { const g = activeGate(); return g ? g.opts[lane] === order[qIdx].t : null; }
 function cue() { if (!helpOn) return; const ok = laneOk(); if (ok === null) return; say([{ txt: ok ? "सही रास्ता" : "गलत रास्ता" }], 1); }
 function moveL() { if (state === "PLAY" && lane > 0) { lane--; cue(); } }
 function moveR() { if (state === "PLAY" && lane < 2) { lane++; cue(); } }
-try { const sv = localStorage.getItem("br_speed"); if (sv) SPEED = +sv; const hv = localStorage.getItem("br_help"); if (hv !== null) helpOn = hv === "1"; } catch (e) {}
+try { const sv = localStorage.getItem("br_speed3"); if (sv) SPEED = +sv; const hv = localStorage.getItem("br_help"); if (hv !== null) helpOn = hv === "1"; } catch (e) {}
 function refreshOpts() { document.querySelectorAll("#spdRow .opt").forEach(b => b.classList.toggle("on", +b.dataset.s === SPEED)); $("helpBtn").textContent = helpOn ? "💡 मदद: चालू" : "💡 मदद: बंद"; }
-document.querySelectorAll("#spdRow .opt").forEach(b => b.onclick = () => { SPEED = +b.dataset.s; try { localStorage.setItem("br_speed", SPEED); } catch (e) {} refreshOpts(); });
+document.querySelectorAll("#spdRow .opt").forEach(b => b.onclick = () => { SPEED = +b.dataset.s; try { localStorage.setItem("br_speed3", SPEED); } catch (e) {} refreshOpts(); });
 $("helpBtn").onclick = () => { helpOn = !helpOn; try { localStorage.setItem("br_help", helpOn ? "1" : "0"); } catch (e) {} refreshOpts(); };
 try { const mv = localStorage.getItem("br_music"); if (mv !== null) musicOn = mv === "1"; } catch (e) {}
 function refreshOpts2() { $("musBtn").textContent = musicOn ? "🎵 संगीत: चालू" : "🎵 संगीत: बंद"; $("bM").style.opacity = musicOn ? 1 : 0.45; }
@@ -513,12 +539,23 @@ $("fsBtn").onclick = $("bF").onclick = toggleFS;
 refreshOpts2(); musicStep();
 refreshOpts();
 $("playBtn").onclick = startGame; $("againBtn").onclick = startGame;
-$("bL").onclick = moveL; $("bR").onclick = moveR;
 $("bS").onclick = () => { if (state === "PLAY") showQuestion(); };
-addEventListener("keydown", e => { if (e.key === "f" || e.key === "F") toggleFS(); if (e.key === "ArrowLeft" || e.key === "a" || e.key === "A") moveL(); if (e.key === "ArrowRight" || e.key === "d" || e.key === "D") moveR(); if ((e.key === " " || e.key === "Enter") && state !== "PLAY") startGame(); });
-let sx = null;
-wrap.addEventListener("touchstart", e => { sx = e.touches[0].clientX; }, { passive: true });
-wrap.addEventListener("touchend", e => { if (sx === null) return; const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 28) (dx < 0 ? moveL : moveR)(); sx = null; }, { passive: true });
+addEventListener("keydown", e => { if (e.key === "f" || e.key === "F") toggleFS(); if (e.key === "ArrowUp" || e.key === "w" || e.key === "W") jumpAct(); if (e.key === "ArrowDown" || e.key === "s" || e.key === "S") duckAct(); if (e.key === " " && state === "PLAY") jumpAct();
+  if (e.key === "ArrowLeft" || e.key === "a" || e.key === "A") moveL(); if (e.key === "ArrowRight" || e.key === "d" || e.key === "D") moveR(); if ((e.key === " " || e.key === "Enter") && state !== "PLAY" && state !== "WINNING") startGame(); });
+const JD = 0.75, JH = 1.5, DUCK_T = 0.8;
+let duckT = 0, dk = 1, playT = 0, obT = 3, hurdleSeen = false, overSeen = false;
+function jumpAct() { if (state !== "PLAY") return; if (jumpT < 0) { duckT = 0; jumpT = 0; } }
+function duckAct() { if (state !== "PLAY") return; if (jumpT >= 0) jumpT = JD; duckT = DUCK_T; }
+let pdx = null, pdy = null;
+wrap.addEventListener("pointerdown", e => { if (state !== "PLAY" || (e.target.closest && e.target.closest("button"))) { pdx = null; return; } pdx = e.clientX; pdy = e.clientY; });
+wrap.addEventListener("pointerup", e => {
+  if (pdx === null) return;
+  const dx = e.clientX - pdx, dy = e.clientY - pdy, ax = Math.abs(dx), ay = Math.abs(dy); pdx = null;
+  if (ay > 38 && ay > ax) { if (dy < 0) jumpAct(); else duckAct(); }
+  else if (ax > 38) { if (dx < 0) moveL(); else moveR(); }
+  else { const r = wrap.getBoundingClientRect(); if (e.clientX < r.left + r.width / 2) moveL(); else moveR(); }
+});
+wrap.addEventListener("pointercancel", () => { pdx = null; });
 
 function evalGate(o) {
   o.done = true;
@@ -527,7 +564,7 @@ function evalGate(o) {
     stars++; $("starBox").textContent = "⭐ " + stars + "/" + order.length;
     o.cards[lane].visible = false; burst(bear.position.x, 2.4, 0, 26, STARCOL); sfxOk(); jumpT = 0; learned[q.t] = 1;
     banner("ok", "✔ " + q.icon, "सही! " + SAY[q.t], q.hint);
-    qIdx++; streak++; wrongN = 0; ramp = Math.min(0.5, ramp + 0.04);
+    qIdx++; streak++; wrongN = 0;
     if (qIdx >= order.length) { say([{ txt: "सही!" }, { clip: CLIP[q.t] }], 5); state = "WINNING"; setTimeout(winGame, 2800); }
     else {
       setOptions(); const nx = order[qIdx], chain = [{ txt: "सही!" }, { clip: CLIP[q.t] }];
@@ -535,7 +572,7 @@ function evalGate(o) {
       chain.push({ txt: "अब " + nx.t + " ढूँढो" }); say(chain, 5); waitSpawn = 0.5; setTimeout(setQBar, 900);
     }
   } else {
-    streak = 0; wrongN++; ramp = Math.max(0, ramp - 0.08); sfxBad(); stumbleT = 0.8; burst(bear.position.x, 1.6, 0, 8, [0xb0bec5, 0x90a4ae]); o.cards[lane].visible = false;
+    streak = 0; wrongN++; sfxBad(); stumbleT = 0.8; burst(bear.position.x, 1.6, 0, 8, [0xb0bec5, 0x90a4ae]); o.cards[lane].visible = false;
     banner("bad", "✖", "गलत! ये “" + picked + "” है", "यह " + P.word + " " + P.icon + " वाला है। ढूँढो: “" + q.t + "” — " + q.hint + " " + q.icon);
     const wch = [{ txt: "गलत!" }, { clip: CLIP[picked] }, { txt: q.t + " ढूँढो" }, { clip: CLIP[q.t] }];
     if (wrongN >= 2) { wch.push({ txt: "चमकने वाले कार्ड में जाओ" }); guide("✨ हरे चमकते कार्ड में जाओ!"); }
@@ -547,7 +584,7 @@ function winGame() {
   $("recap").innerHTML = LESSONS.map(l => "<span>" + l.t + " " + l.icon + " " + l.word + "</span>").join("");
   $("winTxt").textContent = "तुमने " + stars + " अक्षर सही पहचाने! 🪙 " + coinN;
   $("winScr").style.display = "flex";
-  tone([660, 880, 1100, 1320], 0.12, 0.22); say([{ clip: "win" }], 6);
+  tone([660, 880, 1100, 1320], 0.12, 0.22); say([{ clip: "win" }], 6); duckT = 0;
   for (let i = 0; i < 5; i++) setTimeout(() => burst((Math.random() - 0.5) * 6, 3, 0, 20, STARCOL), i * 250);
 }
 
@@ -555,11 +592,12 @@ let last = performance.now();
 function frame(now) {
   requestAnimationFrame(frame);
   const dt = Math.min(0.05, (now - last) / 1000); last = now;
-  if (state === "PLAY") ramp = Math.min(0.5, ramp + dt * 0.005);
+  if (state === "PLAY") { playT += dt; ramp = Math.min(0.6, Math.pow(1.02, playT / 5) - 1); }   // har 5 second mein 2% tez, 60% tak
+  SPAWN_Z = -Math.min(135, Math.max(90, VEL * 4.2));
   boostT = Math.max(0, boostT - dt);
   VEL += (SPEED * (1 + ramp) * (boostT > 0 ? 1.35 : 1) - VEL) * Math.min(1, dt * 3);
-  const ratio = VEL / SPEED; camera.fov = fovBase + (ratio - 1) * 16; camera.updateProjectionMatrix();
-  const sTxt = "🚀 ×" + (VEL / 11).toFixed(1); if (sTxt !== lastSpd) { lastSpd = sTxt; $("spdBox").textContent = sTxt; }
+  const ratio = VEL / SPEED; camera.fov = fovBase + 5 + (ratio - 1) * 16; camera.updateProjectionMatrix();
+  const sTxt = "🚀 ×" + (VEL / 33).toFixed(1); if (sTxt !== lastSpd) { lastSpd = sTxt; $("spdBox").textContent = sTxt; }
   const run = state === "PLAY" || state === "WINNING" || state === "MENU";
   const sp = (run ? VEL : 3) * (stumbleT > 0 ? 0.55 : 1);
   // sadak, sajaawat
@@ -570,15 +608,15 @@ function frame(now) {
   if (run && state !== "WINNING") {
     trainT -= dt; if (trainT < 0) { trainT = 11 + Math.random() * 7; spawnTrain(); }
     planeT -= dt; if (planeT < 0) { planeT = 13 + Math.random() * 8; spawnPlane(); }
-    padT -= dt; if (padT < 0) { padT = 8 + Math.random() * 5; if (state === "PLAY" && !gates.some(g => g.g.position.z > -62 && g.g.position.z < -6)) spawnPad(); }
+    padT -= dt; if (padT < 0) { padT = 8 + Math.random() * 5; if (state === "PLAY" && !gates.some(g => g.g.position.z > SPAWN_Z * 0.7 && g.g.position.z < -6) && !obst.some(o => o.g.position.z < SPAWN_Z + 14)) spawnPad(); }
   }
   for (let i = trains.length - 1; i >= 0; i--) {
-    const g = trains[i]; g.position.z += (VEL + 17) * dt;
+    const g = trains[i]; g.position.z += (VEL * 1.25 + 12) * dt;
     if (!g.userData.horn && g.position.z > -55) { g.userData.horn = true; sfxHorn(); if (!seen.train && state === "PLAY") { seen.train = 1; guide("🚂 देखो, ट्रेन! छुक-छुक!"); say([{ txt: "देखो, ट्रेन" }], 1); } }
     if (g.position.z - g.userData.len > 14) { scene.remove(g); trains.splice(i, 1); }
   }
   for (let i = planes.length - 1; i >= 0; i--) {
-    const g = planes[i], U = g.userData; g.position.x += U.dir * 10 * dt; g.position.z += VEL * 0.25 * dt; U.prop.rotation.x += dt * 30; g.position.y += Math.sin(now / 500) * 0.01;
+    const g = planes[i], U = g.userData; g.position.x += U.dir * 12 * dt; g.position.z += VEL * 0.07 * dt; U.prop.rotation.x += dt * 30; g.position.y += Math.sin(now / 500) * 0.01;
     if (!U.w && Math.abs(g.position.x) < 30) { U.w = true; sfxWhoosh(); if (!seen.plane && state === "PLAY") { seen.plane = 1; guide("✈️ देखो, हवाई जहाज़! उस पर अक्षर लिखे हैं"); say([{ txt: "देखो, हवाई जहाज़" }], 1); } }
     if (Math.abs(g.position.x) > 72) { scene.remove(g); planes.splice(i, 1); }
   }
@@ -589,35 +627,48 @@ function frame(now) {
     }
     if (p.position.z > 10) { scene.remove(p); pads.splice(i, 1); }
   }
-  lmat.opacity = Math.max(0, Math.min(0.5, (ratio - 1.08) * 1.7));
-  lines.forEach(m => { m.visible = lmat.opacity > 0.02; if (m.visible) { m.position.z += VEL * 2.0 * dt; if (m.position.z > 8) resetLine(m, true); } });
+  lmat.opacity = Math.max(0, Math.min(0.55, 0.2 + (ratio - 1) * 1.7)); if (state === "MENU") lmat.opacity = 0.12;
+  lines.forEach(m => { m.visible = lmat.opacity > 0.02; if (m.visible) { m.position.z += VEL * 1.4 * dt; if (m.position.z > 8) resetLine(m, true); } });
   flame.visible = boostT > 0; if (flame.visible) flame.children.forEach(f => { f.scale.y = 0.8 + Math.random() * 0.6; });
   // bhalu
-  tRun += dt * (stumbleT > 0 ? 6 : 10);
+  tRun += dt * (stumbleT > 0 ? 6 : Math.min(16, 10 + (VEL - 11) * 0.12));
   const tx = LANE[lane]; const dx = tx - bx; bx += dx * Math.min(1, dt * 12);
   let by = Math.abs(Math.sin(tRun)) * 0.16;
-  if (jumpT >= 0) { jumpT += dt; by += Math.sin(Math.min(1, jumpT / 0.6) * Math.PI) * 1.4; if (jumpT > 0.6) jumpT = -1; }
-  bear.position.set(bx, by, 0);
-  bear.rotation.z = -dx * 0.12 + (stumbleT > 0 ? Math.sin(now / 45) * 0.25 : 0);
+  if (jumpT >= 0) { jumpT += dt; by += Math.sin(Math.min(1, jumpT / JD) * Math.PI) * JH; if (jumpT > JD) jumpT = -1; }
+  if (duckT > 0) duckT -= dt;
+  dk += ((duckT > 0 ? 0.55 : 1) - dk) * Math.min(1, dt * 16);
+  bear.position.set(bx, by, 0); bear.scale.set(0.82 * (1 + (1 - dk) * 0.35), 0.82 * dk, 0.82);
+  bear.rotation.z = dx * 0.12 + (stumbleT > 0 ? Math.sin(now / 45) * 0.25 : 0);
   bodyG.position.y = Math.sin(tRun * 2) * 0.03; bodyG.rotation.z = Math.sin(tRun) * 0.05;
   legs[0].rotation.x = Math.sin(tRun) * 0.95; legs[1].rotation.x = -Math.sin(tRun) * 0.95;
   arms[0].rotation.x = -Math.sin(tRun) * 0.9; arms[1].rotation.x = Math.sin(tRun) * 0.9;
   if (jumpT >= 0) { arms[0].rotation.x = arms[1].rotation.x = -2.6; }
   if (stumbleT > 0) { stumbleT -= dt; }
-  nextLook -= dt; if (nextLook < 0) { lookT = 1.1; nextLook = 3 + Math.random() * 3; }
-  if (lookT > 0) { lookT -= dt; head.rotation.y += (Math.PI * 0.82 - head.rotation.y) * Math.min(1, dt * 9); } else head.rotation.y += (0 - head.rotation.y) * Math.min(1, dt * 7);
+  // lip-sync: awaaz chalte waqt munh band / aadha / khula, awaaz khatam to shaant chehra
+  let raw = 0; const talking = speaking || now < talkUntil;
+  if (talking) {
+    const syn = 0.2 + 0.8 * Math.abs(Math.sin(now / 62 + Math.sin(now / 210) * 2.2));
+    if (speaking && anNode) { anNode.getByteTimeDomainData(anBuf); let sq = 0; for (let k = 0; k < anBuf.length; k++) { const v = (anBuf[k] - 128) / 128; sq += v * v; } raw = Math.max(Math.min(1, Math.sqrt(sq / anBuf.length) * 5), syn * 0.35); }
+    else raw = syn;
+  }
+  const q = raw < 0.2 ? 0 : raw < 0.55 ? 0.45 : 1;
+  mouthL += (q - mouthL) * Math.min(1, dt * 22);
+  mouthIn.scale.set(0.11 + 0.03 * mouthL, 0.03 + 0.11 * mouthL, 0.05); tongue.visible = mouthL > 0.3; tongue.scale.set(0.07, 0.015 + 0.04 * mouthL, 0.04);
+  head.position.y = 2.6 + mouthL * 0.03; head.rotation.x = mouthL * 0.07;
+  if (duckT > 0 || dk < 0.95) { legs[0].rotation.x = legs[1].rotation.x = -0.7; arms[0].rotation.x = arms[1].rotation.x = 0.5; }
   shadow.position.x = bx; shadow.scale.setScalar(1 - by * 0.25);
   camera.position.x = bx * 0.35; camera.lookAt(bx * 0.15, 1.7, -8);
   // gates
   for (let i = gates.length - 1; i >= 0; i--) {
     const o = gates[i]; o.g.position.z += VEL * dt;
     if (o.glowIdx != null && !o.done) { const sc = 1 + 0.1 * Math.sin(now / 110); o.cards[o.glowIdx].scale.set(sc, sc, 1); }
+    if (!o.babbled && o.g.position.z > -48) { o.babbled = true; talkUntil = now + 650; }
     if (!o.done && o.g.position.z >= -0.1 && state === "PLAY") evalGate(o);
     if (o.g.position.z > 10) { scene.remove(o.g); gates.splice(i, 1); }
   }
-  if (waitSpawn >= 0 && state === "PLAY") { waitSpawn -= dt; if (waitSpawn < 0) { waitSpawn = -1; makeGate(curOpts, wrongN >= 2); setQBar(); } }
+  if (waitSpawn >= 0 && state === "PLAY") { waitSpawn -= dt; if (waitSpawn < 0) { if (obst.some(o => o.g.position.z < SPAWN_Z + 28)) waitSpawn = 0.05; else { waitSpawn = -1; makeGate(curOpts, wrongN >= 2); setQBar(); } } }
   // coins
-  if (run && state !== "WINNING") { coinTimer -= dt; if (coinTimer < 0) { coinTimer = 1.4 + Math.random(); if (!gates.some(g => Math.abs(g.g.position.z - SPAWN_Z) < 14)) { if (Math.random() < 0.5) spawnPick(); else spawnCoins(); } } }
+  if (run && state !== "WINNING") { coinTimer -= dt; if (coinTimer < 0) { coinTimer = 1.4 + Math.random(); if (!gates.some(g => Math.abs(g.g.position.z - SPAWN_Z) < 16) && !obst.some(o => o.g.position.z < SPAWN_Z + 14)) { if (Math.random() < 0.5) spawnPick(); else spawnCoins(); } } }
   for (let i = coins.length - 1; i >= 0; i--) {
     const c = coins[i]; c.position.z += VEL * dt; c.rotation.z += dt * 5;
     if (state === "PLAY" && c.position.z > -1.3 && c.position.z < 1.5 && Math.abs(c.position.x - bx) < 1.2 && by < 1) { coinN++; $("coinBox").textContent = "🪙 " + coinN; sfxCoin(); burst(c.position.x, 1.2, 0, 4, [0xffd54f]); scene.remove(c); coins.splice(i, 1); continue; }
@@ -631,6 +682,22 @@ function frame(now) {
     }
     if (m.position.z > 8) { scene.remove(m); picks.splice(i, 1); }
   }
+  // rukawatein: kood ke ya jhuk ke paar karo
+  if (state === "PLAY") { obT -= dt; if (obT < 0) { obT = 2.6 + Math.random() * 1.8; if (waitSpawn < 0 && !gates.some(g => Math.abs(g.g.position.z - SPAWN_Z) < 30)) spawnObst(Math.random() < 0.5 ? "low" : "over"); } }
+  let nearOb = null;
+  for (let i = obst.length - 1; i >= 0; i--) {
+    const o = obst[i], z0 = o.g.position.z; o.g.position.z += VEL * dt; const z1 = o.g.position.z;
+    if (state === "PLAY" && !o.hit && !o.passed && z0 < 0.9 && z1 > -0.9 && Math.abs(LANE[o.lane] - bx) < 1.2) {
+      const safe = o.kind === "low" ? by > 0.95 : duckT > 0;
+      if (safe) { o.passed = true; coinN += 2; $("coinBox").textContent = "🪙 " + coinN; sfxCoin(); burst(bx, 1.4, 0, 10, [0x66bb6a, 0xffd54f]); guide(o.kind === "low" ? "वाह! शानदार कूद! 🦘" : "वाह! अच्छा झुके! 👏"); }
+      else { o.hit = true; stumbleT = 0.8; sfxBad(); burst(bx, 1.2, 0, 10, [0xb0bec5, 0xff7043]); guide(o.kind === "low" ? "ऊप्स! ⬆ ऊपर स्वाइप करके कूदो" : "ऊप्स! ⬇ नीचे स्वाइप करके झुको"); }
+    }
+    if (!o.hit && !o.passed && z1 > 1.5) o.passed = true;
+    if (!o.hit && !o.passed && Math.abs(LANE[o.lane] - bx) < 1.4 && z1 > SPAWN_Z * 0.5 && z1 < -4 && (!nearOb || z1 > nearOb.g.position.z)) nearOb = o;
+    if (z1 > 10) { scene.remove(o.g); obst.splice(i, 1); }
+  }
+  const act = $("act");
+  if (state === "PLAY" && helpOn && nearOb) { const tx2 = nearOb.kind === "low" ? "⬆ कूदो!" : "⬇ झुको!"; act.style.display = "block"; if (act.textContent !== tx2) act.textContent = tx2; } else act.style.display = "none";
   // sahi/galat raasta sanket
   const ag = state === "PLAY" && helpOn ? activeGate() : null, hl = $("hintLbl");
   if (ag) {
@@ -646,7 +713,7 @@ function frame(now) {
 }
 requestAnimationFrame(frame);
 if (location.hash === "#debug") { const d = $("dbg"); d.style.display = "block"; setInterval(() => { d.textContent = "clips: " + Object.keys(AUDIO_B64).map(k => k + ":" + (audioEls[k] && audioEls[k].duration ? audioEls[k].duration.toFixed(1) : "?")).join(" ") + " | state " + state + " q" + qIdx; }, 500); }
-window.__g = { get wrongN() { return wrongN; }, get streak() { return streak; }, trainZ: () => trains.map(t => +t.position.z.toFixed(1)), planeX: () => planes.map(t => +t.position.x.toFixed(1)), padLane: () => pads.length ? LANE.indexOf(pads[0].position.x) : -1, get VEL() { return VEL; }, get ramp() { return ramp; }, get boost() { return boostT; }, nTrains: () => trains.length, nPlanes: () => planes.length, nPads: () => pads.length, spawnTrain, spawnPlane, spawnPad,  get lane() { return lane; }, get picks() { return picks.length; }, get coinN() { return coinN; }, setSpeed: v => { SPEED = v; }, get helpOn() { return helpOn; }, get state() { return state; }, get qIdx() { return qIdx; }, setLane: l => { lane = l; }, curOpts: () => curOpts, order: () => order, get stars() { return stars; } };
+window.__g = { obZ: () => obst.map(o => +o.g.position.z.toFixed(1)), obState: () => obst.map(o => (o.hit ? 'hit' : o.passed ? 'pass' : 'live')), get lane() { return lane; }, get jumpT() { return jumpT; }, get duckT() { return duckT; }, get mouthL() { return mouthL; }, get speaking() { return speaking; }, get stumbleT() { return stumbleT; }, jumpAct, duckAct, moveL, moveR, spawnObst, nObst: () => obst.length, setPlayT: v => { playT = v; }, get playT() { return playT; }, get SPEED() { return SPEED; }, get wrongN() { return wrongN; }, get streak() { return streak; }, trainZ: () => trains.map(t => +t.position.z.toFixed(1)), planeX: () => planes.map(t => +t.position.x.toFixed(1)), padLane: () => pads.length ? LANE.indexOf(pads[0].position.x) : -1, get VEL() { return VEL; }, get ramp() { return ramp; }, get boost() { return boostT; }, nTrains: () => trains.length, nPlanes: () => planes.length, nPads: () => pads.length, spawnTrain, spawnPlane, spawnPad,  get lane() { return lane; }, get picks() { return picks.length; }, get coinN() { return coinN; }, setSpeed: v => { SPEED = v; }, get helpOn() { return helpOn; }, get state() { return state; }, get qIdx() { return qIdx; }, setLane: l => { lane = l; }, curOpts: () => curOpts, order: () => order, get stars() { return stars; } };
 </script>
 </body>
 </html>
