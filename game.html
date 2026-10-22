@@ -63,10 +63,11 @@
   #guide { position: absolute; left: 8px; bottom: 92px; z-index: 6; display: none; align-items: flex-end; gap: 6px; max-width: 74%; pointer-events: none; }
   .gav { font-size: 36px; background: #fff; border: 3px solid #7e57c2; border-radius: 50%; width: 54px; height: 54px; display: flex; align-items: center; justify-content: center; flex: none; box-shadow: 0 4px 0 rgba(0,0,0,.18); }
   .gtx { background: #fff; border: 3px solid #7e57c2; border-radius: 16px; padding: 5px 12px; font-weight: 800; font-size: 17px; color: #4527a0; box-shadow: 0 4px 0 rgba(0,0,0,.18); }
+  /* laptop par shuru mein mobile jaisa box; sirf poori screen (fullscreen) mein poora failta hai */
   @media (min-aspect-ratio: 5/4) {
-    #wrap { max-width: none; max-height: none; border-radius: 0; }
-    #qbar { top: 8px; width: min(46%, 640px); } #fb { top: auto; bottom: 100px; width: min(52%, 560px); }
-    #hintLbl { bottom: auto; top: 92px; } #guide { bottom: 84px; max-width: 40%; } #ctl { bottom: 12px; }
+    body.fs #wrap { max-width: none; max-height: none; border-radius: 0; }
+    body.fs #qbar { top: 8px; width: min(46%, 640px); } body.fs #fb { top: auto; bottom: 100px; width: min(52%, 560px); }
+    body.fs #hintLbl { bottom: auto; top: 92px; } body.fs #guide { bottom: 84px; max-width: 40%; } body.fs #ctl { bottom: 12px; }
   }
   #dbg { position: absolute; left: 6px; right: 6px; bottom: 96px; z-index: 30; font: 11px monospace; color: #223; background: rgba(255,255,255,.85); border-radius: 8px; padding: 4px 8px; display: none; pointer-events: none; }
 </style>
@@ -247,7 +248,8 @@ function resize() {
   fovBase = camera.aspect < 0.75 ? 70 : camera.aspect < 1 ? 62 : 52; camera.fov = fovBase;
   camera.updateProjectionMatrix();
 }
-window.addEventListener("resize", resize); document.addEventListener("fullscreenchange", resize); resize();
+window.addEventListener("resize", resize); function fsChanged() { document.body.classList.toggle("fs", !!(document.fullscreenElement || document.webkitFullscreenElement)); setTimeout(resize, 30); resize(); }
+document.addEventListener("fullscreenchange", fsChanged); document.addEventListener("webkitfullscreenchange", fsChanged); resize();
 
 const mats = {};
 function mat(c) { return mats[c] || (mats[c] = new THREE.MeshLambertMaterial({ color: c })); }
