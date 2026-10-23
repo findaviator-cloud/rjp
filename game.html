@@ -121,6 +121,7 @@
     <div style="font-size:70px">🐻</div>
     <h1>नमस्ते तनिष्का!</h1>
     <p>भालू के साथ दौड़ो और अक्षर पहचानो!</p>
+    <div class="row" id="modeRow"><button class="opt" id="modeH">🔤 हिंदी अक्षर</button><button class="opt" id="modeL">🧠 Increase Learning Power</button></div>
     <div class="row" id="spdRow"><button class="opt" data-s="24">🐢 धीमा</button><button class="opt" data-s="33">🚶 सामान्य</button><button class="opt" data-s="45">🐇 तेज़</button></div>
     <div class="row"><button class="opt" id="helpBtn">💡 मदद: चालू</button><button class="opt" id="musBtn">🎵 संगीत: चालू</button><button class="opt" id="fsBtn">⛶ पूरी स्क्रीन</button></div>
     <button class="big" id="resBtn" style="display:none;font-size:22px;background:linear-gradient(#66bb6a,#2e7d32) !important;box-shadow:0 7px 0 #1b5e20,0 10px 14px rgba(0,0,0,.35)"></button>
@@ -256,12 +257,35 @@ function vnext(tok) {
 }
 
 // ------------------------------------------------------------------ DATA
-const LETTERS = ["अ", "आ", "इ", "ई", "उ"];
-const LESSONS = [
+let LETTERS = ["अ", "आ", "इ", "ई", "उ"];
+const LESSONS_H = [
   { t: "अ", hint: "अनार वाला अ", icon: "🍎", word: "अनार" }, { t: "आ", hint: "आम वाला आ", icon: "🥭", word: "आम" },
   { t: "इ", hint: "इमली वाली इ", icon: "🟤", word: "इमली" }, { t: "ई", hint: "ईख वाली ई", icon: "🎋", word: "ईख" },
   { t: "उ", hint: "उल्लू वाला उ", icon: "🦉", word: "उल्लू" }
 ];
+let LESSONS = LESSONS_H, MODE = "hin";
+// ---- Increase Learning Power: ank = dhwani (T D=1, N=2, M=3, R=4, SH=5, K=6, F V=7, P B=8, L=9, S=0)
+const LP_TOK = ["T", "D", "N", "M", "R", "SH", "K", "F", "V", "P", "B", "L", "S"];
+const SYL = { T: "टा", D: "डा", N: "ना", M: "मा", R: "रा", SH: "शा", K: "का", F: "फा", V: "वा", P: "पा", B: "बा", L: "ला", S: "सा" };
+const DIG = { T: 1, D: 1, N: 2, M: 3, R: 4, SH: 5, K: 6, F: 7, V: 7, P: 8, B: 8, L: 9, S: 0 };
+const KEYC = ["0️⃣", "1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣"];
+const DIGSET = { 1: "T, D", 2: "N", 3: "M", 4: "R", 5: "SH", 6: "K", 7: "F, V", 8: "P, B", 9: "L", 0: "S" };
+const LPI = {}, LESSONS_L = LP_TOK.map(t => (LPI["s:" + t] = { id: "s:" + t, t, syl: SYL[t], dig: DIG[t], hint: DIG[t] + " = " + DIGSET[DIG[t]], icon: KEYC[DIG[t]], word: SYL[t] }));
+const LP_WORDS = [["नाना", "👴", ["N", "N"]], ["मामा", "🧔", ["M", "M"]], ["पापा", "👨", ["P", "P"]], ["काका", "🧑‍🌾", ["K", "K"]], ["माला", "💐", ["M", "L"]], ["काला", "⚫", ["K", "L"]], ["टाटा", "👋", ["T", "T"]], ["बाबा", "👴🏽", ["B", "B"]]];
+LP_WORDS.forEach(([w, ic, ts]) => ts.forEach((t, i) => { LPI["w:" + w + ":" + i] = { id: "w:" + w + ":" + i, t, syl: SYL[t], dig: DIG[t], word: w, icon: ic, pos: i, last: i === ts.length - 1, hint: w + " = " + ts.map(x => SYL[x]).join(" + ") + "  (" + ts.map(x => DIG[x]).join("-") + ")" }; }));
+function shuffleA(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function buildOrder() {
+  if (MODE !== "lp") return LESSONS_H.slice();
+  const singles = shuffleA(LESSONS_L).slice(0, 6), words = shuffleA(LP_WORDS).slice(0, 2), o = singles.slice();
+  words.forEach(([w, ic, ts]) => ts.forEach((t, i) => o.push(LPI["w:" + w + ":" + i])));
+  return o;
+}
+function tokTxt(t) { return MODE === "lp" ? SYL[t] : t; }
+function sayTxt(t) { return MODE === "lp" ? SYL[t] + " = " + t + " (" + DIG[t] + ")" : SAY[t]; }
+function vc(t) { return MODE === "lp" ? { txt: SYL[t] } : { clip: CLIP[t] }; }
+function qText(q) { return ["“" + tokTxt(q.t) + "” ढूँढो!", q.hint + " " + q.icon]; }
+function okInfo(q) { return MODE === "lp" && q.last ? ["🎉 " + q.icon, "वाह! " + q.word + "!", q.hint] : ["✔ " + q.icon, "सही! " + sayTxt(q.t), q.hint]; }
+function wrongInfo(picked, q, P) { return MODE === "lp" ? ["गलत! ये “" + picked + "” है (" + SYL[picked] + ")", "ढूँढो: “" + SYL[q.t] + "” = " + q.t + " (" + DIG[q.t] + ")  " + q.hint] : ["गलत! ये “" + picked + "” है", "यह " + P.word + " " + P.icon + " वाला है। ढूँढो: “" + q.t + "” — " + q.hint + " " + q.icon]; }
 const PAL = ["#ef5350", "#42a5f5", "#66bb6a", "#ffa726", "#ec407a"];
 
 // ------------------------------------------------------------------ 3D SETUP
@@ -397,6 +421,16 @@ function letterTex(ch, ci) {
   const t = new THREE.CanvasTexture(c); t.anisotropy = 4; return (texCache[k] = t);
 }
 
+function ltrTex(tok) {
+  const k = "L:" + tok; if (texCache[k]) return texCache[k];
+  const ci = LP_TOK.indexOf(tok), col = PAL[ci % 5], c = document.createElement("canvas"); c.width = c.height = 256; const x = c.getContext("2d");
+  x.beginPath(); x.moveTo(40, 6); x.arcTo(250, 6, 250, 250, 34); x.arcTo(250, 250, 6, 250, 34); x.arcTo(6, 250, 6, 6, 34); x.arcTo(6, 6, 250, 6, 34); x.closePath(); x.fillStyle = "#fff"; x.fill(); x.lineWidth = 14; x.strokeStyle = col; x.stroke();
+  x.fillStyle = col; x.font = (tok.length > 1 ? "900 120px" : "900 160px") + " 'Arial Black',Impact,'Baloo 2',sans-serif"; x.textAlign = "center"; x.textBaseline = "middle"; x.fillText(tok, 128, 112);
+  x.beginPath(); x.arc(196, 196, 40, 0, Math.PI * 2); x.fillStyle = col; x.fill(); x.fillStyle = "#fff"; x.font = "900 54px 'Arial Black',Impact,sans-serif"; x.fillText(String(DIG[tok]), 196, 200);
+  const t = new THREE.CanvasTexture(c); t.anisotropy = 4; return (texCache[k] = t);
+}
+function cardTex(tok) { return MODE === "lp" ? ltrTex(tok) : letterTex(tok, LETTERS.indexOf(tok)); }
+
 // ---- gate, coins, particles
 const gates = [], coins = [], parts = [];
 let SPEED = 33, VEL = 33, SPAWN_Z = -120;
@@ -405,7 +439,7 @@ function makeGate(opts, glow) {
   [-4.5, 4.5].forEach(x => mesh(G.cyl, 0xffd54f, 0.22, 8.4, 0.22, x, 4.2, 0, g));
   mesh(G.box, 0xff7043, 9.8, 0.45, 0.45, 0, 8.4, 0, g);
   const cards = opts.map((ch, i) => {
-    const m = new THREE.Mesh(new THREE.PlaneGeometry(2.2, 2.2), new THREE.MeshBasicMaterial({ map: letterTex(ch, LETTERS.indexOf(ch)), transparent: true }));
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(2.2, 2.2), new THREE.MeshBasicMaterial({ map: cardTex(ch), transparent: true }));
     m.position.set(LANE[i], 2.3, 0); g.add(m);
     mesh(G.cyl, 0x90a4ae, 0.04, 5, 0.04, LANE[i] - 0.8, 5.9, 0, g); mesh(G.cyl, 0x90a4ae, 0.04, 5, 0.04, LANE[i] + 0.8, 5.9, 0, g);
     return m;
@@ -433,7 +467,7 @@ function iconTex(icon, ci) {
 }
 function spawnPick() {
   const li = Math.floor(Math.random() * LESSONS.length), L = LESSONS[li], isLetter = Math.random() < 0.5, ln = Math.floor(Math.random() * 3);
-  const tex = isLetter ? letterTex(L.t, LETTERS.indexOf(L.t)) : iconTex(L.icon, li);
+  const tex = isLetter ? cardTex(L.t) : iconTex(L.icon, li);
   const m = new THREE.Mesh(new THREE.PlaneGeometry(1.5, 1.5), new THREE.MeshBasicMaterial({ map: tex, transparent: true, side: THREE.DoubleSide }));
   m.position.set(LANE[ln], 2.0, SPAWN_Z); m.userData = { li, t: Math.random() * 6 }; scene.add(m); picks.push(m);
 }
@@ -578,28 +612,27 @@ function guide(t) { const g = $("guide"); g.style.display = "flex"; $("gtx").tex
 function toggleFS() { try { const el = document.documentElement; if (!document.fullscreenElement && !document.webkitFullscreenElement) (el.requestFullscreen || el.webkitRequestFullscreen).call(el); else (document.exitFullscreen || document.webkitExitFullscreen).call(document); } catch (e) {} }
 function showQuestion() {
   const q = order[qIdx];
-  $("qmain").textContent = "“" + q.t + "” ढूँढो!";
-  $("qsub").textContent = q.hint + " " + q.icon;
-  say([{ clip: CLIP[q.t] }], 2);
+  const qt = qText(q); $("qmain").textContent = qt[0]; $("qsub").textContent = qt[1];
+  say([vc(q.t)], 2);
 }
-function setQBar() { const q = order[qIdx]; if (!q) return; $("qmain").textContent = "“" + q.t + "” ढूँढो!"; $("qsub").textContent = q.hint + " " + q.icon; }
+function setQBar() { const q = order[qIdx]; if (!q) return; const qt = qText(q); $("qmain").textContent = qt[0]; $("qsub").textContent = qt[1]; }
 function unlockAudio() {
   Object.keys(audioEls).forEach(k => { const a = audioEls[k]; try { a.muted = true; const p = a.play(); if (p && p.then) p.then(() => { a.pause(); a.currentTime = 0; a.muted = false; }).catch(() => { a.muted = false; }); else a.muted = false; } catch (e) { a.muted = false; } });
   try { if (window.speechSynthesis) speechSynthesis.speak(new SpeechSynthesisUtterance("")); } catch (e) {}
 }
 function startGame(resume) {
   ac(); unlockAudio(); score = 0; lastCoinN = 0; lastMult = 1; $("scoreV").textContent = 0; $("bestV").textContent = "BEST " + best; $("multB").textContent = "×1"; showHand();
-  order = LESSONS.slice(); qIdx = 0; stars = 0; coinN = 0; lane = 1; state = "PLAY"; ramp = 0; boostT = 0; wrongN = 0; streak = 0; playT = 0; duckT = 0; jumpT = -1; obT = 3; obst.splice(0).forEach(o => scene.remove(o.g)); jpads.splice(0).forEach(o => scene.remove(o)); flyT = -1; themeDone = true; jpT = 9; themeI = 0; applyTheme(0); $("flash").style.opacity = 0; pads.splice(0).forEach(p => scene.remove(p));
+  order = buildOrder(); qIdx = 0; stars = 0; coinN = 0; lane = 1; state = "PLAY"; ramp = 0; boostT = 0; wrongN = 0; streak = 0; playT = 0; duckT = 0; jumpT = -1; obT = 3; obst.splice(0).forEach(o => scene.remove(o.g)); jpads.splice(0).forEach(o => scene.remove(o)); flyT = -1; themeDone = true; jpT = 9; themeI = 0; applyTheme(0); $("flash").style.opacity = 0; pads.splice(0).forEach(p => scene.remove(p));
   gates.splice(0).forEach(o => scene.remove(o.g)); coins.splice(0).forEach(c => scene.remove(c)); picks.splice(0).forEach(c => scene.remove(c)); learned = {}; stopVoice(); $("fb").style.opacity = 0;
   $("startScr").style.display = "none"; $("winScr").style.display = "none"; $("qbar").style.display = "block"; $("ctl").style.display = "flex";
   $("starBox").textContent = "⭐ 0/" + order.length; $("coinBox").textContent = "0";
   wagons.splice(0).forEach(w => scene.remove(w.g)); pus.splice(0).forEach(m => scene.remove(m)); yb = 0; vyb = 0; safeT = 0; lastLane = 1; magT = 0; jetT = 0; x2T = 0; shoeT = 0; puSpawnT = 12; wagT = 14; puStr = ""; saveAcc = 0;
   $("pauseScr").style.display = "none"; $("cd").style.display = "none"; $("puBox").innerHTML = "";
-  if (resume) { const sv = loadSave(); if (sv) { qIdx = sv.q; stars = sv.st; coinN = sv.c; score = sv.sc; lastCoinN = coinN; themeI = sv.th; applyTheme(themeI); playT = sv.pt; streak = sv.sk; } }
+  if (resume) { const sv = loadSave(); if (sv) { if (MODE === "lp" && sv.o) { const oo = sv.o.map(id => LPI[id]).filter(Boolean); if (oo.length === sv.o.length) order = oo; } qIdx = sv.q; stars = sv.st; coinN = sv.c; score = sv.sc; lastCoinN = coinN; themeI = sv.th; applyTheme(themeI); playT = sv.pt; streak = sv.sk; } }
   $("starBox").textContent = "⭐ " + stars + "/" + order.length; $("coinBox").textContent = coinN; $("scoreV").textContent = Math.floor(score);
   setOptions(); makeGate(curOpts); waitSpawn = -1;
   let first = true; try { first = !localStorage.getItem("br_tut"); localStorage.setItem("br_tut", "1"); } catch (e) {}
-  setTimeout(() => { setQBar(); say([{ clip: CLIP[order[qIdx].t] }].concat(first && !resume ? [{ txt: "तीन रास्तों में से सही अक्षर वाले रास्ते पर जाओ" }] : []), 2); }, 350);
+  setTimeout(() => { setQBar(); say([vc(order[qIdx].t)].concat(first && !resume ? [{ txt: "तीन रास्तों में से सही अक्षर वाले रास्ते पर जाओ" }] : []), 2); }, 350);
   guide(first ? "स्क्रीन का बायाँ/दायाँ हिस्सा टैप करो! सही अक्षर वाले गेट में जाओ" : "चलो दौड़ें! 🏃"); if (first) setTimeout(() => guide("⬆ ऊपर स्वाइप = कूदो   ⬇ नीचे स्वाइप = झुको"), 5200);
 }
 function activeGate() { return gates.find(g => !g.done && g.g.position.z > -62 && g.g.position.z < -2); }
@@ -661,26 +694,26 @@ function evalGate(o) {
   if (picked === q.t) {
     stars++; $("starBox").textContent = "⭐ " + stars + "/" + order.length;
     o.cards[lane].visible = false; burst(bear.position.x, 2.4, 0, 26, STARCOL); sfxOk(); jumpT = 0; learned[q.t] = 1;
-    banner("ok", "✔ " + q.icon, "सही! " + SAY[q.t], q.hint);
+    { const oi = okInfo(q); banner("ok", oi[0], oi[1], oi[2]); }
     qIdx++; streak++; wrongN = 0;
-    if (qIdx >= order.length) { say([{ txt: "सही!" }, { clip: CLIP[q.t] }], 5); state = "WINNING"; setTimeout(winGame, 2800); }
+    if (qIdx >= order.length) { say([{ txt: "सही!" }, vc(q.t)].concat(MODE === "lp" && q.last ? [{ txt: q.word }] : []), 5); state = "WINNING"; setTimeout(winGame, 2800); }
     else {
-      setOptions(); const nx = order[qIdx], chain = [{ txt: "सही!" }, { clip: CLIP[q.t] }];
+      setOptions(); const nx = order[qIdx], chain = [{ txt: "सही!" }, vc(q.t)].concat(MODE === "lp" && q.last ? [{ txt: q.word }] : []);
       if (streak === 3 || streak === 5) { chain.push({ txt: "वाह! लगातार " + (streak === 3 ? "तीन" : "पाँच") + " सही!" }); guide("🔥 लगातार " + streak + " सही! स्पीड बढ़ रही है 🚀"); }
-      chain.push({ txt: "अब " + nx.t + " ढूँढो" }); say(chain, 5); waitSpawn = 0.5; setTimeout(setQBar, 900);
+      chain.push({ txt: "अब " + tokTxt(nx.t) + " ढूँढो" }); say(chain, 5); waitSpawn = 0.5; setTimeout(setQBar, 900);
     }
   } else {
     streak = 0; wrongN++; sfxBad(); stumbleT = 0.8; burst(bear.position.x, 1.6, 0, 8, [0xb0bec5, 0x90a4ae]); o.cards[lane].visible = false;
-    banner("bad", "✖", "गलत! ये “" + picked + "” है", "यह " + P.word + " " + P.icon + " वाला है। ढूँढो: “" + q.t + "” — " + q.hint + " " + q.icon);
-    const wch = [{ txt: "गलत!" }, { clip: CLIP[picked] }, { txt: q.t + " ढूँढो" }, { clip: CLIP[q.t] }];
+    { const wi = wrongInfo(picked, q, P); banner("bad", "✖", wi[0], wi[1]); }
+    const wch = [{ txt: "गलत!" }, vc(picked), { txt: tokTxt(q.t) + " ढूँढो" }, vc(q.t)];
     if (wrongN >= 2) { wch.push({ txt: "चमकने वाले कार्ड में जाओ" }); guide("✨ हरे चमकते कार्ड में जाओ!"); }
     say(wch, 5); waitSpawn = 0.9;
   }
 }
 function winGame() {
   clearSave(); saveBest(); state = "WIN"; $("qbar").style.display = "none"; $("ctl").style.display = "none"; $("hintLbl").style.display = "none"; pad.visible = false;
-  $("recap").innerHTML = LESSONS.map(l => "<span>" + l.t + " " + l.icon + " " + l.word + "</span>").join("");
-  $("winTxt").textContent = "तुमने " + stars + " अक्षर सही पहचाने! 🪙 " + coinN + "  •  स्कोर " + Math.floor(score) + "  •  सर्वोत्तम " + best;
+  $("recap").innerHTML = LESSONS.map(l => MODE === "lp" ? "<span>" + l.t + " " + l.word + " " + l.dig + "</span>" : "<span>" + l.t + " " + l.icon + " " + l.word + "</span>").join("");
+  $("winTxt").textContent = "तुमने " + stars + (MODE === "lp" ? " ध्वनियाँ सही पहचानीं!" : " अक्षर सही पहचाने!") + " 🪙 " + coinN + "  •  स्कोर " + Math.floor(score) + "  •  सर्वोत्तम " + best;
   $("winScr").style.display = "flex";
   tone([660, 880, 1100, 1320], 0.12, 0.22); say([{ clip: "win" }], 6); duckT = 0;
   for (let i = 0; i < 5; i++) setTimeout(() => burst((Math.random() - 0.5) * 6, 3, 0, 20, STARCOL), i * 250);
@@ -765,11 +798,11 @@ function stepPU(dt) {
   saveAcc += dt; if (saveAcc > 3) { saveAcc = 0; saveProg(); }
 }
 // ================= PAUSE / SAVE / RESUME =================
-const SAVEK = "br_save2";
-function saveProg() { if (state !== "PLAY" && state !== "PAUSE" && state !== "COUNT") return; try { localStorage.setItem(SAVEK, JSON.stringify({ q: qIdx, st: stars, c: coinN, sc: Math.floor(score), th: themeI, pt: playT, sk: streak })); } catch (e) {} }
-function clearSave() { try { localStorage.removeItem(SAVEK); } catch (e) {} }
-function loadSave() { try { const v = JSON.parse(localStorage.getItem(SAVEK) || "null"); if (v && typeof v.q === "number" && v.q >= 0 && v.q < LESSONS.length && (v.q > 0 || v.sc >= 40 || v.c > 0)) return v; } catch (e) {} return null; }
-function refreshStart() { const v = loadSave(); $("resBtn").style.display = v ? "block" : "none"; if (v) $("resBtn").textContent = "▶ जारी रखें (सवाल " + (v.q + 1) + "/" + LESSONS.length + " • ⭐" + v.st + " • 🪙" + v.c + ")"; $("playBtn").textContent = v ? "🔄 नया खेल" : "▶ खेलें"; }
+function SK() { return "br_save2" + (MODE === "lp" ? "_lp" : ""); }
+function saveProg() { if (state !== "PLAY" && state !== "PAUSE" && state !== "COUNT") return; try { localStorage.setItem(SK(), JSON.stringify({ q: qIdx, st: stars, c: coinN, sc: Math.floor(score), th: themeI, pt: playT, sk: streak, o: order.map(q => q.id) })); } catch (e) {} }
+function clearSave() { try { localStorage.removeItem(SK()); } catch (e) {} }
+function loadSave() { try { const v = JSON.parse(localStorage.getItem(SK()) || "null"); if (v && typeof v.q === "number" && v.q >= 0 && v.q < 40 && (v.q > 0 || v.sc >= 40 || v.c > 0)) return v; } catch (e) {} return null; }
+function refreshStart() { const v = loadSave(); $("resBtn").style.display = v ? "block" : "none"; if (v) $("resBtn").textContent = "▶ जारी रखें (सवाल " + (v.q + 1) + "/" + (v.o ? v.o.length : LESSONS_H.length) + " • ⭐" + v.st + " • 🪙" + v.c + ")"; $("playBtn").textContent = v ? "🔄 नया खेल" : "▶ खेलें"; }
 function pauseGame() {
   if (state !== "PLAY") return; state = "PAUSE"; stopVoice(); saveProg(); $("fb").style.opacity = 0; $("guide").style.display = "none";
   $("pauseInfo").textContent = "सवाल " + (qIdx + 1) + "/" + order.length + " • ⭐ " + stars + " • 🪙 " + coinN + " • स्कोर " + Math.floor(score);
@@ -785,7 +818,15 @@ function goHome() {
 }
 document.addEventListener("visibilitychange", () => { if (document.hidden) { if (state === "PLAY") pauseGame(); else saveProg(); } });
 addEventListener("pagehide", saveProg);
-refreshStart();
+function setMode(m) {
+  MODE = m; LETTERS = m === "lp" ? LP_TOK.slice() : ["अ", "आ", "इ", "ई", "उ"]; LESSONS = m === "lp" ? LESSONS_L : LESSONS_H;
+  try { localStorage.setItem("br_mode", m); } catch (e) {}
+  $("modeH").classList.toggle("on", m !== "lp"); $("modeL").classList.toggle("on", m === "lp");
+  $("startScr").querySelector("p").textContent = m === "lp" ? "अंक की आवाज़ पहचानो! English अक्षर देखो, हिंदी में पढ़ो: 1 = T D → टा डा" : "भालू के साथ दौड़ो और अक्षर पहचानो!";
+  refreshStart();
+}
+$("modeH").onclick = () => setMode("hin"); $("modeL").onclick = () => setMode("lp");
+try { setMode(localStorage.getItem("br_mode") === "lp" ? "lp" : "hin"); } catch (e) { setMode("hin"); }
 
 let last = performance.now();
 function frame(now) {
@@ -915,7 +956,7 @@ function frame(now) {
     const m = picks[i], U = m.userData; m.position.z += VEL * dt; U.t += dt; m.position.y = 2.0 + Math.sin(U.t * 3) * 0.25; m.rotation.y = Math.sin(U.t * 2) * 0.35;
     if (state === "PLAY" && m.position.z > -1.4 && m.position.z < 1.6 && Math.abs(m.position.x - bx) < 1.3) {
       const L = LESSONS[U.li]; learned[L.t] = 1; sfxCoin(); burst(m.position.x, 2, 0, 10, STARCOL); coinN += 3; $("coinBox").textContent = coinN;
-      banner("info", L.icon, SAY[L.t], L.hint); say([{ clip: CLIP[L.t] }], 1); scene.remove(m); picks.splice(i, 1); continue;
+      banner("info", L.icon, sayTxt(L.t), L.hint); say([vc(L.t)], 1); scene.remove(m); picks.splice(i, 1); continue;
     }
     if (m.position.z > 8) { scene.remove(m); picks.splice(i, 1); }
   }
@@ -955,7 +996,7 @@ function frame(now) {
 }
 requestAnimationFrame(frame);
 if (location.hash === "#debug") { const d = $("dbg"); d.style.display = "block"; setInterval(() => { d.textContent = "clips: " + Object.keys(AUDIO_B64).map(k => k + ":" + (audioEls[k] && audioEls[k].duration ? audioEls[k].duration.toFixed(1) : "?")).join(" ") + " | state " + state + " q" + qIdx; }, 500); }
-window.__g = { yb: () => yb, by0: () => by0, stumble: () => stumbleT, spawnWagon, wagonsZ: () => wagons.map(w => +w.g.position.z.toFixed(1)), surf: () => surfAt(bx), givePU: id => activatePU(PUS.find(p => p.id === id)), spawnPU, get magT() { return magT; }, get jetT() { return jetT; }, get x2T() { return x2T; }, get shoeT() { return shoeT; }, pauseGame, resumeGame, togglePause, goHome, saveProg, loadSave, startGame, setBx: v => { bx = v; }, nPU: () => pus.length, get score() { return score; }, get best() { return best; }, mult: multNow, get flyT() { return flyT; }, get themeI() { return themeI; }, nJp: () => jpads.length, jpZ: () => jpads.map(p => +p.position.z.toFixed(1)), spawnJumpPad, setTheme: i => { themeI = i; applyTheme(i); }, coinsY: () => coins.map(c => +c.position.y.toFixed(1)), spawnCoins, get coinN() { return coinN; }, obZ: () => obst.map(o => +o.g.position.z.toFixed(1)), obState: () => obst.map(o => (o.hit ? 'hit' : o.passed ? 'pass' : 'live')), get lane() { return lane; }, get jumpT() { return jumpT; }, get duckT() { return duckT; }, get mouthL() { return mouthL; }, get speaking() { return speaking; }, get stumbleT() { return stumbleT; }, jumpAct, duckAct, moveL, moveR, spawnObst, nObst: () => obst.length, setPlayT: v => { playT = v; }, get playT() { return playT; }, get SPEED() { return SPEED; }, get wrongN() { return wrongN; }, get streak() { return streak; }, trainZ: () => trains.map(t => +t.position.z.toFixed(1)), planeX: () => planes.map(t => +t.position.x.toFixed(1)), padLane: () => pads.length ? LANE.indexOf(pads[0].position.x) : -1, get VEL() { return VEL; }, get ramp() { return ramp; }, get boost() { return boostT; }, nTrains: () => trains.length, nPlanes: () => planes.length, nPads: () => pads.length, spawnTrain, spawnPlane, spawnPad,  get lane() { return lane; }, get picks() { return picks.length; }, get coinN() { return coinN; }, setSpeed: v => { SPEED = v; }, get helpOn() { return helpOn; }, get state() { return state; }, get qIdx() { return qIdx; }, setLane: l => { lane = l; }, curOpts: () => curOpts, order: () => order, get stars() { return stars; } };
+window.__g = { setMode, get mode() { return MODE; }, order: () => order, yb: () => yb, by0: () => by0, stumble: () => stumbleT, spawnWagon, wagonsZ: () => wagons.map(w => +w.g.position.z.toFixed(1)), surf: () => surfAt(bx), givePU: id => activatePU(PUS.find(p => p.id === id)), spawnPU, get magT() { return magT; }, get jetT() { return jetT; }, get x2T() { return x2T; }, get shoeT() { return shoeT; }, pauseGame, resumeGame, togglePause, goHome, saveProg, loadSave, startGame, setBx: v => { bx = v; }, nPU: () => pus.length, get score() { return score; }, get best() { return best; }, mult: multNow, get flyT() { return flyT; }, get themeI() { return themeI; }, nJp: () => jpads.length, jpZ: () => jpads.map(p => +p.position.z.toFixed(1)), spawnJumpPad, setTheme: i => { themeI = i; applyTheme(i); }, coinsY: () => coins.map(c => +c.position.y.toFixed(1)), spawnCoins, get coinN() { return coinN; }, obZ: () => obst.map(o => +o.g.position.z.toFixed(1)), obState: () => obst.map(o => (o.hit ? 'hit' : o.passed ? 'pass' : 'live')), get lane() { return lane; }, get jumpT() { return jumpT; }, get duckT() { return duckT; }, get mouthL() { return mouthL; }, get speaking() { return speaking; }, get stumbleT() { return stumbleT; }, jumpAct, duckAct, moveL, moveR, spawnObst, nObst: () => obst.length, setPlayT: v => { playT = v; }, get playT() { return playT; }, get SPEED() { return SPEED; }, get wrongN() { return wrongN; }, get streak() { return streak; }, trainZ: () => trains.map(t => +t.position.z.toFixed(1)), planeX: () => planes.map(t => +t.position.x.toFixed(1)), padLane: () => pads.length ? LANE.indexOf(pads[0].position.x) : -1, get VEL() { return VEL; }, get ramp() { return ramp; }, get boost() { return boostT; }, nTrains: () => trains.length, nPlanes: () => planes.length, nPads: () => pads.length, spawnTrain, spawnPlane, spawnPad,  get lane() { return lane; }, get picks() { return picks.length; }, get coinN() { return coinN; }, setSpeed: v => { SPEED = v; }, get helpOn() { return helpOn; }, get state() { return state; }, get qIdx() { return qIdx; }, setLane: l => { lane = l; }, curOpts: () => curOpts, order: () => order, get stars() { return stars; } };
 </script>
 </body>
 </html>
