@@ -17,3 +17,4 @@ diag_rjp.txt
 *.lnk
 *.exe
 desktop.ini
+audio/*.raw
