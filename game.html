@@ -30,8 +30,11 @@
   .cb { width: 62px; height: 62px; border-radius: 50%; border: 4px solid #fff; background: #ff9800; color: #fff; font-size: 28px; font-weight: 800;
     box-shadow: 0 6px 0 rgba(0,0,0,.25); cursor: pointer; }
   .cb:active { transform: translateY(3px); box-shadow: 0 3px 0 rgba(0,0,0,.25); }
-  .ov { position: absolute; inset: 0; z-index: 20; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px;
+  .ov { position: absolute; inset: 0; z-index: 20; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; overflow-y: auto; -webkit-overflow-scrolling: touch; text-align: center; padding: 14px 20px;
     background: linear-gradient(rgba(20,40,80,.35), rgba(20,40,80,.55)); }
+  .ov::before, .ov::after { content: ""; flex: 1 0 0; }
+  #resultBox { margin-bottom: 4px; }
+  #resultBox h1 { font-size: 34px; }
   .ov h1 { color: #fff; font-size: 42px; text-shadow: 0 4px 0 rgba(0,0,0,.3); }
   .ov p { color: #fff; font-size: 20px; font-weight: 700; margin-top: 6px; text-shadow: 0 2px 0 rgba(0,0,0,.3); }
   .big { margin-top: 22px; background: #ff9800; color: #fff; font-family: inherit; font-size: 32px; font-weight: 800; border: 5px solid #fff; padding: 10px 44px; border-radius: 40px;
@@ -106,7 +109,7 @@
 <div id="wrap">
   <canvas id="gl"></canvas>
   <div id="hud">
-    <div class="l"><div class="chip">तनिष्का 🐻</div><div class="rw"><div class="chip" id="spdBox">🚀 ×1.0</div><div class="chip" id="planBox">🌍 पृथ्वी</div></div></div>
+    <div class="l"><div class="chip" id="nameChip">तनिष्का 🐻</div><div class="rw"><div class="chip" id="spdBox">🚀 ×1.0</div><div class="chip" id="planBox">🌍 पृथ्वी</div></div></div>
     <div id="scoreBox"><div class="sc" id="scoreV">0</div><div class="bs"><span id="multB">×1</span><span id="bestV">BEST 0</span></div></div>
     <div class="r"><div class="chip" id="coinBox" style="color:#f9a825">0</div><div class="chip" id="starBox" style="color:#f57f17">⭐ 0/5</div></div>
   </div>
@@ -120,16 +123,25 @@
   <div id="guide"><div class="gav">🦉</div><div class="gtx" id="gtx"></div></div>
   <div id="dbg"></div><div id="hand">👆</div>
   <div id="startScr" class="ov">
-    <div style="font-size:52px">🐻</div>
+    <div id="resultBox" style="display:none">
+      <div style="font-size:46px">🎉🏆⭐</div>
+      <h1>शाबाश तनिष्का!</h1>
+      <p id="winTxt"></p>
+      <div id="recap"></div>
+    </div>
+    <div id="heroE" style="font-size:52px">🐻</div>
     <h1>नमस्ते तनिष्का!</h1>
-    <p>भालू के साथ दौड़ो और अक्षर पहचानो!</p>
+    <p id="storyP"></p>
+    <div class="row" id="charRow"><button class="opt" data-c="bear">🐻 भालू</button><button class="opt" data-c="panda">🐼 पांडा</button><button class="opt" data-c="baby">👶 बेबी</button></div>
+    <div class="row" id="babyRow" style="display:none"><button class="opt" data-b="babyY">🟡 येलो बेबी</button><button class="opt" data-b="babyP">🩷 पिंक बेबी</button><button class="opt" data-b="babyB">🔵 ब्लू बेबी</button></div>
     <div class="row" id="modeRow"><button class="opt" id="modeH">🔤 हिंदी अक्षर</button><button class="opt" id="modeL">🧠 Increase Learning Power</button></div>
-    <div class="row" id="voiceRow"><button class="opt" data-v="madhur">🎙 आवाज़: मधुर</button><button class="opt" data-v="swara">👩 स्वरा</button><button class="opt" data-v="pratham">🎙 आवाज़: पुरुष 1</button><button class="opt" data-v="rohan">🎙 पुरुष 2</button><button class="opt" data-v="priya">👩 महिला</button><button class="opt" data-v="phone">🤖 फ़ोन</button></div>
-    <div class="row" id="spdRow"><button class="opt" data-s="24">🐢 धीमा</button><button class="opt" data-s="33">🚶 सामान्य</button><button class="opt" data-s="45">🐇 तेज़</button></div>
-    <div class="row"><button class="opt" id="helpBtn">💡 मदद: चालू</button><button class="opt" id="musBtn">🎵 संगीत: चालू</button><button class="opt" id="fsBtn">⛶ पूरी स्क्रीन</button></div>
+    <p id="modeP" style="font-size:14px;margin-top:2px"></p>
     <button class="big" id="resBtn" style="display:none;font-size:22px;background:linear-gradient(#66bb6a,#2e7d32) !important;box-shadow:0 7px 0 #1b5e20,0 10px 14px rgba(0,0,0,.35)"></button>
     <button class="big" id="playBtn">▶ खेलें</button>
     <div id="tapTxt">👆 कहीं भी टैप करो!</div>
+    <div class="row" id="voiceRow"><button class="opt" data-v="madhur">🎙 आवाज़: मधुर</button><button class="opt" data-v="swara">👩 स्वरा</button><button class="opt" data-v="pratham">🎙 आवाज़: पुरुष 1</button><button class="opt" data-v="rohan">🎙 पुरुष 2</button><button class="opt" data-v="priya">👩 महिला</button><button class="opt" data-v="phone">🤖 फ़ोन</button></div>
+    <div class="row" id="spdRow"><button class="opt" data-s="24">🐢 धीमा</button><button class="opt" data-s="33">🚶 सामान्य</button><button class="opt" data-s="45">🐇 तेज़</button></div>
+    <div class="row"><button class="opt" id="helpBtn">💡 मदद: चालू</button><button class="opt" id="musBtn">🎵 संगीत: चालू</button><button class="opt" id="fsBtn">⛶ पूरी स्क्रीन</button></div>
     <p style="font-size:15px;margin-top:16px;opacity:.9">स्क्रीन का बायाँ/दायाँ हिस्सा टैप करो • ⬆ स्वाइप = कूदो • ⬇ स्वाइप = झुको</p>
   </div>
   <div id="pauseScr" class="ov" style="display:none">
@@ -139,13 +151,6 @@
     <button class="big" id="pResume">▶ जारी रखो</button>
     <button class="big" id="pFresh" style="font-size:22px;background:linear-gradient(#66bb6a,#2e7d32) !important;box-shadow:0 7px 0 #1b5e20,0 10px 14px rgba(0,0,0,.35)">🔄 नया खेल (शुरू से)</button>
     <button class="opt" id="pHome" style="margin-top:16px">🏠 होम</button>
-  </div>
-  <div id="winScr" class="ov" style="display:none">
-    <div style="font-size:64px">🎉🏆⭐</div>
-    <h1>शाबाश तनिष्का!</h1>
-    <p id="winTxt">तुमने सब अक्षर सही पहचाने!</p>
-    <div id="recap"></div>
-    <button class="big" id="againBtn">🔄 फिर से खेलें</button>
   </div>
 </div>
 
@@ -279,7 +284,7 @@ const LESSONS_H = [
   { t: "इ", hint: "इमली वाली इ", icon: "🟤", word: "इमली" }, { t: "ई", hint: "ईख वाली ई", icon: "🎋", word: "ईख" },
   { t: "उ", hint: "उल्लू वाला उ", icon: "🦉", word: "उल्लू" }
 ];
-let LESSONS = LESSONS_H, MODE = "hin";
+let LESSONS = LESSONS_H, MODE = "hin", CH = "bear", HB0 = 2.6, decorStyle = "default";
 // ---- Increase Learning Power: ank = dhwani (T D=1, N=2, M=3, R=4, SH=5, K=6, F V=7, P B=8, L=9, S=0)
 const LP_TOK = ["T", "D", "N", "M", "R", "SH", "K", "F", "V", "P", "B", "L", "S"];
 const SYL = { T: "टा", D: "डा", N: "ना", M: "मा", R: "रा", SH: "शा", K: "का", F: "फा", V: "वा", P: "पा", B: "बा", L: "ला", S: "सा" };
@@ -366,19 +371,32 @@ const sunMesh = mesh(G.sph, 0xfff176, 6, 6, 1, 22, 38, -118, scene); sunMesh.mat
 // ---- sajaawat (ped, ghar, blocks, ghubbare), cloud
 const decor = [];
 const DCOL = [0xef5350, 0x42a5f5, 0xffca28, 0xab47bc, 0x26c6da, 0xff7043];
-function mkDecor(kind) {
+function mkDecor(kind, style) {
   const g = new THREE.Group();
-  if (kind === 0) { mesh(G.cyl, 0x8d6e63, 0.22, 2.2, 0.22, 0, 1.1, 0, g); mesh(G.sph, 0x43c35d, 1.1, 1.1, 1.1, 0, 2.9, 0, g); mesh(G.sph, 0x6fe07f, 0.7, 0.7, 0.7, 0.4, 3.5, 0.2, g); }
+  if (style === "bamboo") {
+    if (kind === 0) { for (let i = 0; i < 4; i++) { const h = 5 + Math.random() * 3, x = (i - 1.5) * 0.6, z = (i % 2) * 0.5; mesh(G.cyl, 0x43c35d, 0.17, h, 0.17, x, h / 2, z, g); for (let n = 1; n < 4; n++) mesh(G.cyl, 0x6fe07f, 0.22, 0.14, 0.22, x, h * n / 4, z, g); } }
+    else if (kind === 1) { mesh(G.cyl, 0x8d6e63, 1.5, 1.3, 1.5, 0, 0.65, 0, g); mesh(G.cone, 0xd84315, 2.0, 1.3, 2.0, 0, 1.95, 0, g); mesh(G.box, 0xfff3c4, 0.5, 0.7, 0.05, 0, 0.5, 1.48, g); }
+    else if (kind === 2) { mesh(G.sph, 0x90a4ae, 1.3, 0.9, 1.1, 0, 0.5, 0, g); mesh(G.sph, 0xb0bec5, 0.8, 0.6, 0.7, 0.9, 0.3, 0.4, g); mesh(G.sph, 0x78909c, 0.6, 0.5, 0.6, -0.8, 0.25, 0.3, g); }
+    else { mesh(G.cyl, 0x8d6e63, 0.05, 3, 0.05, 0, 1.5, 0, g); mesh(G.sph, 0xef5350, 0.7, 0.9, 0.7, 0, 3.4, 0, g); mesh(G.cyl, 0xffca28, 0.3, 0.12, 0.3, 0, 4.2, 0, g); }
+  } else if (style === "toy" && kind === 0) {
+    mesh(G.cyl, 0xffffff, 0.08, 2.6, 0.08, 0, 1.3, 0, g); const c = DCOL[Math.floor(Math.random() * DCOL.length)];
+    mesh(G.sph, c, 1.0, 1.0, 0.4, 0, 3.2, 0, g); mesh(G.sph, 0xffffff, 0.55, 0.55, 0.45, 0, 3.2, 0, g); mesh(G.sph, c, 0.3, 0.3, 0.5, 0, 3.2, 0, g);
+  }
+  else if (kind === 0) { mesh(G.cyl, 0x8d6e63, 0.22, 2.2, 0.22, 0, 1.1, 0, g); mesh(G.sph, 0x43c35d, 1.1, 1.1, 1.1, 0, 2.9, 0, g); mesh(G.sph, 0x6fe07f, 0.7, 0.7, 0.7, 0.4, 3.5, 0.2, g); }
   else if (kind === 1) { const c = DCOL[Math.floor(Math.random() * DCOL.length)]; mesh(G.box, c, 2.6, 2.2, 2.6, 0, 1.1, 0, g); mesh(G.cone, 0xd84315, 2.2, 1.4, 2.2, 0, 2.9, 0, g).rotation.y = Math.PI / 4; mesh(G.box, 0xfff3c4, 0.6, 0.8, 0.05, 0, 0.6, 1.31, g); }
   else if (kind === 2) { for (let i = 0; i < 3; i++) mesh(G.box, DCOL[(i * 2 + Math.floor(Math.random() * 3)) % 6], 1.3, 1.3, 1.3, (i - 1) * 0.1, 0.65 + i * 1.3, 0, g).rotation.y = i * 0.4; }
   else { mesh(G.cyl, 0xffffff, 0.03, 3, 0.03, 0, 1.5, 0, g); mesh(G.sph, DCOL[Math.floor(Math.random() * 6)], 0.8, 1, 0.8, 0, 3.6, 0, g); }
   return g;
 }
-for (let i = 0; i < 44; i++) {
-  const side = i % 2 ? 1 : -1, g = mkDecor(i % 4);
-  g.userData.side = side; g.position.set(side * (11.5 + Math.random() * 8), 0, 10 - i * 3.6);
-  scene.add(g); decor.push(g);
+function buildDecor(style) {
+  decorStyle = style; decor.splice(0).forEach(g => scene.remove(g));
+  for (let i = 0; i < 44; i++) {
+    const side = i % 2 ? 1 : -1, g = mkDecor(i % 4, style);
+    g.userData.side = side; g.position.set(side * (11.5 + Math.random() * 8), 0, 10 - i * 3.6);
+    scene.add(g); decor.push(g);
+  }
 }
+buildDecor("default");
 const clouds = [], cloudMats = [];
 for (let i = 0; i < 9; i++) {
   const g = new THREE.Group(); const b = new THREE.MeshBasicMaterial({ color: 0xffffff, fog: false }); cloudMats.push(b);
@@ -403,22 +421,29 @@ lines.forEach(m => resetLine(m, false));
 
 // ---- Bhalu
 const bear = new THREE.Group(), bodyG = new THREE.Group(); bear.add(bodyG);
-const BROWN = 0xa8683c, CREAM = 0xf6e7c8;
-mesh(G.sph, BROWN, 0.72, 0.8, 0.64, 0, 1.25, 0, bodyG);
-mesh(G.sph, CREAM, 0.46, 0.52, 0.2, 0, 1.2, -0.52, bodyG);
-mesh(G.sph, 0xc58a5a, 0.24, 0.22, 0.24, 0, 0.95, 0.58, bodyG);
-const scarf = new THREE.Mesh(G.tor, mat(0xd9283a)); scarf.rotation.x = Math.PI / 2; scarf.scale.set(1.1, 1.1, 1.1); scarf.position.y = 1.98; bodyG.add(scarf);
+const PM = {}, PR = {};
+function pmat(role, hex) { return PM[role] || (PM[role] = new THREE.MeshLambertMaterial({ color: hex })); }
+function part(role, hex, sx, sy, sz, x, y, z, parent) { const m = new THREE.Mesh(G.sph, pmat(role, hex)); m.scale.set(sx, sy, sz); m.position.set(x, y, z); parent.add(m); (PR[role] = PR[role] || []).push(m); return m; }
+part("body", 0xa8683c, 0.72, 0.8, 0.64, 0, 1.25, 0, bodyG);
+part("belly", 0xf6e7c8, 0.46, 0.52, 0.2, 0, 1.2, -0.52, bodyG);
+part("tail", 0xc58a5a, 0.24, 0.22, 0.24, 0, 0.95, 0.58, bodyG);
+const scarf = new THREE.Mesh(G.tor, pmat("scarf", 0xd9283a)); scarf.rotation.x = Math.PI / 2; scarf.scale.set(1.1, 1.1, 1.1); scarf.position.y = 1.98; bodyG.add(scarf); PR.scarf = [scarf];
 const head = new THREE.Group(); head.position.y = 2.6; bodyG.add(head);
-mesh(G.sph, BROWN, 0.64, 0.6, 0.6, 0, 0, 0, head);
-[-1, 1].forEach(s => { mesh(G.sph, BROWN, 0.23, 0.23, 0.17, s * 0.46, 0.5, 0, head); mesh(G.sph, 0xf08a98, 0.13, 0.13, 0.08, s * 0.46, 0.5, -0.1, head); });
-mesh(G.sph, CREAM, 0.32, 0.25, 0.22, 0, -0.14, -0.5, head);
-mesh(G.sph, 0x2a1a14, 0.11, 0.08, 0.08, 0, -0.04, -0.68, head);
-[-1, 1].forEach(s => { mesh(G.sph, 0xffffff, 0.14, 0.17, 0.08, s * 0.25, 0.14, -0.53, head); mesh(G.sph, 0x2a1a14, 0.075, 0.095, 0.06, s * 0.25, 0.14, -0.6, head); });
+part("head", 0xa8683c, 0.64, 0.6, 0.6, 0, 0, 0, head);
+[-1, 1].forEach(s => { part("ear", 0xa8683c, 0.23, 0.23, 0.17, s * 0.46, 0.5, 0, head); part("earIn", 0xf08a98, 0.13, 0.13, 0.08, s * 0.46, 0.5, -0.1, head); });
+part("snout", 0xf6e7c8, 0.32, 0.25, 0.22, 0, -0.14, -0.5, head);
+part("nose", 0x2a1a14, 0.11, 0.08, 0.08, 0, -0.04, -0.68, head);
+[-1, 1].forEach(s => { part("patch", 0x1a1a1a, 0.17, 0.2, 0.07, s * 0.25, 0.13, -0.5, head).rotation.z = s * 0.35; });
+[-1, 1].forEach(s => { part("eyeW", 0xffffff, 0.14, 0.17, 0.08, s * 0.25, 0.14, -0.53, head); part("eyeP", 0x2a1a14, 0.075, 0.095, 0.06, s * 0.25, 0.14, -0.6, head); });
+part("bnose", 0xffa07a, 0.07, 0.06, 0.06, 0, -0.06, -0.6, head);
+part("cap", 0xffd600, 0.66, 0.36, 0.62, 0, 0.36, 0.02, head);
+part("pom", 0xff7043, 0.1, 0.1, 0.1, 0, 0.78, 0, head);
+[-1, 1].forEach(s => part("cheek", 0xff8a9e, 0.1, 0.07, 0.04, s * 0.38, -0.1, -0.55, head));
 const mouthG = new THREE.Group(); mouthG.position.set(0, -0.255, -0.672); head.add(mouthG);
 const mouthIn = mesh(G.sph, 0x5a0f1c, 0.11, 0.03, 0.05, 0, 0, 0, mouthG);
 const tongue = mesh(G.sph, 0xf06292, 0.07, 0.02, 0.04, 0, -0.03, 0.012, mouthG); tongue.visible = false;
-const arms = [-1, 1].map(s => { const p = new THREE.Group(); p.position.set(s * 0.82, 1.78, 0); bodyG.add(p); mesh(G.sph, BROWN, 0.22, 0.46, 0.22, 0, -0.42, 0, p); return p; });
-const legs = [-1, 1].map(s => { const p = new THREE.Group(); p.position.set(s * 0.34, 0.72, 0); bear.add(p); mesh(G.sph, BROWN, 0.28, 0.36, 0.3, 0, -0.3, 0, p); mesh(G.sph, CREAM, 0.26, 0.17, 0.34, 0, -0.62, -0.08, p); return p; });
+const arms = [-1, 1].map(s => { const p = new THREE.Group(); p.position.set(s * 0.82, 1.78, 0); bodyG.add(p); part("arm", 0xa8683c, 0.22, 0.46, 0.22, 0, -0.42, 0, p); return p; });
+const legs = [-1, 1].map(s => { const p = new THREE.Group(); p.position.set(s * 0.34, 0.72, 0); bear.add(p); part("leg", 0xa8683c, 0.28, 0.36, 0.3, 0, -0.3, 0, p); part("foot", 0xf6e7c8, 0.26, 0.17, 0.34, 0, -0.62, -0.08, p); return p; });
 const shadow = new THREE.Mesh(new THREE.CircleGeometry(0.9, 24), new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.25 }));
 shadow.rotation.x = -Math.PI / 2; shadow.position.y = 0.02; scene.add(shadow);
 const flame = new THREE.Group();
@@ -585,6 +610,16 @@ const THEMES = [
   { name: "गुलाबी ग्रह", icon: "🌸", note: "गुलाबी = Pink", sky: ["#ff6fa5", "#ffa6cd", "#ffd3e8", "#fff0f7"], fog: 0xffd3e8, bedA: 0xb15fd1, bedB: 0xc274e0, grass: 0xff9fc6, curb: 0x4fc3f7, leaf1: 0xffeb3b, leaf2: 0xff80ab, roof: 0x7e57c2, mount: [0xf48fb1, 0xf06292, 0xf8bbd0], sun: 0xfff59d, cloud: 0xffffff, hemi: 1.0, stars: false },
   { name: "पीला ग्रह", icon: "🟡", note: "पीला = Yellow", sky: ["#ff8f00", "#ffc947", "#ffe9a3", "#fff8d6"], fog: 0xffe9a3, bedA: 0xb7791f, bedB: 0xc58a2c, grass: 0xf2cf5c, curb: 0x6d4c41, leaf1: 0x8d6e63, leaf2: 0xffa000, roof: 0x5d4037, mount: [0xe0a526, 0xd69a1c, 0xeab33a], sun: 0xffffff, cloud: 0xfff3c4, hemi: 1.0, stars: false }
 ];
+const TH = {
+  bamboo: { name: "बाँस का जंगल", icon: "🎋", note: "हरा = Green", sky: ["#4aa96c", "#8fd19e", "#d4efd0", "#fffde7"], fog: 0xd4efd0, bedA: 0x7a8f7e, bedB: 0x869c8a, grass: 0x66bb6a, curb: 0x8d6e63, leaf1: 0x2e9b45, leaf2: 0x7ad07f, roof: 0x8d6e63, mount: [0x558b2f, 0x689f38, 0x7cb342], sun: 0xfff59d, cloud: 0xffffff, hemi: 0.95, stars: false },
+  snow: { name: "बर्फ़ीला पहाड़", icon: "❄️", note: "सफ़ेद = White", sky: ["#7fa9d6", "#b3d4f0", "#e3f2fd", "#ffffff"], fog: 0xe3f2fd, bedA: 0x90a4ae, bedB: 0x9fb3bd, grass: 0xeceff1, curb: 0x90caf9, leaf1: 0xb0c4d0, leaf2: 0xe3edf3, roof: 0x5d4037, mount: [0xb0bec5, 0xcfd8dc, 0xeceff1], sun: 0xfffde7, cloud: 0xffffff, hemi: 1.0, stars: false },
+  sunset: { name: "सुनहरी शाम", icon: "🌅", note: "नारंगी = Orange", sky: ["#e65100", "#ff8a3d", "#ffc27a", "#fff3e0"], fog: 0xffc27a, bedA: 0x8d6a5a, bedB: 0x9c7868, grass: 0xaed581, curb: 0xffa726, leaf1: 0xe08a1e, leaf2: 0xffb74d, roof: 0x6d4c41, mount: [0xc0752f, 0xb36a28, 0xd18538], sun: 0xffe0b2, cloud: 0xffccbc, hemi: 0.95, stars: false },
+  sunny: { name: "धूप-नगर", icon: "☀️", note: "पीला = Yellow", sky: ["#ffc107", "#ffd96a", "#fff0b0", "#fffde7"], fog: 0xfff0b0, bedA: 0xb39ddb, bedB: 0xc3b1e6, grass: 0xaed581, curb: 0xff7043, leaf1: 0xfbc02d, leaf2: 0xff8a65, roof: 0xef5350, mount: [0xffcc80, 0xffb74d, 0xffd180], sun: 0xffffff, cloud: 0xffffff, hemi: 1.05, stars: false },
+  candy: { name: "कैंडी-लैंड", icon: "🍭", note: "गुलाबी = Pink", sky: ["#ff6fa5", "#ffa6cd", "#ffd3e8", "#fff0f7"], fog: 0xffd3e8, bedA: 0xce93d8, bedB: 0xd9a5e2, grass: 0xf8bbd0, curb: 0x4fc3f7, leaf1: 0xff80ab, leaf2: 0xffd54f, roof: 0x7e57c2, mount: [0xf48fb1, 0xf06292, 0xf8bbd0], sun: 0xfff59d, cloud: 0xffffff, hemi: 1.0, stars: false },
+  ocean: { name: "नीला समुद्र", icon: "🌊", note: "नीला = Blue", sky: ["#0277bd", "#4fc3f7", "#b3e5fc", "#e1f5fe"], fog: 0xb3e5fc, bedA: 0x4db6ac, bedB: 0x5cc5b9, grass: 0x80deea, curb: 0xffffff, leaf1: 0xff7043, leaf2: 0xffca28, roof: 0xef5350, mount: [0x4dd0e1, 0x26c6da, 0x80deea], sun: 0xfff59d, cloud: 0xffffff, hemi: 1.0, stars: false }
+};
+const WORLDS = { bear: THEMES.slice(), panda: [TH.bamboo, TH.snow, TH.sunset, THEMES[2]], babyY: [TH.sunny, TH.candy, TH.ocean, THEMES[2]], babyP: [TH.candy, TH.sunny, TH.ocean, THEMES[2]], babyB: [TH.ocean, TH.candy, TH.sunny, THEMES[2]] };
+let THEME_LIST = THEMES;
 const starPts = (() => {
   const n = 260, pos = new Float32Array(n * 3);
   for (let i = 0; i < n; i++) { const th = Math.random() * Math.PI * 2, ph = Math.random() * 1.2; pos[i * 3] = 190 * Math.sin(ph) * Math.cos(th); pos[i * 3 + 1] = 190 * Math.cos(ph) * 0.9 + 10; pos[i * 3 + 2] = -Math.abs(190 * Math.sin(ph) * Math.sin(th)) - 20; }
@@ -593,7 +628,7 @@ const starPts = (() => {
 })();
 let themeI = 0;
 function applyTheme(i) {
-  const T = THEMES[i]; drawSky(T.sky); scene.fog.color.setHex(T.fog);
+  const T = THEME_LIST[i]; drawSky(T.sky); scene.fog.color.setHex(T.fog);
   mat(0x6e7bb5).color.setHex(T.bedA); mat(0x7c89c4).color.setHex(T.bedB); mat(0x7ed957).color.setHex(T.grass); mat(0xff5252).color.setHex(T.curb);
   mat(0x43c35d).color.setHex(T.leaf1); mat(0x6fe07f).color.setHex(T.leaf2); mat(0xd84315).color.setHex(T.roof);
   mat(0x9ad07a).color.setHex(T.mount[0]); mat(0x8cc86e).color.setHex(T.mount[1]); mat(0xa5d986).color.setHex(T.mount[2]);
@@ -645,7 +680,7 @@ function startGame(resume) {
   ac(); unlockAudio(); score = 0; lastCoinN = 0; lastMult = 1; $("scoreV").textContent = 0; $("bestV").textContent = "BEST " + best; $("multB").textContent = "×1"; showHand();
   order = buildOrder(); qIdx = 0; stars = 0; coinN = 0; lane = 1; state = "PLAY"; ramp = 0; boostT = 0; wrongN = 0; streak = 0; playT = 0; duckT = 0; jumpT = -1; obT = 3; obst.splice(0).forEach(o => scene.remove(o.g)); jpads.splice(0).forEach(o => scene.remove(o)); flyT = -1; themeDone = true; jpT = 9; themeI = 0; applyTheme(0); $("flash").style.opacity = 0; pads.splice(0).forEach(p => scene.remove(p));
   gates.splice(0).forEach(o => scene.remove(o.g)); coins.splice(0).forEach(c => scene.remove(c)); picks.splice(0).forEach(c => scene.remove(c)); learned = {}; stopVoice(); $("fb").style.opacity = 0;
-  $("startScr").style.display = "none"; $("winScr").style.display = "none"; $("qbar").style.display = "block"; $("ctl").style.display = "flex";
+  $("startScr").style.display = "none"; $("resultBox").style.display = "none"; $("heroE").style.display = ""; $("qbar").style.display = "block"; $("ctl").style.display = "flex";
   $("starBox").textContent = "⭐ 0/" + order.length; $("coinBox").textContent = "0";
   wagons.splice(0).forEach(w => scene.remove(w.g)); pus.splice(0).forEach(m => scene.remove(m)); yb = 0; vyb = 0; safeT = 0; lastLane = 1; magT = 0; jetT = 0; x2T = 0; shoeT = 0; puSpawnT = 12; wagT = 14; puStr = ""; saveAcc = 0;
   $("pauseScr").style.display = "none"; $("cd").style.display = "none"; $("puBox").innerHTML = "";
@@ -654,7 +689,7 @@ function startGame(resume) {
   setOptions(); makeGate(curOpts); waitSpawn = -1;
   let first = true; try { first = !localStorage.getItem("br_tut"); localStorage.setItem("br_tut", "1"); } catch (e) {}
   setTimeout(() => { setQBar(); say([vc(order[qIdx].t)], 2); }, 350);
-  guide(first ? "स्क्रीन का बायाँ/दायाँ हिस्सा टैप करो! सही अक्षर वाले गेट में जाओ" : "चलो दौड़ें! 🏃"); if (first) setTimeout(() => guide("⬆ ऊपर स्वाइप = कूदो   ⬇ नीचे स्वाइप = झुको"), 5200);
+  guide(CHARS[CH].story); setTimeout(() => state !== "MENU" && guide(first ? "स्क्रीन का बायाँ/दायाँ हिस्सा टैप करो! सही अक्षर वाले गेट में जाओ" : "चलो दौड़ें! 🏃"), 4800); if (first) setTimeout(() => state !== "MENU" && guide("⬆ ऊपर स्वाइप = कूदो   ⬇ नीचे स्वाइप = झुको"), 9600);
 }
 function activeGate() { return gates.find(g => !g.done && g.g.position.z > -62 && g.g.position.z < -2); }
 function laneOk() { const g = activeGate(); return g ? g.opts[lane] === order[qIdx].t : null; }
@@ -671,8 +706,8 @@ $("musBtn").onclick = $("bM").onclick = () => { musicOn = !musicOn; try { localS
 $("fsBtn").onclick = $("bF").onclick = toggleFS;
 refreshOpts2(); musicStep();
 refreshOpts();
-$("startScr").addEventListener("click", e => { if (state === "MENU" && !(e.target.closest && e.target.closest(".opt"))) startGame(!!loadSave()); });
-$("playBtn").onclick = () => startGame(false); $("againBtn").onclick = () => startGame(false); $("resBtn").onclick = () => startGame(true);
+$("startScr").addEventListener("click", e => { if (state === "MENU" && $("resultBox").style.display === "none" && !(e.target.closest && e.target.closest(".opt"))) startGame(!!loadSave()); });
+$("playBtn").onclick = () => startGame(false); $("resBtn").onclick = () => startGame(true);
 $("bP").onclick = togglePause; $("pResume").onclick = resumeGame; $("pFresh").onclick = () => startGame(false); $("pHome").onclick = goHome;
 $("bS").onclick = () => { if (state === "PLAY") showQuestion(); };
 addEventListener("keydown", e => { if (e.key === "p" || e.key === "P" || e.key === "Escape") togglePause(); if (e.key === "f" || e.key === "F") toggleFS(); if (e.key === "ArrowUp" || e.key === "w" || e.key === "W") jumpAct(); if (e.key === "ArrowDown" || e.key === "s" || e.key === "S") duckAct(); if (e.key === " " && state === "PLAY") jumpAct();
@@ -689,9 +724,9 @@ function launch() {
   }
 }
 function changeTheme() {
-  themeI = (themeI + 1) % THEMES.length; const T = THEMES[themeI];
+  themeI = (themeI + 1) % THEME_LIST.length; const T = THEME_LIST[themeI];
   $("flash").style.opacity = 1; setTimeout(() => { applyTheme(themeI); $("flash").style.opacity = 0; }, 330);
-  banner("info", T.icon, "वाह! " + T.name + " पर आ गए!", T.note);
+  banner("info", T.icon, "वाह! नई दुनिया: " + T.name, T.note);
   guide("🪐 " + T.name + "! देखो, सब कुछ बदल गया!");
   setTimeout(() => { burst(bx, 2.5, 0, 22, STARCOL); }, 700);
 }
@@ -735,7 +770,7 @@ function winGame() {
   clearSave(); saveBest(); state = "WIN"; $("qbar").style.display = "none"; $("ctl").style.display = "none"; $("hintLbl").style.display = "none"; pad.visible = false;
   $("recap").innerHTML = LESSONS.map(l => MODE === "lp" ? "<span>" + l.t + " " + l.word + " " + l.dig + "</span>" : "<span>" + l.t + " " + l.icon + " " + l.word + "</span>").join("");
   $("winTxt").textContent = "तुमने " + stars + (MODE === "lp" ? " ध्वनियाँ सही पहचानीं!" : " अक्षर सही पहचाने!") + " 🪙 " + coinN + "  •  स्कोर " + Math.floor(score) + "  •  सर्वोत्तम " + best;
-  $("winScr").style.display = "flex";
+  goHome(true);
   tone([660, 880, 1100, 1320], 0.12, 0.22); duckT = 0;
   for (let i = 0; i < 5; i++) setTimeout(() => burst((Math.random() - 0.5) * 6, 3, 0, 20, STARCOL), i * 250);
 }
@@ -819,11 +854,11 @@ function stepPU(dt) {
   saveAcc += dt; if (saveAcc > 3) { saveAcc = 0; saveProg(); }
 }
 // ================= PAUSE / SAVE / RESUME =================
-function SK() { return "br_save2" + (MODE === "lp" ? "_lp" : ""); }
+function SK() { return "br_save2" + (MODE === "lp" ? "_lp" : "") + (CH === "bear" ? "" : "_" + CH); }
 function saveProg() { if (state !== "PLAY" && state !== "PAUSE" && state !== "COUNT") return; try { localStorage.setItem(SK(), JSON.stringify({ q: qIdx, st: stars, c: coinN, sc: Math.floor(score), th: themeI, pt: playT, sk: streak, o: order.map(q => q.id) })); } catch (e) {} }
 function clearSave() { try { localStorage.removeItem(SK()); } catch (e) {} }
 function loadSave() { try { const v = JSON.parse(localStorage.getItem(SK()) || "null"); if (v && typeof v.q === "number" && v.q >= 0 && v.q < 40 && (v.q > 0 || v.sc >= 40 || v.c > 0)) return v; } catch (e) {} return null; }
-function refreshStart() { const v = loadSave(); $("resBtn").style.display = v ? "block" : "none"; if (v) $("resBtn").textContent = "▶ जारी रखें (सवाल " + (v.q + 1) + "/" + (v.o ? v.o.length : LESSONS_H.length) + " • ⭐" + v.st + " • 🪙" + v.c + ")"; $("playBtn").textContent = v ? "🔄 नया खेल" : "▶ खेलें"; }
+function refreshStart() { const v = loadSave(); $("resBtn").style.display = v ? "block" : "none"; if (v) $("resBtn").textContent = "▶ जारी रखें (सवाल " + (v.q + 1) + "/" + (v.o ? v.o.length : LESSONS_H.length) + " • ⭐" + v.st + " • 🪙" + v.c + ")"; $("playBtn").textContent = v ? "🔄 नया खेल" : $("resultBox").style.display === "block" ? "🔄 फिर से खेलें" : "▶ खेलें"; }
 function pauseGame() {
   if (state !== "PLAY") return; state = "PAUSE"; stopVoice(); saveProg(); $("fb").style.opacity = 0; $("guide").style.display = "none";
   $("pauseInfo").textContent = "सवाल " + (qIdx + 1) + "/" + order.length + " • ⭐ " + stars + " • 🪙 " + coinN + " • स्कोर " + Math.floor(score);
@@ -831,8 +866,11 @@ function pauseGame() {
 }
 function resumeGame() { if (state !== "PAUSE") return; $("pauseScr").style.display = "none"; state = "COUNT"; cdT = 3; const cd = $("cd"); cd.style.display = "block"; cd.textContent = 3; }
 function togglePause() { if (state === "PLAY") pauseGame(); else if (state === "PAUSE") resumeGame(); }
-function goHome() {
-  saveProg(); stopVoice(); $("pauseScr").style.display = "none"; state = "MENU";
+function goHome(result) {
+  saveProg(); $("resultBox").style.display = result === true ? "block" : "none";
+  $("heroE").style.display = result === true ? "none" : "";
+  clearTimeout(gT); $("guide").style.display = "none";
+  if (result === true) setTimeout(() => { try { $("playBtn").scrollIntoView({ block: "center" }); } catch (e) {} }, 60); stopVoice(); $("pauseScr").style.display = "none"; state = "MENU";
   gates.splice(0).forEach(o => scene.remove(o.g)); coins.splice(0).forEach(c => scene.remove(c)); picks.splice(0).forEach(c => scene.remove(c)); obst.splice(0).forEach(o => scene.remove(o.g)); jpads.splice(0).forEach(o => scene.remove(o)); pads.splice(0).forEach(p => scene.remove(p)); wagons.splice(0).forEach(w => scene.remove(w.g)); pus.splice(0).forEach(m => scene.remove(m));
   yb = 0; vyb = 0; magT = jetT = x2T = shoeT = 0; flyT = -1; jumpT = -1; duckT = 0; puStr = ""; $("puBox").innerHTML = ""; $("qbar").style.display = "none"; $("ctl").style.display = "none"; $("hintLbl").style.display = "none"; $("act").style.display = "none"; $("fb").style.opacity = 0; pad.visible = false;
   $("startScr").style.display = "flex"; refreshStart();
@@ -852,15 +890,40 @@ function setVoice(k, sample) {
 }
 document.querySelectorAll("#voiceRow .opt").forEach(b => b.onclick = () => setVoice(b.dataset.v, true));
 setVoice(VSEL, false);
+const COND = ["ear", "earIn", "snout", "nose", "scarf", "tail", "patch", "bnose", "cap", "pom", "cheek"];
+const BABYSH = ["scarf", "bnose", "cap", "pom", "cheek"];
+const CHARS = {
+  bear: { emoji: "🐻", name: "भालू", c: { body: 0xa8683c, head: 0xa8683c, ear: 0xa8683c, earIn: 0xf08a98, arm: 0xa8683c, leg: 0xa8683c, foot: 0xf6e7c8, belly: 0xf6e7c8, snout: 0xf6e7c8, nose: 0x2a1a14, scarf: 0xd9283a, tail: 0xc58a5a }, show: ["ear", "earIn", "snout", "nose", "scarf", "tail"], hs: 1, bs: 1, hb: 2.6, mouth: [0, -0.255, -0.672], decor: "default", world: "bear", story: "🍯 भालू को शहद चाहिए! सही रास्ते पर दौड़ो।" },
+  panda: { emoji: "🐼", name: "पांडा", c: { body: 0xf7f7f2, head: 0xf7f7f2, ear: 0x1f1f1f, earIn: 0x555555, arm: 0x1f1f1f, leg: 0x1f1f1f, foot: 0x1f1f1f, belly: 0xffffff, snout: 0xeaeaea, nose: 0x111111, scarf: 0x43a047, tail: 0xffffff, patch: 0x1a1a1a }, show: ["ear", "earIn", "snout", "nose", "scarf", "tail", "patch"], hs: 1, bs: 1, hb: 2.6, mouth: [0, -0.255, -0.672], decor: "bamboo", world: "panda", story: "🎋 पांडा को ताज़ा बाँस चाहिए! जंगल में दौड़ो।" },
+  babyY: { emoji: "👶", name: "येलो बेबी", c: { body: 0xffd600, head: 0xffd5b0, ear: 0xffd5b0, earIn: 0xffb089, arm: 0xffd600, leg: 0xffd600, foot: 0xffffff, belly: 0xfff59d, snout: 0xffd5b0, nose: 0xffb089, scarf: 0xffffff, tail: 0xffd600, bnose: 0xffa07a, cap: 0xffd600, pom: 0xff7043, cheek: 0xff8a9e }, show: BABYSH, hs: 1.3, bs: 0.92, hb: 2.62, mouth: [0, -0.2, -0.58], decor: "toy", world: "babyY", story: "☀️ येलो बेबी को अपना पीला टेडी ढूँढना है!" },
+  babyP: { emoji: "👶", name: "पिंक बेबी", c: { body: 0xff80ab, head: 0xffd5b0, ear: 0xffd5b0, earIn: 0xffb089, arm: 0xff80ab, leg: 0xff80ab, foot: 0xffffff, belly: 0xffc1d9, snout: 0xffd5b0, nose: 0xffb089, scarf: 0xffffff, tail: 0xff80ab, bnose: 0xffa07a, cap: 0xff80ab, pom: 0xffd54f, cheek: 0xff8a9e }, show: BABYSH, hs: 1.3, bs: 0.92, hb: 2.62, mouth: [0, -0.2, -0.58], decor: "toy", world: "babyP", story: "🍭 पिंक बेबी को कैंडी की चाबी ढूँढनी है!" },
+  babyB: { emoji: "👶", name: "ब्लू बेबी", c: { body: 0x42a5f5, head: 0xffd5b0, ear: 0xffd5b0, earIn: 0xffb089, arm: 0x42a5f5, leg: 0x42a5f5, foot: 0xffffff, belly: 0xbbdefb, snout: 0xffd5b0, nose: 0xffb089, scarf: 0xffffff, tail: 0x42a5f5, bnose: 0xffa07a, cap: 0x42a5f5, pom: 0xffee58, cheek: 0xff8a9e }, show: BABYSH, hs: 1.3, bs: 0.92, hb: 2.62, mouth: [0, -0.2, -0.58], decor: "toy", world: "babyB", story: "🌊 ब्लू बेबी को अपनी नाव ढूँढनी है!" }
+};
+function setChar(k) {
+  const C = CHARS[k]; if (!C) return; CH = k;
+  Object.keys(PR).forEach(r => { if (C.c[r] !== undefined) PM[r].color.setHex(C.c[r]); if (COND.indexOf(r) >= 0) PR[r].forEach(m => { m.visible = C.show.indexOf(r) >= 0; }); });
+  head.scale.setScalar(C.hs); bodyG.scale.setScalar(C.bs); HB0 = C.hb; head.position.y = HB0; mouthG.position.set(C.mouth[0], C.mouth[1], C.mouth[2]);
+  if (C.decor !== decorStyle) buildDecor(C.decor);
+  THEME_LIST = WORLDS[C.world]; themeI = 0; applyTheme(0);
+  const baby = k.indexOf("baby") === 0;
+  $("heroE").textContent = C.emoji; $("storyP").textContent = C.story; $("nameChip").textContent = "तनिष्का " + C.emoji;
+  document.querySelectorAll("#charRow .opt").forEach(b => b.classList.toggle("on", b.dataset.c === (baby ? "baby" : k)));
+  $("babyRow").style.display = baby ? "" : "none"; document.querySelectorAll("#babyRow .opt").forEach(b => b.classList.toggle("on", b.dataset.b === k));
+  try { localStorage.setItem("br_char", k); } catch (e) {}
+  refreshStart();
+}
 function setMode(m) {
   MODE = m; LETTERS = m === "lp" ? LP_TOK.slice() : ["अ", "आ", "इ", "ई", "उ"]; LESSONS = m === "lp" ? LESSONS_L : LESSONS_H;
   try { localStorage.setItem("br_mode", m); } catch (e) {}
   $("modeH").classList.toggle("on", m !== "lp"); $("modeL").classList.toggle("on", m === "lp");
-  $("startScr").querySelector("p").textContent = m === "lp" ? "अंक की आवाज़ पहचानो! English अक्षर देखो, हिंदी में पढ़ो: 1 = T D → टा डा" : "भालू के साथ दौड़ो और अक्षर पहचानो!";
+  $("modeP").textContent = m === "lp" ? "अंक की आवाज़ पहचानो! English अक्षर देखो, हिंदी में पढ़ो: 1 = T D → टा डा" : "अ आ इ ई उ के अक्षर पहचानो!";
   refreshStart();
 }
 $("modeH").onclick = () => setMode("hin"); $("modeL").onclick = () => setMode("lp");
 try { setMode(localStorage.getItem("br_mode") === "lp" ? "lp" : "hin"); } catch (e) { setMode("hin"); }
+document.querySelectorAll("#charRow .opt").forEach(b => b.onclick = () => { const c = b.dataset.c; let bs = "babyY"; try { bs = localStorage.getItem("br_baby") || "babyY"; } catch (e) {} setChar(c === "baby" ? (CHARS[bs] ? bs : "babyY") : c); });
+document.querySelectorAll("#babyRow .opt").forEach(b => b.onclick = () => { try { localStorage.setItem("br_baby", b.dataset.b); } catch (e) {} setChar(b.dataset.b); });
+{ let c0 = "bear"; try { c0 = localStorage.getItem("br_char") || "bear"; } catch (e) {} setChar(CHARS[c0] ? c0 : "bear"); }
 
 let last = performance.now(), hudDisp = "";
 function frame(now) {
@@ -963,7 +1026,7 @@ function frame(now) {
   const q = raw < 0.2 ? 0 : raw < 0.55 ? 0.45 : 1;
   mouthL += (q - mouthL) * Math.min(1, dt * 22);
   mouthIn.scale.set(0.11 + 0.03 * mouthL, 0.03 + 0.11 * mouthL, 0.05); tongue.visible = mouthL > 0.3; tongue.scale.set(0.07, 0.015 + 0.04 * mouthL, 0.04);
-  head.position.y = 2.6 + mouthL * 0.03; head.rotation.x = mouthL * 0.07;
+  head.position.y = HB0 + mouthL * 0.03; head.rotation.x = mouthL * 0.07;
   if (flyT >= 0) { arms[0].rotation.x = arms[1].rotation.x = -2.7; legs[0].rotation.x = -1.2; legs[1].rotation.x = -0.9; }
   if (duckT > 0 || dk < 0.95) { legs[0].rotation.x = legs[1].rotation.x = -0.7; arms[0].rotation.x = arms[1].rotation.x = 0.5; }
   if (shadow.userData.y0 === undefined) shadow.userData.y0 = shadow.position.y; shadow.position.x = bx; shadow.position.y = shadow.userData.y0 + yb; shadow.scale.setScalar(Math.max(0.3, 1 - (by - yb) * 0.25));
@@ -1031,7 +1094,7 @@ function frame(now) {
 }
 requestAnimationFrame(frame);
 if (location.hash === "#debug") { const d = $("dbg"); d.style.display = "block"; setInterval(() => { d.textContent = "clips: " + Object.keys(AUDIO_B64).map(k => k + ":" + (audioEls[k] && audioEls[k].duration ? audioEls[k].duration.toFixed(1) : "?")).join(" ") + " | state " + state + " q" + qIdx; }, 500); }
-window.__g = { setVoice, miss: () => Object.keys(window.__miss || {}), get vsel() { return VSEL; }, phrases: allPhrases, setMode, get mode() { return MODE; }, order: () => order, yb: () => yb, by0: () => by0, stumble: () => stumbleT, spawnWagon, wagonsZ: () => wagons.map(w => +w.g.position.z.toFixed(1)), surf: () => surfAt(bx), givePU: id => activatePU(PUS.find(p => p.id === id)), spawnPU, get magT() { return magT; }, get jetT() { return jetT; }, get x2T() { return x2T; }, get shoeT() { return shoeT; }, pauseGame, resumeGame, togglePause, goHome, saveProg, loadSave, startGame, setBx: v => { bx = v; }, nPU: () => pus.length, get score() { return score; }, get best() { return best; }, mult: multNow, get flyT() { return flyT; }, get themeI() { return themeI; }, nJp: () => jpads.length, jpZ: () => jpads.map(p => +p.position.z.toFixed(1)), spawnJumpPad, setTheme: i => { themeI = i; applyTheme(i); }, coinsY: () => coins.map(c => +c.position.y.toFixed(1)), spawnCoins, get coinN() { return coinN; }, obZ: () => obst.map(o => +o.g.position.z.toFixed(1)), obState: () => obst.map(o => (o.hit ? 'hit' : o.passed ? 'pass' : 'live')), get lane() { return lane; }, get jumpT() { return jumpT; }, get duckT() { return duckT; }, get mouthL() { return mouthL; }, get speaking() { return speaking; }, get stumbleT() { return stumbleT; }, jumpAct, duckAct, moveL, moveR, spawnObst, nObst: () => obst.length, setPlayT: v => { playT = v; }, get playT() { return playT; }, get SPEED() { return SPEED; }, get wrongN() { return wrongN; }, get streak() { return streak; }, trainZ: () => trains.map(t => +t.position.z.toFixed(1)), planeX: () => planes.map(t => +t.position.x.toFixed(1)), padLane: () => pads.length ? LANE.indexOf(pads[0].position.x) : -1, get VEL() { return VEL; }, get ramp() { return ramp; }, get boost() { return boostT; }, nTrains: () => trains.length, nPlanes: () => planes.length, nPads: () => pads.length, spawnTrain, spawnPlane, spawnPad,  get lane() { return lane; }, get picks() { return picks.length; }, get coinN() { return coinN; }, setSpeed: v => { SPEED = v; }, get helpOn() { return helpOn; }, get state() { return state; }, get qIdx() { return qIdx; }, setLane: l => { lane = l; }, curOpts: () => curOpts, order: () => order, get stars() { return stars; } };
+window.__g = { setChar, get CH() { return CH; }, win: winGame, setVoice, miss: () => Object.keys(window.__miss || {}), get vsel() { return VSEL; }, phrases: allPhrases, setMode, get mode() { return MODE; }, order: () => order, yb: () => yb, by0: () => by0, stumble: () => stumbleT, spawnWagon, wagonsZ: () => wagons.map(w => +w.g.position.z.toFixed(1)), surf: () => surfAt(bx), givePU: id => activatePU(PUS.find(p => p.id === id)), spawnPU, get magT() { return magT; }, get jetT() { return jetT; }, get x2T() { return x2T; }, get shoeT() { return shoeT; }, pauseGame, resumeGame, togglePause, goHome, saveProg, loadSave, startGame, setBx: v => { bx = v; }, nPU: () => pus.length, get score() { return score; }, get best() { return best; }, mult: multNow, get flyT() { return flyT; }, get themeI() { return themeI; }, nJp: () => jpads.length, jpZ: () => jpads.map(p => +p.position.z.toFixed(1)), spawnJumpPad, setTheme: i => { themeI = i; applyTheme(i); }, coinsY: () => coins.map(c => +c.position.y.toFixed(1)), spawnCoins, get coinN() { return coinN; }, obZ: () => obst.map(o => +o.g.position.z.toFixed(1)), obState: () => obst.map(o => (o.hit ? 'hit' : o.passed ? 'pass' : 'live')), get lane() { return lane; }, get jumpT() { return jumpT; }, get duckT() { return duckT; }, get mouthL() { return mouthL; }, get speaking() { return speaking; }, get stumbleT() { return stumbleT; }, jumpAct, duckAct, moveL, moveR, spawnObst, nObst: () => obst.length, setPlayT: v => { playT = v; }, get playT() { return playT; }, get SPEED() { return SPEED; }, get wrongN() { return wrongN; }, get streak() { return streak; }, trainZ: () => trains.map(t => +t.position.z.toFixed(1)), planeX: () => planes.map(t => +t.position.x.toFixed(1)), padLane: () => pads.length ? LANE.indexOf(pads[0].position.x) : -1, get VEL() { return VEL; }, get ramp() { return ramp; }, get boost() { return boostT; }, nTrains: () => trains.length, nPlanes: () => planes.length, nPads: () => pads.length, spawnTrain, spawnPlane, spawnPad,  get lane() { return lane; }, get picks() { return picks.length; }, get coinN() { return coinN; }, setSpeed: v => { SPEED = v; }, get helpOn() { return helpOn; }, get state() { return state; }, get qIdx() { return qIdx; }, setLane: l => { lane = l; }, curOpts: () => curOpts, order: () => order, get stars() { return stars; } };
 </script>
 </body>
 </html>
