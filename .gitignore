@@ -19,3 +19,4 @@ diag_rjp.txt
 desktop.ini
 audio/*.raw
 audio/*.raw
+!audio/*.mp3
