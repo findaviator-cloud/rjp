@@ -1,0 +1,655 @@
+﻿file_name,language,text_to_speak,note
+en_grandfather.mp3,en,Grandfather,English word / option
+hi_fd6bd85a.mp3,hi,दादू को English में क्या कहते हैं?,Hindi clue (question)
+hi_6d048a68.mp3,hi,दादा जी,Hindi meaning
+en_grandmother.mp3,en,Grandmother,English word / option
+hi_d62e251c.mp3,hi,दादी को English में क्या कहते हैं?,Hindi clue (question)
+hi_c64fde54.mp3,hi,दादी जी,Hindi meaning
+en_father.mp3,en,Father,English word / option
+hi_2e450305.mp3,hi,पापा को English में क्या कहते हैं?,Hindi clue (question)
+hi_d1d25d35.mp3,hi,पिता जी,Hindi meaning
+en_mother.mp3,en,Mother,English word / option
+hi_cd084fa3.mp3,hi,मम्मी को English में क्या कहते हैं?,Hindi clue (question)
+hi_9a061220.mp3,hi,माँ,Hindi meaning
+en_brother.mp3,en,Brother,English word / option
+hi_86ae5fef.mp3,hi,भाई को English में क्या कहते हैं?,Hindi clue (question)
+hi_ec311560.mp3,hi,भाई,Hindi meaning
+en_sister.mp3,en,Sister,English word / option
+hi_f4cdc85a.mp3,hi,बहन को English में क्या कहते हैं?,Hindi clue (question)
+hi_68a7b066.mp3,hi,बहन,Hindi meaning
+en_kitchen.mp3,en,Kitchen,English word / option
+hi_f743b6f7.mp3,hi,घर का वो कमरा जहाँ खाना बनता है,Hindi clue (question)
+hi_bbe4b1e5.mp3,hi,रसोई,Hindi meaning
+en_bedroom.mp3,en,Bedroom,English word / option
+hi_832af15f.mp3,hi,वो कमरा जहाँ हम सोते हैं,Hindi clue (question)
+hi_b5940a52.mp3,hi,सोने का कमरा,Hindi meaning
+en_bathroom.mp3,en,Bathroom,English word / option
+hi_90cc155f.mp3,hi,वो कमरा जहाँ हम नहाते हैं,Hindi clue (question)
+hi_2a9fb069.mp3,hi,स्नानघर,Hindi meaning
+en_living_room.mp3,en,Living Room,English word / option
+hi_5df4e5a3.mp3,hi,वो कमरा जहाँ sofa रखा होता है,Hindi clue (question)
+hi_e5a734f2.mp3,hi,बैठक,Hindi meaning
+en_wardrobe.mp3,en,Wardrobe,English word / option
+hi_e460a939.mp3,hi,कपड़े रखने की अलमारी,Hindi clue (question)
+hi_0fae70a4.mp3,hi,कपड़ों की अलमारी,Hindi meaning
+en_pillow.mp3,en,Pillow,English word / option
+hi_7c44238e.mp3,hi,सोते समय सिर के नीचे क्या लगाते हैं?,Hindi clue (question)
+hi_ff720a85.mp3,hi,तकिया,Hindi meaning
+en_bucket.mp3,en,Bucket,English word / option
+hi_03c1825f.mp3,hi,नहाने के लिए पानी भरने का बर्तन,Hindi clue (question)
+hi_ff1d6cff.mp3,hi,बाल्टी,Hindi meaning
+en_washbasin.mp3,en,Washbasin,English word / option
+hi_daa5ceaf.mp3,hi,हाथ-मुँह धोने का बेसिन,Hindi clue (question)
+hi_5d6c4e87.mp3,hi,वॉश बेसिन,Hindi meaning
+en_frying_pan.mp3,en,Frying Pan,English word / option
+hi_626055be.mp3,hi,तलने वाली कड़ाही,Hindi clue (question)
+hi_08336fa3.mp3,hi,कड़ाही,Hindi meaning
+en_dining_table.mp3,en,Dining Table,English word / option
+hi_821adef6.mp3,hi,खाना खाने की मेज़,Hindi clue (question)
+hi_caf6f616.mp3,hi,खाने की मेज़,Hindi meaning
+en_study_table.mp3,en,Study Table,English word / option
+hi_847b0538.mp3,hi,पढ़ाई करने की मेज़,Hindi clue (question)
+hi_1478075e.mp3,hi,पढ़ने की मेज़,Hindi meaning
+en_gas_cylinder.mp3,en,Gas Cylinder,English word / option
+hi_df99d4cf.mp3,hi,रसोई में खाना पकाने वाली गैस का सिलेंडर,Hindi clue (question)
+hi_7e3b1b3b.mp3,hi,गैस सिलेंडर,Hindi meaning
+en_elephant.mp3,en,Elephant,English word / option
+hi_8cb2afc2.mp3,hi,बड़े कान और लंबी सूँड वाला जानवर,Hindi clue (question)
+hi_aeae3059.mp3,hi,हाथी,Hindi meaning
+en_bear.mp3,en,Bear,English word / option
+hi_d2828ef0.mp3,hi,शहद पसंद करने वाला भालू,Hindi clue (question)
+hi_2c35d9a9.mp3,hi,भालू,Hindi meaning
+en_tiger.mp3,en,Tiger,English word / option
+hi_c1ced07a.mp3,hi,धारियों वाला जंगल का जानवर,Hindi clue (question)
+hi_4f811a58.mp3,hi,बाघ,Hindi meaning
+en_lion.mp3,en,Lion,English word / option
+hi_bc90df7f.mp3,hi,"जंगल का राजा, गर्दन पर बाल",Hindi clue (question)
+hi_26ba5015.mp3,hi,शेर,Hindi meaning
+en_zebra.mp3,en,Zebra,English word / option
+hi_305a91c8.mp3,hi,काली-सफ़ेद धारियों वाला घोड़े जैसा जानवर,Hindi clue (question)
+hi_3f8a8ca5.mp3,hi,ज़ेबरा,Hindi meaning
+en_giraffe.mp3,en,Giraffe,English word / option
+hi_1f90fda7.mp3,hi,सबसे लंबी गर्दन वाला जानवर,Hindi clue (question)
+hi_b8fc033e.mp3,hi,जिराफ़,Hindi meaning
+en_crocodile.mp3,en,Crocodile,English word / option
+hi_4e089695.mp3,hi,नदी में रहने वाला बड़े दाँतों वाला जानवर,Hindi clue (question)
+hi_f4dac7f6.mp3,hi,मगरमच्छ,Hindi meaning
+en_monkey.mp3,en,Monkey,English word / option
+hi_a1e8994d.mp3,hi,"पेड़ पर उछल-कूद करने वाला, केला पसंद",Hindi clue (question)
+hi_8a32fee5.mp3,hi,बंदर,Hindi meaning
+en_deer.mp3,en,Deer,English word / option
+hi_47cc78ab.mp3,hi,"सींगों वाला सुंदर, तेज़ दौड़ने वाला जानवर",Hindi clue (question)
+hi_145842d9.mp3,hi,हिरन,Hindi meaning
+en_fox.mp3,en,Fox,English word / option
+hi_a56966ba.mp3,hi,"चालाक, लाल-भूरी पूँछ वाला जानवर",Hindi clue (question)
+hi_6b5e310d.mp3,hi,लोमड़ी,Hindi meaning
+en_frog.mp3,en,Frog,English word / option
+hi_ca2d4989.mp3,hi,"टर्र-टर्र करने वाला, उछलने वाला",Hindi clue (question)
+hi_90dfe0c7.mp3,hi,मेंढक,Hindi meaning
+en_turtle.mp3,en,Turtle,English word / option
+hi_c3e64bc4.mp3,hi,पीठ पर कड़ा खोल वाला धीमा जानवर,Hindi clue (question)
+hi_bcc46411.mp3,hi,कछुआ,Hindi meaning
+en_octopus.mp3,en,Octopus,English word / option
+hi_846b254f.mp3,hi,आठ हाथों वाला समुद्री जीव,Hindi clue (question)
+hi_3e5eefb3.mp3,hi,ऑक्टोपस,Hindi meaning
+en_crab.mp3,en,Crab,English word / option
+hi_9359d25b.mp3,hi,"टेढ़ा चलने वाला, पंजों वाला",Hindi clue (question)
+hi_773efa3d.mp3,hi,केकड़ा,Hindi meaning
+en_dolphin.mp3,en,Dolphin,English word / option
+hi_7ad521ad.mp3,hi,"समझदार, पानी में कूदने वाली मछली जैसा जीव",Hindi clue (question)
+hi_c7494017.mp3,hi,डॉल्फ़िन,Hindi meaning
+en_fish.mp3,en,Fish,English word / option
+hi_b73241ae.mp3,hi,पानी में तैरने वाली,Hindi clue (question)
+hi_36906b4c.mp3,hi,मछली,Hindi meaning
+en_starfish.mp3,en,Starfish,English word / option
+hi_1bffe256.mp3,hi,तारे के आकार का समुद्री जीव,Hindi clue (question)
+hi_15d886ac.mp3,hi,तारा मछली,Hindi meaning
+en_seahorse.mp3,en,Seahorse,English word / option
+hi_95fd7a58.mp3,hi,घोड़े जैसे सिर वाली छोटी समुद्री मछली,Hindi clue (question)
+hi_6d4041a7.mp3,hi,समुद्री घोड़ा,Hindi meaning
+en_lobster.mp3,en,Lobster,English word / option
+hi_3106ba6f.mp3,hi,लाल रंग का बड़े पंजों वाला समुद्री जीव,Hindi clue (question)
+hi_ce985f06.mp3,hi,झींगा,Hindi meaning
+en_whale.mp3,en,Whale,English word / option
+hi_9acf96bf.mp3,hi,समुद्र का सबसे बड़ा जानवर,Hindi clue (question)
+hi_692987a7.mp3,hi,व्हेल,Hindi meaning
+en_nest.mp3,en,Nest,English word / option
+hi_4641f294.mp3,hi,चिड़िया का घर,Hindi clue (question)
+hi_8c230a49.mp3,hi,घोंसला,Hindi meaning
+en_den.mp3,en,Den,English word / option
+hi_c2a26084.mp3,hi,"शेर का घर, गुफ़ा",Hindi clue (question)
+hi_f9e3797c.mp3,hi,माँद,Hindi meaning
+en_stable.mp3,en,Stable,English word / option
+hi_13edae01.mp3,hi,घोड़े का घर,Hindi clue (question)
+hi_cea764e1.mp3,hi,अस्तबल,Hindi meaning
+en_kennel.mp3,en,Kennel,English word / option
+hi_2f1c8bf2.mp3,hi,कुत्ते का घर,Hindi clue (question)
+en_taj_mahal.mp3,en,Taj Mahal,English word / option
+hi_773e8e69.mp3,hi,आगरा की सफ़ेद संगमरमर की सुंदर इमारत,Hindi clue (question)
+hi_43028749.mp3,hi,ताजमहल,Hindi meaning
+en_konark_sun_temple.mp3,en,Konark Sun Temple,English word / option
+hi_ac2ef779.mp3,hi,"ओडिशा का सूर्य मंदिर, पहिये जैसा",Hindi clue (question)
+hi_f52c5cc8.mp3,hi,कोणार्क सूर्य मंदिर,Hindi meaning
+en_hawa_mahal.mp3,en,Hawa Mahal,English word / option
+hi_0e513aa3.mp3,hi,जयपुर का झरोखों वाला गुलाबी महल,Hindi clue (question)
+hi_a9e0763e.mp3,hi,हवा महल,Hindi meaning
+en_lotus_temple.mp3,en,Lotus Temple,English word / option
+hi_e414d7f1.mp3,hi,दिल्ली का कमल जैसा मंदिर,Hindi clue (question)
+hi_957bac2b.mp3,hi,कमल मंदिर,Hindi meaning
+en_india_gate.mp3,en,India Gate,English word / option
+hi_b79d2817.mp3,hi,"दिल्ली का बड़ा द्वार, शहीदों की याद में",Hindi clue (question)
+hi_2c006de4.mp3,hi,इंडिया गेट,Hindi meaning
+en_statue_of_unity.mp3,en,Statue of Unity,English word / option
+hi_3818d3d2.mp3,hi,गुजरात में सरदार पटेल की ऊँची मूर्ति,Hindi clue (question)
+hi_44108b46.mp3,hi,एकता की मूर्ति,Hindi meaning
+en_holi.mp3,en,Holi,English word / option
+hi_8c896712.mp3,hi,"रंगों का त्योहार, वसंत में मनता है",Hindi clue (question)
+hi_3ead60e4.mp3,hi,होली,Hindi meaning
+en_eid.mp3,en,Eid,English word / option
+hi_a53dcfd5.mp3,hi,"रमज़ान के बाद का त्योहार, सेवइयाँ बनती हैं",Hindi clue (question)
+hi_683c3783.mp3,hi,ईद,Hindi meaning
+en_diwali.mp3,en,Diwali,English word / option
+hi_b7c1fc3d.mp3,hi,"दीयों का त्योहार, रोशनी वाला",Hindi clue (question)
+hi_1081beb2.mp3,hi,दिवाली,Hindi meaning
+en_raksha_bandhan.mp3,en,Raksha Bandhan,English word / option
+hi_dacbec19.mp3,hi,भाई-बहन के प्यार का त्योहार,Hindi clue (question)
+hi_99913058.mp3,hi,रक्षा बंधन,Hindi meaning
+en_dussehra.mp3,en,Dussehra,English word / option
+hi_8ab1e9d7.mp3,hi,राम की रावण पर जीत का त्योहार,Hindi clue (question)
+hi_1ab2925a.mp3,hi,दशहरा,Hindi meaning
+en_durga_puja.mp3,en,Durga Puja,English word / option
+hi_4e9cbdc1.mp3,hi,"पश्चिम बंगाल का त्योहार, माँ दुर्गा की पूजा",Hindi clue (question)
+hi_3e8e57d4.mp3,hi,दुर्गा पूजा,Hindi meaning
+en_christmas.mp3,en,Christmas,English word / option
+hi_2a89e55c.mp3,hi,"ईसा मसीह का जन्मदिन, Santa Claus और tree",Hindi clue (question)
+hi_bfa169f3.mp3,hi,क्रिसमस,Hindi meaning
+en_guru_nanak_jayanti.mp3,en,Guru Nanak Jayanti,English word / option
+hi_8397518c.mp3,hi,"पहले सिख गुरु, गुरु नानक देव जी का जन्मदिन",Hindi clue (question)
+hi_91e404c1.mp3,hi,गुरु नानक जयंती,Hindi meaning
+en_rainy_season.mp3,en,Rainy Season,English word / option
+hi_a514c688.mp3,hi,रेनकोट और छाता लेकर चलते हैं,Hindi clue (question)
+hi_f78ff7d4.mp3,hi,बरसात का मौसम,Hindi meaning
+en_autumn.mp3,en,Autumn,English word / option
+hi_7a7aec6f.mp3,hi,"पेड़ों से पत्ते गिरते हैं, हल्की ठंड",Hindi clue (question)
+hi_7c4fc79d.mp3,hi,पतझड़,Hindi meaning
+en_spring.mp3,en,Spring,English word / option
+hi_e0a684e3.mp3,hi,पौधों पर सुंदर फूल खिलते हैं,Hindi clue (question)
+hi_cbb7893c.mp3,hi,वसंत,Hindi meaning
+en_winter.mp3,en,Winter,English word / option
+hi_74b6ca1e.mp3,hi,ठंड में गर्म कपड़े पहनते हैं,Hindi clue (question)
+hi_bf1f87df.mp3,hi,सर्दी,Hindi meaning
+en_summer.mp3,en,Summer,English word / option
+hi_5421c2e7.mp3,hi,गरमी में सूती कपड़े पहनते हैं,Hindi clue (question)
+hi_91c7e186.mp3,hi,गर्मी,Hindi meaning
+en_lotus.mp3,en,Lotus,English word / option
+hi_1a056e12.mp3,hi,भारत का राष्ट्रीय फूल,Hindi clue (question)
+hi_11057247.mp3,hi,कमल,Hindi meaning
+en_mango.mp3,en,Mango,English word / option
+hi_b8a95d4b.mp3,hi,भारत का राष्ट्रीय फल,Hindi clue (question)
+hi_33c1f576.mp3,hi,आम,Hindi meaning
+en_banyan_tree.mp3,en,Banyan Tree,English word / option
+hi_a6cb7a1c.mp3,hi,भारत का राष्ट्रीय पेड़,Hindi clue (question)
+hi_92320e71.mp3,hi,बरगद,Hindi meaning
+en_bengal_tiger.mp3,en,Bengal Tiger,English word / option
+hi_2a63f02c.mp3,hi,भारत का राष्ट्रीय पशु,Hindi clue (question)
+hi_75899f67.mp3,hi,बंगाल टाइगर,Hindi meaning
+en_tiranga.mp3,en,Tiranga,English word / option
+hi_1deb8be3.mp3,hi,भारत का राष्ट्रीय ध्वज,Hindi clue (question)
+hi_ec078a14.mp3,hi,तिरंगा,Hindi meaning
+en_peacock.mp3,en,Peacock,English word / option
+hi_c66c066a.mp3,hi,भारत का राष्ट्रीय पक्षी,Hindi clue (question)
+hi_d360b30a.mp3,hi,मोर,Hindi meaning
+en_apple.mp3,en,Apple,English word / option
+hi_23b4a13a.mp3,hi,पहाड़ी इलाकों में उगता है,Hindi clue (question)
+hi_fd24300c.mp3,hi,सेब,Hindi meaning
+hi_39c2ad98.mp3,hi,फलों का राजा,Hindi clue (question)
+en_spinach.mp3,en,Spinach,English word / option
+hi_978956a4.mp3,hi,"हरी पत्तेदार सब्ज़ी, आँखों और बालों के लिए अच्छी",Hindi clue (question)
+hi_cd462ff0.mp3,hi,पालक,Hindi meaning
+en_grapes.mp3,en,Grapes,English word / option
+hi_ff9941ca.mp3,hi,गुच्छों में उगते हैं,Hindi clue (question)
+hi_55e17cf7.mp3,hi,अंगूर,Hindi meaning
+en_carrot.mp3,en,Carrot,English word / option
+hi_dac8ee92.mp3,hi,"नारंगी सब्ज़ी, आँखों की रोशनी के लिए अच्छी",Hindi clue (question)
+hi_1d4aaeb0.mp3,hi,गाजर,Hindi meaning
+en_jordan.mp3,en,Jordan,English word / option
+hi_9d5d2a31.mp3,hi,Petra किस देश में है?,Hindi clue (question)
+hi_c726b09f.mp3,hi,जॉर्डन में,Hindi meaning
+en_india.mp3,en,India,English word / option
+hi_39cfd429.mp3,hi,Taj Mahal किस देश में है?,Hindi clue (question)
+hi_c8cda2a2.mp3,hi,भारत में,Hindi meaning
+en_italy.mp3,en,Italy,English word / option
+hi_08c27a40.mp3,hi,Colosseum किस देश में है?,Hindi clue (question)
+hi_f870d77b.mp3,hi,इटली में,Hindi meaning
+en_peru.mp3,en,Peru,English word / option
+hi_83df3be5.mp3,hi,Machu Picchu किस देश में है?,Hindi clue (question)
+hi_a5aee293.mp3,hi,पेरू में,Hindi meaning
+en_mexico.mp3,en,Mexico,English word / option
+hi_64706c76.mp3,hi,Chichen Itza किस देश में है?,Hindi clue (question)
+hi_ef13ae57.mp3,hi,मेक्सिको में,Hindi meaning
+en_brazil.mp3,en,Brazil,English word / option
+hi_19842945.mp3,hi,Christ the Redeemer किस देश में है?,Hindi clue (question)
+hi_07dfe921.mp3,hi,ब्राज़ील में,Hindi meaning
+en_china.mp3,en,China,English word / option
+hi_98656542.mp3,hi,Great Wall of China किस देश में है?,Hindi clue (question)
+hi_8ff18c27.mp3,hi,चीन में,Hindi meaning
+en_bridge.mp3,en,Bridge,English word / option
+hi_90554b55.mp3,hi,नदी पार करने के लिए कार किस पर चलती है?,Hindi clue (question)
+hi_84940c4f.mp3,hi,पुल,Hindi meaning
+en_airport.mp3,en,Airport,English word / option
+hi_180dc87c.mp3,hi,हवाई जहाज़ यहाँ से उड़ते और यहाँ उतरते हैं,Hindi clue (question)
+hi_f7564f61.mp3,hi,हवाई अड्डा,Hindi meaning
+en_harbour.mp3,en,Harbour,English word / option
+hi_16a9eef8.mp3,hi,जहाज़ों में सामान यहाँ चढ़ता-उतरता है,Hindi clue (question)
+hi_b76dd986.mp3,hi,बंदरगाह,Hindi meaning
+en_railway_station.mp3,en,Railway Station,English word / option
+hi_c75626e6.mp3,hi,ट्रेन पकड़ने हम कहाँ जाते हैं?,Hindi clue (question)
+hi_6d88e5ff.mp3,hi,रेलवे स्टेशन,Hindi meaning
+en_bus_stop.mp3,en,Bus Stop,English word / option
+hi_056a8cf6.mp3,hi,बस में चढ़ने के लिए हम कहाँ इंतज़ार करते हैं?,Hindi clue (question)
+hi_79210ce0.mp3,hi,बस स्टॉप,Hindi meaning
+en_down.mp3,en,Down,English word / option
+hi_8b12aa06.mp3,hi,Up का उल्टा क्या है?,Hindi clue (question)
+en_out.mp3,en,Out,English word / option
+hi_ed58f3e2.mp3,hi,In का उल्टा क्या है?,Hindi clue (question)
+en_girl.mp3,en,Girl,English word / option
+hi_23859107.mp3,hi,Boy का उल्टा क्या है?,Hindi clue (question)
+en_young.mp3,en,Young,English word / option
+hi_2eaf1763.mp3,hi,Old का उल्टा क्या है?,Hindi clue (question)
+en_thin.mp3,en,Thin,English word / option
+hi_6a38c85c.mp3,hi,Fat का उल्टा क्या है?,Hindi clue (question)
+en_small.mp3,en,Small,English word / option
+hi_cfdca055.mp3,hi,Big का उल्टा क्या है?,Hindi clue (question)
+en_wrestling.mp3,en,Wrestling,English word / option
+hi_d807d9df.mp3,hi,Sushil Kumar किस खेल के खिलाड़ी हैं?,Hindi clue (question)
+hi_7b4dd72b.mp3,hi,कुश्ती,Hindi meaning
+en_tennis.mp3,en,Tennis,English word / option
+hi_46585fbd.mp3,hi,Sania Mirza किस खेल की खिलाड़ी हैं?,Hindi clue (question)
+hi_f51ea804.mp3,hi,टेनिस,Hindi meaning
+en_cricket.mp3,en,Cricket,English word / option
+hi_aa1ea2be.mp3,hi,Sachin Tendulkar किस खेल के खिलाड़ी हैं?,Hindi clue (question)
+hi_eac53155.mp3,hi,क्रिकेट,Hindi meaning
+en_boxing.mp3,en,Boxing,English word / option
+hi_d5a8c525.mp3,hi,Mary Kom किस खेल की खिलाड़ी हैं?,Hindi clue (question)
+hi_8484e49e.mp3,hi,मुक्केबाज़ी,Hindi meaning
+en_shooting.mp3,en,Shooting,English word / option
+hi_57d14955.mp3,hi,Abhinav Bindra किस खेल के खिलाड़ी हैं?,Hindi clue (question)
+hi_34be6955.mp3,hi,निशानेबाज़ी,Hindi meaning
+en_telephone.mp3,en,Telephone,English word / option
+hi_944c5f87.mp3,hi,पापा को office में फ़ोन करना है। क्या इस्तेमाल करें?,Hindi clue (question)
+hi_2e9732c8.mp3,hi,फ़ोन,Hindi meaning
+en_greeting_card.mp3,en,Greeting Card,English word / option
+hi_9ccfd1ac.mp3,hi,दादाजी को जन्मदिन का कार्ड भेजना है,Hindi clue (question)
+hi_7f415a52.mp3,hi,बधाई कार्ड,Hindi meaning
+en_television.mp3,en,Television,English word / option
+hi_5e133ff8.mp3,hi,समाचार (news) देखने के लिए क्या चलाएँ?,Hindi clue (question)
+hi_06c277b2.mp3,hi,टीवी,Hindi meaning
+en_post_office.mp3,en,Post Office,English word / option
+hi_3dd45e0c.mp3,hi,चिट्ठी या पार्सल भेजने कहाँ जाएँ?,Hindi clue (question)
+hi_ba71bc02.mp3,hi,डाकघर,Hindi meaning
+en_school.mp3,en,School,English word / option
+hi_c33aff89.mp3,hi,पढ़ने और सीखने कहाँ जाएँ?,Hindi clue (question)
+hi_69bd1615.mp3,hi,स्कूल,Hindi meaning
+en_hospital.mp3,en,Hospital,English word / option
+hi_9b1d0edc.mp3,hi,बीमार होने पर इलाज के लिए कहाँ जाएँ?,Hindi clue (question)
+hi_feaee6b7.mp3,hi,अस्पताल,Hindi meaning
+en_stationery_shop.mp3,en,Stationery Shop,English word / option
+hi_8a52b112.mp3,hi,"पेन, पेंसिल, कॉपी कहाँ से खरीदें?",Hindi clue (question)
+hi_0647d03f.mp3,hi,स्टेशनरी की दुकान,Hindi meaning
+en_police_station.mp3,en,Police Station,English word / option
+hi_34bb1d08.mp3,hi,चोरी की रिपोर्ट कहाँ लिखाएँ?,Hindi clue (question)
+hi_813a6a07.mp3,hi,थाना,Hindi meaning
+en_park.mp3,en,Park,English word / option
+hi_56a94dfd.mp3,hi,खेलने और कसरत के लिए कहाँ जाएँ?,Hindi clue (question)
+hi_b3cde401.mp3,hi,बगीचा,Hindi meaning
+en_bank.mp3,en,Bank,English word / option
+hi_e07f5902.mp3,hi,पैसे जमा करने कहाँ जाएँ?,Hindi clue (question)
+hi_3dedce4b.mp3,hi,बैंक,Hindi meaning
+en_teacher.mp3,en,Teacher,English word / option
+hi_47b5ba48.mp3,hi,जो हमें पढ़ाते हैं,Hindi clue (question)
+hi_964155b5.mp3,hi,शिक्षक,Hindi meaning
+en_doctor.mp3,en,Doctor,English word / option
+hi_2847e44c.mp3,hi,जो बीमार लोगों का इलाज करते हैं,Hindi clue (question)
+hi_77ec194f.mp3,hi,डॉक्टर,Hindi meaning
+en_postman.mp3,en,Postman,English word / option
+hi_88429646.mp3,hi,जो चिट्ठियाँ घर-घर पहुँचाते हैं,Hindi clue (question)
+hi_f42fd813.mp3,hi,डाकिया,Hindi meaning
+en_driver.mp3,en,Driver,English word / option
+hi_12e04713.mp3,hi,जो गाड़ी चलाते हैं,Hindi clue (question)
+hi_3d478ccc.mp3,hi,चालक,Hindi meaning
+en_green_grocer.mp3,en,Green-grocer,English word / option
+hi_590c0aff.mp3,hi,जो सब्ज़ियाँ बेचते हैं,Hindi clue (question)
+hi_8bb130af.mp3,hi,सब्ज़ी वाला,Hindi meaning
+en_tailor.mp3,en,Tailor,English word / option
+hi_4e0540e4.mp3,hi,जो कपड़े सिलते हैं,Hindi clue (question)
+hi_781be3c7.mp3,hi,दर्ज़ी,Hindi meaning
+en_cobbler.mp3,en,Cobbler,English word / option
+hi_3c00077e.mp3,hi,जो हमारे जूते ठीक करते हैं,Hindi clue (question)
+hi_d30cffae.mp3,hi,मोची,Hindi meaning
+en_barber.mp3,en,Barber,English word / option
+hi_3687e64b.mp3,hi,जो हमारे बाल काटते हैं,Hindi clue (question)
+hi_c7afca29.mp3,hi,नाई,Hindi meaning
+hi_0033693f.mp3,hi,यहाँ कंप्यूटर टीचर को पाठ और test बनाने में मदद करता है,Hindi clue (question)
+en_library.mp3,en,Library,English word / option
+hi_e2b3ad67.mp3,hi,यहाँ कंप्यूटर किताबों की सूची रखता है,Hindi clue (question)
+hi_d7d413c7.mp3,hi,पुस्तकालय,Hindi meaning
+hi_eb00096c.mp3,hi,यहाँ कंप्यूटर लोगों के पैसों का हिसाब रखता है,Hindi clue (question)
+hi_f722b383.mp3,hi,यहाँ कंप्यूटर डॉक्टर को मरीज़ की जानकारी देता है,Hindi clue (question)
+en_office.mp3,en,Office,English word / option
+hi_5455a9e6.mp3,hi,यहाँ कंप्यूटर से letters और e-mail बनते हैं,Hindi clue (question)
+hi_821f0385.mp3,hi,दफ़्तर,Hindi meaning
+en_electricity.mp3,en,Electricity,English word / option
+hi_912b7dc0.mp3,hi,कंप्यूटर किससे चलता है?,Hindi clue (question)
+hi_472597ba.mp3,hi,बिजली,Hindi meaning
+en_smart_machine.mp3,en,Smart Machine,English word / option
+hi_480380e7.mp3,hi,कंप्यूटर कैसी मशीन है?,Hindi clue (question)
+hi_2eb5fce6.mp3,hi,समझदार मशीन,Hindi meaning
+en_man_made.mp3,en,Man-made,English word / option
+hi_5d8d28a6.mp3,hi,कंप्यूटर को किसने बनाया है?,Hindi clue (question)
+hi_951c5450.mp3,hi,इंसान का बनाया हुआ,Hindi meaning
+en_draw_a_picture.mp3,en,Draw a Picture,English word / option
+hi_dc15bb2c.mp3,hi,कंप्यूटर क्या कर सकता है?,Hindi clue (question)
+hi_5abc3ed1.mp3,hi,चित्र बनाना,Hindi meaning
+en_cook_food.mp3,en,Cook Food,English word / option
+hi_e2005b87.mp3,hi,कंप्यूटर क्या नहीं कर सकता?,Hindi clue (question)
+hi_51bc799c.mp3,hi,खाना पकाना,Hindi meaning
+en_tired.mp3,en,Tired,English word / option
+hi_8039d188.mp3,hi,कंप्यूटर कभी क्या नहीं होता?,Hindi clue (question)
+hi_9f96b25e.mp3,hi,थका हुआ,Hindi meaning
+en_power_supply.mp3,en,Power Supply,English word / option
+hi_f1f1b0da.mp3,hi,कंप्यूटर चालू करने के लिए सबसे पहले क्या ऑन करते हैं?,Hindi clue (question)
+hi_b8b72646.mp3,hi,बिजली का स्विच,Hindi meaning
+en_power_button.mp3,en,Power Button,English word / option
+hi_9ab64cbb.mp3,hi,CPU का कौन-सा बटन दबाकर कंप्यूटर चालू करते हैं?,Hindi clue (question)
+hi_db980b48.mp3,hi,चालू करने का बटन,Hindi meaning
+en_booting.mp3,en,Booting,English word / option
+hi_dba75597.mp3,hi,चालू होते समय कंप्यूटर तैयार होता है। इसे क्या कहते हैं?,Hindi clue (question)
+hi_d7361a7e.mp3,hi,कंप्यूटर का तैयार होना,Hindi meaning
+en_desktop.mp3,en,Desktop,English word / option
+hi_c60489ea.mp3,hi,चालू होने के बाद पहली स्क्रीन को क्या कहते हैं?,Hindi clue (question)
+hi_6a86aaa3.mp3,hi,डेस्कटॉप,Hindi meaning
+en_start_button.mp3,en,Start Button,English word / option
+hi_3a6ea3c3.mp3,hi,कंप्यूटर बंद करने के लिए सबसे पहले किस बटन पर क्लिक करते हैं?,Hindi clue (question)
+hi_bb06c5f5.mp3,hi,स्टार्ट बटन,Hindi meaning
+en_shut_down.mp3,en,Shut Down,English word / option
+hi_e86f0082.mp3,hi,कंप्यूटर बंद करने का सही तरीका?,Hindi clue (question)
+hi_5296386e.mp3,hi,कंप्यूटर बंद करना,Hindi meaning
+en_cpu.mp3,en,CPU,English word / option
+hi_0476ccf8.mp3,hi,कंप्यूटर का दिमाग़,Hindi clue (question)
+en_monitor.mp3,en,Monitor,English word / option
+hi_5aa868cc.mp3,hi,TV जैसी स्क्रीन जिस पर तस्वीरें दिखती हैं,Hindi clue (question)
+hi_e8541c7a.mp3,hi,स्क्रीन,Hindi meaning
+en_keyboard.mp3,en,Keyboard,English word / option
+hi_080b9221.mp3,hi,छोटे बटन (keys) से शब्द टाइप करते हैं,Hindi clue (question)
+hi_86ddad7f.mp3,hi,कीबोर्ड,Hindi meaning
+en_mouse.mp3,en,Mouse,English word / option
+hi_9cd74120.mp3,hi,स्क्रीन पर चीज़ों की ओर इशारा करने वाला,Hindi clue (question)
+hi_8eff6be2.mp3,hi,माउस,Hindi meaning
+en_printer.mp3,en,Printer,English word / option
+hi_e0afe69d.mp3,hi,कंप्यूटर से कागज़ पर कॉपी निकालता है,Hindi clue (question)
+hi_e8776bb1.mp3,hi,प्रिंटर,Hindi meaning
+en_speakers.mp3,en,Speakers,English word / option
+hi_e54adedf.mp3,hi,गाने सुनने के काम आते हैं,Hindi clue (question)
+hi_749f9bbe.mp3,hi,स्पीकर,Hindi meaning
+en_left_click.mp3,en,Left Click,English word / option
+hi_6b06d107.mp3,hi,बायाँ बटन एक बार दबाकर छोड़ना,Hindi clue (question)
+hi_bb9e94b6.mp3,hi,बायाँ क्लिक,Hindi meaning
+en_double_click.mp3,en,Double Click,English word / option
+hi_3ddb92c4.mp3,hi,बायाँ बटन जल्दी से दो बार दबाना,Hindi clue (question)
+hi_cbf0c6a3.mp3,hi,डबल क्लिक,Hindi meaning
+en_right_click.mp3,en,Right Click,English word / option
+hi_89a2c8cf.mp3,hi,दायाँ बटन दबाने पर menu खुलता है,Hindi clue (question)
+hi_569ab097.mp3,hi,दायाँ क्लिक,Hindi meaning
+en_drag_and_drop.mp3,en,Drag and Drop,English word / option
+hi_38b2fd49.mp3,hi,बटन दबाए रखकर चीज़ को खिसकाना,Hindi clue (question)
+hi_512d8267.mp3,hi,खींचो और छोड़ो,Hindi meaning
+en_mouse_pad.mp3,en,Mouse Pad,English word / option
+hi_b4c2aef4.mp3,hi,माउस जिस चटाई पर चलता है,Hindi clue (question)
+hi_b93e26ff.mp3,hi,माउस पैड,Hindi meaning
+en_scroll_wheel.mp3,en,Scroll Wheel,English word / option
+hi_f61cfeb8.mp3,hi,माउस के बीच का पहिया,Hindi clue (question)
+hi_cfec6b63.mp3,hi,स्क्रॉल पहिया,Hindi meaning
+en_space_bar.mp3,en,Space Bar,English word / option
+hi_206a034d.mp3,hi,"सबसे लंबी key, शब्दों के बीच जगह देती है",Hindi clue (question)
+hi_e4f56795.mp3,hi,स्पेस बार,Hindi meaning
+en_enter.mp3,en,Enter,English word / option
+hi_68a2abd3.mp3,hi,cursor को अगली line में ले जाती है,Hindi clue (question)
+hi_ab98ae67.mp3,hi,एंटर,Hindi meaning
+en_backspace.mp3,en,Backspace,English word / option
+hi_40dd7a83.mp3,hi,cursor के बाईं तरफ़ के अक्षर मिटाती है,Hindi clue (question)
+hi_fc0121ba.mp3,hi,बैकस्पेस,Hindi meaning
+en_delete.mp3,en,Delete,English word / option
+hi_e12ae052.mp3,hi,cursor के दाईं तरफ़ के अक्षर मिटाती है,Hindi clue (question)
+hi_7a2b3db4.mp3,hi,डिलीट,Hindi meaning
+en_alphabet_keys.mp3,en,Alphabet Keys,English word / option
+hi_826e95a9.mp3,hi,A से Z तक की 26 keys,Hindi clue (question)
+en_number_keys.mp3,en,Number Keys,English word / option
+hi_e7ad5d24.mp3,hi,0 से 9 तक की keys,Hindi clue (question)
+en_function_keys.mp3,en,Function Keys,English word / option
+hi_eb8bedab.mp3,hi,सबसे ऊपर की row में F1 से F12,Hindi clue (question)
+en_paint.mp3,en,Paint,English word / option
+hi_51698556.mp3,hi,हाथ से मनचाही आकृति बनाना,Hindi clue (question)
+hi_5cf1b845.mp3,hi,पेंट,Hindi meaning
+en_stamp.mp3,en,Stamp,English word / option
+hi_04f187cf.mp3,hi,पहले से बने sticker लगाना,Hindi clue (question)
+hi_c64e72e8.mp3,hi,स्टैम्प,Hindi meaning
+en_lines.mp3,en,Lines,English word / option
+hi_18c4b4de.mp3,hi,सीधी रेखाएँ खींचना,Hindi clue (question)
+hi_c1225c63.mp3,hi,रेखाएँ,Hindi meaning
+en_shapes.mp3,en,Shapes,English word / option
+hi_863a0ca2.mp3,hi,"गोला, चौकोर, त्रिकोण बनाना",Hindi clue (question)
+hi_c68ebff2.mp3,hi,आकृतियाँ,Hindi meaning
+en_eraser.mp3,en,Eraser,English word / option
+hi_dfe8eae2.mp3,hi,ड्रॉइंग का कोई हिस्सा मिटाना,Hindi clue (question)
+hi_81523daa.mp3,hi,रबड़,Hindi meaning
+en_new.mp3,en,New,English word / option
+hi_96ebd334.mp3,hi,नई ड्रॉइंग शुरू करना,Hindi clue (question)
+hi_ff7b94cd.mp3,hi,नया,Hindi meaning
+en_open.mp3,en,Open,English word / option
+hi_38749f84.mp3,hi,सेव की हुई ड्रॉइंग खोलना,Hindi clue (question)
+hi_456d86a4.mp3,hi,खोलो,Hindi meaning
+en_quit.mp3,en,Quit,English word / option
+hi_d6c19fe3.mp3,hi,Tux Paint बंद करना,Hindi clue (question)
+hi_e492a95d.mp3,hi,बंद करो,Hindi meaning
+en_quietly.mp3,en,Quietly,English word / option
+hi_d1a705bc.mp3,hi,Computer lab में लाइन में कैसे चलना चाहिए?,Hindi clue (question)
+hi_c451c6b8.mp3,hi,चुपचाप,Hindi meaning
+en_shoes.mp3,en,Shoes,English word / option
+hi_7743eae2.mp3,hi,Lab में जाने से पहले क्या उतारते हैं?,Hindi clue (question)
+hi_28e5ae2a.mp3,hi,जूते,Hindi meaning
+en_gently.mp3,en,Gently,English word / option
+hi_b382ec73.mp3,hi,keyboard की keys को कैसे दबाना चाहिए?,Hindi clue (question)
+hi_cd4c0877.mp3,hi,धीरे से,Hindi meaning
+en_dust_cover.mp3,en,Dust Cover,English word / option
+hi_66da473d.mp3,hi,इस्तेमाल न होने पर कंप्यूटर पर क्या ढकते हैं?,Hindi clue (question)
+hi_af38b7d8.mp3,hi,धूल का कवर,Hindi meaning
+en_eat_or_drink.mp3,en,Eat or Drink,English word / option
+hi_0a23aa63.mp3,hi,कंप्यूटर के पास क्या नहीं करना चाहिए?,Hindi clue (question)
+hi_9d8563bb.mp3,hi,खाना या पीना,Hindi meaning
+en_sit_straight.mp3,en,Sit Straight,English word / option
+hi_dd226192.mp3,hi,कुर्सी पर कैसे बैठना चाहिए?,Hindi clue (question)
+hi_ebb95ee2.mp3,hi,सीधे बैठो,Hindi meaning
+en_ai.mp3,en,AI,English word / option
+hi_3822a015.mp3,hi,Artificial Intelligence को छोटे में क्या कहते हैं?,Hindi clue (question)
+hi_5f30a74c.mp3,hi,इंसान जैसा सीखने वाली मशीन,Hindi meaning
+en_alexa.mp3,en,Alexa,English word / option
+hi_5214ba3c.mp3,hi,AI वाले स्मार्ट स्पीकर का एक नाम,Hindi clue (question)
+hi_dd2d3644.mp3,hi,एलेक्सा,Hindi meaning
+en_robot_vacuum_cleaner.mp3,en,Robot Vacuum Cleaner,English word / option
+hi_f1908f56.mp3,hi,AI से खुद सफ़ाई करने वाली मशीन,Hindi clue (question)
+hi_717f02b1.mp3,hi,रोबोट सफ़ाई मशीन,Hindi meaning
+en_chatbot.mp3,en,Chatbot,English word / option
+hi_3e3f6f43.mp3,hi,AI जो हमसे बात करता है,Hindi clue (question)
+hi_1b857c89.mp3,hi,चैटबॉट,Hindi meaning
+en_feelings.mp3,en,Feelings,English word / option
+hi_55209783.mp3,hi,मशीनों में क्या नहीं होता?,Hindi clue (question)
+hi_5d18635a.mp3,hi,भावनाएँ,Hindi meaning
+hi_33a6c69e.mp3,hi,पुल्लिंग,Hindi word / option
+hi_a413d0cc.mp3,hi,“राजा” किस लिंग का शब्द है?,Hindi clue (question)
+hi_74218514.mp3,hi,स्त्रीलिंग,Hindi word / option
+hi_57641283.mp3,hi,“रानी” किस लिंग का शब्द है?,Hindi clue (question)
+hi_4280c02b.mp3,hi,लड़की,Hindi word / option
+hi_bf4adced.mp3,hi,“लड़का” का स्त्रीलिंग क्या है?,Hindi clue (question)
+hi_b2d10be3.mp3,hi,शेरनी,Hindi word / option
+hi_ecd2ba06.mp3,hi,“शेर” का स्त्रीलिंग क्या है?,Hindi clue (question)
+hi_2358d576.mp3,hi,रानी,Hindi word / option
+hi_f655dd22.mp3,hi,“राजा” का स्त्रीलिंग क्या है?,Hindi clue (question)
+hi_133c59b4.mp3,hi,नायिका,Hindi word / option
+hi_3e852414.mp3,hi,“नायक” का स्त्रीलिंग क्या है?,Hindi clue (question)
+hi_a2de1452.mp3,hi,मोरनी,Hindi word / option
+hi_6219a54d.mp3,hi,“मोर” का स्त्रीलिंग क्या है?,Hindi clue (question)
+hi_94215593.mp3,hi,चुहिया,Hindi word / option
+hi_ad9091ea.mp3,hi,“चूहा” का स्त्रीलिंग क्या है?,Hindi clue (question)
+hi_10744010.mp3,hi,गाय,Hindi word / option
+hi_d14fde60.mp3,hi,“बैल” का स्त्रीलिंग क्या है?,Hindi clue (question)
+hi_4c3b7e88.mp3,hi,पिता,Hindi word / option
+hi_54050ac8.mp3,hi,“माता” का पुल्लिंग क्या है?,Hindi clue (question)
+hi_b30f4a77.mp3,hi,“भाई” का स्त्रीलिंग क्या है?,Hindi clue (question)
+hi_1f193a28.mp3,hi,छात्रा,Hindi word / option
+hi_1f5eb8a9.mp3,hi,“छात्र” का स्त्रीलिंग क्या है?,Hindi clue (question)
+hi_ba8364fd.mp3,hi,एकवचन,Hindi word / option
+hi_8e1f4d47.mp3,hi,एक वस्तु बताने वाले शब्द कौन-सा वचन हैं?,Hindi clue (question)
+hi_5133f339.mp3,hi,बहुवचन,Hindi word / option
+hi_47f84e05.mp3,hi,एक से ज़्यादा वस्तुएँ बताने वाले शब्द कौन-सा वचन हैं?,Hindi clue (question)
+hi_faecadd6.mp3,hi,दो लड़के,Hindi word / option
+hi_f7e5125d.mp3,hi,“एक लड़का” का बहुवचन क्या है?,Hindi clue (question)
+hi_7bfd5b15.mp3,hi,चार गेंदें,Hindi word / option
+hi_50f6c0bf.mp3,hi,“एक गेंद” का बहुवचन क्या है?,Hindi clue (question)
+hi_fa2b1645.mp3,hi,तीन तितलियाँ,Hindi word / option
+hi_953ea13c.mp3,hi,“एक तितली” का बहुवचन क्या है?,Hindi clue (question)
+hi_0a407091.mp3,hi,केले,Hindi word / option
+hi_41cad59c.mp3,hi,“केला” का बहुवचन क्या है?,Hindi clue (question)
+hi_f1372a48.mp3,hi,आँखें,Hindi word / option
+hi_0f062fdc.mp3,hi,“आँख” का बहुवचन क्या है?,Hindi clue (question)
+hi_8582652b.mp3,hi,रातें,Hindi word / option
+hi_3fcdd14e.mp3,hi,“रात” का बहुवचन क्या है?,Hindi clue (question)
+hi_b7f30fed.mp3,hi,बातें,Hindi word / option
+hi_688f9782.mp3,hi,“बात” का बहुवचन क्या है?,Hindi clue (question)
+hi_365cf2fd.mp3,hi,नदियाँ,Hindi word / option
+hi_895b38bb.mp3,hi,“नदी” का बहुवचन क्या है?,Hindi clue (question)
+hi_5998f4e7.mp3,hi,रोटियाँ,Hindi word / option
+hi_66a439d3.mp3,hi,“रोटी” का बहुवचन क्या है?,Hindi clue (question)
+hi_94b637e2.mp3,hi,सर्वनाम,Hindi word / option
+hi_3706983c.mp3,hi,संज्ञा (नाम) की जगह आने वाले शब्द क्या कहलाते हैं?,Hindi clue (question)
+hi_645bd7be.mp3,hi,मैं,Hindi word / option
+hi_ac2548d1.mp3,hi,सोनू बोला: “___ खेलने जा रहा हूँ।”,Hindi clue (question)
+hi_4e768a07.mp3,hi,अपने लिए,Hindi meaning
+hi_6690e433.mp3,hi,तुम,Hindi word / option
+hi_64dc49b9.mp3,hi,"रानी ने पूछा: “सोनू, ___ कहाँ जा रहे हो?”",Hindi clue (question)
+hi_67d9ab48.mp3,hi,सामने वाले के लिए,Hindi meaning
+hi_f30dbc6f.mp3,hi,वह,Hindi word / option
+hi_b7186487.mp3,hi,रानी ने दूर की चीज़ देखकर पूछा: “___ क्या है?”,Hindi clue (question)
+hi_16b23e02.mp3,hi,दूर की चीज़ के लिए,Hindi meaning
+hi_1efb0980.mp3,hi,यह,Hindi word / option
+hi_6f77c1b3.mp3,hi,सोनू बोला: “___ मेरी नई गेंद है।”,Hindi clue (question)
+hi_41e645e0.mp3,hi,पास की चीज़ के लिए,Hindi meaning
+hi_50f69842.mp3,hi,मेरी,Hindi word / option
+hi_1316b2a8.mp3,hi,“यह ___ नई गेंद है।” सही सर्वनाम चुनो,Hindi clue (question)
+hi_9b00ae80.mp3,hi,मेरे अपने के लिए,Hindi meaning
+hi_aba0adbf.mp3,hi,विशेषण,Hindi word / option
+hi_2e433fe9.mp3,hi,संज्ञा की विशेषता बताने वाले शब्द क्या कहलाते हैं?,Hindi clue (question)
+hi_3edb7219.mp3,hi,लाल,Hindi word / option
+hi_94c2a734.mp3,hi,सेब का रंग ___ होता है।,Hindi clue (question)
+hi_79648eff.mp3,hi,रंग,Hindi meaning
+hi_82a8ff49.mp3,hi,खट्टा,Hindi word / option
+hi_e9a9308c.mp3,hi,नींबू स्वाद में ___ होता है।,Hindi clue (question)
+hi_735b164b.mp3,hi,स्वाद,Hindi meaning
+hi_8e973e88.mp3,hi,लंबी,Hindi word / option
+hi_d332c728.mp3,hi,जिराफ़ की गर्दन ___ होती है।,Hindi clue (question)
+hi_d7413ba6.mp3,hi,आकार,Hindi meaning
+hi_6ea9546a.mp3,hi,दो,Hindi word / option
+hi_fc59356b.mp3,hi,हमारे पास ___ आँखें हैं।,Hindi clue (question)
+hi_5f25951d.mp3,hi,संख्या,Hindi meaning
+hi_3fce8eb4.mp3,hi,सफेद,Hindi word / option
+hi_f00bc07f.mp3,hi,दूध का रंग ___ होता है।,Hindi clue (question)
+hi_c50419b9.mp3,hi,मीठा,Hindi word / option
+hi_13825314.mp3,hi,“मीठा फल” में विशेषण कौन-सा है?,Hindi clue (question)
+hi_0a096d9c.mp3,hi,स्वाद बताता है,Hindi meaning
+hi_58104da0.mp3,hi,क्रिया,Hindi word / option
+hi_9a7380af.mp3,hi,काम करने या होने का बोध कराने वाले शब्द क्या हैं?,Hindi clue (question)
+hi_b4d1b519.mp3,hi,खेल,Hindi word / option
+hi_5d9ff943.mp3,hi,बच्चे मैदान में ___ रहे हैं।,Hindi clue (question)
+hi_e4586458.mp3,hi,उड़,Hindi word / option
+hi_e3ccb4f0.mp3,hi,पक्षी आकाश में ___ रहे हैं।,Hindi clue (question)
+hi_b02c6529.mp3,hi,गा,Hindi word / option
+hi_8ef2dcfa.mp3,hi,राधा मधुर गीत ___ रही है।,Hindi clue (question)
+hi_772d8ace.mp3,hi,चर,Hindi word / option
+hi_cba376c9.mp3,hi,बैल घास ___ रहा है।,Hindi clue (question)
+hi_de0794dc.mp3,hi,हँसना,Hindi word / option
+hi_7b805b52.mp3,hi,खुश होने पर हम क्या करते हैं?,Hindi clue (question)
+hi_31cdadfe.mp3,hi,पर्यायवाची,Hindi word / option
+hi_b7deddc0.mp3,hi,समान अर्थ वाले अलग-अलग शब्द क्या कहलाते हैं?,Hindi clue (question)
+hi_f82a761d.mp3,hi,नीर,Hindi word / option
+hi_edd415eb.mp3,hi,“जल” का पर्यायवाची क्या है?,Hindi clue (question)
+hi_f710f186.mp3,hi,"नीर, अम्बु, तोय",Hindi meaning
+hi_d41b46b5.mp3,hi,रवि,Hindi word / option
+hi_6a1bd351.mp3,hi,“सूरज” का पर्यायवाची क्या है?,Hindi clue (question)
+hi_9f74e05a.mp3,hi,"रवि, दिनकर, भास्कर",Hindi meaning
+hi_4bb6dd75.mp3,hi,जननी,Hindi word / option
+hi_7a710368.mp3,hi,“माता” का पर्यायवाची क्या है?,Hindi clue (question)
+hi_e376ad71.mp3,hi,"जननी, अम्बा",Hindi meaning
+hi_d2f4f7ff.mp3,hi,सुत,Hindi word / option
+hi_a7726915.mp3,hi,“पुत्र” का पर्यायवाची क्या है?,Hindi clue (question)
+hi_a5862aeb.mp3,hi,"सुत, तनय, आत्मज",Hindi meaning
+hi_5199a021.mp3,hi,वायु,Hindi word / option
+hi_aeac8830.mp3,hi,“हवा” का पर्यायवाची क्या है?,Hindi clue (question)
+hi_4aefc718.mp3,hi,"वायु, समीर, अनिल",Hindi meaning
+hi_578f8a99.mp3,hi,प्रभु,Hindi word / option
+hi_bd5fc9d4.mp3,hi,“ईश्वर” का पर्यायवाची क्या है?,Hindi clue (question)
+hi_448b4e86.mp3,hi,"प्रभु, देव, ईश",Hindi meaning
+hi_0fc9bbf5.mp3,hi,चार,Hindi word / option
+hi_efb9f3ea.mp3,hi,गाय के कितने पैर होते हैं?,Hindi clue (question)
+hi_9262de16.mp3,hi,दूध,Hindi word / option
+hi_19c74135.mp3,hi,गाय हमें क्या देती है?,Hindi clue (question)
+hi_91366a54.mp3,hi,गौमाता,Hindi word / option
+hi_a3a46a16.mp3,hi,हम सब गाय को क्या कहते हैं?,Hindi clue (question)
+hi_10d36bc7.mp3,hi,पालतू,Hindi word / option
+hi_0b75408d.mp3,hi,गाय कैसा पशु है?,Hindi clue (question)
+hi_4112e9c1.mp3,hi,जो घर में पाला जाता है,Hindi meaning
+hi_e85224a7.mp3,hi,प्यासा,Hindi word / option
+hi_3878a350.mp3,hi,कहानी में कौआ बहुत ___ था।,Hindi clue (question)
+hi_cd657ba6.mp3,hi,कंकड़,Hindi word / option
+hi_04b7c314.mp3,hi,कौए ने घड़े में क्या डाले?,Hindi clue (question)
+hi_1e0fb9d0.mp3,hi,छोटे पत्थर,Hindi meaning
+hi_f9b9f0b7.mp3,hi,राह,Hindi word / option
+hi_791f3078.mp3,hi,"“जहाँ चाह, वहाँ ___” — सीख पूरी करो।",Hindi clue (question)
+hi_48760a28.mp3,hi,प्यार से,Hindi word / option
+hi_f01a5727.mp3,hi,हमारे शिक्षक हमें कैसे पढ़ाते हैं?,Hindi clue (question)
+ltr_a.mp3,en,A,Spell letter (say the letter name)
+ltr_b.mp3,en,B,Spell letter (say the letter name)
+ltr_c.mp3,en,C,Spell letter (say the letter name)
+ltr_d.mp3,en,D,Spell letter (say the letter name)
+ltr_e.mp3,en,E,Spell letter (say the letter name)
+ltr_f.mp3,en,F,Spell letter (say the letter name)
+ltr_g.mp3,en,G,Spell letter (say the letter name)
+ltr_h.mp3,en,H,Spell letter (say the letter name)
+ltr_i.mp3,en,I,Spell letter (say the letter name)
+ltr_j.mp3,en,J,Spell letter (say the letter name)
+ltr_k.mp3,en,K,Spell letter (say the letter name)
+ltr_l.mp3,en,L,Spell letter (say the letter name)
+ltr_m.mp3,en,M,Spell letter (say the letter name)
+ltr_n.mp3,en,N,Spell letter (say the letter name)
+ltr_o.mp3,en,O,Spell letter (say the letter name)
+ltr_p.mp3,en,P,Spell letter (say the letter name)
+ltr_q.mp3,en,Q,Spell letter (say the letter name)
+ltr_r.mp3,en,R,Spell letter (say the letter name)
+ltr_s.mp3,en,S,Spell letter (say the letter name)
+ltr_t.mp3,en,T,Spell letter (say the letter name)
+ltr_u.mp3,en,U,Spell letter (say the letter name)
+ltr_v.mp3,en,V,Spell letter (say the letter name)
+ltr_w.mp3,en,W,Spell letter (say the letter name)
+ltr_x.mp3,en,X,Spell letter (say the letter name)
+ltr_y.mp3,en,Y,Spell letter (say the letter name)
+ltr_z.mp3,en,Z,Spell letter (say the letter name)
+ph_ok1.mp3,hi,शाबाश त्रिशिका!,Praise / instruction line
+ph_ok2.mp3,hi,वाह त्रिशिका! बिल्कुल सही!,Praise / instruction line
+ph_ok3.mp3,hi,बहुत बढ़िया त्रिशिका!,Praise / instruction line
+ph_wrong.mp3,hi,गलत!,Praise / instruction line
+ph_try.mp3,hi,"कोई बात नहीं त्रिशिका, फिर कोशिश करो!",Praise / instruction line
+ph_spell.mp3,hi,इसकी spelling सुनो,Praise / instruction line
+ph_speak.mp3,hi,"अब तुम बोलो, त्रिशिका!",Praise / instruction line
+ph_again.mp3,hi,फिर से बोलो!,Praise / instruction line
+ph_great.mp3,hi,बहुत अच्छा बोला त्रिशिका!,Praise / instruction line
+ph_next.mp3,hi,"ठीक है, आगे चलते हैं!",Praise / instruction line
+ph_hello.mp3,hi,नमस्ते त्रिशिका! चलो आज कुछ नया सीखते हैं।,Praise / instruction line
+ph_win.mp3,hi,शाबाश त्रिशिका! तुमने सारे जवाब सही दिए!,Praise / instruction line
