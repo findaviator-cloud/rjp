@@ -29,25 +29,28 @@ hi_2a9fb069.mp3,hi,स्नानघर,Hindi meaning
 en_living_room.mp3,en,Living Room,English word / option
 hi_5df4e5a3.mp3,hi,वो कमरा जहाँ sofa रखा होता है,Hindi clue (question)
 hi_e5a734f2.mp3,hi,बैठक,Hindi meaning
+en_pillow.mp3,en,Pillow,Wrong option (read aloud)
+en_bucket.mp3,en,Bucket,Wrong option (read aloud)
 en_wardrobe.mp3,en,Wardrobe,English word / option
 hi_e460a939.mp3,hi,कपड़े रखने की अलमारी,Hindi clue (question)
 hi_0fae70a4.mp3,hi,कपड़ों की अलमारी,Hindi meaning
-en_pillow.mp3,en,Pillow,English word / option
+en_washbasin.mp3,en,Washbasin,Wrong option (read aloud)
 hi_7c44238e.mp3,hi,सोते समय सिर के नीचे क्या लगाते हैं?,Hindi clue (question)
 hi_ff720a85.mp3,hi,तकिया,Hindi meaning
-en_bucket.mp3,en,Bucket,English word / option
+en_sofa.mp3,en,Sofa,Wrong option (read aloud)
 hi_03c1825f.mp3,hi,नहाने के लिए पानी भरने का बर्तन,Hindi clue (question)
 hi_ff1d6cff.mp3,hi,बाल्टी,Hindi meaning
-en_washbasin.mp3,en,Washbasin,English word / option
+en_tap.mp3,en,Tap,Wrong option (read aloud)
 hi_daa5ceaf.mp3,hi,हाथ-मुँह धोने का बेसिन,Hindi clue (question)
 hi_5d6c4e87.mp3,hi,वॉश बेसिन,Hindi meaning
+en_dining_table.mp3,en,Dining Table,Wrong option (read aloud)
 en_frying_pan.mp3,en,Frying Pan,English word / option
 hi_626055be.mp3,hi,तलने वाली कड़ाही,Hindi clue (question)
 hi_08336fa3.mp3,hi,कड़ाही,Hindi meaning
-en_dining_table.mp3,en,Dining Table,English word / option
+en_study_table.mp3,en,Study Table,Wrong option (read aloud)
 hi_821adef6.mp3,hi,खाना खाने की मेज़,Hindi clue (question)
 hi_caf6f616.mp3,hi,खाने की मेज़,Hindi meaning
-en_study_table.mp3,en,Study Table,English word / option
+en_bed.mp3,en,Bed,Wrong option (read aloud)
 hi_847b0538.mp3,hi,पढ़ाई करने की मेज़,Hindi clue (question)
 hi_1478075e.mp3,hi,पढ़ने की मेज़,Hindi meaning
 en_gas_cylinder.mp3,en,Gas Cylinder,English word / option
@@ -113,16 +116,16 @@ hi_ce985f06.mp3,hi,झींगा,Hindi meaning
 en_whale.mp3,en,Whale,English word / option
 hi_9acf96bf.mp3,hi,समुद्र का सबसे बड़ा जानवर,Hindi clue (question)
 hi_692987a7.mp3,hi,व्हेल,Hindi meaning
+en_den.mp3,en,Den,Wrong option (read aloud)
+en_stable.mp3,en,Stable,Wrong option (read aloud)
 en_nest.mp3,en,Nest,English word / option
 hi_4641f294.mp3,hi,चिड़िया का घर,Hindi clue (question)
 hi_8c230a49.mp3,hi,घोंसला,Hindi meaning
-en_den.mp3,en,Den,English word / option
+en_kennel.mp3,en,Kennel,Wrong option (read aloud)
 hi_c2a26084.mp3,hi,"शेर का घर, गुफ़ा",Hindi clue (question)
 hi_f9e3797c.mp3,hi,माँद,Hindi meaning
-en_stable.mp3,en,Stable,English word / option
 hi_13edae01.mp3,hi,घोड़े का घर,Hindi clue (question)
 hi_cea764e1.mp3,hi,अस्तबल,Hindi meaning
-en_kennel.mp3,en,Kennel,English word / option
 hi_2f1c8bf2.mp3,hi,कुत्ते का घर,Hindi clue (question)
 en_taj_mahal.mp3,en,Taj Mahal,English word / option
 hi_773e8e69.mp3,hi,आगरा की सफ़ेद संगमरमर की सुंदर इमारत,Hindi clue (question)
@@ -248,17 +251,17 @@ hi_6d88e5ff.mp3,hi,रेलवे स्टेशन,Hindi meaning
 en_bus_stop.mp3,en,Bus Stop,English word / option
 hi_056a8cf6.mp3,hi,बस में चढ़ने के लिए हम कहाँ इंतज़ार करते हैं?,Hindi clue (question)
 hi_79210ce0.mp3,hi,बस स्टॉप,Hindi meaning
+en_out.mp3,en,Out,Wrong option (read aloud)
+en_small.mp3,en,Small,Wrong option (read aloud)
 en_down.mp3,en,Down,English word / option
 hi_8b12aa06.mp3,hi,Up का उल्टा क्या है?,Hindi clue (question)
-en_out.mp3,en,Out,English word / option
+en_girl.mp3,en,Girl,Wrong option (read aloud)
 hi_ed58f3e2.mp3,hi,In का उल्टा क्या है?,Hindi clue (question)
-en_girl.mp3,en,Girl,English word / option
+en_young.mp3,en,Young,Wrong option (read aloud)
+en_thin.mp3,en,Thin,Wrong option (read aloud)
 hi_23859107.mp3,hi,Boy का उल्टा क्या है?,Hindi clue (question)
-en_young.mp3,en,Young,English word / option
 hi_2eaf1763.mp3,hi,Old का उल्टा क्या है?,Hindi clue (question)
-en_thin.mp3,en,Thin,English word / option
 hi_6a38c85c.mp3,hi,Fat का उल्टा क्या है?,Hindi clue (question)
-en_small.mp3,en,Small,English word / option
 hi_cfdca055.mp3,hi,Big का उल्टा क्या है?,Hindi clue (question)
 en_wrestling.mp3,en,Wrestling,English word / option
 hi_d807d9df.mp3,hi,Sushil Kumar किस खेल के खिलाड़ी हैं?,Hindi clue (question)
@@ -275,13 +278,13 @@ hi_8484e49e.mp3,hi,मुक्केबाज़ी,Hindi meaning
 en_shooting.mp3,en,Shooting,English word / option
 hi_57d14955.mp3,hi,Abhinav Bindra किस खेल के खिलाड़ी हैं?,Hindi clue (question)
 hi_34be6955.mp3,hi,निशानेबाज़ी,Hindi meaning
+en_television.mp3,en,Television,Wrong option (read aloud)
+en_greeting_card.mp3,en,Greeting Card,Wrong option (read aloud)
 en_telephone.mp3,en,Telephone,English word / option
 hi_944c5f87.mp3,hi,पापा को office में फ़ोन करना है। क्या इस्तेमाल करें?,Hindi clue (question)
 hi_2e9732c8.mp3,hi,फ़ोन,Hindi meaning
-en_greeting_card.mp3,en,Greeting Card,English word / option
 hi_9ccfd1ac.mp3,hi,दादाजी को जन्मदिन का कार्ड भेजना है,Hindi clue (question)
 hi_7f415a52.mp3,hi,बधाई कार्ड,Hindi meaning
-en_television.mp3,en,Television,English word / option
 hi_5e133ff8.mp3,hi,समाचार (news) देखने के लिए क्या चलाएँ?,Hindi clue (question)
 hi_06c277b2.mp3,hi,टीवी,Hindi meaning
 en_post_office.mp3,en,Post Office,English word / option
@@ -330,148 +333,174 @@ en_barber.mp3,en,Barber,English word / option
 hi_3687e64b.mp3,hi,जो हमारे बाल काटते हैं,Hindi clue (question)
 hi_c7afca29.mp3,hi,नाई,Hindi meaning
 hi_0033693f.mp3,hi,यहाँ कंप्यूटर टीचर को पाठ और test बनाने में मदद करता है,Hindi clue (question)
+en_office.mp3,en,Office,Wrong option (read aloud)
 en_library.mp3,en,Library,English word / option
 hi_e2b3ad67.mp3,hi,यहाँ कंप्यूटर किताबों की सूची रखता है,Hindi clue (question)
 hi_d7d413c7.mp3,hi,पुस्तकालय,Hindi meaning
 hi_eb00096c.mp3,hi,यहाँ कंप्यूटर लोगों के पैसों का हिसाब रखता है,Hindi clue (question)
 hi_f722b383.mp3,hi,यहाँ कंप्यूटर डॉक्टर को मरीज़ की जानकारी देता है,Hindi clue (question)
-en_office.mp3,en,Office,English word / option
 hi_5455a9e6.mp3,hi,यहाँ कंप्यूटर से letters और e-mail बनते हैं,Hindi clue (question)
 hi_821f0385.mp3,hi,दफ़्तर,Hindi meaning
+en_water.mp3,en,Water,Wrong option (read aloud)
+en_wind.mp3,en,Wind,Wrong option (read aloud)
 en_electricity.mp3,en,Electricity,English word / option
 hi_912b7dc0.mp3,hi,कंप्यूटर किससे चलता है?,Hindi clue (question)
 hi_472597ba.mp3,hi,बिजली,Hindi meaning
+en_slow_machine.mp3,en,Slow Machine,Wrong option (read aloud)
+en_tired_machine.mp3,en,Tired Machine,Wrong option (read aloud)
 en_smart_machine.mp3,en,Smart Machine,English word / option
 hi_480380e7.mp3,hi,कंप्यूटर कैसी मशीन है?,Hindi clue (question)
 hi_2eb5fce6.mp3,hi,समझदार मशीन,Hindi meaning
+en_natural.mp3,en,Natural,Wrong option (read aloud)
+en_magic.mp3,en,Magic,Wrong option (read aloud)
 en_man_made.mp3,en,Man-made,English word / option
 hi_5d8d28a6.mp3,hi,कंप्यूटर को किसने बनाया है?,Hindi clue (question)
 hi_951c5450.mp3,hi,इंसान का बनाया हुआ,Hindi meaning
+en_cook_food.mp3,en,Cook Food,Wrong option (read aloud)
+en_wash_clothes.mp3,en,Wash Clothes,Wrong option (read aloud)
 en_draw_a_picture.mp3,en,Draw a Picture,English word / option
 hi_dc15bb2c.mp3,hi,कंप्यूटर क्या कर सकता है?,Hindi clue (question)
 hi_5abc3ed1.mp3,hi,चित्र बनाना,Hindi meaning
-en_cook_food.mp3,en,Cook Food,English word / option
+en_play_games.mp3,en,Play Games,Wrong option (read aloud)
+en_listen_to_music.mp3,en,Listen to Music,Wrong option (read aloud)
 hi_e2005b87.mp3,hi,कंप्यूटर क्या नहीं कर सकता?,Hindi clue (question)
 hi_51bc799c.mp3,hi,खाना पकाना,Hindi meaning
+en_fast.mp3,en,Fast,Wrong option (read aloud)
+en_smart.mp3,en,Smart,Wrong option (read aloud)
 en_tired.mp3,en,Tired,English word / option
 hi_8039d188.mp3,hi,कंप्यूटर कभी क्या नहीं होता?,Hindi clue (question)
 hi_9f96b25e.mp3,hi,थका हुआ,Hindi meaning
+en_printer.mp3,en,Printer,Wrong option (read aloud)
+en_speaker.mp3,en,Speaker,Wrong option (read aloud)
 en_power_supply.mp3,en,Power Supply,English word / option
 hi_f1f1b0da.mp3,hi,कंप्यूटर चालू करने के लिए सबसे पहले क्या ऑन करते हैं?,Hindi clue (question)
 hi_b8b72646.mp3,hi,बिजली का स्विच,Hindi meaning
+en_space_bar.mp3,en,Space Bar,Wrong option (read aloud)
+en_enter_key.mp3,en,Enter Key,Wrong option (read aloud)
 en_power_button.mp3,en,Power Button,English word / option
 hi_9ab64cbb.mp3,hi,CPU का कौन-सा बटन दबाकर कंप्यूटर चालू करते हैं?,Hindi clue (question)
 hi_db980b48.mp3,hi,चालू करने का बटन,Hindi meaning
+en_desktop.mp3,en,Desktop,Wrong option (read aloud)
+en_typing.mp3,en,Typing,Wrong option (read aloud)
 en_booting.mp3,en,Booting,English word / option
 hi_dba75597.mp3,hi,चालू होते समय कंप्यूटर तैयार होता है। इसे क्या कहते हैं?,Hindi clue (question)
 hi_d7361a7e.mp3,hi,कंप्यूटर का तैयार होना,Hindi meaning
-en_desktop.mp3,en,Desktop,English word / option
+en_keyboard.mp3,en,Keyboard,Wrong option (read aloud)
 hi_c60489ea.mp3,hi,चालू होने के बाद पहली स्क्रीन को क्या कहते हैं?,Hindi clue (question)
 hi_6a86aaa3.mp3,hi,डेस्कटॉप,Hindi meaning
+en_mouse_pad.mp3,en,Mouse Pad,Wrong option (read aloud)
 en_start_button.mp3,en,Start Button,English word / option
 hi_3a6ea3c3.mp3,hi,कंप्यूटर बंद करने के लिए सबसे पहले किस बटन पर क्लिक करते हैं?,Hindi clue (question)
 hi_bb06c5f5.mp3,hi,स्टार्ट बटन,Hindi meaning
+en_pull_the_plug.mp3,en,Pull the Plug,Wrong option (read aloud)
+en_close_the_lid.mp3,en,Close the Lid,Wrong option (read aloud)
 en_shut_down.mp3,en,Shut Down,English word / option
 hi_e86f0082.mp3,hi,कंप्यूटर बंद करने का सही तरीका?,Hindi clue (question)
 hi_5296386e.mp3,hi,कंप्यूटर बंद करना,Hindi meaning
+en_mouse.mp3,en,Mouse,Wrong option (read aloud)
 en_cpu.mp3,en,CPU,English word / option
 hi_0476ccf8.mp3,hi,कंप्यूटर का दिमाग़,Hindi clue (question)
+en_speakers.mp3,en,Speakers,Wrong option (read aloud)
 en_monitor.mp3,en,Monitor,English word / option
 hi_5aa868cc.mp3,hi,TV जैसी स्क्रीन जिस पर तस्वीरें दिखती हैं,Hindi clue (question)
 hi_e8541c7a.mp3,hi,स्क्रीन,Hindi meaning
-en_keyboard.mp3,en,Keyboard,English word / option
 hi_080b9221.mp3,hi,छोटे बटन (keys) से शब्द टाइप करते हैं,Hindi clue (question)
 hi_86ddad7f.mp3,hi,कीबोर्ड,Hindi meaning
-en_mouse.mp3,en,Mouse,English word / option
 hi_9cd74120.mp3,hi,स्क्रीन पर चीज़ों की ओर इशारा करने वाला,Hindi clue (question)
 hi_8eff6be2.mp3,hi,माउस,Hindi meaning
-en_printer.mp3,en,Printer,English word / option
 hi_e0afe69d.mp3,hi,कंप्यूटर से कागज़ पर कॉपी निकालता है,Hindi clue (question)
 hi_e8776bb1.mp3,hi,प्रिंटर,Hindi meaning
-en_speakers.mp3,en,Speakers,English word / option
 hi_e54adedf.mp3,hi,गाने सुनने के काम आते हैं,Hindi clue (question)
 hi_749f9bbe.mp3,hi,स्पीकर,Hindi meaning
+en_right_click.mp3,en,Right Click,Wrong option (read aloud)
+en_double_click.mp3,en,Double Click,Wrong option (read aloud)
 en_left_click.mp3,en,Left Click,English word / option
 hi_6b06d107.mp3,hi,बायाँ बटन एक बार दबाकर छोड़ना,Hindi clue (question)
 hi_bb9e94b6.mp3,hi,बायाँ क्लिक,Hindi meaning
-en_double_click.mp3,en,Double Click,English word / option
+en_drag_and_drop.mp3,en,Drag and Drop,Wrong option (read aloud)
 hi_3ddb92c4.mp3,hi,बायाँ बटन जल्दी से दो बार दबाना,Hindi clue (question)
 hi_cbf0c6a3.mp3,hi,डबल क्लिक,Hindi meaning
-en_right_click.mp3,en,Right Click,English word / option
 hi_89a2c8cf.mp3,hi,दायाँ बटन दबाने पर menu खुलता है,Hindi clue (question)
 hi_569ab097.mp3,hi,दायाँ क्लिक,Hindi meaning
-en_drag_and_drop.mp3,en,Drag and Drop,English word / option
 hi_38b2fd49.mp3,hi,बटन दबाए रखकर चीज़ को खिसकाना,Hindi clue (question)
 hi_512d8267.mp3,hi,खींचो और छोड़ो,Hindi meaning
-en_mouse_pad.mp3,en,Mouse Pad,English word / option
+en_scroll_wheel.mp3,en,Scroll Wheel,Wrong option (read aloud)
 hi_b4c2aef4.mp3,hi,माउस जिस चटाई पर चलता है,Hindi clue (question)
 hi_b93e26ff.mp3,hi,माउस पैड,Hindi meaning
-en_scroll_wheel.mp3,en,Scroll Wheel,English word / option
+en_left_button.mp3,en,Left Button,Wrong option (read aloud)
 hi_f61cfeb8.mp3,hi,माउस के बीच का पहिया,Hindi clue (question)
 hi_cfec6b63.mp3,hi,स्क्रॉल पहिया,Hindi meaning
-en_space_bar.mp3,en,Space Bar,English word / option
+en_enter.mp3,en,Enter,Wrong option (read aloud)
+en_delete.mp3,en,Delete,Wrong option (read aloud)
 hi_206a034d.mp3,hi,"सबसे लंबी key, शब्दों के बीच जगह देती है",Hindi clue (question)
 hi_e4f56795.mp3,hi,स्पेस बार,Hindi meaning
-en_enter.mp3,en,Enter,English word / option
+en_backspace.mp3,en,Backspace,Wrong option (read aloud)
 hi_68a2abd3.mp3,hi,cursor को अगली line में ले जाती है,Hindi clue (question)
 hi_ab98ae67.mp3,hi,एंटर,Hindi meaning
-en_backspace.mp3,en,Backspace,English word / option
 hi_40dd7a83.mp3,hi,cursor के बाईं तरफ़ के अक्षर मिटाती है,Hindi clue (question)
 hi_fc0121ba.mp3,hi,बैकस्पेस,Hindi meaning
-en_delete.mp3,en,Delete,English word / option
 hi_e12ae052.mp3,hi,cursor के दाईं तरफ़ के अक्षर मिटाती है,Hindi clue (question)
 hi_7a2b3db4.mp3,hi,डिलीट,Hindi meaning
+en_number_keys.mp3,en,Number Keys,Wrong option (read aloud)
+en_function_keys.mp3,en,Function Keys,Wrong option (read aloud)
 en_alphabet_keys.mp3,en,Alphabet Keys,English word / option
 hi_826e95a9.mp3,hi,A से Z तक की 26 keys,Hindi clue (question)
-en_number_keys.mp3,en,Number Keys,English word / option
 hi_e7ad5d24.mp3,hi,0 से 9 तक की keys,Hindi clue (question)
-en_function_keys.mp3,en,Function Keys,English word / option
 hi_eb8bedab.mp3,hi,सबसे ऊपर की row में F1 से F12,Hindi clue (question)
+en_stamp.mp3,en,Stamp,Wrong option (read aloud)
+en_eraser.mp3,en,Eraser,Wrong option (read aloud)
 en_paint.mp3,en,Paint,English word / option
 hi_51698556.mp3,hi,हाथ से मनचाही आकृति बनाना,Hindi clue (question)
 hi_5cf1b845.mp3,hi,पेंट,Hindi meaning
-en_stamp.mp3,en,Stamp,English word / option
+en_lines.mp3,en,Lines,Wrong option (read aloud)
 hi_04f187cf.mp3,hi,पहले से बने sticker लगाना,Hindi clue (question)
 hi_c64e72e8.mp3,hi,स्टैम्प,Hindi meaning
-en_lines.mp3,en,Lines,English word / option
+en_shapes.mp3,en,Shapes,Wrong option (read aloud)
 hi_18c4b4de.mp3,hi,सीधी रेखाएँ खींचना,Hindi clue (question)
 hi_c1225c63.mp3,hi,रेखाएँ,Hindi meaning
-en_shapes.mp3,en,Shapes,English word / option
 hi_863a0ca2.mp3,hi,"गोला, चौकोर, त्रिकोण बनाना",Hindi clue (question)
 hi_c68ebff2.mp3,hi,आकृतियाँ,Hindi meaning
-en_eraser.mp3,en,Eraser,English word / option
+en_quit.mp3,en,Quit,Wrong option (read aloud)
 hi_dfe8eae2.mp3,hi,ड्रॉइंग का कोई हिस्सा मिटाना,Hindi clue (question)
 hi_81523daa.mp3,hi,रबड़,Hindi meaning
+en_open.mp3,en,Open,Wrong option (read aloud)
 en_new.mp3,en,New,English word / option
 hi_96ebd334.mp3,hi,नई ड्रॉइंग शुरू करना,Hindi clue (question)
 hi_ff7b94cd.mp3,hi,नया,Hindi meaning
-en_open.mp3,en,Open,English word / option
 hi_38749f84.mp3,hi,सेव की हुई ड्रॉइंग खोलना,Hindi clue (question)
 hi_456d86a4.mp3,hi,खोलो,Hindi meaning
-en_quit.mp3,en,Quit,English word / option
 hi_d6c19fe3.mp3,hi,Tux Paint बंद करना,Hindi clue (question)
 hi_e492a95d.mp3,hi,बंद करो,Hindi meaning
+en_loudly.mp3,en,Loudly,Wrong option (read aloud)
 en_quietly.mp3,en,Quietly,English word / option
 hi_d1a705bc.mp3,hi,Computer lab में लाइन में कैसे चलना चाहिए?,Hindi clue (question)
 hi_c451c6b8.mp3,hi,चुपचाप,Hindi meaning
+en_cap.mp3,en,Cap,Wrong option (read aloud)
+en_bag.mp3,en,Bag,Wrong option (read aloud)
 en_shoes.mp3,en,Shoes,English word / option
 hi_7743eae2.mp3,hi,Lab में जाने से पहले क्या उतारते हैं?,Hindi clue (question)
 hi_28e5ae2a.mp3,hi,जूते,Hindi meaning
+en_hard.mp3,en,Hard,Wrong option (read aloud)
 en_gently.mp3,en,Gently,English word / option
 hi_b382ec73.mp3,hi,keyboard की keys को कैसे दबाना चाहिए?,Hindi clue (question)
 hi_cd4c0877.mp3,hi,धीरे से,Hindi meaning
+en_wet_cloth.mp3,en,Wet Cloth,Wrong option (read aloud)
+en_paper.mp3,en,Paper,Wrong option (read aloud)
 en_dust_cover.mp3,en,Dust Cover,English word / option
 hi_66da473d.mp3,hi,इस्तेमाल न होने पर कंप्यूटर पर क्या ढकते हैं?,Hindi clue (question)
 hi_af38b7d8.mp3,hi,धूल का कवर,Hindi meaning
+en_sit_straight.mp3,en,Sit Straight,Wrong option (read aloud)
+en_type_gently.mp3,en,Type Gently,Wrong option (read aloud)
 en_eat_or_drink.mp3,en,Eat or Drink,English word / option
 hi_0a23aa63.mp3,hi,कंप्यूटर के पास क्या नहीं करना चाहिए?,Hindi clue (question)
 hi_9d8563bb.mp3,hi,खाना या पीना,Hindi meaning
-en_sit_straight.mp3,en,Sit Straight,English word / option
+en_run_around.mp3,en,Run Around,Wrong option (read aloud)
 hi_dd226192.mp3,hi,कुर्सी पर कैसे बैठना चाहिए?,Hindi clue (question)
 hi_ebb95ee2.mp3,hi,सीधे बैठो,Hindi meaning
 en_ai.mp3,en,AI,English word / option
 hi_3822a015.mp3,hi,Artificial Intelligence को छोटे में क्या कहते हैं?,Hindi clue (question)
 hi_5f30a74c.mp3,hi,इंसान जैसा सीखने वाली मशीन,Hindi meaning
+en_tux_paint.mp3,en,Tux Paint,Wrong option (read aloud)
 en_alexa.mp3,en,Alexa,English word / option
 hi_5214ba3c.mp3,hi,AI वाले स्मार्ट स्पीकर का एक नाम,Hindi clue (question)
 hi_dd2d3644.mp3,hi,एलेक्सा,Hindi meaning
@@ -481,436 +510,479 @@ hi_717f02b1.mp3,hi,रोबोट सफ़ाई मशीन,Hindi meaning
 en_chatbot.mp3,en,Chatbot,English word / option
 hi_3e3f6f43.mp3,hi,AI जो हमसे बात करता है,Hindi clue (question)
 hi_1b857c89.mp3,hi,चैटबॉट,Hindi meaning
+en_battery.mp3,en,Battery,Wrong option (read aloud)
+en_speed.mp3,en,Speed,Wrong option (read aloud)
 en_feelings.mp3,en,Feelings,English word / option
 hi_55209783.mp3,hi,मशीनों में क्या नहीं होता?,Hindi clue (question)
 hi_5d18635a.mp3,hi,भावनाएँ,Hindi meaning
+hi_74218514.mp3,hi,स्त्रीलिंग,Wrong option (read aloud)
+hi_5133f339.mp3,hi,बहुवचन,Wrong option (read aloud)
 hi_33a6c69e.mp3,hi,पुल्लिंग,Hindi word / option
 hi_a413d0cc.mp3,hi,“राजा” किस लिंग का शब्द है?,Hindi clue (question)
-hi_74218514.mp3,hi,स्त्रीलिंग,Hindi word / option
+hi_ba8364fd.mp3,hi,एकवचन,Wrong option (read aloud)
 hi_57641283.mp3,hi,“रानी” किस लिंग का शब्द है?,Hindi clue (question)
+hi_2358d576.mp3,hi,रानी,Wrong option (read aloud)
+hi_10744010.mp3,hi,गाय,Wrong option (read aloud)
 hi_4280c02b.mp3,hi,लड़की,Hindi word / option
 hi_bf4adced.mp3,hi,“लड़का” का स्त्रीलिंग क्या है?,Hindi clue (question)
+hi_a2de1452.mp3,hi,मोरनी,Wrong option (read aloud)
+hi_94215593.mp3,hi,चुहिया,Wrong option (read aloud)
 hi_b2d10be3.mp3,hi,शेरनी,Hindi word / option
 hi_ecd2ba06.mp3,hi,“शेर” का स्त्रीलिंग क्या है?,Hindi clue (question)
-hi_2358d576.mp3,hi,रानी,Hindi word / option
+hi_133c59b4.mp3,hi,नायिका,Wrong option (read aloud)
 hi_f655dd22.mp3,hi,“राजा” का स्त्रीलिंग क्या है?,Hindi clue (question)
-hi_133c59b4.mp3,hi,नायिका,Hindi word / option
+hi_1f193a28.mp3,hi,छात्रा,Wrong option (read aloud)
 hi_3e852414.mp3,hi,“नायक” का स्त्रीलिंग क्या है?,Hindi clue (question)
-hi_a2de1452.mp3,hi,मोरनी,Hindi word / option
 hi_6219a54d.mp3,hi,“मोर” का स्त्रीलिंग क्या है?,Hindi clue (question)
-hi_94215593.mp3,hi,चुहिया,Hindi word / option
 hi_ad9091ea.mp3,hi,“चूहा” का स्त्रीलिंग क्या है?,Hindi clue (question)
-hi_10744010.mp3,hi,गाय,Hindi word / option
 hi_d14fde60.mp3,hi,“बैल” का स्त्रीलिंग क्या है?,Hindi clue (question)
 hi_4c3b7e88.mp3,hi,पिता,Hindi word / option
 hi_54050ac8.mp3,hi,“माता” का पुल्लिंग क्या है?,Hindi clue (question)
+hi_98f67b71.mp3,hi,माता,Wrong option (read aloud)
 hi_b30f4a77.mp3,hi,“भाई” का स्त्रीलिंग क्या है?,Hindi clue (question)
-hi_1f193a28.mp3,hi,छात्रा,Hindi word / option
 hi_1f5eb8a9.mp3,hi,“छात्र” का स्त्रीलिंग क्या है?,Hindi clue (question)
-hi_ba8364fd.mp3,hi,एकवचन,Hindi word / option
 hi_8e1f4d47.mp3,hi,एक वस्तु बताने वाले शब्द कौन-सा वचन हैं?,Hindi clue (question)
-hi_5133f339.mp3,hi,बहुवचन,Hindi word / option
 hi_47f84e05.mp3,hi,एक से ज़्यादा वस्तुएँ बताने वाले शब्द कौन-सा वचन हैं?,Hindi clue (question)
+hi_7bfd5b15.mp3,hi,चार गेंदें,Wrong option (read aloud)
+hi_fa2b1645.mp3,hi,तीन तितलियाँ,Wrong option (read aloud)
 hi_faecadd6.mp3,hi,दो लड़के,Hindi word / option
 hi_f7e5125d.mp3,hi,“एक लड़का” का बहुवचन क्या है?,Hindi clue (question)
-hi_7bfd5b15.mp3,hi,चार गेंदें,Hindi word / option
 hi_50f6c0bf.mp3,hi,“एक गेंद” का बहुवचन क्या है?,Hindi clue (question)
-hi_fa2b1645.mp3,hi,तीन तितलियाँ,Hindi word / option
 hi_953ea13c.mp3,hi,“एक तितली” का बहुवचन क्या है?,Hindi clue (question)
+hi_51c8da43.mp3,hi,केलें,Wrong option (read aloud)
+hi_d87943ca.mp3,hi,केलियाँ,Wrong option (read aloud)
 hi_0a407091.mp3,hi,केले,Hindi word / option
 hi_41cad59c.mp3,hi,“केला” का बहुवचन क्या है?,Hindi clue (question)
+hi_e731f54b.mp3,hi,आँखी,Wrong option (read aloud)
+hi_76abc617.mp3,hi,आँखियाँ,Wrong option (read aloud)
 hi_f1372a48.mp3,hi,आँखें,Hindi word / option
 hi_0f062fdc.mp3,hi,“आँख” का बहुवचन क्या है?,Hindi clue (question)
+hi_c64005eb.mp3,hi,रातियाँ,Wrong option (read aloud)
+hi_563e38dc.mp3,hi,रातु,Wrong option (read aloud)
 hi_8582652b.mp3,hi,रातें,Hindi word / option
 hi_3fcdd14e.mp3,hi,“रात” का बहुवचन क्या है?,Hindi clue (question)
+hi_610ad6bd.mp3,hi,बातियाँ,Wrong option (read aloud)
+hi_fea8dbef.mp3,hi,बातीं,Wrong option (read aloud)
 hi_b7f30fed.mp3,hi,बातें,Hindi word / option
 hi_688f9782.mp3,hi,“बात” का बहुवचन क्या है?,Hindi clue (question)
+hi_2558730d.mp3,hi,नदीं,Wrong option (read aloud)
+hi_197605b7.mp3,hi,नदियें,Wrong option (read aloud)
 hi_365cf2fd.mp3,hi,नदियाँ,Hindi word / option
 hi_895b38bb.mp3,hi,“नदी” का बहुवचन क्या है?,Hindi clue (question)
+hi_700cdb77.mp3,hi,रोटीं,Wrong option (read aloud)
+hi_a11892b7.mp3,hi,रोटिये,Wrong option (read aloud)
 hi_5998f4e7.mp3,hi,रोटियाँ,Hindi word / option
 hi_66a439d3.mp3,hi,“रोटी” का बहुवचन क्या है?,Hindi clue (question)
+hi_58104da0.mp3,hi,क्रिया,Wrong option (read aloud)
+hi_aba0adbf.mp3,hi,विशेषण,Wrong option (read aloud)
 hi_94b637e2.mp3,hi,सर्वनाम,Hindi word / option
 hi_3706983c.mp3,hi,संज्ञा (नाम) की जगह आने वाले शब्द क्या कहलाते हैं?,Hindi clue (question)
+hi_6690e433.mp3,hi,तुम,Wrong option (read aloud)
+hi_f30dbc6f.mp3,hi,वह,Wrong option (read aloud)
 hi_645bd7be.mp3,hi,मैं,Hindi word / option
 hi_ac2548d1.mp3,hi,सोनू बोला: “___ खेलने जा रहा हूँ।”,Hindi clue (question)
 hi_4e768a07.mp3,hi,अपने लिए,Hindi meaning
-hi_6690e433.mp3,hi,तुम,Hindi word / option
 hi_64dc49b9.mp3,hi,"रानी ने पूछा: “सोनू, ___ कहाँ जा रहे हो?”",Hindi clue (question)
 hi_67d9ab48.mp3,hi,सामने वाले के लिए,Hindi meaning
-hi_f30dbc6f.mp3,hi,वह,Hindi word / option
+hi_1efb0980.mp3,hi,यह,Wrong option (read aloud)
+hi_e13f59f4.mp3,hi,हम,Wrong option (read aloud)
 hi_b7186487.mp3,hi,रानी ने दूर की चीज़ देखकर पूछा: “___ क्या है?”,Hindi clue (question)
 hi_16b23e02.mp3,hi,दूर की चीज़ के लिए,Hindi meaning
-hi_1efb0980.mp3,hi,यह,Hindi word / option
 hi_6f77c1b3.mp3,hi,सोनू बोला: “___ मेरी नई गेंद है।”,Hindi clue (question)
 hi_41e645e0.mp3,hi,पास की चीज़ के लिए,Hindi meaning
+hi_231cf2f4.mp3,hi,तुम्हारा,Wrong option (read aloud)
+hi_1fefd0e6.mp3,hi,उसका,Wrong option (read aloud)
 hi_50f69842.mp3,hi,मेरी,Hindi word / option
 hi_1316b2a8.mp3,hi,“यह ___ नई गेंद है।” सही सर्वनाम चुनो,Hindi clue (question)
 hi_9b00ae80.mp3,hi,मेरे अपने के लिए,Hindi meaning
-hi_aba0adbf.mp3,hi,विशेषण,Hindi word / option
 hi_2e433fe9.mp3,hi,संज्ञा की विशेषता बताने वाले शब्द क्या कहलाते हैं?,Hindi clue (question)
+hi_3fce8eb4.mp3,hi,सफेद,Wrong option (read aloud)
+hi_b8959dae.mp3,hi,पीला,Wrong option (read aloud)
 hi_3edb7219.mp3,hi,लाल,Hindi word / option
 hi_94c2a734.mp3,hi,सेब का रंग ___ होता है।,Hindi clue (question)
 hi_79648eff.mp3,hi,रंग,Hindi meaning
+hi_c50419b9.mp3,hi,मीठा,Wrong option (read aloud)
 hi_82a8ff49.mp3,hi,खट्टा,Hindi word / option
 hi_e9a9308c.mp3,hi,नींबू स्वाद में ___ होता है।,Hindi clue (question)
 hi_735b164b.mp3,hi,स्वाद,Hindi meaning
+hi_c0894fb3.mp3,hi,छोटी,Wrong option (read aloud)
+hi_af94a523.mp3,hi,मीठी,Wrong option (read aloud)
 hi_8e973e88.mp3,hi,लंबी,Hindi word / option
 hi_d332c728.mp3,hi,जिराफ़ की गर्दन ___ होती है।,Hindi clue (question)
 hi_d7413ba6.mp3,hi,आकार,Hindi meaning
+hi_e37c173f.mp3,hi,एक,Wrong option (read aloud)
+hi_0fc9bbf5.mp3,hi,चार,Wrong option (read aloud)
 hi_6ea9546a.mp3,hi,दो,Hindi word / option
 hi_fc59356b.mp3,hi,हमारे पास ___ आँखें हैं।,Hindi clue (question)
 hi_5f25951d.mp3,hi,संख्या,Hindi meaning
-hi_3fce8eb4.mp3,hi,सफेद,Hindi word / option
+hi_713211c9.mp3,hi,काला,Wrong option (read aloud)
+hi_af70ca06.mp3,hi,हरा,Wrong option (read aloud)
 hi_f00bc07f.mp3,hi,दूध का रंग ___ होता है।,Hindi clue (question)
-hi_c50419b9.mp3,hi,मीठा,Hindi word / option
+hi_7cf96a67.mp3,hi,फल,Wrong option (read aloud)
+hi_903731fd.mp3,hi,पेड़,Wrong option (read aloud)
 hi_13825314.mp3,hi,“मीठा फल” में विशेषण कौन-सा है?,Hindi clue (question)
 hi_0a096d9c.mp3,hi,स्वाद बताता है,Hindi meaning
-hi_58104da0.mp3,hi,क्रिया,Hindi word / option
+hi_2fee8042.mp3,hi,संज्ञा,Wrong option (read aloud)
 hi_9a7380af.mp3,hi,काम करने या होने का बोध कराने वाले शब्द क्या हैं?,Hindi clue (question)
+hi_e4586458.mp3,hi,उड़,Wrong option (read aloud)
+hi_b02c6529.mp3,hi,गा,Wrong option (read aloud)
 hi_b4d1b519.mp3,hi,खेल,Hindi word / option
 hi_5d9ff943.mp3,hi,बच्चे मैदान में ___ रहे हैं।,Hindi clue (question)
-hi_e4586458.mp3,hi,उड़,Hindi word / option
+hi_1ee032ef.mp3,hi,सो,Wrong option (read aloud)
 hi_e3ccb4f0.mp3,hi,पक्षी आकाश में ___ रहे हैं।,Hindi clue (question)
-hi_b02c6529.mp3,hi,गा,Hindi word / option
+hi_772d8ace.mp3,hi,चर,Wrong option (read aloud)
 hi_8ef2dcfa.mp3,hi,राधा मधुर गीत ___ रही है।,Hindi clue (question)
-hi_772d8ace.mp3,hi,चर,Hindi word / option
 hi_cba376c9.mp3,hi,बैल घास ___ रहा है।,Hindi clue (question)
+hi_3a2d49fe.mp3,hi,रोना,Wrong option (read aloud)
+hi_ffb7198e.mp3,hi,सोना,Wrong option (read aloud)
 hi_de0794dc.mp3,hi,हँसना,Hindi word / option
 hi_7b805b52.mp3,hi,खुश होने पर हम क्या करते हैं?,Hindi clue (question)
+hi_b5c9b89e.mp3,hi,वचन,Wrong option (read aloud)
 hi_31cdadfe.mp3,hi,पर्यायवाची,Hindi word / option
 hi_b7deddc0.mp3,hi,समान अर्थ वाले अलग-अलग शब्द क्या कहलाते हैं?,Hindi clue (question)
+hi_d41b46b5.mp3,hi,रवि,Wrong option (read aloud)
+hi_d2f4f7ff.mp3,hi,सुत,Wrong option (read aloud)
 hi_f82a761d.mp3,hi,नीर,Hindi word / option
 hi_edd415eb.mp3,hi,“जल” का पर्यायवाची क्या है?,Hindi clue (question)
 hi_f710f186.mp3,hi,"नीर, अम्बु, तोय",Hindi meaning
-hi_d41b46b5.mp3,hi,रवि,Hindi word / option
+hi_5199a021.mp3,hi,वायु,Wrong option (read aloud)
 hi_6a1bd351.mp3,hi,“सूरज” का पर्यायवाची क्या है?,Hindi clue (question)
 hi_9f74e05a.mp3,hi,"रवि, दिनकर, भास्कर",Hindi meaning
+hi_578f8a99.mp3,hi,प्रभु,Wrong option (read aloud)
 hi_4bb6dd75.mp3,hi,जननी,Hindi word / option
 hi_7a710368.mp3,hi,“माता” का पर्यायवाची क्या है?,Hindi clue (question)
 hi_e376ad71.mp3,hi,"जननी, अम्बा",Hindi meaning
-hi_d2f4f7ff.mp3,hi,सुत,Hindi word / option
 hi_a7726915.mp3,hi,“पुत्र” का पर्यायवाची क्या है?,Hindi clue (question)
 hi_a5862aeb.mp3,hi,"सुत, तनय, आत्मज",Hindi meaning
-hi_5199a021.mp3,hi,वायु,Hindi word / option
 hi_aeac8830.mp3,hi,“हवा” का पर्यायवाची क्या है?,Hindi clue (question)
 hi_4aefc718.mp3,hi,"वायु, समीर, अनिल",Hindi meaning
-hi_578f8a99.mp3,hi,प्रभु,Hindi word / option
 hi_bd5fc9d4.mp3,hi,“ईश्वर” का पर्यायवाची क्या है?,Hindi clue (question)
 hi_448b4e86.mp3,hi,"प्रभु, देव, ईश",Hindi meaning
-hi_0fc9bbf5.mp3,hi,चार,Hindi word / option
+hi_33632614.mp3,hi,तीन,Wrong option (read aloud)
 hi_efb9f3ea.mp3,hi,गाय के कितने पैर होते हैं?,Hindi clue (question)
+hi_fb730d8e.mp3,hi,पानी,Wrong option (read aloud)
+hi_b0d5ed25.mp3,hi,घास,Wrong option (read aloud)
 hi_9262de16.mp3,hi,दूध,Hindi word / option
 hi_19c74135.mp3,hi,गाय हमें क्या देती है?,Hindi clue (question)
+hi_e6ba9eba.mp3,hi,गौशाला,Wrong option (read aloud)
+hi_e1558ec8.mp3,hi,गोपाल,Wrong option (read aloud)
 hi_91366a54.mp3,hi,गौमाता,Hindi word / option
 hi_a3a46a16.mp3,hi,हम सब गाय को क्या कहते हैं?,Hindi clue (question)
+hi_0fd394da.mp3,hi,जंगली,Wrong option (read aloud)
+hi_dd42889f.mp3,hi,उड़ने वाला,Wrong option (read aloud)
 hi_10d36bc7.mp3,hi,पालतू,Hindi word / option
 hi_0b75408d.mp3,hi,गाय कैसा पशु है?,Hindi clue (question)
 hi_4112e9c1.mp3,hi,जो घर में पाला जाता है,Hindi meaning
+hi_64b1f3ee.mp3,hi,भूखा,Wrong option (read aloud)
+hi_fb05e1fa.mp3,hi,थका,Wrong option (read aloud)
 hi_e85224a7.mp3,hi,प्यासा,Hindi word / option
 hi_3878a350.mp3,hi,कहानी में कौआ बहुत ___ था।,Hindi clue (question)
+hi_22c6beba.mp3,hi,दाने,Wrong option (read aloud)
 hi_cd657ba6.mp3,hi,कंकड़,Hindi word / option
 hi_04b7c314.mp3,hi,कौए ने घड़े में क्या डाले?,Hindi clue (question)
 hi_1e0fb9d0.mp3,hi,छोटे पत्थर,Hindi meaning
+hi_566fe75f.mp3,hi,नाव,Wrong option (read aloud)
+hi_e18acb5c.mp3,hi,गाड़ी,Wrong option (read aloud)
 hi_f9b9f0b7.mp3,hi,राह,Hindi word / option
 hi_791f3078.mp3,hi,"“जहाँ चाह, वहाँ ___” — सीख पूरी करो।",Hindi clue (question)
+hi_09cdaed3.mp3,hi,डाँटकर,Wrong option (read aloud)
+hi_29a756fd.mp3,hi,जल्दी में,Wrong option (read aloud)
 hi_48760a28.mp3,hi,प्यार से,Hindi word / option
 hi_f01a5727.mp3,hi,हमारे शिक्षक हमें कैसे पढ़ाते हैं?,Hindi clue (question)
+hi_c4ca4238.mp3,hi,1,Wrong option (read aloud)
+hi_eccbc87e.mp3,hi,3,Wrong option (read aloud)
 hi_c81e728d.mp3,hi,2,Hindi word / option
 hi_f0b066cb.mp3,hi,1 के बाद कौन-सा number आता है?,Hindi clue (question)
-hi_c4ca4238.mp3,hi,1,Hindi word / option
 hi_aa948646.mp3,hi,2 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
-hi_e37c173f.mp3,hi,एक,Hindi meaning
+hi_e4da3b7f.mp3,hi,5,Wrong option (read aloud)
 hi_a87ff679.mp3,hi,4,Hindi word / option
 hi_a293965e.mp3,hi,3 के बाद कौन-सा number आता है?,Hindi clue (question)
-hi_eccbc87e.mp3,hi,3,Hindi word / option
 hi_e0615e66.mp3,hi,4 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
-hi_33632614.mp3,hi,तीन,Hindi meaning
+hi_8f14e45f.mp3,hi,7,Wrong option (read aloud)
 hi_1679091c.mp3,hi,6,Hindi word / option
 hi_5e9e40a8.mp3,hi,5 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_53b6634d.mp3,hi,छह,Hindi meaning
-hi_e4da3b7f.mp3,hi,5,Hindi word / option
 hi_525dca8d.mp3,hi,6 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_24aee72d.mp3,hi,पाँच,Hindi meaning
+hi_45c48cce.mp3,hi,9,Wrong option (read aloud)
 hi_c9f0f895.mp3,hi,8,Hindi word / option
 hi_9ff60348.mp3,hi,7 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_8f513690.mp3,hi,आठ,Hindi meaning
-hi_8f14e45f.mp3,hi,7,Hindi word / option
 hi_f1348c32.mp3,hi,8 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_644e5c9a.mp3,hi,सात,Hindi meaning
+hi_6512bd43.mp3,hi,11,Wrong option (read aloud)
 hi_d3d94468.mp3,hi,10,Hindi word / option
 hi_a5d5acc7.mp3,hi,9 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_d09cfd01.mp3,hi,दस,Hindi meaning
-hi_45c48cce.mp3,hi,9,Hindi word / option
 hi_5c5a6fd0.mp3,hi,10 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_d5b4f28e.mp3,hi,नौ,Hindi meaning
+hi_c51ce410.mp3,hi,13,Wrong option (read aloud)
 hi_c20ad4d7.mp3,hi,12,Hindi word / option
 hi_1d56e33f.mp3,hi,11 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_d56561a5.mp3,hi,बारह,Hindi meaning
-hi_6512bd43.mp3,hi,11,Hindi word / option
 hi_498a732f.mp3,hi,12 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_48d6f315.mp3,hi,ग्यारह,Hindi meaning
+hi_9bf31c7f.mp3,hi,15,Wrong option (read aloud)
 hi_aab32389.mp3,hi,14,Hindi word / option
 hi_140ac21d.mp3,hi,13 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_f735c685.mp3,hi,चौदह,Hindi meaning
-hi_c51ce410.mp3,hi,13,Hindi word / option
 hi_d8efc210.mp3,hi,14 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_304deea4.mp3,hi,तेरह,Hindi meaning
+hi_70efdf2e.mp3,hi,17,Wrong option (read aloud)
 hi_c74d97b0.mp3,hi,16,Hindi word / option
 hi_6434ce19.mp3,hi,15 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_97f9a851.mp3,hi,सोलह,Hindi meaning
-hi_9bf31c7f.mp3,hi,15,Hindi word / option
 hi_4f2239d6.mp3,hi,16 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_a52afd7d.mp3,hi,पंद्रह,Hindi meaning
+hi_1f0e3dad.mp3,hi,19,Wrong option (read aloud)
 hi_6f4922f4.mp3,hi,18,Hindi word / option
 hi_939439db.mp3,hi,17 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_0288e62d.mp3,hi,अठारह,Hindi meaning
-hi_70efdf2e.mp3,hi,17,Hindi word / option
 hi_4f0f4877.mp3,hi,18 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_887aac91.mp3,hi,सत्रह,Hindi meaning
+hi_3c59dc04.mp3,hi,21,Wrong option (read aloud)
 hi_98f13708.mp3,hi,20,Hindi word / option
 hi_b10b5d42.mp3,hi,19 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_c4fd3006.mp3,hi,बीस,Hindi meaning
-hi_1f0e3dad.mp3,hi,19,Hindi word / option
 hi_36b8ff96.mp3,hi,20 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_43140a8a.mp3,hi,उन्नीस,Hindi meaning
+hi_37693cfc.mp3,hi,23,Wrong option (read aloud)
 hi_b6d767d2.mp3,hi,22,Hindi word / option
 hi_dfcae693.mp3,hi,21 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_82637753.mp3,hi,बाईस,Hindi meaning
-hi_3c59dc04.mp3,hi,21,Hindi word / option
 hi_e8241d3a.mp3,hi,22 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_18ed8e4b.mp3,hi,इक्कीस,Hindi meaning
+hi_8e296a06.mp3,hi,25,Wrong option (read aloud)
 hi_1ff1de77.mp3,hi,24,Hindi word / option
 hi_a064edfe.mp3,hi,23 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_b98943a4.mp3,hi,चौबीस,Hindi meaning
-hi_37693cfc.mp3,hi,23,Hindi word / option
 hi_9e1778b2.mp3,hi,24 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_735d3228.mp3,hi,तेईस,Hindi meaning
+hi_02e74f10.mp3,hi,27,Wrong option (read aloud)
 hi_4e732ced.mp3,hi,26,Hindi word / option
 hi_910435ae.mp3,hi,25 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_99bb9b06.mp3,hi,छब्बीस,Hindi meaning
-hi_8e296a06.mp3,hi,25,Hindi word / option
 hi_e6fe3582.mp3,hi,26 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_74945145.mp3,hi,पच्चीस,Hindi meaning
+hi_6ea9ab1b.mp3,hi,29,Wrong option (read aloud)
 hi_33e75ff0.mp3,hi,28,Hindi word / option
 hi_2e6a0c59.mp3,hi,27 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_2aa55943.mp3,hi,अट्ठाईस,Hindi meaning
-hi_02e74f10.mp3,hi,27,Hindi word / option
 hi_b0f9239d.mp3,hi,28 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_87ee8ca1.mp3,hi,सत्ताईस,Hindi meaning
+hi_c16a5320.mp3,hi,31,Wrong option (read aloud)
 hi_34173cb3.mp3,hi,30,Hindi word / option
 hi_70b67dfd.mp3,hi,29 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_d7d4719a.mp3,hi,तीस,Hindi meaning
-hi_6ea9ab1b.mp3,hi,29,Hindi word / option
 hi_8f2c74ab.mp3,hi,30 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_57d5f4b7.mp3,hi,उनतीस,Hindi meaning
+hi_182be0c5.mp3,hi,33,Wrong option (read aloud)
 hi_6364d3f0.mp3,hi,32,Hindi word / option
 hi_8b6c1766.mp3,hi,31 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_430a4462.mp3,hi,बत्तीस,Hindi meaning
-hi_c16a5320.mp3,hi,31,Hindi word / option
 hi_bba704ef.mp3,hi,32 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_011aa3ae.mp3,hi,इकतीस,Hindi meaning
+hi_1c383cd3.mp3,hi,35,Wrong option (read aloud)
 hi_e369853d.mp3,hi,34,Hindi word / option
 hi_2e09de10.mp3,hi,33 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_0b63d82a.mp3,hi,चौंतीस,Hindi meaning
-hi_182be0c5.mp3,hi,33,Hindi word / option
 hi_ec09d390.mp3,hi,34 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_237d8296.mp3,hi,तैंतीस,Hindi meaning
+hi_a5bfc9e0.mp3,hi,37,Wrong option (read aloud)
 hi_19ca14e7.mp3,hi,36,Hindi word / option
 hi_53ac2ea1.mp3,hi,35 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_dd250fce.mp3,hi,छत्तीस,Hindi meaning
-hi_1c383cd3.mp3,hi,35,Hindi word / option
 hi_273560b6.mp3,hi,36 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_c0714649.mp3,hi,पैंतीस,Hindi meaning
+hi_d67d8ab4.mp3,hi,39,Wrong option (read aloud)
 hi_a5771bce.mp3,hi,38,Hindi word / option
 hi_bbf73e9f.mp3,hi,37 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_f8475e0f.mp3,hi,अड़तीस,Hindi meaning
-hi_a5bfc9e0.mp3,hi,37,Hindi word / option
 hi_bd88e93a.mp3,hi,38 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_165f37dc.mp3,hi,सैंतीस,Hindi meaning
+hi_3416a75f.mp3,hi,41,Wrong option (read aloud)
 hi_d645920e.mp3,hi,40,Hindi word / option
 hi_f597d05e.mp3,hi,39 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_bc866399.mp3,hi,चालीस,Hindi meaning
-hi_d67d8ab4.mp3,hi,39,Hindi word / option
 hi_7f53493e.mp3,hi,40 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_27629b1f.mp3,hi,उनतालीस,Hindi meaning
+hi_17e62166.mp3,hi,43,Wrong option (read aloud)
 hi_a1d0c6e8.mp3,hi,42,Hindi word / option
 hi_c901e3e9.mp3,hi,41 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_169c344c.mp3,hi,बयालीस,Hindi meaning
-hi_3416a75f.mp3,hi,41,Hindi word / option
 hi_5400b3e6.mp3,hi,42 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_8be3364e.mp3,hi,इकतालीस,Hindi meaning
+hi_6c8349cc.mp3,hi,45,Wrong option (read aloud)
 hi_f7177163.mp3,hi,44,Hindi word / option
 hi_7007bccc.mp3,hi,43 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_bdbc5c3f.mp3,hi,चौवालीस,Hindi meaning
-hi_17e62166.mp3,hi,43,Hindi word / option
 hi_4cae8d05.mp3,hi,44 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_b0eca555.mp3,hi,तैंतालीस,Hindi meaning
+hi_67c6a1e7.mp3,hi,47,Wrong option (read aloud)
 hi_d9d4f495.mp3,hi,46,Hindi word / option
 hi_8d9855b2.mp3,hi,45 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_c3aff2df.mp3,hi,छियालीस,Hindi meaning
-hi_6c8349cc.mp3,hi,45,Hindi word / option
 hi_9e928d60.mp3,hi,46 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_2eca3c09.mp3,hi,पैंतालीस,Hindi meaning
+hi_f457c545.mp3,hi,49,Wrong option (read aloud)
 hi_642e92ef.mp3,hi,48,Hindi word / option
 hi_6268a6bc.mp3,hi,47 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_4db47eff.mp3,hi,अड़तालीस,Hindi meaning
-hi_67c6a1e7.mp3,hi,47,Hindi word / option
 hi_127f779e.mp3,hi,48 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_e1a96741.mp3,hi,सैंतालीस,Hindi meaning
+hi_2838023a.mp3,hi,51,Wrong option (read aloud)
 hi_c0c7c76d.mp3,hi,50,Hindi word / option
 hi_93bc457c.mp3,hi,49 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_03d98197.mp3,hi,पचास,Hindi meaning
-hi_f457c545.mp3,hi,49,Hindi word / option
 hi_dbc3cfb7.mp3,hi,50 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_f42b2da6.mp3,hi,उनचास,Hindi meaning
+hi_d82c8d16.mp3,hi,53,Wrong option (read aloud)
 hi_9a115815.mp3,hi,52,Hindi word / option
 hi_d3229e1f.mp3,hi,51 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_5a1a0cbe.mp3,hi,बावन,Hindi meaning
-hi_2838023a.mp3,hi,51,Hindi word / option
 hi_343e5315.mp3,hi,52 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_21eaa8bf.mp3,hi,इक्यावन,Hindi meaning
+hi_b53b3a3d.mp3,hi,55,Wrong option (read aloud)
 hi_a684ecee.mp3,hi,54,Hindi word / option
 hi_bed8b70b.mp3,hi,53 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_e814cde7.mp3,hi,चौवन,Hindi meaning
-hi_d82c8d16.mp3,hi,53,Hindi word / option
 hi_a44ab2d6.mp3,hi,54 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_2af413ca.mp3,hi,तिरपन,Hindi meaning
+hi_72b32a1f.mp3,hi,57,Wrong option (read aloud)
 hi_9f61408e.mp3,hi,56,Hindi word / option
 hi_a5619204.mp3,hi,55 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_24e50ac3.mp3,hi,छप्पन,Hindi meaning
-hi_b53b3a3d.mp3,hi,55,Hindi word / option
 hi_c98c7681.mp3,hi,56 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_50887693.mp3,hi,पचपन,Hindi meaning
+hi_093f65e0.mp3,hi,59,Wrong option (read aloud)
 hi_66f041e1.mp3,hi,58,Hindi word / option
 hi_ee748023.mp3,hi,57 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_ffecb7f0.mp3,hi,अट्ठावन,Hindi meaning
-hi_72b32a1f.mp3,hi,57,Hindi word / option
 hi_a4ee8b5d.mp3,hi,58 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_1a48be35.mp3,hi,सत्तावन,Hindi meaning
+hi_7f39f831.mp3,hi,61,Wrong option (read aloud)
 hi_072b030b.mp3,hi,60,Hindi word / option
 hi_30a6b5ee.mp3,hi,59 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_c4dedabc.mp3,hi,साठ,Hindi meaning
-hi_093f65e0.mp3,hi,59,Hindi word / option
 hi_87d8d786.mp3,hi,60 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_7bb3dcc3.mp3,hi,उनसठ,Hindi meaning
+hi_03afdbd6.mp3,hi,63,Wrong option (read aloud)
 hi_44f683a8.mp3,hi,62,Hindi word / option
 hi_2767ed63.mp3,hi,61 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_da6c6041.mp3,hi,बासठ,Hindi meaning
-hi_7f39f831.mp3,hi,61,Hindi word / option
 hi_8a3dd7bf.mp3,hi,62 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_a46669a2.mp3,hi,इकसठ,Hindi meaning
+hi_fc490ca4.mp3,hi,65,Wrong option (read aloud)
 hi_ea5d2f1c.mp3,hi,64,Hindi word / option
 hi_d72f74ae.mp3,hi,63 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_53d61168.mp3,hi,चौंसठ,Hindi meaning
-hi_03afdbd6.mp3,hi,63,Hindi word / option
 hi_aafd869d.mp3,hi,64 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_5a760cff.mp3,hi,तिरसठ,Hindi meaning
+hi_735b90b4.mp3,hi,67,Wrong option (read aloud)
 hi_3295c76a.mp3,hi,66,Hindi word / option
 hi_f3e58118.mp3,hi,65 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_da704983.mp3,hi,छियासठ,Hindi meaning
-hi_fc490ca4.mp3,hi,65,Hindi word / option
 hi_79c8fa55.mp3,hi,66 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_15b954c7.mp3,hi,पैंसठ,Hindi meaning
+hi_14bfa6bb.mp3,hi,69,Wrong option (read aloud)
 hi_a3f390d8.mp3,hi,68,Hindi word / option
 hi_a736033e.mp3,hi,67 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_58df67c9.mp3,hi,अड़सठ,Hindi meaning
-hi_735b90b4.mp3,hi,67,Hindi word / option
 hi_965d58a0.mp3,hi,68 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_7fe956f0.mp3,hi,सड़सठ,Hindi meaning
+hi_e2c420d9.mp3,hi,71,Wrong option (read aloud)
 hi_7cbbc409.mp3,hi,70,Hindi word / option
 hi_340b265b.mp3,hi,69 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_d11fcd72.mp3,hi,सत्तर,Hindi meaning
-hi_14bfa6bb.mp3,hi,69,Hindi word / option
 hi_a40cb682.mp3,hi,70 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_54780255.mp3,hi,उनहत्तर,Hindi meaning
+hi_d2ddea18.mp3,hi,73,Wrong option (read aloud)
 hi_32bb90e8.mp3,hi,72,Hindi word / option
 hi_4280c761.mp3,hi,71 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_542419c1.mp3,hi,बहत्तर,Hindi meaning
-hi_e2c420d9.mp3,hi,71,Hindi word / option
 hi_e41ef4ca.mp3,hi,72 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_80c3805b.mp3,hi,इकहत्तर,Hindi meaning
+hi_d09bf415.mp3,hi,75,Wrong option (read aloud)
 hi_ad61ab14.mp3,hi,74,Hindi word / option
 hi_780aebd5.mp3,hi,73 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_6d307248.mp3,hi,चौहत्तर,Hindi meaning
-hi_d2ddea18.mp3,hi,73,Hindi word / option
 hi_0ff835c6.mp3,hi,74 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_43965f37.mp3,hi,तिहत्तर,Hindi meaning
+hi_28dd2c79.mp3,hi,77,Wrong option (read aloud)
 hi_fbd7939d.mp3,hi,76,Hindi word / option
 hi_f1de20dc.mp3,hi,75 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_5c458b4a.mp3,hi,छिहत्तर,Hindi meaning
-hi_d09bf415.mp3,hi,75,Hindi word / option
 hi_69c35f0e.mp3,hi,76 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_c051f3fe.mp3,hi,पचहत्तर,Hindi meaning
+hi_d1fe173d.mp3,hi,79,Wrong option (read aloud)
 hi_35f4a8d4.mp3,hi,78,Hindi word / option
 hi_aef3c166.mp3,hi,77 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_1ebc2eb4.mp3,hi,अठहत्तर,Hindi meaning
-hi_28dd2c79.mp3,hi,77,Hindi word / option
 hi_ff225b4b.mp3,hi,78 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_b397e326.mp3,hi,सतहत्तर,Hindi meaning
+hi_43ec517d.mp3,hi,81,Wrong option (read aloud)
 hi_f033ab37.mp3,hi,80,Hindi word / option
 hi_cd82e61d.mp3,hi,79 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_e7cb0f61.mp3,hi,अस्सी,Hindi meaning
-hi_d1fe173d.mp3,hi,79,Hindi word / option
 hi_6306fc5b.mp3,hi,80 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_d95d8359.mp3,hi,उनासी,Hindi meaning
+hi_fe9fc289.mp3,hi,83,Wrong option (read aloud)
 hi_9778d5d2.mp3,hi,82,Hindi word / option
 hi_501a7788.mp3,hi,81 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_b84064a0.mp3,hi,बयासी,Hindi meaning
-hi_43ec517d.mp3,hi,81,Hindi word / option
 hi_cb9aba42.mp3,hi,82 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_515a4a3a.mp3,hi,इक्यासी,Hindi meaning
+hi_3ef81541.mp3,hi,85,Wrong option (read aloud)
 hi_68d30a95.mp3,hi,84,Hindi word / option
 hi_7be396b1.mp3,hi,83 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_67cb27c8.mp3,hi,चौरासी,Hindi meaning
-hi_fe9fc289.mp3,hi,83,Hindi word / option
 hi_69a3007a.mp3,hi,84 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_012296c6.mp3,hi,तिरासी,Hindi meaning
+hi_c7e1249f.mp3,hi,87,Wrong option (read aloud)
 hi_93db85ed.mp3,hi,86,Hindi word / option
 hi_d16f336d.mp3,hi,85 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_42bf601b.mp3,hi,छियासी,Hindi meaning
-hi_3ef81541.mp3,hi,85,Hindi word / option
 hi_055b279c.mp3,hi,86 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_dbd1387a.mp3,hi,पचासी,Hindi meaning
+hi_7647966b.mp3,hi,89,Wrong option (read aloud)
 hi_2a38a4a9.mp3,hi,88,Hindi word / option
 hi_3d7b37a8.mp3,hi,87 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_3eca92c5.mp3,hi,अट्ठासी,Hindi meaning
-hi_c7e1249f.mp3,hi,87,Hindi word / option
 hi_9a43825d.mp3,hi,88 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_a46f413a.mp3,hi,सतासी,Hindi meaning
+hi_54229abf.mp3,hi,91,Wrong option (read aloud)
 hi_8613985e.mp3,hi,90,Hindi word / option
 hi_eaaa0c5c.mp3,hi,89 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_80f0a091.mp3,hi,नब्बे,Hindi meaning
-hi_7647966b.mp3,hi,89,Hindi word / option
 hi_c0183e91.mp3,hi,90 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_3eba71cf.mp3,hi,नवासी,Hindi meaning
+hi_98dce83d.mp3,hi,93,Wrong option (read aloud)
 hi_92cc2275.mp3,hi,92,Hindi word / option
 hi_625cb0be.mp3,hi,91 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_5f4bbb02.mp3,hi,बानवे,Hindi meaning
-hi_54229abf.mp3,hi,91,Hindi word / option
 hi_91cf3da8.mp3,hi,92 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_7e257ed3.mp3,hi,इक्यानवे,Hindi meaning
+hi_812b4ba2.mp3,hi,95,Wrong option (read aloud)
 hi_f4b9ec30.mp3,hi,94,Hindi word / option
 hi_0f6952dd.mp3,hi,93 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_124729ae.mp3,hi,चौरानवे,Hindi meaning
-hi_98dce83d.mp3,hi,93,Hindi word / option
 hi_cc2c2e97.mp3,hi,94 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_d4051003.mp3,hi,तिरानवे,Hindi meaning
+hi_e2ef524f.mp3,hi,97,Wrong option (read aloud)
 hi_26657d5f.mp3,hi,96,Hindi word / option
 hi_14c6228f.mp3,hi,95 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_65ffc333.mp3,hi,छियानवे,Hindi meaning
-hi_812b4ba2.mp3,hi,95,Hindi word / option
 hi_ab21c48e.mp3,hi,96 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_270588d4.mp3,hi,पंचानवे,Hindi meaning
+hi_ac627ab1.mp3,hi,99,Wrong option (read aloud)
 hi_ed3d2c21.mp3,hi,98,Hindi word / option
 hi_25e215d4.mp3,hi,97 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_e4ea341d.mp3,hi,अट्ठानवे,Hindi meaning
-hi_e2ef524f.mp3,hi,97,Hindi word / option
 hi_60fa4fd2.mp3,hi,98 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_1ebc675f.mp3,hi,सत्तानवे,Hindi meaning
 hi_f899139d.mp3,hi,100,Hindi word / option
 hi_07e9bfde.mp3,hi,99 के बाद कौन-सा number आता है?,Hindi clue (question)
 hi_3a388681.mp3,hi,सौ,Hindi meaning
-hi_ac627ab1.mp3,hi,99,Hindi word / option
 hi_204b3b56.mp3,hi,100 से ठीक पहले कौन-सा number आता है?,Hindi clue (question)
 hi_ff261e89.mp3,hi,निन्यानवे,Hindi meaning
 hi_fbe85180.mp3,hi,2 गुणा 1 कितना होता है?,Hindi clue (question)
@@ -1002,6 +1074,7 @@ hi_2564e0be.mp3,hi,10 गुणा 6 कितना होता है?,Hindi 
 hi_255ff82e.mp3,hi,10 गुणा 7 कितना होता है?,Hindi clue (question)
 hi_44013a59.mp3,hi,10 गुणा 8 कितना होता है?,Hindi clue (question)
 hi_76d7e1ee.mp3,hi,10 गुणा 9 कितना होता है?,Hindi clue (question)
+hi_5f93f983.mp3,hi,110,Wrong option (read aloud)
 hi_94a36b97.mp3,hi,10 गुणा 10 कितना होता है?,Hindi clue (question)
 hi_e18a1ed5.mp3,hi,A से कौन-सा शब्द शुरू होता है?,Hindi clue (question)
 en_ball.mp3,en,Ball,English word / option
@@ -1100,221 +1173,218 @@ en_y.mp3,en,Y,English word / option
 hi_7466695f.mp3,hi,Yak किस letter से शुरू होता है?,Hindi clue (question)
 en_z.mp3,en,Z,English word / option
 hi_826e293a.mp3,hi,Zebra किस letter से शुरू होता है?,Hindi clue (question)
+en_two.mp3,en,Two,Wrong option (read aloud)
+en_three.mp3,en,Three,Wrong option (read aloud)
 en_one.mp3,en,One,English word / option
 hi_126f648c.mp3,hi,1 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_two.mp3,en,Two,English word / option
 hi_fbb8dc0c.mp3,hi,2 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_three.mp3,en,Three,English word / option
+en_four.mp3,en,Four,Wrong option (read aloud)
 hi_44283a00.mp3,hi,3 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_four.mp3,en,Four,English word / option
+en_five.mp3,en,Five,Wrong option (read aloud)
 hi_081e50dd.mp3,hi,4 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_five.mp3,en,Five,English word / option
+en_six.mp3,en,Six,Wrong option (read aloud)
 hi_8bc6434a.mp3,hi,5 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_six.mp3,en,Six,English word / option
+en_seven.mp3,en,Seven,Wrong option (read aloud)
 hi_5d07fa92.mp3,hi,6 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_seven.mp3,en,Seven,English word / option
+en_eight.mp3,en,Eight,Wrong option (read aloud)
 hi_f2e30a00.mp3,hi,7 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_eight.mp3,en,Eight,English word / option
+en_nine.mp3,en,Nine,Wrong option (read aloud)
 hi_3e322657.mp3,hi,8 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_nine.mp3,en,Nine,English word / option
+en_ten.mp3,en,Ten,Wrong option (read aloud)
 hi_c2f5bb2f.mp3,hi,9 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_ten.mp3,en,Ten,English word / option
+en_eleven.mp3,en,Eleven,Wrong option (read aloud)
 hi_5d5f6409.mp3,hi,10 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_eleven.mp3,en,Eleven,English word / option
+en_twelve.mp3,en,Twelve,Wrong option (read aloud)
 hi_966c5808.mp3,hi,11 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_twelve.mp3,en,Twelve,English word / option
+en_thirteen.mp3,en,Thirteen,Wrong option (read aloud)
 hi_9c9dbf2b.mp3,hi,12 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_thirteen.mp3,en,Thirteen,English word / option
+en_thirty.mp3,en,Thirty,Wrong option (read aloud)
+en_fourteen.mp3,en,Fourteen,Wrong option (read aloud)
 hi_11af4ecd.mp3,hi,13 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_fourteen.mp3,en,Fourteen,English word / option
+en_forty.mp3,en,Forty,Wrong option (read aloud)
+en_fifteen.mp3,en,Fifteen,Wrong option (read aloud)
 hi_97f79a97.mp3,hi,14 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_fifteen.mp3,en,Fifteen,English word / option
+en_fifty.mp3,en,Fifty,Wrong option (read aloud)
+en_sixteen.mp3,en,Sixteen,Wrong option (read aloud)
 hi_d25d2f6f.mp3,hi,15 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_sixteen.mp3,en,Sixteen,English word / option
+en_sixty.mp3,en,Sixty,Wrong option (read aloud)
+en_seventeen.mp3,en,Seventeen,Wrong option (read aloud)
 hi_2bdc63ea.mp3,hi,16 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_seventeen.mp3,en,Seventeen,English word / option
+en_seventy.mp3,en,Seventy,Wrong option (read aloud)
+en_eighteen.mp3,en,Eighteen,Wrong option (read aloud)
 hi_8955c061.mp3,hi,17 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_eighteen.mp3,en,Eighteen,English word / option
+en_eighty.mp3,en,Eighty,Wrong option (read aloud)
+en_nineteen.mp3,en,Nineteen,Wrong option (read aloud)
 hi_efa2c58b.mp3,hi,18 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_nineteen.mp3,en,Nineteen,English word / option
+en_ninety.mp3,en,Ninety,Wrong option (read aloud)
+en_twenty.mp3,en,Twenty,Wrong option (read aloud)
 hi_9740b87a.mp3,hi,19 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_twenty.mp3,en,Twenty,English word / option
+en_twenty_one.mp3,en,Twenty-One,Wrong option (read aloud)
 hi_17d2fb89.mp3,hi,20 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_twenty_one.mp3,en,Twenty-One,English word / option
+en_twenty_two.mp3,en,Twenty-Two,Wrong option (read aloud)
 hi_574e349d.mp3,hi,21 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_twenty_two.mp3,en,Twenty-Two,English word / option
+en_twenty_three.mp3,en,Twenty-Three,Wrong option (read aloud)
 hi_b0abacda.mp3,hi,22 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_twenty_three.mp3,en,Twenty-Three,English word / option
+en_twenty_four.mp3,en,Twenty-Four,Wrong option (read aloud)
 hi_f4c5bfc0.mp3,hi,23 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_twenty_four.mp3,en,Twenty-Four,English word / option
+en_twenty_five.mp3,en,Twenty-Five,Wrong option (read aloud)
 hi_ba766346.mp3,hi,24 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_twenty_five.mp3,en,Twenty-Five,English word / option
+en_twenty_six.mp3,en,Twenty-Six,Wrong option (read aloud)
 hi_e00fe23a.mp3,hi,25 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_twenty_six.mp3,en,Twenty-Six,English word / option
+en_twenty_seven.mp3,en,Twenty-Seven,Wrong option (read aloud)
 hi_94078707.mp3,hi,26 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_twenty_seven.mp3,en,Twenty-Seven,English word / option
+en_twenty_eight.mp3,en,Twenty-Eight,Wrong option (read aloud)
 hi_17300dbb.mp3,hi,27 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_twenty_eight.mp3,en,Twenty-Eight,English word / option
+en_twenty_nine.mp3,en,Twenty-Nine,Wrong option (read aloud)
 hi_1d1a594d.mp3,hi,28 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_twenty_nine.mp3,en,Twenty-Nine,English word / option
 hi_b24a391b.mp3,hi,29 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_thirty.mp3,en,Thirty,English word / option
+en_thirty_one.mp3,en,Thirty-One,Wrong option (read aloud)
 hi_d2988dc9.mp3,hi,30 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_thirty_one.mp3,en,Thirty-One,English word / option
+en_thirty_two.mp3,en,Thirty-Two,Wrong option (read aloud)
 hi_b303c8c8.mp3,hi,31 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_thirty_two.mp3,en,Thirty-Two,English word / option
+en_thirty_three.mp3,en,Thirty-Three,Wrong option (read aloud)
 hi_aa6907c4.mp3,hi,32 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_thirty_three.mp3,en,Thirty-Three,English word / option
+en_thirty_four.mp3,en,Thirty-Four,Wrong option (read aloud)
 hi_44f9a366.mp3,hi,33 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_thirty_four.mp3,en,Thirty-Four,English word / option
+en_thirty_five.mp3,en,Thirty-Five,Wrong option (read aloud)
 hi_507e234e.mp3,hi,34 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_thirty_five.mp3,en,Thirty-Five,English word / option
+en_thirty_six.mp3,en,Thirty-Six,Wrong option (read aloud)
 hi_2f5e5bf5.mp3,hi,35 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_thirty_six.mp3,en,Thirty-Six,English word / option
+en_thirty_seven.mp3,en,Thirty-Seven,Wrong option (read aloud)
 hi_0a04b3c4.mp3,hi,36 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_thirty_seven.mp3,en,Thirty-Seven,English word / option
+en_thirty_eight.mp3,en,Thirty-Eight,Wrong option (read aloud)
 hi_f63cd560.mp3,hi,37 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_thirty_eight.mp3,en,Thirty-Eight,English word / option
+en_thirty_nine.mp3,en,Thirty-Nine,Wrong option (read aloud)
 hi_ddd0617b.mp3,hi,38 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_thirty_nine.mp3,en,Thirty-Nine,English word / option
 hi_cfae9105.mp3,hi,39 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_forty.mp3,en,Forty,English word / option
+en_forty_one.mp3,en,Forty-One,Wrong option (read aloud)
 hi_c1289569.mp3,hi,40 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_forty_one.mp3,en,Forty-One,English word / option
+en_forty_two.mp3,en,Forty-Two,Wrong option (read aloud)
 hi_816667c2.mp3,hi,41 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_forty_two.mp3,en,Forty-Two,English word / option
+en_forty_three.mp3,en,Forty-Three,Wrong option (read aloud)
 hi_a7d005f4.mp3,hi,42 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_forty_three.mp3,en,Forty-Three,English word / option
+en_forty_four.mp3,en,Forty-Four,Wrong option (read aloud)
 hi_6d1f7126.mp3,hi,43 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_forty_four.mp3,en,Forty-Four,English word / option
+en_forty_five.mp3,en,Forty-Five,Wrong option (read aloud)
 hi_df9038be.mp3,hi,44 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_forty_five.mp3,en,Forty-Five,English word / option
+en_forty_six.mp3,en,Forty-Six,Wrong option (read aloud)
 hi_9bf7caff.mp3,hi,45 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_forty_six.mp3,en,Forty-Six,English word / option
+en_forty_seven.mp3,en,Forty-Seven,Wrong option (read aloud)
 hi_97108cf4.mp3,hi,46 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_forty_seven.mp3,en,Forty-Seven,English word / option
+en_forty_eight.mp3,en,Forty-Eight,Wrong option (read aloud)
 hi_ebf3d62f.mp3,hi,47 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_forty_eight.mp3,en,Forty-Eight,English word / option
+en_forty_nine.mp3,en,Forty-Nine,Wrong option (read aloud)
 hi_d0b32c1f.mp3,hi,48 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_forty_nine.mp3,en,Forty-Nine,English word / option
 hi_bf9afb2a.mp3,hi,49 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_fifty.mp3,en,Fifty,English word / option
+en_fifty_one.mp3,en,Fifty-One,Wrong option (read aloud)
 hi_84e9b0ea.mp3,hi,50 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_fifty_one.mp3,en,Fifty-One,English word / option
+en_fifty_two.mp3,en,Fifty-Two,Wrong option (read aloud)
 hi_7e9374eb.mp3,hi,51 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_fifty_two.mp3,en,Fifty-Two,English word / option
+en_fifty_three.mp3,en,Fifty-Three,Wrong option (read aloud)
 hi_11b522ab.mp3,hi,52 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_fifty_three.mp3,en,Fifty-Three,English word / option
+en_fifty_four.mp3,en,Fifty-Four,Wrong option (read aloud)
 hi_43dc0fce.mp3,hi,53 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_fifty_four.mp3,en,Fifty-Four,English word / option
+en_fifty_five.mp3,en,Fifty-Five,Wrong option (read aloud)
 hi_9ecd9fbf.mp3,hi,54 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_fifty_five.mp3,en,Fifty-Five,English word / option
+en_fifty_six.mp3,en,Fifty-Six,Wrong option (read aloud)
 hi_d369e058.mp3,hi,55 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_fifty_six.mp3,en,Fifty-Six,English word / option
+en_fifty_seven.mp3,en,Fifty-Seven,Wrong option (read aloud)
 hi_9a9f23f5.mp3,hi,56 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_fifty_seven.mp3,en,Fifty-Seven,English word / option
+en_fifty_eight.mp3,en,Fifty-Eight,Wrong option (read aloud)
 hi_56f29207.mp3,hi,57 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_fifty_eight.mp3,en,Fifty-Eight,English word / option
+en_fifty_nine.mp3,en,Fifty-Nine,Wrong option (read aloud)
 hi_f21cae7c.mp3,hi,58 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_fifty_nine.mp3,en,Fifty-Nine,English word / option
 hi_79d7f069.mp3,hi,59 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_sixty.mp3,en,Sixty,English word / option
+en_sixty_one.mp3,en,Sixty-One,Wrong option (read aloud)
 hi_86d3369a.mp3,hi,60 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_sixty_one.mp3,en,Sixty-One,English word / option
+en_sixty_two.mp3,en,Sixty-Two,Wrong option (read aloud)
 hi_9a69a6a9.mp3,hi,61 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_sixty_two.mp3,en,Sixty-Two,English word / option
+en_sixty_three.mp3,en,Sixty-Three,Wrong option (read aloud)
 hi_7dbd3756.mp3,hi,62 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_sixty_three.mp3,en,Sixty-Three,English word / option
+en_sixty_four.mp3,en,Sixty-Four,Wrong option (read aloud)
 hi_8c4ffa43.mp3,hi,63 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_sixty_four.mp3,en,Sixty-Four,English word / option
+en_sixty_five.mp3,en,Sixty-Five,Wrong option (read aloud)
 hi_711c04b1.mp3,hi,64 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_sixty_five.mp3,en,Sixty-Five,English word / option
+en_sixty_six.mp3,en,Sixty-Six,Wrong option (read aloud)
 hi_f8d9c430.mp3,hi,65 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_sixty_six.mp3,en,Sixty-Six,English word / option
+en_sixty_seven.mp3,en,Sixty-Seven,Wrong option (read aloud)
 hi_1f994b1f.mp3,hi,66 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_sixty_seven.mp3,en,Sixty-Seven,English word / option
+en_sixty_eight.mp3,en,Sixty-Eight,Wrong option (read aloud)
 hi_3abdb77d.mp3,hi,67 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_sixty_eight.mp3,en,Sixty-Eight,English word / option
+en_sixty_nine.mp3,en,Sixty-Nine,Wrong option (read aloud)
 hi_1c75990b.mp3,hi,68 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_sixty_nine.mp3,en,Sixty-Nine,English word / option
 hi_aa2ddce3.mp3,hi,69 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_seventy.mp3,en,Seventy,English word / option
+en_seventy_one.mp3,en,Seventy-One,Wrong option (read aloud)
 hi_bff28949.mp3,hi,70 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_seventy_one.mp3,en,Seventy-One,English word / option
+en_seventy_two.mp3,en,Seventy-Two,Wrong option (read aloud)
 hi_01b914bb.mp3,hi,71 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_seventy_two.mp3,en,Seventy-Two,English word / option
+en_seventy_three.mp3,en,Seventy-Three,Wrong option (read aloud)
 hi_33d9c4e6.mp3,hi,72 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_seventy_three.mp3,en,Seventy-Three,English word / option
+en_seventy_four.mp3,en,Seventy-Four,Wrong option (read aloud)
 hi_4fdc745d.mp3,hi,73 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_seventy_four.mp3,en,Seventy-Four,English word / option
+en_seventy_five.mp3,en,Seventy-Five,Wrong option (read aloud)
 hi_bc81889a.mp3,hi,74 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_seventy_five.mp3,en,Seventy-Five,English word / option
+en_seventy_six.mp3,en,Seventy-Six,Wrong option (read aloud)
 hi_14aff276.mp3,hi,75 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_seventy_six.mp3,en,Seventy-Six,English word / option
+en_seventy_seven.mp3,en,Seventy-Seven,Wrong option (read aloud)
 hi_b13cd22e.mp3,hi,76 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_seventy_seven.mp3,en,Seventy-Seven,English word / option
+en_seventy_eight.mp3,en,Seventy-Eight,Wrong option (read aloud)
 hi_3a50b5a9.mp3,hi,77 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_seventy_eight.mp3,en,Seventy-Eight,English word / option
+en_seventy_nine.mp3,en,Seventy-Nine,Wrong option (read aloud)
 hi_49238de6.mp3,hi,78 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_seventy_nine.mp3,en,Seventy-Nine,English word / option
 hi_6aa0ccd1.mp3,hi,79 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_eighty.mp3,en,Eighty,English word / option
+en_eighty_one.mp3,en,Eighty-One,Wrong option (read aloud)
 hi_42c88457.mp3,hi,80 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_eighty_one.mp3,en,Eighty-One,English word / option
+en_eighty_two.mp3,en,Eighty-Two,Wrong option (read aloud)
 hi_dae39f7f.mp3,hi,81 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_eighty_two.mp3,en,Eighty-Two,English word / option
+en_eighty_three.mp3,en,Eighty-Three,Wrong option (read aloud)
 hi_2c0ec37e.mp3,hi,82 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_eighty_three.mp3,en,Eighty-Three,English word / option
+en_eighty_four.mp3,en,Eighty-Four,Wrong option (read aloud)
 hi_5f81a820.mp3,hi,83 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_eighty_four.mp3,en,Eighty-Four,English word / option
+en_eighty_five.mp3,en,Eighty-Five,Wrong option (read aloud)
 hi_38e3ce20.mp3,hi,84 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_eighty_five.mp3,en,Eighty-Five,English word / option
+en_eighty_six.mp3,en,Eighty-Six,Wrong option (read aloud)
 hi_115a299c.mp3,hi,85 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_eighty_six.mp3,en,Eighty-Six,English word / option
+en_eighty_seven.mp3,en,Eighty-Seven,Wrong option (read aloud)
 hi_ef6d86f6.mp3,hi,86 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_eighty_seven.mp3,en,Eighty-Seven,English word / option
+en_eighty_eight.mp3,en,Eighty-Eight,Wrong option (read aloud)
 hi_d55d400c.mp3,hi,87 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_eighty_eight.mp3,en,Eighty-Eight,English word / option
+en_eighty_nine.mp3,en,Eighty-Nine,Wrong option (read aloud)
 hi_7307acd3.mp3,hi,88 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_eighty_nine.mp3,en,Eighty-Nine,English word / option
 hi_e32fad1f.mp3,hi,89 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_ninety.mp3,en,Ninety,English word / option
+en_ninety_one.mp3,en,Ninety-One,Wrong option (read aloud)
 hi_b80fce4d.mp3,hi,90 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_ninety_one.mp3,en,Ninety-One,English word / option
+en_ninety_two.mp3,en,Ninety-Two,Wrong option (read aloud)
 hi_967ab5b9.mp3,hi,91 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_ninety_two.mp3,en,Ninety-Two,English word / option
+en_ninety_three.mp3,en,Ninety-Three,Wrong option (read aloud)
 hi_eff75a9b.mp3,hi,92 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_ninety_three.mp3,en,Ninety-Three,English word / option
+en_ninety_four.mp3,en,Ninety-Four,Wrong option (read aloud)
 hi_570215b3.mp3,hi,93 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_ninety_four.mp3,en,Ninety-Four,English word / option
+en_ninety_five.mp3,en,Ninety-Five,Wrong option (read aloud)
 hi_41a175a0.mp3,hi,94 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_ninety_five.mp3,en,Ninety-Five,English word / option
+en_ninety_six.mp3,en,Ninety-Six,Wrong option (read aloud)
 hi_9a4a1d5d.mp3,hi,95 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_ninety_six.mp3,en,Ninety-Six,English word / option
+en_ninety_seven.mp3,en,Ninety-Seven,Wrong option (read aloud)
 hi_b6296bd9.mp3,hi,96 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_ninety_seven.mp3,en,Ninety-Seven,English word / option
+en_ninety_eight.mp3,en,Ninety-Eight,Wrong option (read aloud)
 hi_915dc1fe.mp3,hi,97 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_ninety_eight.mp3,en,Ninety-Eight,English word / option
+en_ninety_nine.mp3,en,Ninety-Nine,Wrong option (read aloud)
 hi_2095fa66.mp3,hi,98 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_ninety_nine.mp3,en,Ninety-Nine,English word / option
+en_one_hundred.mp3,en,One Hundred,Wrong option (read aloud)
 hi_15960d81.mp3,hi,99 को English में कैसे लिखते हैं?,Hindi clue (question)
-en_one_hundred.mp3,en,One Hundred,English word / option
 hi_c3c6f6f9.mp3,hi,100 को English में कैसे लिखते हैं?,Hindi clue (question)
 en_red.mp3,en,Red,English word / option
 hi_9efe5ef9.mp3,hi,यह कौन-सा रंग है?,Hindi clue (question)
 en_blue.mp3,en,Blue,English word / option
 hi_3d411ee5.mp3,hi,नीला,Hindi meaning
 en_green.mp3,en,Green,English word / option
-hi_af70ca06.mp3,hi,हरा,Hindi meaning
 en_yellow.mp3,en,Yellow,English word / option
-hi_b8959dae.mp3,hi,पीला,Hindi meaning
 hi_cf5bf4e9.mp3,hi,नारंगी,Hindi meaning
 en_purple.mp3,en,Purple,English word / option
 hi_9fb0aba0.mp3,hi,बैंगनी,Hindi meaning
 en_brown.mp3,en,Brown,English word / option
 hi_1ca4af14.mp3,hi,भूरा,Hindi meaning
 en_black.mp3,en,Black,English word / option
-hi_713211c9.mp3,hi,काला,Hindi meaning
 en_white.mp3,en,White,English word / option
 en_pink.mp3,en,Pink,English word / option
 hi_0a1794d4.mp3,hi,गुलाबी,Hindi meaning
@@ -1371,40 +1441,40 @@ hi_7be15383.mp3,hi,घुटना,Hindi meaning
 en_elbow.mp3,en,Elbow,English word / option
 hi_8f21438a.mp3,hi,बाँह के बीच में मुड़ने वाला हिस्सा,Hindi clue (question)
 hi_08d64a96.mp3,hi,कोहनी,Hindi meaning
+en_february.mp3,en,February,Wrong option (read aloud)
+en_december.mp3,en,December,Wrong option (read aloud)
 en_january.mp3,en,January,English word / option
 hi_bac2e535.mp3,hi,साल का पहला महीना कौन-सा है?,Hindi clue (question)
 hi_70c1e6d1.mp3,hi,जनवरी,Hindi meaning
-en_february.mp3,en,February,English word / option
+en_march.mp3,en,March,Wrong option (read aloud)
 hi_80469fad.mp3,hi,साल का दूसरा महीना कौन-सा है?,Hindi clue (question)
 hi_223c96f8.mp3,hi,फरवरी,Hindi meaning
-en_march.mp3,en,March,English word / option
+en_april.mp3,en,April,Wrong option (read aloud)
 hi_68bef0ad.mp3,hi,साल का तीसरा महीना कौन-सा है?,Hindi clue (question)
 hi_1d869259.mp3,hi,मार्च,Hindi meaning
-en_april.mp3,en,April,English word / option
+en_may.mp3,en,May,Wrong option (read aloud)
 hi_5bab42ac.mp3,hi,साल का चौथा महीना कौन-सा है?,Hindi clue (question)
 hi_85be126d.mp3,hi,अप्रैल,Hindi meaning
-en_may.mp3,en,May,English word / option
+en_june.mp3,en,June,Wrong option (read aloud)
 hi_82c185b4.mp3,hi,साल का पाँचवाँ महीना कौन-सा है?,Hindi clue (question)
 hi_0019ea4d.mp3,hi,मई,Hindi meaning
-en_june.mp3,en,June,English word / option
+en_july.mp3,en,July,Wrong option (read aloud)
 hi_fb1443d0.mp3,hi,साल का छठा महीना कौन-सा है?,Hindi clue (question)
 hi_0dd976c9.mp3,hi,जून,Hindi meaning
-en_july.mp3,en,July,English word / option
+en_august.mp3,en,August,Wrong option (read aloud)
 hi_c726130d.mp3,hi,साल का सातवाँ महीना कौन-सा है?,Hindi clue (question)
 hi_5581651e.mp3,hi,जुलाई,Hindi meaning
-en_august.mp3,en,August,English word / option
+en_september.mp3,en,September,Wrong option (read aloud)
 hi_b4920b2d.mp3,hi,साल का आठवाँ महीना कौन-सा है?,Hindi clue (question)
 hi_4853273c.mp3,hi,अगस्त,Hindi meaning
-en_september.mp3,en,September,English word / option
+en_october.mp3,en,October,Wrong option (read aloud)
 hi_5ff184c1.mp3,hi,साल का नौवाँ महीना कौन-सा है?,Hindi clue (question)
 hi_71bf207f.mp3,hi,सितंबर,Hindi meaning
-en_october.mp3,en,October,English word / option
+en_november.mp3,en,November,Wrong option (read aloud)
 hi_5be60b9e.mp3,hi,साल का दसवाँ महीना कौन-सा है?,Hindi clue (question)
 hi_b764cf9c.mp3,hi,अक्टूबर,Hindi meaning
-en_november.mp3,en,November,English word / option
 hi_d06ae483.mp3,hi,साल का ग्यारहवाँ महीना कौन-सा है?,Hindi clue (question)
 hi_dc80a1d4.mp3,hi,नवंबर,Hindi meaning
-en_december.mp3,en,December,English word / option
 hi_bb8935cb.mp3,hi,साल का बारहवाँ महीना कौन-सा है?,Hindi clue (question)
 hi_b281ae00.mp3,hi,दिसंबर,Hindi meaning
 en_monday.mp3,en,Monday,English word / option
@@ -1428,32 +1498,60 @@ hi_c40a459a.mp3,hi,शनिवार,Hindi meaning
 en_sunday.mp3,en,Sunday,English word / option
 hi_436e6508.mp3,hi,रविवार को English में क्या कहते हैं?,Hindi clue (question)
 hi_cde78730.mp3,hi,रविवार,Hindi meaning
+hi_e81d0cf5.mp3,hi,म् + आ + र् + अ,Wrong option (read aloud)
+hi_de719965.mp3,hi,र् + अ + म् + अ,Wrong option (read aloud)
 hi_4a1fd78a.mp3,hi,र् + आ + म् + अ,Hindi word / option
 hi_d891095c.mp3,hi,“राम” का वर्ण-विच्छेद क्या है?,Hindi clue (question)
+hi_3858e90c.mp3,hi,र् + अ + घ् + अ,Wrong option (read aloud)
+hi_295b42e1.mp3,hi,घ् + आ + र् + अ,Wrong option (read aloud)
 hi_983f4011.mp3,hi,घ् + अ + र् + अ,Hindi word / option
 hi_f6226e65.mp3,hi,“घर” का वर्ण-विच्छेद क्या है?,Hindi clue (question)
+hi_c1ec44d0.mp3,hi,ल् + अ + ज् + अ,Wrong option (read aloud)
+hi_f0ad015d.mp3,hi,ज् + आ + ल् + अ,Wrong option (read aloud)
 hi_8ba89033.mp3,hi,ज् + अ + ल् + अ,Hindi word / option
 hi_92dc6f4f.mp3,hi,“जल” का वर्ण-विच्छेद क्या है?,Hindi clue (question)
+hi_11a0aa1f.mp3,hi,ल् + अ + फ् + अ,Wrong option (read aloud)
+hi_d8227df8.mp3,hi,फ् + आ + ल् + अ,Wrong option (read aloud)
 hi_4a9641bb.mp3,hi,फ् + अ + ल् + अ,Hindi word / option
 hi_3b64881c.mp3,hi,“फल” का वर्ण-विच्छेद क्या है?,Hindi clue (question)
+hi_2df1cd23.mp3,hi,अ + म् + आ,Wrong option (read aloud)
+hi_285e3b0c.mp3,hi,अ + म् + अ,Wrong option (read aloud)
 hi_f2a7b226.mp3,hi,आ + म् + अ,Hindi word / option
 hi_fb6e2ba4.mp3,hi,“आम” का वर्ण-विच्छेद क्या है?,Hindi clue (question)
+hi_05501e58.mp3,hi,म् + आ + न् + अ,Wrong option (read aloud)
+hi_7c3f3079.mp3,hi,न् + अ + म् + अ,Wrong option (read aloud)
 hi_386c58dd.mp3,hi,न् + आ + म् + अ,Hindi word / option
 hi_c0e49c35.mp3,hi,“नाम” का वर्ण-विच्छेद क्या है?,Hindi clue (question)
+hi_647beca9.mp3,hi,म् + आ + क् + अ,Wrong option (read aloud)
+hi_ed0bfe0d.mp3,hi,क् + अ + म् + अ,Wrong option (read aloud)
 hi_5b55b750.mp3,hi,क् + आ + म् + अ,Hindi word / option
 hi_260f2308.mp3,hi,“काम” का वर्ण-विच्छेद क्या है?,Hindi clue (question)
+hi_b73ba9db.mp3,hi,ल् + आ + ब् + अ,Wrong option (read aloud)
+hi_04003992.mp3,hi,ब् + अ + ल् + अ,Wrong option (read aloud)
 hi_521e977b.mp3,hi,ब् + आ + ल् + अ,Hindi word / option
 hi_2ab6cd47.mp3,hi,“बाल” का वर्ण-विच्छेद क्या है?,Hindi clue (question)
+hi_aac57856.mp3,hi,ब् + ए + स् + अ,Wrong option (read aloud)
+hi_ec03c8b3.mp3,hi,स् + ऐ + ब् + अ,Wrong option (read aloud)
 hi_5d2d5406.mp3,hi,स् + ए + ब् + अ,Hindi word / option
 hi_d5754422.mp3,hi,“सेब” का वर्ण-विच्छेद क्या है?,Hindi clue (question)
+hi_a2aaca35.mp3,hi,र् + ओ + म् + अ,Wrong option (read aloud)
+hi_5107ef0d.mp3,hi,म् + औ + र् + अ,Wrong option (read aloud)
 hi_ca6b323e.mp3,hi,म् + ओ + र् + अ,Hindi word / option
 hi_26258cd5.mp3,hi,“मोर” का वर्ण-विच्छेद क्या है?,Hindi clue (question)
+hi_c39e1be6.mp3,hi,न् + इ + द् + अ,Wrong option (read aloud)
+hi_13d94a4d.mp3,hi,द् + ई + न् + अ,Wrong option (read aloud)
 hi_a1c640fe.mp3,hi,द् + इ + न् + अ,Hindi word / option
 hi_9c0085b2.mp3,hi,“दिन” का वर्ण-विच्छेद क्या है?,Hindi clue (question)
+hi_0e95c4dc.mp3,hi,ल् + अ + प् + अ,Wrong option (read aloud)
+hi_7efaa28e.mp3,hi,प् + आ + ल् + अ,Wrong option (read aloud)
 hi_904ae58b.mp3,hi,प् + अ + ल् + अ,Hindi word / option
 hi_059e480e.mp3,hi,“पल” का वर्ण-विच्छेद क्या है?,Hindi clue (question)
+hi_d8cc884a.mp3,hi,ल् + अ + न् + अ,Wrong option (read aloud)
+hi_1f359a8f.mp3,hi,न् + आ + ल् + अ,Wrong option (read aloud)
 hi_ab8185dc.mp3,hi,न् + अ + ल् + अ,Hindi word / option
 hi_ece5784f.mp3,hi,“नल” का वर्ण-विच्छेद क्या है?,Hindi clue (question)
+hi_07dc9d18.mp3,hi,न् + अ + च् + आ,Wrong option (read aloud)
+hi_8ed2cdd2.mp3,hi,च् + आ + न् + आ,Wrong option (read aloud)
 hi_e62d11ab.mp3,hi,च् + अ + न् + आ,Hindi word / option
 hi_7da7ff8e.mp3,hi,“चना” का वर्ण-विच्छेद क्या है?,Hindi clue (question)
 ph_ok1.mp3,hi,शाबाश त्रिशिका!,Praise / instruction line
