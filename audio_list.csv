@@ -1570,3 +1570,7 @@ ph_tok1.mp3,hi,शाबाश तनिष्का!,Praise / instruction line
 ph_tspeak.mp3,hi,"अब तुम बोलो, तनिष्का!",Praise / instruction line
 ph_tgreat.mp3,hi,बहुत अच्छा बोला तनिष्का!,Praise / instruction line
 ph_twin.mp3,hi,शाबाश तनिष्का! तुमने सारे जवाब सही दिए!,Praise / instruction line
+ph_sahi_tri.mp3,hi,सही त्रिशिका!,Right/wrong feedback
+ph_galat_tri.mp3,hi,गलत त्रिशिका!,Right/wrong feedback
+ph_sahi_tan.mp3,hi,सही तनिष्का!,Right/wrong feedback
+ph_galat_tan.mp3,hi,गलत तनिष्का!,Right/wrong feedback
