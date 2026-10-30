@@ -22,6 +22,7 @@
   @media (max-width: 440px) { .chip { padding: 3px 9px; font-size: 16px; } #spdBox, #planBox { font-size: 12px; } #scoreBox .sc { font-size: 26px; } }
   #qbar { position: absolute; top: 84px; left: 50%; transform: translateX(-50%); width: 90%; z-index: 5; display: none;
     background: #fff; border: 4px solid #29b6f6; border-radius: 22px; padding: 6px 12px; text-align: center; box-shadow: 0 5px 0 rgba(0,0,0,.18); pointer-events: none; }
+  #qbar.talk { border-color: #ffb300; box-shadow: 0 0 0 6px rgba(255,179,0,.5), 0 5px 0 rgba(0,0,0,.18); animation: pulseB .9s ease-in-out infinite; }
   #qmain { font-size: 30px; font-weight: 800; color: #0277bd; line-height: 1.15; }
   #qsub { font-size: 18px; color: #546e7a; font-weight: 700; }
   #ctl { position: absolute; bottom: 14px; left: 0; right: 0; display: none; justify-content: center; padding: 0 20px; z-index: 5; pointer-events: none; }
@@ -36,8 +37,17 @@
   .ov > * { flex-shrink: 0; }
   #resultBox { margin-bottom: 4px; }
   #profRow .opt { font-size: 17px; }
-  #chapBox { max-height: 104px; overflow-y: auto; display: flex; flex-wrap: wrap; gap: 5px; justify-content: center; max-width: 96%; margin-top: 6px; padding: 4px; background: rgba(0,0,0,.18); border-radius: 14px; }
-  #chapBox .opt { font-size: 13px; padding: 3px 9px; border-width: 2px; }
+  #chapBox { display: flex; justify-content: center; max-width: 96%; margin-top: 6px; }
+  #chapBtn { font-size: 17px; padding: 6px 16px; }
+  #chapMenu { z-index: 65; background: linear-gradient(#3b1f7a,#1f1a5c); }
+  #chapMenu::before, #chapMenu::after { flex: 0 0 0; }
+  #cmList { width: min(94%, 520px); display: flex; flex-direction: column; gap: 7px; margin: 10px 0; }
+  #cmList button { display: flex; align-items: center; gap: 10px; text-align: left; font: 800 17px 'Baloo 2','Nirmala UI','Mangal',sans-serif; color: #fff; background: rgba(255,255,255,.14); border: 3px solid rgba(255,255,255,.35); border-radius: 16px; padding: 8px 12px; cursor: pointer; }
+  #cmList button.on { background: #ff9800; border-color: #fff; }
+  #cmList button .n { flex: 0 0 auto; min-width: 30px; text-align: center; background: #fff; color: #5e35b1; border-radius: 10px; padding: 1px 6px; font-weight: 900; }
+  #cmList button .t { flex: 1 1 auto; line-height: 1.15; }
+  #cmList button .t small { display: block; font-weight: 700; font-size: 13px; opacity: .85; }
+  #cmList button .m { flex: 0 0 auto; font-size: 14px; opacity: .95; }
   #recap span.rw { cursor: pointer; border: 3px solid #ffb300; }
   #spkScr { z-index: 60; background: linear-gradient(rgba(60,20,110,.80), rgba(30,20,90,.92)); }
   #spkL { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 22px; max-width: 96%; margin: 6px 0; --bx: 34px; --fs: 28px; }
@@ -63,7 +73,7 @@
   .row { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; justify-content: center; }
   .opt { font-family: inherit; font-size: 19px; font-weight: 800; padding: 7px 14px; border-radius: 22px; border: 3px solid #fff; background: rgba(255,255,255,.25); color: #fff; cursor: pointer; }
   .opt.on { background: #ffb300; color: #3e2723; box-shadow: 0 4px 0 #c68400; }
-  #recap { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 12px; max-width: 95%; }
+  #recap { max-height: 34vh; overflow-y: auto; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 12px; max-width: 95%; }
   #recap span { background: #fff; color: #333; border-radius: 16px; padding: 4px 12px; font-size: 20px; font-weight: 800; }
   @media (orientation: landscape) and (max-height: 560px) {
     #wrap { max-width: none; max-height: none; border-radius: 0; }
@@ -150,7 +160,7 @@
     <div class="row" id="charRow"><button class="opt" data-c="bear">🐻 भालू</button><button class="opt" data-c="panda">🐼 पांडा</button><button class="opt" data-c="baby">👶 बेबी</button></div>
     <div class="row" id="babyRow" style="display:none"><button class="opt" data-b="babyY">🟡 येलो बेबी</button><button class="opt" data-b="babyP">🩷 पिंक बेबी</button><button class="opt" data-b="babyB">🔵 ब्लू बेबी</button></div>
     <div class="row" id="modeRow"><button class="opt" id="modeH">🔤 हिंदी अक्षर</button><button class="opt" id="modeL">🧠 Increase Learning Power</button><button class="opt" id="modeQ">📚 LKG: गिनती • ABC • हिंदी</button></div>
-    <div class="row" id="subjRow" style="display:none"></div><div id="chapBox" style="display:none"></div>
+    <div class="row" id="subjRow" style="display:none"></div><div id="chapBox" style="display:none"><button class="opt" id="chapBtn"></button></div>
     <p id="modeP" style="font-size:14px;margin-top:2px"></p>
     <button class="big" id="resBtn" style="display:none;font-size:22px;background:linear-gradient(#66bb6a,#2e7d32) !important;box-shadow:0 7px 0 #1b5e20,0 10px 14px rgba(0,0,0,.35)"></button>
     <button class="big" id="playBtn">▶ खेलें</button>
@@ -159,6 +169,12 @@
     <div class="row" id="spdRow"><button class="opt" data-s="24">🐢 धीमा</button><button class="opt" data-s="33">🚶 सामान्य</button><button class="opt" data-s="45">🐇 तेज़</button></div>
     <div class="row"><button class="opt" id="helpBtn">💡 मदद: चालू</button><button class="opt" id="musBtn">🎵 संगीत: चालू</button><button class="opt" id="fsBtn">⛶ पूरी स्क्रीन</button></div>
     <p style="font-size:15px;margin-top:16px;opacity:.9">स्क्रीन का बायाँ/दायाँ हिस्सा टैप करो • ⬆ स्वाइप = कूदो • ⬇ स्वाइप = झुको</p>
+  </div>
+  <div id="chapMenu" class="ov" style="display:none">
+    <h1>📚 Lesson चुनो</h1>
+    <p id="cmSub"></p>
+    <div id="cmList"></div>
+    <button class="big" id="cmClose" style="font-size:22px">✖ बंद करो</button>
   </div>
   <div id="spkScr" class="ov" style="display:none">
     <div id="spkIc" style="font-size:62px"></div>
@@ -274,7 +290,7 @@ function playClip(k, fallbackText) {
 }
 
 // ---- awaaz ki line: ek ke baad ek (clip ya browser ki Hindi awaaz)
-let qRep = 0, vq = [], vbusy = false, vprio = 0, vtoken = 0, speaking = false, talkUntil = 0, anNode = null, anBuf = null;
+let qFrz = false, qFrzT = 0, qRep = 0, vq = [], vbusy = false, vprio = 0, vtoken = 0, speaking = false, talkUntil = 0, anNode = null, anBuf = null;
 const anMap = {};
 function attachAn(el, key) {
   try { const c = ac(); if (!c) { anNode = null; return; } if (!anMap[key]) { const src = c.createMediaElementSource(el), a = c.createAnalyser(); a.fftSize = 256; src.connect(a); a.connect(c.destination); anMap[key] = a; } anNode = anMap[key]; anBuf = new Uint8Array(anNode.fftSize); } catch (e) { anNode = null; }
@@ -358,7 +374,7 @@ const LP_WORDS = [["नाना", "👴", ["N", "N"]], ["मामा", "🧔",
 LP_WORDS.forEach(([w, ic, ts]) => ts.forEach((t, i) => { LPI["w:" + w + ":" + i] = { id: "w:" + w + ":" + i, t, syl: SYL[t], dig: DIG[t], word: w, icon: ic, pos: i, last: i === ts.length - 1, hint: w + " = " + ts.map(x => SYL[x]).join(" + ") + "  (" + ts.map(x => DIG[x]).join("-") + ")" }; }));
 function shuffleA(a) { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 function buildOrder() {
-  if (MODE === "q") return qBuild(8);
+  if (MODE === "q") return qBuild(qPool().length);
   if (MODE !== "lp") return LESSONS_H.slice();
   const singles = shuffleA(LESSONS_L).slice(0, 6), words = shuffleA(LP_WORDS).slice(0, 2), o = singles.slice();
   words.forEach(([w, ic, ts]) => ts.forEach((t, i) => o.push(LPI["w:" + w + ":" + i])));
@@ -398,6 +414,7 @@ function qBuild(n) {
   const idx = pool.map((_, i) => i).sort((a, b) => w[b] - w[a]).slice(0, Math.min(n, pool.length));
   return shuffle(idx.map(i => assignDis(pool[i], pool)));
 }
+function askFrz() { if (window.__noFrz) return; qFrz = true; qFrzT = 0; try { $("qbar").classList.add("talk"); } catch (e) {} }
 function askChain(q) { return MODE === "q" ? [{ txt: q.qs || q.q, en: hiQ(q) ? 0 : 1 }].concat(curOpts.map(o => vq1(o))) : [vc(q.t)]; }
 const bannerTexCache0 = null;
 function wordTex(tok) {
@@ -549,6 +566,20 @@ const arms = [-1, 1].map(s => { const p = new THREE.Group(); p.position.set(s * 
 const legs = [-1, 1].map(s => { const p = new THREE.Group(); p.position.set(s * 0.34, 0.72, 0); bear.add(p); part("leg", 0xa8683c, 0.28, 0.36, 0.3, 0, -0.3, 0, p); part("foot", 0xf6e7c8, 0.26, 0.17, 0.34, 0, -0.62, -0.08, p); return p; });
 const shadow = new THREE.Mesh(new THREE.CircleGeometry(0.9, 24), new THREE.MeshBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.25 }));
 shadow.rotation.x = -Math.PI / 2; shadow.position.y = 0.02; scene.add(shadow);
+function mkRocket(sc) {
+  const g = new THREE.Group();
+  mesh(G.cyl, 0xe53935, 0.34, 1.5, 0.34, 0, 0, 0, g);
+  mesh(G.cyl, 0xffffff, 0.355, 0.22, 0.355, 0, 0.35, 0, g);
+  mesh(G.cone, 0xfafafa, 0.34, 0.6, 0.34, 0, 1.05, 0, g);
+  mesh(G.sph, 0x4fc3f7, 0.2, 0.2, 0.2, 0, 0.1, 0.3, g);
+  [[1, 0], [-1, 0], [0, 1], [0, -1]].forEach(([x, z]) => { const f = mesh(G.box, 0xffb300, 0.06, 0.45, 0.32, x * 0.3, -0.7, z * 0.3, g); if (z) f.rotation.y = Math.PI / 2; });
+  const fl = new THREE.Mesh(G.cone, new THREE.MeshBasicMaterial({ color: 0xff9100 })); fl.scale.set(0.26, 0.9, 0.26); fl.rotation.x = Math.PI; fl.position.set(0, -1.3, 0); g.add(fl);
+  const fl2 = new THREE.Mesh(G.cone, new THREE.MeshBasicMaterial({ color: 0xfff176 })); fl2.scale.set(0.15, 0.55, 0.15); fl2.rotation.x = Math.PI; fl2.position.set(0, -1.1, 0); g.add(fl2);
+  g.userData.fl = [fl, fl2]; g.scale.setScalar(sc || 1); return g;
+}
+const rocketPack = new THREE.Group();
+[-1, 1].forEach(sx => { const r = mkRocket(0.8); r.position.set(sx * 1.2, 1.35, 0.15); r.rotation.z = -sx * 0.18; rocketPack.add(r); });
+rocketPack.visible = false; bear.add(rocketPack);
 const flame = new THREE.Group();
 [-1, 1].forEach(s => { const f = new THREE.Mesh(G.cone, new THREE.MeshBasicMaterial({ color: 0xff9100 })); f.scale.set(0.2, 1.0, 0.2); f.rotation.x = Math.PI / 2; f.position.set(s * 0.3, 0.45, 1.1); flame.add(f); });
 flame.visible = false; bear.add(flame);
@@ -629,26 +660,37 @@ const STARCOL = [0xffd54f, 0xff7043, 0x66bb6a, 0x42a5f5, 0xec407a];
 
 // ---- train
 const trains = [], planes = [], pads = [], obst = [];
-function mkHurdle() {
-  const g = new THREE.Group();
-  for (let i = 0; i < 4; i++) mesh(G.box, i % 2 ? 0xffffff : 0xe53935, 0.55, 0.42, 0.42, -0.83 + i * 0.55, 0.62, 0, g);
-  [-1, 1].forEach(sx => mesh(G.box, 0xffca28, 0.18, 0.95, 0.22, sx * 1.15, 0.47, 0, g));
+function laneMid(L) { return L.reduce((n, l) => n + LANE[l], 0) / L.length; }
+function mkHurdle(L) {
+  const g = new THREE.Group(), cx = laneMid(L);
+  L.forEach(l => { const dx = LANE[l] - cx;
+    for (let i = 0; i < 4; i++) mesh(G.box, i % 2 ? 0xffffff : 0xe53935, 0.55, 0.42, 0.42, dx - 0.83 + i * 0.55, 0.62, 0, g);
+    [-1, 1].forEach(sx => mesh(G.box, 0xffca28, 0.18, 0.95, 0.22, dx + sx * 1.15, 0.47, 0, g)); });
   return g;
 }
-function mkOverhead() {
+function mkCone() {
   const g = new THREE.Group();
-  [-1, 1].forEach(sx => mesh(G.cyl, 0xffca28, 0.1, 2.9, 0.1, sx * 1.2, 1.45, 0, g));
-  mesh(G.box, 0xff7043, 2.6, 0.9, 0.4, 0, 2.3, 0, g);
-  for (let i = 0; i < 4; i++) mesh(G.box, 0xffffff, 0.3, 0.9, 0.42, -0.9 + i * 0.6, 2.3, 0, g).rotation.z = 0.5;
+  [-0.55, 0.55].forEach(dx => { mesh(G.box, 0x37474f, 0.9, 0.1, 0.9, dx, 0.05, 0, g); mesh(G.cone, 0xff6d00, 0.7, 1.15, 0.7, dx, 0.68, 0, g); mesh(G.cyl, 0xffffff, 0.36, 0.14, 0.36, dx, 0.62, 0, g); });
+  return g;
+}
+function mkOverhead(L) {
+  const g = new THREE.Group(), cx = laneMid(L), x0 = LANE[L[0]] - cx - 1.2, x1 = LANE[L[L.length - 1]] - cx + 1.2, w = x1 - x0, mx = (x0 + x1) / 2;
+  [x0, x1].forEach(x => mesh(G.cyl, 0xffca28, 0.1, 2.9, 0.1, x, 1.45, 0, g));
+  mesh(G.box, 0xff7043, w, 0.9, 0.4, mx, 2.3, 0, g);
+  for (let i = 0; i < Math.round(w / 0.6); i++) mesh(G.box, 0xffffff, 0.3, 0.9, 0.42, x0 + 0.3 + i * 0.6, 2.3, 0, g).rotation.z = 0.5;
   return g;
 }
 function spawnObst(kind, ln) {
-  const g = kind === "over" ? mkOverhead() : mkHurdle(), lnn = ln == null ? Math.floor(Math.random() * 3) : ln;
-  g.position.set(LANE[lnn], 0, SPAWN_Z); scene.add(g); obst.push({ g, kind, hit: false, passed: false, lane: lnn });
+  const r = Math.random(), l0 = ln == null ? Math.floor(Math.random() * 3) : ln, two = l0 === 2 ? [1, 2] : [l0, l0 + 1];
+  let L = [l0], g;
+  if (kind === "over") { L = r < 0.3 ? [0, 1, 2] : r < 0.5 ? two : [l0]; g = mkOverhead(L); }
+  else if (r < 0.3) g = mkCone();
+  else { L = r < 0.55 ? two : [l0]; g = mkHurdle(L); }
+  g.position.set(laneMid(L), 0, SPAWN_Z); scene.add(g); obst.push({ g, kind, hit: false, passed: false, lane: l0, lanes: L });
 }
 const TCOL = [0xef5350, 0x42a5f5, 0xffca28, 0x66bb6a, 0xab47bc];
-function mkTrain() {
-  const g = new THREE.Group(), n = 4;
+function mkTrain(nn) {
+  const g = new THREE.Group(), n = nn == null ? 4 : nn;
   mesh(G.box, 0xe53935, 2.1, 2.3, 5.6, 0, 1.55, -2.8, g); mesh(G.box, 0xb71c1c, 1.9, 1.2, 1.6, 0, 1.0, 0.6, g);
   mesh(G.cyl, 0x37474f, 0.35, 1.2, 0.35, 0, 3.2, -1.2, g); mesh(G.sph, 0xffee58, 0.3, 0.3, 0.3, 0, 1.2, 1.45, g);
   mesh(G.box, 0xbbdefb, 2.14, 0.8, 1.6, 0, 2.2, -1.4, g);
@@ -766,9 +808,10 @@ function banner(kind, big, text, sub) {
 }
 function guide(t) { const g = $("guide"); g.style.display = "flex"; $("gtx").textContent = t; clearTimeout(gT); gT = setTimeout(() => { g.style.display = "none"; }, 4600); }
 function toggleFS() { try { const el = document.documentElement; if (!document.fullscreenElement && !document.webkitFullscreenElement) (el.requestFullscreen || el.webkitRequestFullscreen).call(el); else (document.exitFullscreen || document.webkitExitFullscreen).call(document); } catch (e) {} }
-function showQuestion() {
+function showQuestion(auto) {
   const q = order[qIdx];
   setQBar();
+  if (!auto) askFrz();
   say(askChain(q), 2);
 }
 function setQBar() { const q = order[qIdx]; if (!q) return; const qt = qText(q); $("qmain").textContent = qt[0]; $("qmain").style.fontSize = MODE === "q" ? (qt[0].length > 40 ? "17px" : qt[0].length > 26 ? "20px" : "24px") : ""; $("qsub").textContent = qt[1]; }
@@ -787,13 +830,13 @@ function startGame(resume) {
   gates.splice(0).forEach(o => scene.remove(o.g)); coins.splice(0).forEach(c => scene.remove(c)); picks.splice(0).forEach(c => scene.remove(c)); learned = {}; stopVoice(); $("fb").style.opacity = 0;
   $("startScr").style.display = "none"; $("resultBox").style.display = "none"; $("heroE").style.display = ""; $("qbar").style.display = "block"; $("ctl").style.display = "flex";
   $("starBox").textContent = "⭐ 0/" + order.length; $("coinBox").textContent = "0";
-  wagons.splice(0).forEach(w => scene.remove(w.g)); pus.splice(0).forEach(m => scene.remove(m)); yb = 0; vyb = 0; safeT = 0; lastLane = 1; magT = 0; jetT = 0; x2T = 0; shoeT = 0; puSpawnT = 12; wagT = 14; puStr = ""; saveAcc = 0;
+  wagons.splice(0).forEach(w => scene.remove(w.g)); expr.splice(0).forEach(e => { scene.remove(e.g); scene.remove(e.w); }); pus.splice(0).forEach(m => scene.remove(m)); yb = 0; vyb = 0; safeT = 0; lastLane = 1; magT = 0; jetT = 0; x2T = 0; shoeT = 0; puSpawnT = 12; wagT = 14; puStr = ""; saveAcc = 0;
   $("pauseScr").style.display = "none"; $("cd").style.display = "none"; $("puBox").innerHTML = "";
   if (resume) { const sv = loadSave(); if (sv) { if (MODE === "lp" && sv.o) { const oo = sv.o.map(id => LPI[id]).filter(Boolean); if (oo.length === sv.o.length) order = oo; } if (MODE === "q" && sv.o) { const oo = sv.o.map(id => QITEM[id]).filter(Boolean); if (oo.length === sv.o.length) order = oo.map(it => assignDis(it)); } qIdx = sv.q; stars = sv.st; coinN = sv.c; score = sv.sc; lastCoinN = coinN; themeI = sv.th; applyTheme(themeI); playT = sv.pt; streak = sv.sk; } }
   $("starBox").textContent = "⭐ " + stars + "/" + order.length; $("coinBox").textContent = coinN; $("scoreV").textContent = Math.floor(score);
   setOptions(); makeGate(curOpts); waitSpawn = -1;
   let first = true; try { first = !localStorage.getItem("br_tut"); localStorage.setItem("br_tut", "1"); } catch (e) {}
-  setTimeout(() => { setQBar(); say(askChain(order[qIdx]), 2); }, 350);
+  setTimeout(() => { setQBar(); askFrz(); say(askChain(order[qIdx]), 2); }, 350);
   guide(CHARS[CH].story); setTimeout(() => state !== "MENU" && guide(first ? (MODE === "q" ? "स्क्रीन का बायाँ/दायाँ हिस्सा टैप करो! सही शब्द वाले गेट में जाओ" : "स्क्रीन का बायाँ/दायाँ हिस्सा टैप करो! सही अक्षर वाले गेट में जाओ") : "चलो दौड़ें, " + NAME + "! 🏃"), 4800); if (first) setTimeout(() => state !== "MENU" && guide("⬆ ऊपर स्वाइप = कूदो   ⬇ नीचे स्वाइप = झुको"), 9600);
 }
 function activeGate() { return gates.find(g => !g.done && g.g.position.z > -62 && g.g.position.z < -2); }
@@ -863,7 +906,7 @@ function evalGate(o) {
     else {
       setOptions(); const nx = order[qIdx], chain = [fbOk()];
       if (streak === 3 || streak === 5) { guide("🔥 लगातार " + streak + " सही! स्पीड बढ़ रही है 🚀"); }
-      askChain(nx).forEach(x => chain.push(x)); say(chain, 5); waitSpawn = 0.5; setTimeout(setQBar, 900);
+      askChain(nx).forEach(x => chain.push(x)); askFrz(); say(chain, 5); waitSpawn = 0.5; setTimeout(setQBar, 900);
     }
   } else {
     if (MODE === "q") qRec(q.id, false);
@@ -924,7 +967,7 @@ function spkFail(heard) {
 }
 function closeSpeak() {
   if (!SPK) return; const g = SPK.o.game; try { if (SPK.rec) SPK.rec.abort(); } catch (e) {} SPK = null; stopVoice(); $("spkScr").style.display = "none";
-  if (g && state === "PAUSE") { state = "COUNT"; cdT = 2; const cd = $("cd"); cd.style.display = "block"; cd.textContent = 2; setQBar(); setTimeout(() => { if (state !== "MENU") say(askChain(order[qIdx]), 3); }, 1200); }
+  if (g && state === "PAUSE") { state = "COUNT"; cdT = 2; const cd = $("cd"); cd.style.display = "block"; cd.textContent = 2; setQBar(); setTimeout(() => { if (state !== "MENU") { askFrz(); say(askChain(order[qIdx]), 3); } }, 1200); }
 }
 $("spkHear").onclick = () => spkHear(false); $("spkMic").onclick = spkMic; $("spkGo").onclick = closeSpeak;
 $("recap").addEventListener("click", e => { const sp = e.target.closest && e.target.closest("span.rw"); if (sp && MODE === "q" && order[+sp.dataset.i]) openSpeak(order[+sp.dataset.i], { game: false }); });
@@ -940,7 +983,7 @@ function winGame() {
 
 // ================= TRAIN WAGON (ramp se chhat par chadho) =================
 const WH = 2.5, HB = 24, RL = 6, JETY = 4.2, wagons = [], pus = [];
-let yb = 0, vyb = 0, safeT = 0, lastLane = 1, magT = 0, jetT = 0, x2T = 0, shoeT = 0, puSpawnT = 12, wagT = 14, jetCoinT = 0, cdT = 0, saveAcc = 0, puStr = "";
+let trT = 20, yb = 0, vyb = 0, safeT = 0, lastLane = 1, magT = 0, jetT = 0, x2T = 0, shoeT = 0, puSpawnT = 12, wagT = 14, jetCoinT = 0, cdT = 0, saveAcc = 0, puStr = "";
 function mkWagon() {
   const g = new THREE.Group(), cl = 9.4;
   for (let i = 0; i < 5; i++) {
@@ -969,9 +1012,19 @@ function surfAt(x) {
   }
   return h;
 }
-function wagonAtSpawn() { return wagons.some(w => w.g.position.z - HB < SPAWN_Z + 14); }
-function canWagon() { return waitSpawn < 0 && flyT < 0 && jetT <= 0 && !wagons.length && !jpads.length && gates.some(g => !g.done && g.g.position.z < -8); }
+function wagonAtSpawn() { return expr.length > 0 || wagons.some(w => w.g.position.z - HB < SPAWN_Z + 14); }
+function canWagon() { return waitSpawn < 0 && flyT < 0 && jetT <= 0 && !expr.length && !wagons.length && !jpads.length && gates.some(g => !g.done && g.g.position.z < -8); }
 function canPU() { return waitSpawn < 0 && flyT < 0 && jetT <= 0 && !wagonAtSpawn() && !gates.some(g => Math.abs(g.g.position.z - SPAWN_Z) < 16) && !obst.some(o => o.g.position.z < SPAWN_Z + 14); }
+const expr = [];
+function canExpress() { return waitSpawn < 0 && flyT < 0 && jetT <= 0 && !expr.length && !wagons.length && !jpads.length && !obst.some(o => o.g.position.z < SPAWN_Z + 40) && gates.some(g => !g.done && g.g.position.z > -50 && g.g.position.z < -12); }
+function spawnExpress() {
+  const l = Math.random() < 0.5 ? lane : Math.floor(Math.random() * 3), g = mkTrain(2);
+  const hl = new THREE.Mesh(G.sph, new THREE.MeshBasicMaterial({ color: 0xfffde7, transparent: true, opacity: 0.9 })); hl.scale.set(0.5, 0.5, 0.5); hl.position.set(0, 1.2, 1.55); g.add(hl);
+  g.position.set(LANE[l], 0, SPAWN_Z - 4); scene.add(g);
+  const w = new THREE.Mesh(new THREE.PlaneGeometry(2.3, 30), new THREE.MeshBasicMaterial({ color: 0xff1744, transparent: true, opacity: 0.3, depthWrite: false })); w.rotation.x = -Math.PI / 2; w.position.set(LANE[l], 0.07, -16); scene.add(w);
+  expr.push({ g, lane: l, w, horn: false }); sfxHorn(); setTimeout(sfxHorn, 420);
+  guide("🚂 सामने से ट्रेन आ रही है! दूसरी लेन में जाओ ⬅️ ➡️");
+}
 function crashSide() {
   stumbleT = 0.8; sfxBad(); burst(bx, 1.2, 0, 10, [0xb0bec5, 0xff7043]); safeT = 0.45;
   lane = lastLane !== lane ? lastLane : (lane === 1 ? (Math.random() < 0.5 ? 0 : 2) : 1);
@@ -980,7 +1033,7 @@ function crashSide() {
 // ================= POWER-UPS =================
 const PUS = [
   { id: "mag", e: "🧲", col: "#e53935", T: 9, n: "मैग्नेट", d: "सिक्के खिंचकर आएँगे!" },
-  { id: "jet", e: "🚀", col: "#7e57c2", T: 5, n: "जेटपैक", d: "उड़ो और सिक्के बटोरो!" },
+  { id: "jet", e: "🚀", col: "#7e57c2", T: 6, n: "रॉकेट", d: "रॉकेट पर उड़ो और सिक्के बटोरो!" },
   { id: "x2", t: "2×", col: "#ff9800", T: 10, n: "डबल स्कोर", d: "स्कोर दोगुना!" },
   { id: "shoe", e: "👟", col: "#43a047", T: 10, n: "सुपर जूते", d: "बहुत ऊँचा कूदो!" }
 ];
@@ -993,10 +1046,11 @@ function puTex(p) {
   return (puTexC[p.id] = new THREE.CanvasTexture(c));
 }
 function spawnPU(i) {
-  const p = i == null ? PUS[Math.floor(Math.random() * PUS.length)] : PUS[i], g = new THREE.Group();
-  g.add(new THREE.Mesh(new THREE.PlaneGeometry(1.7, 1.7), new THREE.MeshBasicMaterial({ map: puTex(p), transparent: true, side: THREE.DoubleSide })));
+  const p = i == null ? PUS[Math.random() < 0.4 ? 1 : Math.floor(Math.random() * PUS.length)] : PUS[i], g = new THREE.Group();
+  if (p.id === "jet") { const tilt = new THREE.Group(); tilt.rotation.z = -0.55; const rk = mkRocket(1.15); tilt.add(rk); g.add(tilt); g.userData.rk = rk; }
+  else g.add(new THREE.Mesh(new THREE.PlaneGeometry(1.7, 1.7), new THREE.MeshBasicMaterial({ map: puTex(p), transparent: true, side: THREE.DoubleSide })));
   const ring = new THREE.Mesh(G.tor, new THREE.MeshBasicMaterial({ color: new THREE.Color(p.col), transparent: true, opacity: 0.8 })); ring.scale.set(1.9, 1.9, 1.9); g.add(ring);
-  g.position.set(LANE[Math.floor(Math.random() * 3)], 1.9, SPAWN_Z); g.userData = { p, t: 0 }; scene.add(g); pus.push(g);
+  g.position.set(LANE[Math.floor(Math.random() * 3)], 1.9, SPAWN_Z); g.userData = { p, t: 0, rk: g.userData.rk }; scene.add(g); pus.push(g);
 }
 function activatePU(p) {
   if (p.id === "mag") magT = p.T; else if (p.id === "x2") x2T = p.T; else if (p.id === "shoe") shoeT = p.T;
@@ -1035,7 +1089,7 @@ function goHome(result) {
   $("heroE").style.display = result === true ? "none" : "";
   clearTimeout(gT); $("guide").style.display = "none";
   if (result === true) setTimeout(() => { try { $("playBtn").scrollIntoView({ block: "center" }); } catch (e) {} }, 60); stopVoice(); $("pauseScr").style.display = "none"; state = "MENU";
-  gates.splice(0).forEach(o => scene.remove(o.g)); coins.splice(0).forEach(c => scene.remove(c)); picks.splice(0).forEach(c => scene.remove(c)); obst.splice(0).forEach(o => scene.remove(o.g)); jpads.splice(0).forEach(o => scene.remove(o)); pads.splice(0).forEach(p => scene.remove(p)); wagons.splice(0).forEach(w => scene.remove(w.g)); pus.splice(0).forEach(m => scene.remove(m));
+  gates.splice(0).forEach(o => scene.remove(o.g)); coins.splice(0).forEach(c => scene.remove(c)); picks.splice(0).forEach(c => scene.remove(c)); obst.splice(0).forEach(o => scene.remove(o.g)); jpads.splice(0).forEach(o => scene.remove(o)); pads.splice(0).forEach(p => scene.remove(p)); wagons.splice(0).forEach(w => scene.remove(w.g)); expr.splice(0).forEach(e => { scene.remove(e.g); scene.remove(e.w); }); pus.splice(0).forEach(m => scene.remove(m));
   yb = 0; vyb = 0; magT = jetT = x2T = shoeT = 0; flyT = -1; jumpT = -1; duckT = 0; puStr = ""; $("puBox").innerHTML = ""; $("qbar").style.display = "none"; $("ctl").style.display = "none"; $("hintLbl").style.display = "none"; $("act").style.display = "none"; $("fb").style.opacity = 0; pad.visible = false;
   $("startScr").style.display = "flex"; refreshStart();
 }
@@ -1091,10 +1145,20 @@ function renderQ() {
   const S = qSubj();
   $("subjRow").innerHTML = subjList().map(x => '<button class="opt' + (x.id === qSubj().id ? " on" : "") + '" data-s="' + x.id + '">' + x.icon + " " + x.name + "</button>").join("");
   const mast = it => (QSTAT[it.id] && QSTAT[it.id].o >= 2) ? 1 : 0, tot = S.chapters.reduce((n, c) => n + c.items.length, 0), mt = S.chapters.reduce((n, c) => n + c.items.reduce((m, it) => m + mast(it), 0), 0);
-  $("chapBox").innerHTML = '<button class="opt' + (QCH === "all" ? " on" : "") + '" data-c="all">⭐ सब अध्याय (' + mt + "/" + tot + ")</button>" + S.chapters.map((c, i) => '<button class="opt' + (QCH === c.id ? " on" : "") + '" data-c="' + c.id + '">' + (i + 1) + ". " + c.en + " (" + c.items.reduce((m, it) => m + mast(it), 0) + "/" + c.items.length + ")</button>").join("");
+  const cur = QCH === "all" ? null : QCHN[QCH];
+  $("chapBtn").textContent = "📚 " + (cur ? (S.chapters.findIndex(c => c.id === QCH) + 1) + ". " + cur.en : "⭐ Complete Course (" + tot + ")") + "  ▾";
   $("subjRow").querySelectorAll(".opt").forEach(b => b.onclick = () => { QSUB = b.dataset.s; QCH = "all"; saveQ(); renderQ(); setMode("q"); });
-  $("chapBox").querySelectorAll(".opt").forEach(b => b.onclick = () => { QCH = b.dataset.c; saveQ(); renderQ(); setMode("q"); });
 }
+function openChapMenu() {
+  const S = qSubj(), mast = it => (QSTAT[it.id] && QSTAT[it.id].o >= 2) ? 1 : 0, tot = S.chapters.reduce((n, c) => n + c.items.length, 0), mt = S.chapters.reduce((n, c) => n + c.items.reduce((m, it) => m + mast(it), 0), 0);
+  $("cmSub").textContent = S.icon + " " + S.name + " — एक lesson चुनो";
+  $("cmList").innerHTML = '<button data-c="all" class="' + (QCH === "all" ? "on" : "") + '"><span class="n">⭐</span><span class="t">Complete Course<small>सारे lessons एक साथ • ' + tot + ' सवाल</small></span><span class="m">✔ ' + mt + "/" + tot + "</span></button>" +
+    S.chapters.map((c, i) => '<button data-c="' + c.id + '" class="' + (QCH === c.id ? "on" : "") + '"><span class="n">' + (i + 1) + '</span><span class="t">' + c.en + "<small>" + c.hi + " • " + c.items.length + ' सवाल</small></span><span class="m">✔ ' + c.items.reduce((m, it) => m + mast(it), 0) + "/" + c.items.length + "</span></button>").join("");
+  $("cmList").querySelectorAll("button").forEach(b => b.onclick = () => { QCH = b.dataset.c; saveQ(); $("chapMenu").style.display = "none"; renderQ(); setMode("q"); });
+  $("chapMenu").style.display = "flex"; $("chapMenu").scrollTop = 0;
+  const on = $("cmList").querySelector("button.on"); if (on) setTimeout(() => { try { on.scrollIntoView({ block: "center" }); } catch (e) {} }, 30);
+}
+$("chapBtn").onclick = openChapMenu; $("cmClose").onclick = () => { $("chapMenu").style.display = "none"; };
 function saveQ() { try { localStorage.setItem("br_qsub_" + PROF, QSUB); localStorage.setItem("br_qch_" + PROF, QCH); } catch (e) {} }
 function loadQ() { try { QSUB = localStorage.getItem("br_qsub_" + PROF) || ""; QCH = localStorage.getItem("br_qch_" + PROF) || "all"; } catch (e) { QSUB = ""; QCH = "all"; } const S = qSubj(); QSUB = S.id; if (QCH !== "all" && !S.chapters.some(c => c.id === QCH)) QCH = "all"; }
 function setProf(p) {
@@ -1118,6 +1182,7 @@ function frame(now) {
   requestAnimationFrame(frame);
   const dt = Math.min(0.05, (now - last) / 1000); last = now;
   { const hd = state === "MENU" ? "none" : "flex"; if (hd !== hudDisp) { hudDisp = hd; $("hud").style.display = hd; } }
+  if (qFrz) { if (state === "PLAY") { qFrzT += dt; if ((!vbusy && !speaking) || qFrzT > 25) { qFrz = false; $("qbar").classList.remove("talk"); } else { renderer.render(scene, camera); return; } } else if (state === "MENU" || state === "WIN" || state === "WINNING") { qFrz = false; $("qbar").classList.remove("talk"); } }
   if (state === "PAUSE") { renderer.render(scene, camera); return; }
   if (state === "COUNT") { cdT -= dt; const n = Math.max(1, Math.ceil(cdT)), cd = $("cd"); if (cd.textContent !== String(n)) cd.textContent = n; if (cdT <= 0) { state = "PLAY"; cd.style.display = "none"; } renderer.render(scene, camera); return; }
   if (state === "PLAY") {
@@ -1125,7 +1190,7 @@ function frame(now) {
     const sv = Math.floor(score); if (sv !== +$("scoreV").textContent) $("scoreV").textContent = sv; if (sv > best) $("bestV").textContent = "🏆 NEW!"; 
     if (m !== lastMult) { lastMult = m; const mb = $("multB"); mb.textContent = "×" + m; mb.classList.add("pop"); setTimeout(() => mb.classList.remove("pop"), 200); }
   }
-  if (MODE === "q" && state === "PLAY" && order[qIdx] && !SPK) { if (vbusy || speaking || waitSpawn > 0) qRep = 0; else { qRep += dt; if (qRep > 11) { qRep = 0; say(askChain(order[qIdx]), 2); } } } else qRep = 0;
+  if (MODE === "q" && state === "PLAY" && order[qIdx] && !SPK) { if (vbusy || speaking || waitSpawn > 0) qRep = 0; else { qRep += dt; if (qRep > 15) { qRep = 0; showQuestion(true); } } } else qRep = 0;
   if (state === "PLAY") { stepPU(dt); playT += dt; ramp = Math.min(0.6, Math.pow(1.02, playT / 5) - 1); }   // har 5 second mein 2% tez, 60% tak
   SPAWN_Z = -Math.min(135, Math.max(90, VEL * 4.2));
   boostT = Math.max(0, boostT - dt);
@@ -1142,10 +1207,22 @@ function frame(now) {
   if (run && state !== "WINNING") {
     trainT -= dt; if (trainT < 0) { trainT = 11 + Math.random() * 7; spawnTrain(); }
     planeT -= dt; if (planeT < 0) { planeT = 13 + Math.random() * 8; spawnPlane(); }
-    jpT -= dt; if (jpT < 0) { if (state === "PLAY" && waitSpawn < 0 && flyT < 0 && jetT <= 0 && !wagons.length && !jpads.length && gates.every(g => g.done || g.g.position.z > SPAWN_Z + VEL * 0.7) && !obst.some(o => o.g.position.z < SPAWN_Z + 16)) { spawnJumpPad(); jpT = 18 + Math.random() * 8; } else jpT = 1.5; }
+    jpT -= dt; if (jpT < 0) { if (state === "PLAY" && waitSpawn < 0 && flyT < 0 && jetT <= 0 && !expr.length && !wagons.length && !jpads.length && gates.every(g => g.done || g.g.position.z > SPAWN_Z + VEL * 0.7) && !obst.some(o => o.g.position.z < SPAWN_Z + 16)) { spawnJumpPad(); jpT = 18 + Math.random() * 8; } else jpT = 1.5; }
+    trT -= dt; if (trT < 0) { if (state === "PLAY" && playT > 12 && canExpress()) { spawnExpress(); trT = 24 + Math.random() * 12; } else trT = 1.2; }
     wagT -= dt; if (wagT < 0) { if (state === "PLAY" && playT > 8 && canWagon()) { spawnWagon(); wagT = 15 + Math.random() * 8; } else wagT = 1.2; }
     puSpawnT -= dt; if (puSpawnT < 0) { if (state === "PLAY" && canPU()) { spawnPU(); puSpawnT = 13 + Math.random() * 9; } else puSpawnT = 1.2; }
     padT -= dt; if (padT < 0) { padT = 8 + Math.random() * 5; if (state === "PLAY" && !wagonAtSpawn() && !gates.some(g => g.g.position.z > SPAWN_Z * 0.7 && g.g.position.z < -6) && !obst.some(o => o.g.position.z < SPAWN_Z + 14)) spawnPad(); }
+  }
+  for (let i = expr.length - 1; i >= 0; i--) {
+    const e = expr[i], g = e.g; g.position.z += (VEL + 15) * dt;
+    const front = g.position.z + 1.6, rear = g.position.z - g.userData.len;
+    e.w.material.opacity = 0.18 + 0.22 * Math.abs(Math.sin(now / 130)); e.w.visible = front < 0.5;
+    if (!e.horn && front > -55) { e.horn = true; sfxHorn(); }
+    if (state === "PLAY" && Math.abs(bx - LANE[e.lane]) < 1.25 && front > -0.8 && rear < 0.8 && !(flyT >= 0 || jetT > 0 || safeT > 0)) {
+      stumbleT = 0.8; sfxBad(); burst(bx, 1.2, 0, 14, [0xb0bec5, 0xff7043, 0xffd54f]); safeT = 0.7; lastLane = lane; lane = e.lane === 1 ? (Math.random() < 0.5 ? 0 : 2) : 1;
+      guide("ऊप्स! चलती ट्रेन से टकराए 🚂 दूसरी लेन में जाओ");
+    }
+    if (rear > 14) { scene.remove(g); scene.remove(e.w); expr.splice(i, 1); }
   }
   for (let i = trains.length - 1; i >= 0; i--) {
     const g = trains[i]; g.position.z += (VEL * 1.25 + 12) * dt;
@@ -1176,7 +1253,8 @@ function frame(now) {
   }
   lmat.opacity = Math.max(0, Math.min(0.55, 0.2 + (ratio - 1) * 1.7)); if (state === "MENU") lmat.opacity = 0.12;
   lines.forEach(m => { m.visible = lmat.opacity > 0.02; if (m.visible) { m.position.z += VEL * 1.4 * dt; if (m.position.z > 8) resetLine(m, true); } });
-  flame.visible = boostT > 0 || jetT > 0; if (flame.visible) flame.children.forEach(f => { f.scale.y = 0.8 + Math.random() * 0.6; });
+  rocketPack.visible = jetT > 0; if (jetT > 0) { rocketPack.children.forEach(r => r.userData.fl.forEach((f, k) => { f.scale.y = (k ? 0.45 : 0.7) + Math.random() * 0.6; })); if (Math.random() < 0.6 && state === "PLAY") burst(bx, yb + 0.6, 1.4, 1, [0xffcc80, 0xbdbdbd, 0xff7043]); }
+  flame.visible = boostT > 0 && jetT <= 0; if (flame.visible) flame.children.forEach(f => { f.scale.y = 0.8 + Math.random() * 0.6; });
   // bhalu
   tRun += dt * (stumbleT > 0 ? 6 : Math.min(16, 10 + (VEL - 11) * 0.12));
   const tx = LANE[lane]; const dx = tx - bx; bx += dx * Math.min(1, dt * 12);
@@ -1248,7 +1326,7 @@ function frame(now) {
     if (m.position.z > 8) { scene.remove(m); picks.splice(i, 1); }
   }
   for (let i = pus.length - 1; i >= 0; i--) {
-    const m = pus[i], U = m.userData; m.position.z += VEL * dt; U.t += dt; m.position.y = 1.9 + Math.sin(U.t * 3) * 0.25; m.rotation.y = Math.sin(U.t * 2) * 0.4;
+    const m = pus[i], U = m.userData; m.position.z += VEL * dt; U.t += dt; m.position.y = 1.9 + Math.sin(U.t * 3) * 0.25; m.rotation.y = Math.sin(U.t * 2) * 0.4; if (U.rk) { U.rk.rotation.y += dt * 3.5; U.rk.userData.fl.forEach((f, k) => { f.scale.y = (k ? 0.45 : 0.9) + Math.random() * 0.4; }); }
     if (state === "PLAY" && flyT < 0 && jetT <= 0 && m.position.z > -1.5 && m.position.z < 1.8 && Math.abs(m.position.x - bx) < 1.3 && Math.abs(m.position.y - (by + 1.35)) < 1.7) { activatePU(U.p); scene.remove(m); pus.splice(i, 1); continue; }
     if (m.position.z > 8) { scene.remove(m); pus.splice(i, 1); }
   }
@@ -1257,13 +1335,13 @@ function frame(now) {
   let nearOb = null;
   for (let i = obst.length - 1; i >= 0; i--) {
     const o = obst[i], z0 = o.g.position.z; o.g.position.z += VEL * dt; const z1 = o.g.position.z;
-    if (state === "PLAY" && !o.hit && !o.passed && z0 < 0.9 && z1 > -0.9 && Math.abs(LANE[o.lane] - bx) < 1.2) {
+    if (state === "PLAY" && !o.hit && !o.passed && z0 < 0.9 && z1 > -0.9 && o.lanes.some(l => Math.abs(LANE[l] - bx) < 1.2)) {
       const safe = flyT >= 0 || jetT > 0 || safeT > 0 || (o.kind === "low" ? by > 0.95 : duckT > 0);
       if (safe) { o.passed = true; coinN += 2; $("coinBox").textContent = coinN; sfxCoin(); burst(bx, 1.4, 0, 10, [0x66bb6a, 0xffd54f]); guide(o.kind === "low" ? "वाह! शानदार कूद! 🦘" : "वाह! अच्छा झुके! 👏"); }
       else { o.hit = true; stumbleT = 0.8; sfxBad(); burst(bx, 1.2, 0, 10, [0xb0bec5, 0xff7043]); guide(o.kind === "low" ? "ऊप्स! ⬆ ऊपर स्वाइप करके कूदो" : "ऊप्स! ⬇ नीचे स्वाइप करके झुको"); }
     }
     if (!o.hit && !o.passed && z1 > 1.5) o.passed = true;
-    if (!o.hit && !o.passed && Math.abs(LANE[o.lane] - bx) < 1.4 && z1 > SPAWN_Z * 0.5 && z1 < -4 && (!nearOb || z1 > nearOb.g.position.z)) nearOb = o;
+    if (!o.hit && !o.passed && o.lanes.some(l => Math.abs(LANE[l] - bx) < 1.4) && z1 > SPAWN_Z * 0.5 && z1 < -4 && (!nearOb || z1 > nearOb.g.position.z)) nearOb = o;
     if (z1 > 10) { scene.remove(o.g); obst.splice(i, 1); }
   }
   const act = $("act");
@@ -1283,7 +1361,7 @@ function frame(now) {
 }
 requestAnimationFrame(frame);
 if (location.hash === "#debug") { const d = $("dbg"); d.style.display = "block"; setInterval(() => { d.textContent = "clips: " + Object.keys(AUDIO_B64).map(k => k + ":" + (audioEls[k] && audioEls[k].duration ? audioEls[k].duration.toFixed(1) : "?")).join(" ") + " | state " + state + " q" + qIdx; }, 500); }
-window.__g = { curLane: () => lane, qa: () => ({ opts: curOpts.slice(), ans: order[qIdx] && order[qIdx].t, q: qIdx }), setProf, openSpeak, closeSpeak, get SPK() { return SPK; }, get state() { return state; }, qBuild, setQ: (s, c) => { QSUB = s; QCH = c || "all"; renderQ(); setMode("q"); }, setChar, get CH() { return CH; }, win: winGame, setVoice, miss: () => Object.keys(window.__miss || {}), get vsel() { return VSEL; }, phrases: allPhrases, setMode, get mode() { return MODE; }, order: () => order, yb: () => yb, by0: () => by0, stumble: () => stumbleT, spawnWagon, wagonsZ: () => wagons.map(w => +w.g.position.z.toFixed(1)), surf: () => surfAt(bx), givePU: id => activatePU(PUS.find(p => p.id === id)), spawnPU, get magT() { return magT; }, get jetT() { return jetT; }, get x2T() { return x2T; }, get shoeT() { return shoeT; }, pauseGame, resumeGame, togglePause, goHome, saveProg, loadSave, startGame, setBx: v => { bx = v; }, nPU: () => pus.length, get score() { return score; }, get best() { return best; }, mult: multNow, get flyT() { return flyT; }, get themeI() { return themeI; }, nJp: () => jpads.length, jpZ: () => jpads.map(p => +p.position.z.toFixed(1)), spawnJumpPad, setTheme: i => { themeI = i; applyTheme(i); }, coinsY: () => coins.map(c => +c.position.y.toFixed(1)), spawnCoins, get coinN() { return coinN; }, obZ: () => obst.map(o => +o.g.position.z.toFixed(1)), obState: () => obst.map(o => (o.hit ? 'hit' : o.passed ? 'pass' : 'live')), get lane() { return lane; }, get jumpT() { return jumpT; }, get duckT() { return duckT; }, get mouthL() { return mouthL; }, get speaking() { return speaking; }, get stumbleT() { return stumbleT; }, jumpAct, duckAct, moveL, moveR, spawnObst, nObst: () => obst.length, setPlayT: v => { playT = v; }, get playT() { return playT; }, get SPEED() { return SPEED; }, get wrongN() { return wrongN; }, get streak() { return streak; }, trainZ: () => trains.map(t => +t.position.z.toFixed(1)), planeX: () => planes.map(t => +t.position.x.toFixed(1)), padLane: () => pads.length ? LANE.indexOf(pads[0].position.x) : -1, get VEL() { return VEL; }, get ramp() { return ramp; }, get boost() { return boostT; }, nTrains: () => trains.length, nPlanes: () => planes.length, nPads: () => pads.length, spawnTrain, spawnPlane, spawnPad,  get lane() { return lane; }, get picks() { return picks.length; }, get coinN() { return coinN; }, setSpeed: v => { SPEED = v; }, get helpOn() { return helpOn; }, get state() { return state; }, get qIdx() { return qIdx; }, setLane: l => { lane = l; }, curOpts: () => curOpts, order: () => order, get stars() { return stars; } };
+window.__g = { curLane: () => lane, qa: () => ({ opts: curOpts.slice(), ans: order[qIdx] && order[qIdx].t, q: qIdx }), setProf, openSpeak, closeSpeak, get SPK() { return SPK; }, get state() { return state; }, qBuild, setQ: (s, c) => { QSUB = s; QCH = c || "all"; renderQ(); setMode("q"); }, setChar, get CH() { return CH; }, win: winGame, setVoice, miss: () => Object.keys(window.__miss || {}), get vsel() { return VSEL; }, phrases: allPhrases, setMode, get mode() { return MODE; }, order: () => order, yb: () => yb, by0: () => by0, stumble: () => stumbleT, spawnWagon, wagonsZ: () => wagons.map(w => +w.g.position.z.toFixed(1)), surf: () => surfAt(bx), givePU: id => activatePU(PUS.find(p => p.id === id)), spawnPU, get magT() { return magT; }, get jetT() { return jetT; }, get x2T() { return x2T; }, get shoeT() { return shoeT; }, pauseGame, resumeGame, togglePause, goHome, saveProg, loadSave, startGame, setBx: v => { bx = v; }, nPU: () => pus.length, get score() { return score; }, get best() { return best; }, mult: multNow, get flyT() { return flyT; }, get themeI() { return themeI; }, nJp: () => jpads.length, jpZ: () => jpads.map(p => +p.position.z.toFixed(1)), spawnJumpPad, setTheme: i => { themeI = i; applyTheme(i); }, coinsY: () => coins.map(c => +c.position.y.toFixed(1)), spawnCoins, get coinN() { return coinN; }, obZ: () => obst.map(o => +o.g.position.z.toFixed(1)), obState: () => obst.map(o => (o.hit ? 'hit' : o.passed ? 'pass' : 'live')), get lane() { return lane; }, get jumpT() { return jumpT; }, get duckT() { return duckT; }, get mouthL() { return mouthL; }, get speaking() { return speaking; }, get stumbleT() { return stumbleT; }, jumpAct, duckAct, moveL, moveR, spawnObst, nObst: () => obst.length, setPlayT: v => { playT = v; }, get playT() { return playT; }, get SPEED() { return SPEED; }, get wrongN() { return wrongN; }, get streak() { return streak; }, trainZ: () => trains.map(t => +t.position.z.toFixed(1)), planeX: () => planes.map(t => +t.position.x.toFixed(1)), padLane: () => pads.length ? LANE.indexOf(pads[0].position.x) : -1, get VEL() { return VEL; }, get ramp() { return ramp; }, get boost() { return boostT; }, nTrains: () => trains.length, nPlanes: () => planes.length, nPads: () => pads.length, spawnTrain, spawnPlane, spawnPad,  get lane() { return lane; }, get picks() { return picks.length; }, get coinN() { return coinN; }, setSpeed: v => { SPEED = v; }, get helpOn() { return helpOn; }, get state() { return state; }, get qIdx() { return qIdx; }, setLane: l => { lane = l; }, curOpts: () => curOpts, order: () => order, get stars() { return stars; } , expr, obst, pus, spawnExpress, spawnObst, spawnPU, activatePU, PUS, get nExpr() { return expr.length; }, get jet() { return jetT; }, get nObst() { return obst.length; }, set lane(v) { lane = v; }};
 </script>
 </body>
 </html>
