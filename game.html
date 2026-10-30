@@ -22,7 +22,12 @@
   @media (max-width: 440px) { .chip { padding: 3px 9px; font-size: 16px; } #spdBox, #planBox { font-size: 12px; } #scoreBox .sc { font-size: 26px; } }
   #qbar { position: absolute; top: 84px; left: 50%; transform: translateX(-50%); width: 90%; z-index: 5; display: none;
     background: #fff; border: 4px solid #29b6f6; border-radius: 22px; padding: 6px 12px; text-align: center; box-shadow: 0 5px 0 rgba(0,0,0,.18); pointer-events: none; }
-  #qbar.talk { border-color: #ffb300; box-shadow: 0 0 0 6px rgba(255,179,0,.5), 0 5px 0 rgba(0,0,0,.18); animation: pulseB .9s ease-in-out infinite; }
+  #qbar.talk { border-color: #ffb300; box-shadow: 0 0 0 6px rgba(255,179,0,.5), 0 5px 0 rgba(0,0,0,.18); animation: qpulse .9s ease-in-out infinite; }
+  @keyframes qpulse { 0%,100% { transform: translateX(-50%) scale(1); } 50% { transform: translateX(-50%) scale(1.03); } }
+  #qopts { display: none; gap: 6px; justify-content: center; margin-top: 5px; }
+  #qopts span { flex: 1 1 0; min-width: 0; background: #e1f5fe; color: #01579b; border: 2px solid #29b6f6; border-radius: 12px; padding: 3px 5px; font: 800 15px/1.1 'Baloo 2','Nirmala UI','Mangal',sans-serif; visibility: hidden; word-break: break-word; }
+  #qopts span.vis { visibility: visible; }
+  #qopts span.hl { background: #ffd54f; border-color: #ff9800; color: #bf360c; transform: scale(1.07); }
   #qmain { font-size: 30px; font-weight: 800; color: #0277bd; line-height: 1.15; }
   #qsub { font-size: 18px; color: #546e7a; font-weight: 700; }
   #ctl { position: absolute; bottom: 14px; left: 0; right: 0; display: none; justify-content: center; padding: 0 20px; z-index: 5; pointer-events: none; }
@@ -78,6 +83,7 @@
   @media (orientation: landscape) and (max-height: 560px) {
     #wrap { max-width: none; max-height: none; border-radius: 0; }
     #hud { top: 6px; left: 8px; right: 8px; } .chip { font-size: 15px; padding: 2px 10px; border-width: 2px; }
+    #qopts span { font-size: 12px; padding: 1px 3px; border-width: 1px; } #qopts { margin-top: 2px; }
     #qbar { top: 6px; width: min(40%, 520px); padding: 3px 8px; border-width: 3px; border-radius: 16px; }
     #qmain { font-size: 21px; } #qsub { font-size: 13px; }
     #fb { top: auto; bottom: 90px; width: 46%; padding: 4px 8px; } #fb .fbig { font-size: 28px; } #fb .ft { font-size: 19px; } #fb .fs { font-size: 13px; }
@@ -138,7 +144,7 @@
     <div class="r"><div class="chip" id="coinBox" style="color:#f9a825">0</div><div class="chip" id="starBox" style="color:#f57f17">⭐ 0/5</div></div>
   </div>
   <div id="puBox"></div><div id="cd"></div>
-  <div id="qbar"><div id="qmain"></div><div id="qsub"></div></div>
+  <div id="qbar"><div id="qmain"></div><div id="qsub"></div><div id="qopts"></div></div>
   <div id="ctl">
     <div id="mid"><button class="cb sm" id="bP"><i></i><i></i></button><button class="cb sm" id="bM">🎵</button><button class="cb" id="bS" style="background:#42a5f5">🔊</button><button class="cb sm" id="bF">⛶</button></div>
   </div>
@@ -414,8 +420,13 @@ function qBuild(n) {
   const idx = pool.map((_, i) => i).sort((a, b) => w[b] - w[a]).slice(0, Math.min(n, pool.length));
   return shuffle(idx.map(i => assignDis(pool[i], pool)));
 }
+let qoKey = "";
+function qoFill() { const q = order[qIdx], bx2 = $("qopts"); if (MODE !== "q" || !q) { bx2.style.display = "none"; return; } const key = q.id + "|" + curOpts.join("|"); bx2.style.display = "flex"; if (key === qoKey) return; qoKey = key; bx2.innerHTML = curOpts.map(o => "<span></span>").join(""); bx2.querySelectorAll("span").forEach((e, i) => { e.textContent = curOpts[i]; }); }
+function qoShow(i) { const sp = $("qopts").querySelectorAll("span"); sp.forEach((e, j) => { if (j <= i) e.classList.add("vis"); e.classList.toggle("hl", j === i); }); }
+function qoReset() { $("qopts").querySelectorAll("span").forEach(e => { e.classList.remove("vis", "hl"); }); }
+function qoHl() { $("qopts").querySelectorAll("span").forEach(e => e.classList.remove("hl")); }
 function askFrz() { if (window.__noFrz) return; qFrz = true; qFrzT = 0; try { $("qbar").classList.add("talk"); } catch (e) {} }
-function askChain(q) { return MODE === "q" ? [{ txt: q.qs || q.q, en: hiQ(q) ? 0 : 1 }].concat(curOpts.map(o => vq1(o))) : [vc(q.t)]; }
+function askChain(q) { return MODE === "q" ? [{ txt: q.qs || q.q, en: hiQ(q) ? 0 : 1, cb: () => { qoFill(); qoReset(); } }].concat(curOpts.map((o, i) => Object.assign({}, vq1(o), { cb: () => { qoFill(); qoShow(i); } }))) : [vc(q.t)]; }
 const bannerTexCache0 = null;
 function wordTex(tok) {
   const k = "W:" + tok; if (texCache[k]) return texCache[k];
@@ -814,7 +825,7 @@ function showQuestion(auto) {
   if (!auto) askFrz();
   say(askChain(q), 2);
 }
-function setQBar() { const q = order[qIdx]; if (!q) return; const qt = qText(q); $("qmain").textContent = qt[0]; $("qmain").style.fontSize = MODE === "q" ? (qt[0].length > 40 ? "17px" : qt[0].length > 26 ? "20px" : "24px") : ""; $("qsub").textContent = qt[1]; }
+function setQBar() { const q = order[qIdx]; if (!q) return; qoFill(); const qt = qText(q); $("qmain").textContent = qt[0]; $("qmain").style.fontSize = MODE === "q" ? (qt[0].length > 40 ? "17px" : qt[0].length > 26 ? "20px" : "24px") : ""; $("qsub").textContent = qt[1]; }
 function unlockPack() {
   try { const P = window.VOICE_PACK; if (!P) return; Object.keys(P).forEach(k => { const a = packEl("p:" + VSEL + ":" + k, P[k]); try { a.muted = true; const p = a.play(); if (p && p.then) p.then(() => { a.pause(); a.currentTime = 0; a.muted = false; }).catch(() => { a.muted = false; }); else a.muted = false; } catch (e) {} }); } catch (e) {}
 }
@@ -1182,7 +1193,7 @@ function frame(now) {
   requestAnimationFrame(frame);
   const dt = Math.min(0.05, (now - last) / 1000); last = now;
   { const hd = state === "MENU" ? "none" : "flex"; if (hd !== hudDisp) { hudDisp = hd; $("hud").style.display = hd; } }
-  if (qFrz) { if (state === "PLAY") { qFrzT += dt; if ((!vbusy && !speaking) || qFrzT > 25) { qFrz = false; $("qbar").classList.remove("talk"); } else { renderer.render(scene, camera); return; } } else if (state === "MENU" || state === "WIN" || state === "WINNING") { qFrz = false; $("qbar").classList.remove("talk"); } }
+  if (qFrz) { if (state === "PLAY") { qFrzT += dt; if ((!vbusy && !speaking) || qFrzT > 25) { qFrz = false; $("qbar").classList.remove("talk"); qoHl(); } else { renderer.render(scene, camera); return; } } else if (state === "MENU" || state === "WIN" || state === "WINNING") { qFrz = false; $("qbar").classList.remove("talk"); } }
   if (state === "PAUSE") { renderer.render(scene, camera); return; }
   if (state === "COUNT") { cdT -= dt; const n = Math.max(1, Math.ceil(cdT)), cd = $("cd"); if (cd.textContent !== String(n)) cd.textContent = n; if (cdT <= 0) { state = "PLAY"; cd.style.display = "none"; } renderer.render(scene, camera); return; }
   if (state === "PLAY") {
