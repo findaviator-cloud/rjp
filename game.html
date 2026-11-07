@@ -32,6 +32,13 @@
   #qsub { font-size: 18px; color: #546e7a; font-weight: 700; }
   #ctl { position: absolute; bottom: 14px; left: 0; right: 0; display: none; justify-content: center; padding: 0 20px; z-index: 5; pointer-events: none; }
   #ctl button { pointer-events: auto; }
+  #mpad { position: absolute; left: 10px; right: 10px; bottom: 74px; display: none; justify-content: space-between; align-items: flex-end; pointer-events: none; }
+  body.cm #mpad { display: flex; } #mpad > div { display: flex; gap: 8px; } #mpad button { pointer-events: auto; width: 62px; height: 62px; border-radius: 18px; border: 4px solid #fff; background: #26a69a; color: #fff; font-size: 30px; font-weight: 900; box-shadow: 0 6px 0 rgba(0,0,0,.28); cursor: pointer; }
+  #mpad button:hover { filter: brightness(1.15); } #mpad button:active { transform: translateY(3px); box-shadow: 0 3px 0 rgba(0,0,0,.28); } #mpad .ud button { background: #7e57c2; }
+  body.cm #guide { bottom: 152px; } body.cm #hintLbl { bottom: 232px; }
+  body.cm .opt:hover, body.cm .big:hover, body.cm .cb:hover { filter: brightness(1.12); cursor: pointer; }
+  #setBox { width: 100%; display: none; flex-direction: column; align-items: center; background: rgba(0,0,0,.18); border-radius: 18px; padding: 6px 8px 10px; margin-top: 6px; }
+  #ctrlTip { font-size: 14px; margin-top: 8px; opacity: .92; }
   #wrap { touch-action: none; }
   .cb { width: 62px; height: 62px; border-radius: 50%; border: 4px solid #fff; background: #ff9800; color: #fff; font-size: 28px; font-weight: 800;
     box-shadow: 0 6px 0 rgba(0,0,0,.25); cursor: pointer; }
@@ -159,6 +166,7 @@
   <div id="puBox"></div><div id="cd"></div>
   <div id="qbar"><div id="qmain"></div><div id="qsub"></div><div id="qopts"></div></div>
   <div id="ctl">
+    <div id="mpad"><div><button id="mL" title="बाएँ (←)">◀</button></div><div class="ud"><button id="mU" title="कूदो (↑ / माउस व्हील ऊपर)">⬆</button><button id="mD" title="झुको (↓ / माउस व्हील नीचे)">⬇</button></div><div><button id="mR" title="दाएँ (→)">▶</button></div></div>
     <div id="mid"><button class="cb sm" id="bP"><i></i><i></i></button><button class="cb sm" id="bM">🎵</button><button class="cb" id="bS" style="background:#42a5f5">🔊</button><button class="cb sm" id="bF">⛶</button></div>
   </div>
   <div id="flash" style="position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:15;transition:opacity .35s"></div>
@@ -185,10 +193,14 @@
     <button class="big" id="resBtn" style="display:none;font-size:22px;background:linear-gradient(#66bb6a,#2e7d32) !important;box-shadow:0 7px 0 #1b5e20,0 10px 14px rgba(0,0,0,.35)"></button>
     <button class="big" id="playBtn">▶ खेलें</button>
     <div id="tapTxt">👆 कहीं भी टैप करो!</div>
+    <div class="row"><button class="opt" id="setBtn">⚙ सेटिंग: कंट्रोल • आवाज़ • स्पीड  ▾</button></div>
+    <div id="setBox">
+    <div class="row" id="ctrlRow"><button class="opt" data-k="touch">👆 Touch मोड</button><button class="opt" data-k="mouse">🖱 Mouse मोड</button></div>
     <div class="row" id="voiceRow"><button class="opt" data-v="madhur">🎙 आवाज़: मधुर</button><button class="opt" data-v="swara">👩 स्वरा</button><button class="opt" data-v="pratham">🎙 आवाज़: पुरुष 1</button><button class="opt" data-v="rohan">🎙 पुरुष 2</button><button class="opt" data-v="priya">👩 महिला</button><button class="opt" data-v="phone">🤖 फ़ोन</button></div>
     <div class="row" id="spdRow"><button class="opt" data-s="24">🐢 धीमा</button><button class="opt" data-s="33">🚶 सामान्य</button><button class="opt" data-s="45">🐇 तेज़</button></div>
     <div class="row"><button class="opt" id="helpBtn">💡 मदद: चालू</button><button class="opt" id="musBtn">🎵 संगीत: चालू</button><button class="opt" id="fsBtn">⛶ पूरी स्क्रीन</button></div>
-    <p style="font-size:15px;margin-top:16px;opacity:.9">स्क्रीन का बायाँ/दायाँ हिस्सा टैप करो • ⬆ स्वाइप = कूदो • ⬇ स्वाइप = झुको</p>
+    </div>
+    <p id="ctrlTip"></p>
   </div>
   <div id="chapMenu" class="ov" style="display:none">
     <h1>📚 Lesson चुनो</h1>
@@ -231,7 +243,8 @@
     <p id="pauseInfo"></p>
     <button class="big" id="pResume">▶ जारी रखो</button>
     <button class="big" id="pFresh" style="font-size:22px;background:linear-gradient(#66bb6a,#2e7d32) !important;box-shadow:0 7px 0 #1b5e20,0 10px 14px rgba(0,0,0,.35)">🔄 नया खेल (शुरू से)</button>
-    <button class="opt" id="pHome" style="margin-top:16px">🏠 होम</button>
+    <button class="opt" id="pCtl" style="margin-top:12px"></button>
+    <button class="opt" id="pHome" style="margin-top:10px">🏠 होम</button>
   </div>
 </div>
 
@@ -861,7 +874,7 @@ let score = 0, best = 0, lastCoinN = 0, lastMult = 1, handT = null;
 try { best = +localStorage.getItem("br_hi") || 0; } catch (e) {}
 function multNow() { return Math.min(9, 1 + streak) * (x2T > 0 ? 2 : 1); }
 function saveBest() { if (score > best) { best = Math.floor(score); try { localStorage.setItem("br_hi", best); } catch (e) {} } }
-function showHand() { const h = $("hand"); h.style.display = "block"; clearTimeout(handT); handT = setTimeout(() => { h.style.display = "none"; }, 4200); }
+function showHand() { if (CTRL === "mouse") return; const h = $("hand"); h.style.display = "block"; clearTimeout(handT); handT = setTimeout(() => { h.style.display = "none"; }, 4200); }
 let flyT = -1, themeDone = true, repromptNeeded = false, jpT = 9;
 let mouthL = 0, ramp = 0, boostT = 0, wrongN = 0, streak = 0, trainT = 4, planeT = 2.5, padT = 7, lastSpd = "";
 const seen = {};
@@ -909,7 +922,7 @@ function startGame(resume) {
   setOptions(); makeGate(curOpts); waitSpawn = -1;
   let first = true; try { first = !localStorage.getItem("br_tut"); localStorage.setItem("br_tut", "1"); } catch (e) {}
   setTimeout(() => { setQBar(); askFrz(); say(askChain(order[qIdx]), 2); }, 350);
-  guide(CHARS[CH].story); setTimeout(() => state !== "MENU" && guide(first ? (MODE === "q" ? "स्क्रीन का बायाँ/दायाँ हिस्सा टैप करो! सही शब्द वाले गेट में जाओ" : "स्क्रीन का बायाँ/दायाँ हिस्सा टैप करो! सही अक्षर वाले गेट में जाओ") : "चलो दौड़ें, " + NAME + "! 🏃"), 4800); if (first) setTimeout(() => state !== "MENU" && guide("⬆ ऊपर स्वाइप = कूदो   ⬇ नीचे स्वाइप = झुको"), 9600);
+  guide(CHARS[CH].story); setTimeout(() => state !== "MENU" && guide(first ? (MODE === "q" ? HT1() + " सही शब्द वाले गेट में जाओ" : HT1() + " सही अक्षर वाले गेट में जाओ") : "चलो दौड़ें, " + NAME + "! 🏃"), 4800); if (first) setTimeout(() => state !== "MENU" && guide(HT2()), 9600);
 }
 function activeGate() { return gates.find(g => !g.done && g.g.position.z > -62 && g.g.position.z < -2); }
 function laneOk() { const g = activeGate(); return g ? g.opts[lane] === order[qIdx].t : null; }
@@ -917,6 +930,19 @@ function cue() { if (!helpOn) return; const ok = laneOk(); if (ok === null) retu
 function moveL() { if (state === "PLAY" && lane > 0) { lastLane = lane; lane--; cue(); } }
 function moveR() { if (state === "PLAY" && lane < 2) { lastLane = lane; lane++; cue(); } }
 try { const sv = localStorage.getItem("br_speed3"); if (sv) SPEED = +sv; const hv = localStorage.getItem("br_help"); if (hv !== null) helpOn = hv === "1"; } catch (e) {}
+let CTRL = (() => { try { const v = localStorage.getItem("br_ctrl"); if (v === "touch" || v === "mouse") return v; } catch (e) {} try { return matchMedia("(pointer: coarse)").matches ? "touch" : "mouse"; } catch (e) { return "touch"; } })();
+const HT1 = () => CTRL === "mouse" ? "◀ ▶ बटन दबाओ (या कीबोर्ड ← →)!" : "स्क्रीन का बायाँ/दायाँ हिस्सा टैप करो!", HT2 = () => CTRL === "mouse" ? "⬆ बटन/माउस व्हील ऊपर = कूदो   ⬇ बटन/व्हील नीचे = झुको" : "⬆ ऊपर स्वाइप = कूदो   ⬇ नीचे स्वाइप = झुको";
+function setCtrl(k) {
+  CTRL = k === "mouse" ? "mouse" : "touch"; try { localStorage.setItem("br_ctrl", CTRL); } catch (e) {} document.body.classList.toggle("cm", CTRL === "mouse");
+  document.querySelectorAll("#ctrlRow .opt").forEach(b => b.classList.toggle("on", b.dataset.k === CTRL));
+  $("tapTxt").textContent = CTRL === "mouse" ? "🖱 कहीं भी क्लिक करो!" : "👆 कहीं भी टैप करो!";
+  $("ctrlTip").textContent = CTRL === "mouse" ? "🖱 Mouse मोड: ◀ ▶ ⬆ ⬇ बटन क्लिक करो • कीबोर्ड ← → ↑ ↓ • माउस व्हील = कूदो/झुको" : "👆 Touch मोड: स्क्रीन का बायाँ/दायाँ हिस्सा टैप करो • ⬆ स्वाइप = कूदो • ⬇ स्वाइप = झुको";
+  $("pCtl").textContent = CTRL === "mouse" ? "🖱 Mouse मोड  →  👆 Touch में बदलो" : "👆 Touch मोड  →  🖱 Mouse में बदलो"; $("hand").style.display = "none";
+}
+document.querySelectorAll("#ctrlRow .opt").forEach(b => b.onclick = () => setCtrl(b.dataset.k)); $("pCtl").onclick = () => setCtrl(CTRL === "mouse" ? "touch" : "mouse");
+$("setBtn").onclick = () => { const o = $("setBox").style.display !== "flex"; $("setBox").style.display = o ? "flex" : "none"; $("setBtn").textContent = "⚙ सेटिंग: कंट्रोल • आवाज़ • स्पीड  " + (o ? "▴" : "▾"); };
+$("mL").onpointerdown = e => { e.stopPropagation(); moveL(); }; $("mR").onpointerdown = e => { e.stopPropagation(); moveR(); }; $("mU").onpointerdown = e => { e.stopPropagation(); jumpAct(); }; $("mD").onpointerdown = e => { e.stopPropagation(); duckAct(); };
+let wheelT = 0; wrap.addEventListener("wheel", e => { if (CTRL !== "mouse" || state !== "PLAY") return; e.preventDefault(); const t = Date.now(); if (t - wheelT < 260) return; wheelT = t; if (e.deltaY < 0) jumpAct(); else duckAct(); }, { passive: false });
 function refreshOpts() { document.querySelectorAll("#spdRow .opt").forEach(b => b.classList.toggle("on", +b.dataset.s === SPEED)); $("helpBtn").textContent = helpOn ? "💡 मदद: चालू" : "💡 मदद: बंद"; }
 document.querySelectorAll("#spdRow .opt").forEach(b => b.onclick = () => { SPEED = +b.dataset.s; try { localStorage.setItem("br_speed3", SPEED); } catch (e) {} refreshOpts(); });
 $("helpBtn").onclick = () => { helpOn = !helpOn; try { localStorage.setItem("br_help", helpOn ? "1" : "0"); } catch (e) {} refreshOpts(); };
@@ -924,7 +950,7 @@ try { const mv = localStorage.getItem("br_music"); if (mv !== null) musicOn = mv
 function refreshOpts2() { $("musBtn").textContent = musicOn ? "🎵 संगीत: चालू" : "🎵 संगीत: बंद"; $("bM").style.opacity = musicOn ? 1 : 0.45; }
 $("musBtn").onclick = $("bM").onclick = () => { musicOn = !musicOn; try { localStorage.setItem("br_music", musicOn ? "1" : "0"); } catch (e) {} refreshOpts2(); };
 $("fsBtn").onclick = $("bF").onclick = toggleFS;
-refreshOpts2(); musicStep();
+refreshOpts2(); musicStep(); setCtrl(CTRL);
 refreshOpts();
 $("startScr").addEventListener("click", e => { if (state === "MENU" && $("resultBox").style.display === "none" && !(e.target.closest && e.target.closest(".opt"))) startGame(!!loadSave()); });
 $("playBtn").onclick = () => startGame(false); $("resBtn").onclick = () => startGame(true);
@@ -955,7 +981,7 @@ function endFly() { flyT = -1; sfxOk(); burst(bx, 0.5, 0, 22, STARCOL); jumpT = 
 function jumpAct() { if (state !== "PLAY" || jetT > 0) return; if (jumpT < 0) { duckT = 0; jumpT = 0; } }
 function duckAct() { if (state !== "PLAY" || jetT > 0) return; if (jumpT >= 0) jumpT = 9; duckT = DUCK_T; }
 let pdx = null, pdy = null;
-wrap.addEventListener("pointerdown", e => { if (state !== "PLAY" || (e.target.closest && e.target.closest("button"))) { pdx = null; return; } pdx = e.clientX; pdy = e.clientY; });
+wrap.addEventListener("pointerdown", e => { if (CTRL !== "touch" || state !== "PLAY" || (e.target.closest && e.target.closest("button"))) { pdx = null; return; } pdx = e.clientX; pdy = e.clientY; });
 wrap.addEventListener("pointerup", e => {
   if (pdx === null) return;
   const dx = e.clientX - pdx, dy = e.clientY - pdy, ax = Math.abs(dx), ay = Math.abs(dy); pdx = null;
