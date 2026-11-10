@@ -1008,11 +1008,11 @@ function evalGate(o) {
     { const oi = okInfo(q); banner("ok", oi[0], "सही " + NAME + "!", oi[2]); }
     if (MODE === "q") qRec(q.id, true);
     qIdx++; streak++; wrongN = 0;
-    if (qIdx >= order.length) { say([fbOk()], 5); state = "WINNING"; setTimeout(winGame, 2800); }
+    if (qIdx >= order.length) { say([fbOk(), vc(q.t)], 5); state = "WINNING"; setTimeout(winGame, 2800); }
     else if (MODE === "q" && needBreak(q)) { setOptions(); waitSpawn = 0.5; openSpeak(q, { game: true }); }
     else if (DEMO && MODE !== "q" && stars % 2 === 0) { setOptions(); waitSpawn = 0.5; demoLetterFreeze(q); }
     else {
-      setOptions(); const nx = order[qIdx], chain = [fbOk()];
+      setOptions(); const nx = order[qIdx], chain = [fbOk(), vc(q.t)];
       if (streak === 3 || streak === 5) { guide("🔥 लगातार " + streak + " सही! स्पीड बढ़ रही है 🚀"); }
       askChain(nx).forEach(x => chain.push(x)); askFrz(); say(chain, 5); waitSpawn = 0.5; setQBar();
     }
