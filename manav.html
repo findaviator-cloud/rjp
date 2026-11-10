@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="hi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>मानव के साथ खेल</title>
+<style>
+:root{--bg1:#ffe082;--bg2:#ffab91}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;font-family:"Noto Sans Devanagari","Mukta","Segoe UI",system-ui,sans-serif;color:#3e2723}
+body{background:linear-gradient(160deg,var(--bg1),var(--bg2))}
+#stage{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2vmin}
+#pic{font-size:36vmin;line-height:1;display:none;filter:drop-shadow(0 1.2vmin 1.2vmin rgba(0,0,0,.25))}
+#pic.pop{animation:pop .7s ease-out}
+@keyframes pop{from{transform:scale(.6)}to{transform:scale(1)}}
+#bearBox{height:58vh;display:none}
+#bearBox svg{height:100%;width:auto}
+#cap{font-size:10vmin;font-weight:800;margin-top:1vmin;min-height:11vmin;text-shadow:0 .4vmin 0 rgba(255,255,255,.5)}
+#sub{font-size:3.6vmin;min-height:5vmin;opacity:.85;font-weight:600}
+#dots{display:flex;gap:2vmin;height:5vmin;margin-top:1.5vmin}
+#dots i{width:4vmin;height:4vmin;border-radius:50%;background:rgba(255,255,255,.45);border:.5vmin solid #fff;transition:background .3s}
+#dots i.on{background:#43a047;border-color:#2e7d32}
+#nm{position:fixed;top:2vmin;right:3vmin;font-size:4vmin;font-weight:800;opacity:.8}
+#menuBtn{position:fixed;top:2vmin;left:3vmin;font-size:3.4vmin;font-weight:700;background:rgba(255,255,255,.6);border:0;border-radius:2vmin;padding:1vmin 2.4vmin;color:#3e2723}
+.star{position:fixed;font-size:7vmin;animation:fl 2.2s ease-out forwards;pointer-events:none}
+@keyframes fl{from{transform:translateY(0) scale(.6);opacity:1}to{transform:translateY(-55vh) scale(1.2);opacity:0}}
+#pz{position:fixed;inset:0;background:rgba(0,0,0,.45);color:#fff;display:none;align-items:center;justify-content:center;flex-direction:column;font-size:7vmin;font-weight:800;text-align:center;padding:4vmin}
+#pz small{font-size:4vmin;font-weight:600;margin-top:2vmin}
+#menu{position:fixed;inset:0;background:linear-gradient(160deg,#ffe082,#ffab91);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3vmin}
+#menu h1{margin:0 0 2vmin;font-size:8vmin}
+#tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:2.4vmin;width:min(92vw,150vmin)}
+.tile{font:inherit;font-size:5vmin;font-weight:800;border:0;border-radius:3vmin;padding:3.4vmin 1vmin;background:#fff;color:#3e2723;box-shadow:0 1vmin 0 rgba(0,0,0,.18);cursor:pointer}
+.tile span{display:block;font-size:9vmin;line-height:1.1}
+.tile:focus{outline:1.1vmin solid #1e88e5;transform:scale(1.05)}
+#tip{margin-top:3vmin;font-size:3.2vmin;max-width:130vmin;text-align:center;line-height:1.45;opacity:.9}
+@keyframes ride{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-3vmin) rotate(3deg)}}
+</style></head><body>
+<div id="stage">
+ <div id="pic"></div>
+ <div id="bearBox">
+  <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+   <g id="legL"><ellipse cx="160" cy="448" rx="42" ry="30" fill="#8d5a2f"/></g>
+   <g id="legR"><ellipse cx="240" cy="448" rx="42" ry="30" fill="#8d5a2f"/></g>
+   <g id="bodyg"><ellipse cx="200" cy="335" rx="88" ry="110" fill="#a8703a"/><ellipse cx="200" cy="350" rx="56" ry="76" fill="#f0cfa4"/></g>
+   <g id="head">
+    <circle cx="125" cy="85" r="32" fill="#a8703a"/><circle cx="125" cy="85" r="17" fill="#f0cfa4"/>
+    <circle cx="275" cy="85" r="32" fill="#a8703a"/><circle cx="275" cy="85" r="17" fill="#f0cfa4"/>
+    <circle cx="200" cy="150" r="88" fill="#b87b42"/>
+    <ellipse cx="200" cy="185" rx="42" ry="32" fill="#f0cfa4"/>
+    <circle cx="170" cy="135" r="13" fill="#fff"/><circle cx="230" cy="135" r="13" fill="#fff"/>
+    <circle cx="172" cy="137" r="7" fill="#222"/><circle cx="228" cy="137" r="7" fill="#222"/>
+    <ellipse cx="200" cy="170" rx="14" ry="10" fill="#3e2723"/>
+    <path id="smile" d="M176 192 Q200 218 224 192" stroke="#3e2723" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <ellipse id="mth" cx="200" cy="200" rx="20" ry="3" fill="#6d1b1b" style="display:none"/>
+    <ellipse id="tng" cx="200" cy="208" rx="12" ry="6" fill="#ff7a8a" style="display:none"/>
+    <circle id="mark" cx="200" cy="170" r="30" fill="none" stroke="#ff1744" stroke-width="7" style="display:none"/>
+   </g>
+   <g id="puff" style="display:none"><circle id="p1" r="10" fill="#fff" opacity=".85"/><circle id="p2" r="14" fill="#fff" opacity=".75"/><circle id="p3" r="18" fill="#fff" opacity=".65"/></g>
+   <g id="aL"><rect x="121" y="285" width="28" height="98" rx="14" fill="#a8703a"/><circle cx="135" cy="392" r="21" fill="#b87b42"/></g>
+   <g id="aR"><rect x="251" y="285" width="28" height="98" rx="14" fill="#a8703a"/><circle cx="265" cy="392" r="21" fill="#b87b42"/></g>
+  </svg>
+ </div>
+ <div id="cap"></div><div id="sub"></div><div id="dots"></div>
+</div>
+<div id="nm">मानव ⭐</div>
+<button id="menuBtn">☰ मेनू</button>
+<div id="pz"><div id="pzt">⏸ रुका है</div><small id="pzs">OK दबाएँ</small></div>
+<div id="menu">
+ <h1>🐻 मानव के साथ खेल</h1>
+ <div id="tiles">
+  <button class="tile" data-m="auto"><span>🎬</span>सब खेलें</button>
+  <button class="tile" data-m="A"><span>🙋</span>करो करो</button>
+  <button class="tile" data-m="W"><span>🗣️</span>बोलो बोलो</button>
+  <button class="tile" data-m="S"><span>🔊</span>आवाज़ें</button>
+  <button class="tile" data-m="N"><span>🐶</span>जानवर</button>
+  <button class="tile" data-m="resp"><span>⏱</span><b id="respT"></b></button>
+ </div>
+ <div id="tip">बड़ों के लिए: मानव के पास बैठें, हर बार जवाब के लिए रुकें, और हर कोशिश पर ताली बजाएँ। रिमोट में OK = रुकें/चलाएँ, ← → = पीछे/आगे, Back = मेनू। 10 मिनट बाद खेल अपने आप रुक जाता है।</div>
+</div>
+<script>
+const MV={"name": "मानव", "prompt": {"look": "मानव, देखो!", "you": "अब तुम करो!", "say": "मानव, तुम बोलो!", "again": "एक बार और!", "listen": "सुनो!", "ride": "चलो, बाइक चलाओ! पीं पीं!"}, "praise": ["शाबाश मानव!", "वाह मानव, बहुत बढ़िया!", "मानव, तुम तो सुपरस्टार हो!", "ये हुई न बात मानव!"], "brk": ["शाबाश मानव! आज का खेल पूरा हुआ। अब थोड़ा खेलो और पानी पियो।"], "help": "खड़े होने और चलने में मम्मी या पापा हाथ पकड़कर सहारा दें।", "actions": [["up", "up", "हाथ ऊपर करो", null, 0], ["down", "down", "हाथ नीचे करो", null, 0], ["clap", "clap", "ताली बजाओ", null, 0], ["bye", "wave", "बाय बाय करो", null, 0], ["yes", "nod", "सिर हिलाओ, हाँ", null, 0], ["no", "shake", "सिर हिलाओ, ना", null, 0], ["tummy", "tummy", "पेट पर हाथ रखो", null, 0], ["headhand", "headhand", "सिर पर हाथ रखो", null, 0], ["nose", "touch", "नाक छुओ", "nose", 0], ["eye", "touch", "आँख छुओ", "eye", 0], ["ear", "touch", "कान छुओ", "ear", 0], ["mouth", "aa", "मुँह खोलो, आ", null, 0], ["blow", "blow", "फूँक मारो", null, 0], ["stand", "stand", "खड़े हो जाओ", null, 1], ["sit", "sit", "बैठ जाओ", null, 1], ["feet", "feet", "पैर हिलाओ", null, 1]], "words": [["🏍️", "बाइक"], ["🔔", "घंटी"], ["🔑", "चाबी"], ["👩", "मम्मी"], ["👨", "पापा"], ["💧", "पानी"], ["🥛", "दूध"], ["🚗", "गाड़ी"], ["⚽", "बॉल"], ["🎈", "गुब्बारा"], ["👟", "जूता"], ["🍎", "सेब"], ["🍌", "केला"], ["🐶", "कुत्ता"], ["🐱", "बिल्ली"], ["🌙", "चाँद"], ["⭐", "तारा"], ["🌸", "फूल"], ["🏠", "घर"]], "sounds": [["आ", "wide"], ["मा मा", "lips"], ["पा पा", "lips"], ["बा बा", "lips"], ["दा दा", "tongue"], ["ना ना", "tongue"], ["टा टा", "tongue"], ["बाय बाय", "lips"], ["ऊ", "round"], ["ओ", "round"]], "animals": [["🐶", "कुत्ता", "भौ भौ"], ["🐱", "बिल्ली", "म्याऊँ"], ["🐮", "गाय", "म्मू"], ["🐑", "भेड़", "में में"], ["🚗", "गाड़ी", "पों पों"], ["🐦", "चिड़िया", "चीं चीं"], ["🐘", "हाथी", "पूँ"], ["🦁", "शेर", "गर्र गर्र"]], "amap": {"नमस्ते मानव! चलो खेलते हैं!": "hi_92ae7eec", "मानव, देखो!": "hi_2f2492f7", "अब तुम करो!": "hi_c90f2080", "मानव, तुम बोलो!": "hi_26454a49", "एक बार और!": "hi_d650a77e", "सुनो!": "hi_4eaa1ac4", "चलो, बाइक चलाओ! पीं पीं!": "hi_08dd0048", "शाबाश मानव!": "hi_9b7bd039", "वाह मानव, बहुत बढ़िया!": "hi_fc627e96", "मानव, तुम तो सुपरस्टार हो!": "hi_28954dde", "ये हुई न बात मानव!": "hi_fe1baf59", "शाबाश मानव! आज का खेल पूरा हुआ। अब थोड़ा खेलो और पानी पियो।": "hi_92f6a47f", "खड़े होने और चलने में मम्मी या पापा हाथ पकड़कर सहारा दें।": "hi_9f864ac8", "हाथ ऊपर करो": "hi_617af544", "हाथ नीचे करो": "hi_9241092d", "ताली बजाओ": "hi_e8a5ca20", "बाय बाय करो": "hi_bfaef355", "सिर हिलाओ, हाँ": "hi_5a755e29", "सिर हिलाओ, ना": "hi_f321cf3c", "पेट पर हाथ रखो": "hi_e7edbeeb", "सिर पर हाथ रखो": "hi_a531502a", "नाक छुओ": "hi_e9b7eb30", "आँख छुओ": "hi_8edc7b4e", "कान छुओ": "hi_6c9844cf", "मुँह खोलो, आ": "hi_f3a94388", "फूँक मारो": "hi_78871230", "खड़े हो जाओ": "hi_ded48f79", "बैठ जाओ": "hi_1c6df1ff", "पैर हिलाओ": "hi_98e86f51", "बाइक": "hi_86f34161", "घंटी": "hi_9507465e", "चाबी": "hi_55a86443", "मम्मी": "hi_08fa0d7a", "पापा": "hi_c90bdb1a", "पानी": "hi_fb730d8e", "दूध": "hi_9262de16", "गाड़ी": "hi_e18acb5c", "बॉल": "hi_a5d34280", "गुब्बारा": "hi_091d140b", "जूता": "hi_03440bcb", "सेब": "hi_fd24300c", "केला": "hi_51b23d11", "कुत्ता": "hi_ad35658c", "बिल्ली": "hi_5c6bc01c", "चाँद": "hi_2e883d4d", "तारा": "hi_207b9cf4", "फूल": "hi_70678297", "घर": "hi_b779c822", "आ": "hi_ddf4f7f4", "मा मा": "hi_1194c509", "पा पा": "hi_30ed0287", "बा बा": "hi_28e3602e", "दा दा": "hi_98793f01", "ना ना": "hi_a8156ab6", "टा टा": "hi_36dc6443", "बाय बाय": "hi_9908bf6f", "ऊ": "hi_4ed95099", "ओ": "hi_3add8336", "भौ भौ": "hi_40c0a52a", "म्याऊँ": "hi_0631f6a7", "गाय": "hi_10744010", "म्मू": "hi_db57d762", "भेड़": "hi_f13c5e93", "में में": "hi_a0353f0e", "पों पों": "hi_311bfc6a", "चिड़िया": "hi_2bc61b45", "चीं चीं": "hi_d71d4399", "हाथी": "hi_aeae3059", "पूँ": "hi_7f5d2c13", "शेर": "hi_26ba5015", "गर्र गर्र": "hi_4399e000"}};
+const $=id=>document.getElementById(id);
+const FAST=/[?&]fast/.test(location.search), K=FAST?0.02:1, LIMIT=600000*K;
+let RESP=6, paused=false, pw=null, TOK=0, canc=false, timers=new Set(), AC=null, menuOpen=true, queue=[], qi=0, curMode=null, sessStart=0, pauseAcc=0, pauseT=0, doneItems=0, lastItem=null;
+const IX={A:0,W:0,S:0,N:0};
+try{RESP=+localStorage.getItem('mv_resp')||6;Object.assign(IX,JSON.parse(localStorage.getItem('mv_ix')||'{}'))}catch(e){}
+const P={A:MV.actions,W:MV.words,S:MV.sounds,N:MV.animals};
+function save(){try{localStorage.setItem('mv_ix',JSON.stringify(IX));localStorage.setItem('mv_resp',RESP)}catch(e){}}
+/* ---------- awaaz ---------- */
+function halt(){timers.forEach(t=>{clearTimeout(t.id);t.res()});timers.clear();if(AC){try{AC.pause()}catch(e){}if(AC._fin)AC._fin();AC=null}try{speechSynthesis.cancel()}catch(e){}if(pw){const f=pw;pw=null;f()}}
+function slp(ms){return new Promise(res=>{const t={res};t.id=setTimeout(()=>{timers.delete(t);res()},ms*K);timers.add(t)})}
+async function ck(){if(canc)throw'cancel';while(paused){await new Promise(r=>{pw=r});if(canc)throw'cancel'}}
+function play(text){return new Promise(res=>{let done=false,ft=0;const fin=()=>{if(done)return;done=true;clearTimeout(ft);res()};
+ const est=Math.max(900,text.length*110)*K,id=MV.amap[text];
+ const fb=()=>{if(done)return;try{if(!FAST&&window.speechSynthesis){const u=new SpeechSynthesisUtterance(text);u.lang='hi-IN';u.rate=.7;u.onend=fin;u.onerror=fin;speechSynthesis.speak(u);ft=setTimeout(fin,est+3000);return}}catch(e){}ft=setTimeout(fin,est)};
+ if(!id||FAST){ft=setTimeout(fin,est);return}
+ const a=new Audio('audio/'+id+'.mp3');a._fin=fin;AC=a;a.onended=fin;a.onerror=fb;a.play().catch(fb)})}
+async function say(t){await ck();await play(t);await slp(280);await ck()}
+function bell(n){try{const A=window.__ac||(window.__ac=new (window.AudioContext||window.webkitAudioContext)());for(let i=0;i<(n||2);i++){const t=A.currentTime+i*.42;[880,1320,1760].forEach((f,j)=>{const o=A.createOscillator(),g=A.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.22/(j+1),t+.01);g.gain.exponentialRampToValueAtTime(.001,t+.9);o.connect(g);g.connect(A.destination);o.start(t);o.stop(t+1)})}}catch(e){}}
+/* ---------- bhaalu ---------- */
+const C={aL:8,aR:-8,mo:0,hr:0,hy:0,by:0,lL:0,lR:0,mk:0},T=Object.assign({},C);
+let animFn=null,t0=0,mshape='smile',mark=null,puffOn=false;
+const reach=(px,py,tx,ty)=>Math.atan2(-(tx-px),ty-py)*180/Math.PI;
+const IDLE={aL:8,aR:-8,mo:0,hr:0,hy:0,by:0,lL:0,lR:0};
+function setPose(n,mk){Object.assign(T,IDLE);mshape='smile';mark=null;puffOn=false;t0=performance.now();const s=Math.sin;
+ const L=(tx,ty)=>reach(135,285,tx,ty),R=(tx,ty)=>reach(265,285,tx,ty);
+ const F={
+  idle:t=>{},
+  up:t=>{T.aL=165+6*s(3*t);T.aR=-165-6*s(3*t)},
+  down:t=>{T.aL=10+4*s(3*t);T.aR=-10-4*s(3*t)},
+  clap:t=>{const c=(1+s(7*t))/2;T.aL=L(172+c*30,275-c*30);T.aR=R(228-c*30,275-c*30)},
+  wave:t=>{T.aR=-150+20*s(8*t)},
+  nod:t=>{T.hy=12*s(5*t)},
+  shake:t=>{T.hr=12*s(6*t)},
+  tummy:t=>{T.aL=L(185,335);T.aR=R(215,335)},
+  headhand:t=>{T.aL=L(150,70);T.aR=R(250,70)},
+  touch:t=>{const m=MARKS[mk]||MARKS.nose;T.aR=R(m[0],m[1])},
+  aa:t=>{mshape='wide';T.mo=.55+.45*s(2.2*t)},
+  blow:t=>{mshape='round';T.mo=.5;puffOn=true},
+  stand:t=>{const c=(1+s(1.6*t))/2;T.by=-26*c;T.lL=-26*c;T.lR=-26*c;T.aL=10+30*c;T.aR=-10-30*c},
+  sit:t=>{const c=(1+s(1.6*t))/2;T.by=26*c;T.lL=0;T.lR=0},
+  feet:t=>{T.lL=-18*Math.max(0,s(5*t));T.lR=-18*Math.max(0,-s(5*t))},
+  cheer:t=>{T.aL=165+8*s(9*t);T.aR=-165-8*s(9*t);T.by=-10*Math.abs(s(6*t));T.mo=.6;mshape='wide'},
+  mwide:t=>{mshape='wide';T.mo=.5+.5*s(2.4*t)},mround:t=>{mshape='round';T.mo=.5+.5*s(2.4*t)},
+  mlips:t=>{mshape='lips';T.mo=.5+.5*s(3*t)},mtongue:t=>{mshape='tongue';T.mo=.5+.5*s(3*t)}
+ };
+ const f=F[n]||F.idle;animFn=t=>f(t);
+ const mkEl=$('mark');if(n==='touch'&&MARKS[mk]){mark=MARKS[mk];mkEl.setAttribute('cx',mark[0]);mkEl.setAttribute('cy',mark[1]);mkEl.style.display=''}else mkEl.style.display='none'}
+const MARKS={nose:[200,170],eye:[230,137],ear:[286,150]};
+function frame(ts){if(animFn)animFn((performance.now()-t0)/1000);for(const k in C)C[k]+=(T[k]-C[k])*.18;render();requestAnimationFrame(frame)}
+function render(){const A=(i,a,x)=>$(i).setAttribute('transform','rotate('+a+' '+x+' 285)');A('aL',C.aL,135);A('aR',C.aR,265);
+ $('head').setAttribute('transform','translate(0 '+(C.hy+C.by)+') rotate('+C.hr+' 200 200)');$('bodyg').setAttribute('transform','translate(0 '+C.by+')');
+ $('legL').setAttribute('transform','translate(0 '+C.lL+')');$('legR').setAttribute('transform','translate(0 '+C.lR+')');
+ const sm=mshape==='smile'||C.mo<.08,m=$('mth');$('smile').style.display=sm?'':'none';m.style.display=sm?'none':'';
+ if(!sm){const o=C.mo,sh={wide:[24,3+o*28],round:[9+o*7,3+o*17],lips:[20,1+o*12],tongue:[18,2+o*16]}[mshape]||[20,6];m.setAttribute('rx',sh[0]);m.setAttribute('ry',sh[1]);$('tng').style.display=mshape==='tongue'?'':'none'}else $('tng').style.display='none';
+ if(mark){const p=1+.18*Math.sin((performance.now()-t0)/180);$('mark').setAttribute('r',28*p)}
+ $('puff').style.display=puffOn?'':'none';if(puffOn){const tt=((performance.now()-t0)/1000)%1.4;[['p1',0],['p2',.25],['p3',.5]].forEach(([id,d])=>{const u=Math.max(0,tt-d);$(id).setAttribute('cx',215+u*170);$(id).setAttribute('cy',205-u*20);$(id).setAttribute('opacity',Math.max(0,.85-u*.8))})}}
+/* ---------- screen ---------- */
+const HUES=[['#ffe082','#ffab91'],['#b3e5fc','#c5e1a5'],['#f8bbd0','#ffe082'],['#c5cae9','#b2dfdb'],['#ffccbc','#fff59d'],['#dcedc8','#b3e5fc']];let hi=0;
+function bg(){hi=(hi+1)%HUES.length;document.documentElement.style.setProperty('--bg1',HUES[hi][0]);document.documentElement.style.setProperty('--bg2',HUES[hi][1])}
+function show(kind,pic,cap,sub){$('bearBox').style.display=kind==='bear'?'block':'none';const p=$('pic');p.style.display=kind==='pic'?'block':'none';if(kind==='pic'){p.textContent=pic;p.classList.remove('pop');void p.offsetWidth;p.classList.add('pop')}
+ $('cap').textContent=cap||'';$('sub').textContent=sub||'';dots(0)}
+function dots(n,on){const d=$('dots');if(n>0&&d.children.length!==n){d.innerHTML='';for(let i=0;i<n;i++)d.appendChild(document.createElement('i'))}if(n===0)d.innerHTML='';if(on!=null)[...d.children].forEach((x,i)=>x.classList.toggle('on',i<on))}
+function stars(){for(let i=0;i<9;i++){const s=document.createElement('div');s.className='star';s.textContent=i%3?'⭐':'🌟';s.style.left=(8+Math.random()*84)+'vw';s.style.top=(45+Math.random()*40)+'vh';s.style.animationDelay=(Math.random()*.5)+'s';document.body.appendChild(s);setTimeout(()=>s.remove(),3200)}}
+async function respond(){bell(2);const n=RESP;dots(n,0);for(let i=1;i<=n;i++){await slp(1000);await ck();dots(n,i)}await slp(300);dots(0)}
+async function cheer(keepPic){const p=MV.praise[Math.floor(Math.random()*MV.praise.length)];if(!keepPic)setPose('cheer');stars();await say(p);await slp(500);await ck()}
+/* ---------- khel ---------- */
+async function doAction(a){const [id,pose,cmd,mk,help]=a;show('bear','',cmd,help?MV.help:'');
+ for(let r=0;r<3;r++){setPose(pose,mk);await say(r?MV.prompt.again:MV.prompt.look);await say(cmd);await slp(1800);await say(MV.prompt.you);await respond();await cheer()}}
+async function doWord(w){const [em,wd]=w;show('pic',em,wd);
+ for(let r=0;r<3;r++){await say(r?MV.prompt.again:MV.prompt.look);await say(wd);await say(MV.prompt.say);await say(wd);await respond();await cheer(true)}}
+async function doSound(s){const [tx,sh]=s;show('bear','',tx);const pm={wide:'mwide',round:'mround',lips:'mlips',tongue:'mtongue'}[sh];
+ for(let r=0;r<3;r++){setPose(pm);await say(r?MV.prompt.again:MV.prompt.listen);await say(tx);await slp(500);await say(MV.prompt.say);await respond();await cheer()}}
+async function doAnimal(a){const [em,nm,sd]=a;show('pic',em,nm+' — '+sd);
+ for(let r=0;r<2;r++){await say(r?MV.prompt.again:MV.prompt.look);await say(nm);await say(sd);await say(MV.prompt.say);await say(sd);await respond();await cheer(true)}}
+async function doRide(){show('pic','🏍️','पीं पीं! बाइक चली!','');$('pic').style.animation='ride 1s ease-in-out infinite';bell(3);await say(MV.prompt.ride);await slp(2500);await ck();$('pic').style.animation=''}
+const DO={A:doAction,W:doWord,S:doSound,N:doAnimal};
+function nextOf(c){const L=P[c],i=IX[c]%L.length;IX[c]=(i+1)%L.length;save();return{c,d:L[i]}}
+const AUTO='AWSANWAS';let autoI=0;
+function pick(){return curMode==='auto'?nextOf(AUTO[autoI++%AUTO.length]):nextOf(curMode)}
+async function doBreak(){show('pic','🌟',MV.brk[0].split('।')[0]+'!','');setPose('cheer');await play(MV.brk[0]);setPose('idle');paused=true;pauseT=Date.now();$('pzt').textContent='😊 अब थोड़ा खेलो';$('pzs').textContent='फिर खेलना हो तो OK दबाएँ';$('pz').style.display='flex';await ck()}
+async function runLoop(){const my=++TOK;sessStart=Date.now();pauseAcc=0;doneItems=0;
+ while(my===TOK&&!menuOpen){
+  if(Date.now()-sessStart-pauseAcc>LIMIT){try{canc=false;await doBreak()}catch(e){if(my!==TOK)return}sessStart=Date.now();pauseAcc=0}
+  let it;if(qi<queue.length)it=queue[qi];else{it=pick();queue.push(it)}
+  canc=false;bg();lastItem=it;
+  try{await DO[it.c](it.d);qi++;doneItems++;if(doneItems%3===0){canc=false;await doRide()}}catch(e){if(e!=='cancel')console.error(e);if(my!==TOK)return}
+ }}
+function start(m){curMode=m;queue=[];qi=0;menuOpen=false;paused=false;$('menu').style.display='none';$('pz').style.display='none';window.__started=1;canc=true;halt();setTimeout(()=>{canc=false;if(!menuOpen)runLoop()},40)}
+function showMenu(){menuOpen=true;TOK++;canc=true;paused=false;halt();animFn=null;$('menu').style.display='flex';$('pz').style.display='none';const f=document.querySelector('.tile');if(f)f.focus()}
+function skip(d){if(menuOpen)return;qi=Math.max(0,qi+(d>0?1:-1));if(d<0&&qi===queue.length-1&&false)qi=0;canc=true;if(paused)togglePause(true);halt()}
+function togglePause(force){if(menuOpen)return;if(paused||force){if(pauseT)pauseAcc+=Date.now()-pauseT;paused=false;$('pz').style.display='none';if(pw){const f=pw;pw=null;f()}}else{paused=true;pauseT=Date.now();$('pzt').textContent='⏸ रुका है';$('pzs').textContent='चलाने के लिए OK दबाएँ';$('pz').style.display='flex'}}
+/* ---------- menu / keys ---------- */
+function respLabel(){$('respT').textContent='रुकना '+RESP+' सेकंड'}
+document.querySelectorAll('.tile').forEach(b=>b.addEventListener('click',()=>{const m=b.dataset.m;if(m==='resp'){RESP=RESP===4?6:RESP===6?9:4;save();respLabel();return}start(m)}));
+$('menuBtn').addEventListener('click',showMenu);
+$('stage').addEventListener('click',()=>togglePause());
+$('pz').addEventListener('click',e=>{e.stopPropagation();togglePause()});
+addEventListener('keydown',e=>{const k=e.key,c=e.keyCode;
+ if(menuOpen){const ts=[...document.querySelectorAll('.tile')];let i=ts.indexOf(document.activeElement);if(i<0)i=0;if(k==='ArrowRight')i++;else if(k==='ArrowLeft')i--;else if(k==='ArrowDown')i+=3;else if(k==='ArrowUp')i-=3;else return;i=(i+ts.length)%ts.length;ts[i].focus();e.preventDefault();return}
+ if(k==='Enter'||k===' '||c===23){togglePause();e.preventDefault()}else if(k==='ArrowRight'||c===22)skip(1);else if(k==='ArrowLeft'||c===21)skip(-1);else if(k==='Escape'||k==='Backspace'||k==='GoBack'||c===4){showMenu();e.preventDefault()}});
+respLabel();requestAnimationFrame(frame);setPose('idle');$('menu').querySelector('.tile').focus();
+window.__mv={get items(){return doneItems},get last(){return lastItem},get queue(){return queue},get paused(){return paused},get menu(){return menuOpen},start,skip,showMenu,togglePause};
+</script></body></html>
