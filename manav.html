@@ -17,6 +17,9 @@ body{background:linear-gradient(160deg,var(--bg1),var(--bg2))}
 #dots i{width:4vmin;height:4vmin;border-radius:50%;background:rgba(255,255,255,.45);border:.5vmin solid #fff;transition:background .3s}
 #dots i.on{background:#43a047;border-color:#2e7d32}
 #nm{position:fixed;top:2vmin;right:3vmin;font-size:4vmin;font-weight:800;opacity:.8}
+#tryBtn{position:fixed;right:3vmin;bottom:3vmin;font:inherit;font-size:4vmin;font-weight:800;background:#43a047;color:#fff;border:0;border-radius:3vmin;padding:1.4vmin 3vmin;box-shadow:0 .8vmin 0 rgba(0,0,0,.2)}
+#rep{position:fixed;inset:0;background:#fffde7;display:none;flex-direction:column;align-items:center;padding:4vmin;overflow:auto;font-size:3.6vmin}
+#rep h2{font-size:6vmin;margin:0 0 2vmin}#rep table{border-collapse:collapse;min-width:60vw}#rep td,#rep th{border-bottom:.3vmin solid #ccc;padding:1vmin 2vmin;text-align:left}
 #menuBtn{position:fixed;top:2vmin;left:3vmin;font-size:3.4vmin;font-weight:700;background:rgba(255,255,255,.6);border:0;border-radius:2vmin;padding:1vmin 2.4vmin;color:#3e2723}
 .star{position:fixed;font-size:7vmin;animation:fl 2.2s ease-out forwards;pointer-events:none}
 @keyframes fl{from{transform:translateY(0) scale(.6);opacity:1}to{transform:translateY(-55vh) scale(1.2);opacity:0}}
@@ -58,9 +61,11 @@ body{background:linear-gradient(160deg,var(--bg1),var(--bg2))}
  </div>
  <div id="cap"></div><div id="sub"></div><div id="dots"></div>
 </div>
-<div id="nm">मानव ⭐</div>
+<div id="nm">मानव ⭐ <span id="tn"></span></div>
+<button id="tryBtn">👍 कोशिश की</button>
 <button id="menuBtn">☰ मेनू</button>
 <div id="pz"><div id="pzt">⏸ रुका है</div><small id="pzs">OK दबाएँ</small></div>
+<div id="rep"></div>
 <div id="menu">
  <h1>🐻 मानव के साथ खेल</h1>
  <div id="tiles">
@@ -70,8 +75,9 @@ body{background:linear-gradient(160deg,var(--bg1),var(--bg2))}
   <button class="tile" data-m="S"><span>🔊</span>आवाज़ें</button>
   <button class="tile" data-m="N"><span>🐶</span>जानवर</button>
   <button class="tile" data-m="resp"><span>⏱</span><b id="respT"></b></button>
+  <button class="tile" data-m="rep"><span>📋</span>कोशिशों का record</button>
  </div>
- <div id="tip">बड़ों के लिए: मानव के पास बैठें, हर बार जवाब के लिए रुकें, और हर कोशिश पर ताली बजाएँ। रिमोट में OK = रुकें/चलाएँ, ← → = पीछे/आगे, Back = मेनू। 10 मिनट बाद खेल अपने आप रुक जाता है।</div>
+ <div id="tip">बड़ों के लिए: मानव के पास बैठें, हर बार जवाब के लिए रुकें, और हर कोशिश पर ताली बजाएँ। रिमोट में OK = रुकें/चलाएँ, ← → = पीछे/आगे, ↑ = मानव ने कोशिश की (record होगा), Back = मेनू। 10 मिनट बाद खेल अपने आप रुक जाता है।</div>
 </div>
 <script>
 const MV={"name": "मानव", "prompt": {"look": "मानव, देखो!", "you": "अब तुम करो!", "say": "मानव, तुम बोलो!", "again": "एक बार और!", "listen": "सुनो!", "ride": "चलो, बाइक चलाओ! पीं पीं!"}, "praise": ["शाबाश मानव!", "वाह मानव, बहुत बढ़िया!", "मानव, तुम तो सुपरस्टार हो!", "ये हुई न बात मानव!"], "brk": ["शाबाश मानव! आज का खेल पूरा हुआ। अब थोड़ा खेलो और पानी पियो।"], "help": "खड़े होने और चलने में मम्मी या पापा हाथ पकड़कर सहारा दें।", "actions": [["up", "up", "हाथ ऊपर करो", null, 0], ["down", "down", "हाथ नीचे करो", null, 0], ["clap", "clap", "ताली बजाओ", null, 0], ["bye", "wave", "बाय बाय करो", null, 0], ["yes", "nod", "सिर हिलाओ, हाँ", null, 0], ["no", "shake", "सिर हिलाओ, ना", null, 0], ["tummy", "tummy", "पेट पर हाथ रखो", null, 0], ["headhand", "headhand", "सिर पर हाथ रखो", null, 0], ["nose", "touch", "नाक छुओ", "nose", 0], ["eye", "touch", "आँख छुओ", "eye", 0], ["ear", "touch", "कान छुओ", "ear", 0], ["mouth", "aa", "मुँह खोलो, आ", null, 0], ["blow", "blow", "फूँक मारो", null, 0], ["stand", "stand", "खड़े हो जाओ", null, 1], ["sit", "sit", "बैठ जाओ", null, 1], ["feet", "feet", "पैर हिलाओ", null, 1]], "words": [["🏍️", "बाइक"], ["🔔", "घंटी"], ["🔑", "चाबी"], ["👩", "मम्मी"], ["👨", "पापा"], ["💧", "पानी"], ["🥛", "दूध"], ["🚗", "गाड़ी"], ["⚽", "बॉल"], ["🎈", "गुब्बारा"], ["👟", "जूता"], ["🍎", "सेब"], ["🍌", "केला"], ["🐶", "कुत्ता"], ["🐱", "बिल्ली"], ["🌙", "चाँद"], ["⭐", "तारा"], ["🌸", "फूल"], ["🏠", "घर"]], "sounds": [["आ", "wide"], ["मा मा", "lips"], ["पा पा", "lips"], ["बा बा", "lips"], ["दा दा", "tongue"], ["ना ना", "tongue"], ["टा टा", "tongue"], ["बाय बाय", "lips"], ["ऊ", "round"], ["ओ", "round"]], "animals": [["🐶", "कुत्ता", "भौ भौ"], ["🐱", "बिल्ली", "म्याऊँ"], ["🐮", "गाय", "म्मू"], ["🐑", "भेड़", "में में"], ["🚗", "गाड़ी", "पों पों"], ["🐦", "चिड़िया", "चीं चीं"], ["🐘", "हाथी", "पूँ"], ["🦁", "शेर", "गर्र गर्र"]], "amap": {"नमस्ते मानव! चलो खेलते हैं!": "hi_92ae7eec", "मानव, देखो!": "hi_2f2492f7", "अब तुम करो!": "hi_c90f2080", "मानव, तुम बोलो!": "hi_26454a49", "एक बार और!": "hi_d650a77e", "सुनो!": "hi_4eaa1ac4", "चलो, बाइक चलाओ! पीं पीं!": "hi_08dd0048", "शाबाश मानव!": "hi_9b7bd039", "वाह मानव, बहुत बढ़िया!": "hi_fc627e96", "मानव, तुम तो सुपरस्टार हो!": "hi_28954dde", "ये हुई न बात मानव!": "hi_fe1baf59", "शाबाश मानव! आज का खेल पूरा हुआ। अब थोड़ा खेलो और पानी पियो।": "hi_92f6a47f", "खड़े होने और चलने में मम्मी या पापा हाथ पकड़कर सहारा दें।": "hi_9f864ac8", "हाथ ऊपर करो": "hi_617af544", "हाथ नीचे करो": "hi_9241092d", "ताली बजाओ": "hi_e8a5ca20", "बाय बाय करो": "hi_bfaef355", "सिर हिलाओ, हाँ": "hi_5a755e29", "सिर हिलाओ, ना": "hi_f321cf3c", "पेट पर हाथ रखो": "hi_e7edbeeb", "सिर पर हाथ रखो": "hi_a531502a", "नाक छुओ": "hi_e9b7eb30", "आँख छुओ": "hi_8edc7b4e", "कान छुओ": "hi_6c9844cf", "मुँह खोलो, आ": "hi_f3a94388", "फूँक मारो": "hi_78871230", "खड़े हो जाओ": "hi_ded48f79", "बैठ जाओ": "hi_1c6df1ff", "पैर हिलाओ": "hi_98e86f51", "बाइक": "hi_86f34161", "घंटी": "hi_9507465e", "चाबी": "hi_55a86443", "मम्मी": "hi_08fa0d7a", "पापा": "hi_c90bdb1a", "पानी": "hi_fb730d8e", "दूध": "hi_9262de16", "गाड़ी": "hi_e18acb5c", "बॉल": "hi_a5d34280", "गुब्बारा": "hi_091d140b", "जूता": "hi_03440bcb", "सेब": "hi_fd24300c", "केला": "hi_51b23d11", "कुत्ता": "hi_ad35658c", "बिल्ली": "hi_5c6bc01c", "चाँद": "hi_2e883d4d", "तारा": "hi_207b9cf4", "फूल": "hi_70678297", "घर": "hi_b779c822", "आ": "hi_ddf4f7f4", "मा मा": "hi_1194c509", "पा पा": "hi_30ed0287", "बा बा": "hi_28e3602e", "दा दा": "hi_98793f01", "ना ना": "hi_a8156ab6", "टा टा": "hi_36dc6443", "बाय बाय": "hi_9908bf6f", "ऊ": "hi_4ed95099", "ओ": "hi_3add8336", "भौ भौ": "hi_40c0a52a", "म्याऊँ": "hi_0631f6a7", "गाय": "hi_10744010", "म्मू": "hi_db57d762", "भेड़": "hi_f13c5e93", "में में": "hi_a0353f0e", "पों पों": "hi_311bfc6a", "चिड़िया": "hi_2bc61b45", "चीं चीं": "hi_d71d4399", "हाथी": "hi_aeae3059", "पूँ": "hi_7f5d2c13", "शेर": "hi_26ba5015", "गर्र गर्र": "hi_4399e000"}};
@@ -90,7 +96,9 @@ function play(text){return new Promise(res=>{let done=false,ft=0;const fin=()=>{
  const est=Math.max(900,text.length*110)*K,id=MV.amap[text];
  const fb=()=>{if(done)return;try{if(!FAST&&window.speechSynthesis){const u=new SpeechSynthesisUtterance(text);u.lang='hi-IN';u.rate=.7;u.onend=fin;u.onerror=fin;speechSynthesis.speak(u);ft=setTimeout(fin,est+3000);return}}catch(e){}ft=setTimeout(fin,est)};
  if(!id||FAST){ft=setTimeout(fin,est);return}
- const a=new Audio('audio/'+id+'.mp3');a._fin=fin;AC=a;a.onended=fin;a.onerror=fb;a.play().catch(fb)})}
+ const a=aud(id);try{a.currentTime=0}catch(e){}a._fin=fin;AC=a;a.onended=fin;a.onerror=fb;a.play().catch(fb)})}
+const AUD={};function aud(id){return AUD[id]||(AUD[id]=Object.assign(new Audio('audio/'+id+'.mp3'),{preload:'auto'}))}
+function preload(){if(FAST)return;Object.values(MV.amap).forEach((id,i)=>setTimeout(()=>aud(id),i*120))}
 async function say(t){await ck();await play(t);await slp(280);await ck()}
 function bell(n){try{const A=window.__ac||(window.__ac=new (window.AudioContext||window.webkitAudioContext)());for(let i=0;i<(n||2);i++){const t=A.currentTime+i*.42;[880,1320,1760].forEach((f,j)=>{const o=A.createOscillator(),g=A.createGain();o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.22/(j+1),t+.01);g.gain.exponentialRampToValueAtTime(.001,t+.9);o.connect(g);g.connect(A.destination);o.start(t);o.stop(t+1)})}}catch(e){}}
 /* ---------- bhaalu ---------- */
@@ -140,6 +148,18 @@ function dots(n,on){const d=$('dots');if(n>0&&d.children.length!==n){d.innerHTML
 function stars(){for(let i=0;i<9;i++){const s=document.createElement('div');s.className='star';s.textContent=i%3?'⭐':'🌟';s.style.left=(8+Math.random()*84)+'vw';s.style.top=(45+Math.random()*40)+'vh';s.style.animationDelay=(Math.random()*.5)+'s';document.body.appendChild(s);setTimeout(()=>s.remove(),3200)}}
 async function respond(){bell(2);const n=RESP;dots(n,0);for(let i=1;i<=n;i++){await slp(1000);await ck();dots(n,i)}await slp(300);dots(0)}
 async function cheer(keepPic){const p=MV.praise[Math.floor(Math.random()*MV.praise.length)];if(!keepPic)setPose('cheer');stars();await say(p);await slp(500);await ck()}
+/* ---------- koshish ka record ---------- */
+const dkey=()=>new Date().toISOString().slice(0,10);
+function getLog(){try{return JSON.parse(localStorage.getItem('mv_log')||'[]')}catch(e){return[]}}
+function todayN(){const n=getLog().filter(x=>x.d===dkey()).length;const e=$('tn');if(e)e.textContent=n?'· आज '+n+' कोशिश':''}
+function itemName(it){if(!it)return'';const d=it.d;return it.c==='A'?d[2]:it.c==='W'?d[1]:it.c==='S'?d[0]:d[1]}
+function tried(){if(menuOpen||paused)return;const L=getLog();L.push({d:dkey(),k:lastItem?lastItem.c:'',w:itemName(lastItem),t:Date.now()});try{localStorage.setItem('mv_log',JSON.stringify(L.slice(-800)))}catch(e){}todayN();bell(1);stars();const b=$('tryBtn');b.textContent='✅ लिख लिया';setTimeout(()=>{b.textContent='👍 कोशिश की'},1200)}
+const KIND={A:'करो करो',W:'बोलो',S:'आवाज़',N:'जानवर'};
+function showReport(){const L=getLog(),by={};L.forEach(x=>{(by[x.d]=by[x.d]||[]).push(x)});const days=Object.keys(by).sort().reverse().slice(0,10);
+ let h='<h2>📋 मानव की कोशिशें</h2>';if(!days.length)h+='<p>अभी कोई record नहीं है। खेल के समय मानव कोशिश करे तो ↑ या 👍 दबाएँ।</p>';
+ else{h+='<table><tr><th>तारीख</th><th>कुल कोशिश</th><th>किस चीज़ में</th></tr>';days.forEach(d=>{const c={};by[d].forEach(x=>{const k=(KIND[x.k]||'')+': '+x.w;c[k]=(c[k]||0)+1});h+='<tr><td>'+d+'</td><td>'+by[d].length+'</td><td>'+Object.entries(c).sort((a,b)=>b[1]-a[1]).slice(0,6).map(e=>e[0]+' ('+e[1]+')').join(', ')+'</td></tr>'});h+='</table>'}
+ h+='<p style="opacity:.7">डॉक्टर या therapist को ये screen दिखा सकते हैं। वापस जाने के लिए Back / OK दबाएँ।</p><button class="tile" id="repClose" style="margin-top:2vmin;padding:2vmin 6vmin">← वापस</button>';
+ $('rep').innerHTML=h;$('rep').style.display='flex';$('repClose').addEventListener('click',()=>{$('rep').style.display='none';document.querySelector('.tile').focus()});$('repClose').focus()}
 /* ---------- khel ---------- */
 async function doAction(a){const [id,pose,cmd,mk,help]=a;show('bear','',cmd,help?MV.help:'');
  for(let r=0;r<3;r++){setPose(pose,mk);await say(r?MV.prompt.again:MV.prompt.look);await say(cmd);await slp(1800);await say(MV.prompt.you);await respond();await cheer()}}
@@ -168,13 +188,14 @@ function skip(d){if(menuOpen)return;qi=Math.max(0,qi+(d>0?1:-1));if(d<0&&qi===qu
 function togglePause(force){if(menuOpen)return;if(paused||force){if(pauseT)pauseAcc+=Date.now()-pauseT;paused=false;$('pz').style.display='none';if(pw){const f=pw;pw=null;f()}}else{paused=true;pauseT=Date.now();$('pzt').textContent='⏸ रुका है';$('pzs').textContent='चलाने के लिए OK दबाएँ';$('pz').style.display='flex'}}
 /* ---------- menu / keys ---------- */
 function respLabel(){$('respT').textContent='रुकना '+RESP+' सेकंड'}
-document.querySelectorAll('.tile').forEach(b=>b.addEventListener('click',()=>{const m=b.dataset.m;if(m==='resp'){RESP=RESP===4?6:RESP===6?9:4;save();respLabel();return}start(m)}));
-$('menuBtn').addEventListener('click',showMenu);
+document.querySelectorAll('.tile').forEach(b=>b.addEventListener('click',()=>{const m=b.dataset.m;if(m==='rep'){showReport();return}if(m==='resp'){RESP=RESP===4?6:RESP===6?9:4;save();respLabel();return}start(m)}));
+$('menuBtn').addEventListener('click',showMenu);$('tryBtn').addEventListener('click',e=>{e.stopPropagation();tried()});
 $('stage').addEventListener('click',()=>togglePause());
 $('pz').addEventListener('click',e=>{e.stopPropagation();togglePause()});
 addEventListener('keydown',e=>{const k=e.key,c=e.keyCode;
+ if($('rep').style.display==='flex'){if(k==='Escape'||k==='Backspace'||c===4||k==='GoBack'){$('repClose').click();e.preventDefault()}return}
  if(menuOpen){const ts=[...document.querySelectorAll('.tile')];let i=ts.indexOf(document.activeElement);if(i<0)i=0;if(k==='ArrowRight')i++;else if(k==='ArrowLeft')i--;else if(k==='ArrowDown')i+=3;else if(k==='ArrowUp')i-=3;else return;i=(i+ts.length)%ts.length;ts[i].focus();e.preventDefault();return}
- if(k==='Enter'||k===' '||c===23){togglePause();e.preventDefault()}else if(k==='ArrowRight'||c===22)skip(1);else if(k==='ArrowLeft'||c===21)skip(-1);else if(k==='Escape'||k==='Backspace'||k==='GoBack'||c===4){showMenu();e.preventDefault()}});
-respLabel();requestAnimationFrame(frame);setPose('idle');$('menu').querySelector('.tile').focus();
-window.__mv={get items(){return doneItems},get last(){return lastItem},get queue(){return queue},get paused(){return paused},get menu(){return menuOpen},start,skip,showMenu,togglePause};
+ if(k==='Enter'||k===' '||c===23){togglePause();e.preventDefault()}else if(k==='ArrowUp'||c===19){tried();e.preventDefault()}else if(k==='ArrowRight'||c===22)skip(1);else if(k==='ArrowLeft'||c===21)skip(-1);else if(k==='Escape'||k==='Backspace'||k==='GoBack'||c===4){showMenu();e.preventDefault()}});
+respLabel();preload();todayN();requestAnimationFrame(frame);setPose('idle');$('menu').querySelector('.tile').focus();
+window.__mv={tried,showReport,get items(){return doneItems},get last(){return lastItem},get queue(){return queue},get paused(){return paused},get menu(){return menuOpen},start,skip,showMenu,togglePause};
 </script></body></html>
